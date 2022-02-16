@@ -54,7 +54,7 @@
           <p class="w3-text-grey" id = "SHEET_PROF_SKILLS">Skills: Arcana, Investigation</p>
           <p class="w3-text-grey" id = "SHEET_PROF_WEAPONS">Weapons: Simple weapons</p>
           <p class="w3-text-grey" id = "SHEET_PROF_ARMOR">Armor: Light armor, Medium armor, Heavy armor, Shields</p>
-          <p class="w3-text-grey" id = "SHEET_PROF_TOOLS">Tools: Thieves' Tools, Tinker's Tools, Smith's Tools</p>
+          <p class="w3-text-grey" id = "SHEET_PROF_TOOLS">Tools: Thieves' Tools, Tinker's Tools, Smith's Tools, Woodcarver's Tools</p>
         </div>
       </div>
     </div>
@@ -64,7 +64,8 @@
         <div class="w3-twothird">
           <h1>Features</h1>
           <h5 class="w3-padding-32">Class Features</h5>
-          <div class="w3-text-grey" id = "SHEET_FEATURES_LV1_01"><p><strong><i>Magical Tinkering.</i></strong></p>
+          <div class="w3-text-grey" id = "SHEET_FEATURES_LV1_01">
+            <p><strong><i>Magical Tinkering.</i></strong></p>
             
             <p>At 1st level, you've learned how to invest a spark of magic into mundane objects. To use this ability, you must have thieves' tools or artisan's tools in hand. You then touch a Tiny nonmagical object as an action and give it one of the following magical properties of your choice:</p>
             <ul>
@@ -77,17 +78,18 @@
           
           <p> You can bestow magic on multiple objects, touching one object each time you use this feature, though a single object can only bear one property at a time. The maximum number of objects you can affect with this feature at one time is equal to your Intelligence modifier (minimum of one object). If you try to exceed your maximum, the oldest property immediately ends, and then the new property applies.</p>
         </div>
-        <div class="w3-text-grey" id = "SHEET_FEATURES_LV2_01"><p><strong><i>Infuse Item.</strong></i></p>
+        <div class="w3-text-grey" id = "SHEET_FEATURES_LV2_01">
+          <p><strong><i>Infuse Item.</strong></i></p>
           
           <p>At 2nd level, you've gained the ability to imbue mundane items with certain magical infusions, turning those objects into magic items.</p>
           <ul>
-          <li><strong>Infusions Known</strong>
+          <li><strong>Infusions Known:</strong>
             
             When you gain this feature, pick four artificer infusions to learn. You learn additional infusions of your choice when you reach certain levels in this class, as shown in the Infusions Known column of the Artificer table.
             
             Whenever you gain a level in this class, you can replace one of the artificer infusions you learned with a new one.
           </li>
-          <li><strong>Infusing an Item</strong>
+          <li><strong>Infusing an Item:</strong>
             
             Whenever you finish a long rest, you can touch a nonmagical object and imbue it with one of your artificer infusions, turning it into a magic item. An infusion works on only certain kinds of objects, as specified in the infusion's description. If the item requires attunement, you can attune yourself to it the instant you infuse the item. If you decide to attune to the item later, you must do so using the normal process for attunement (see the attunement rules in the Dungeon Master's Guide).
             
@@ -97,8 +99,60 @@
             
             If an infusion ends on an item that contains other things, like a bag of holding, its contents harmlessly appear in and around its space.</li></ul>
           </div>
-          <div class="w3-text-grey" id = "SHEET_FEATURES_LV3_01"></div>
-          <div class="w3-text-grey" id = "SHEET_FEATURES_LV4_01"></div>
+          <div class="w3-text-grey" id = "SHEET_FEATURES_LV3_01">
+            <p><strong><i>Tools of the Trade.</i></strong></p>
+          </div>
+          
+          <div class="w3-text-grey" id = "SHEET_FEATURES_LV3_02">
+            <p><strong><i>Armorer Spells</i></strong></p>
+            
+            <p>When you adopt this specialization at 3rd level, you gain proficiency with heavy armor. You also gain proficiency with smith's tools. If you already have this tool proficiency, you gain proficiency with one other type of artisan's tools of your choice.</p>
+          </div>
+          <div class="w3-text-grey" id = "SHEET_FEATURES_LV3_03">
+            <p><strong><i>Arcane Armor.</i></strong></p>
+            <p>Beginning at 3rd level, your metallurgical pursuits have led to you making armor a conduit for your magic. As an action, you can turn a suit of armor you are wearing into Arcane Armor, provided you have smith's tools in hand.</p>
+            
+            <p>You gain the following benefits while wearing this armor:</p>
+            <ul>
+              <li>If the armor normally has a Strength requirement, the arcane armor lacks this requirement for you.</li>
+              <li>You can use the arcane armor as a spellcasting focus for your artificer spells.</li>
+              <li>The armor attaches to you and can’t be removed against your will. It also expands to cover your entire body, although you can retract or deploy the helmet as a bonus action. The armor replaces any missing limbs, functioning identically to a body part it is replacing.</li>
+              <li>You can doff or don the armor as an action.</li>
+            </ul>
+            
+          <p>The armor continues to be Arcane Armor until you don another suit of armor or you die.</p>
+          </div>
+          <div class="w3-text-grey" id = "SHEET_FEATURES_LV3_03">
+            <p><strong><i>Armor Model.</i></strong></p>
+            
+            <p>Beginning at 3rd level, you can customize your Arcane Armor. When you do so, choose one of the following armor models: Guardian or Infiltrator. The model you choose gives you special benefits while you wear it.</p>
+            
+            <p>Each model includes a special weapon. When you attack with that weapon, you can add your Intelligence modifier, instead of Strength or Dexterity, to the attack and damage rolls.</p>
+            
+            <p>You can change the armor's model whenever you finish a short or long rest, provided you have smith's tools in hand.</p>
+
+            <p><b>Guardian.</b> You design your armor to be in the front line of conflict. It has the following features:<p>
+            <ul>
+              <li><b>Thunder Gauntlets.</b> Each of the armor's gauntlets counts as a simple melee weapon while you aren't holding anything in it, and it deals 1d8 thunder damage on a hit. A creature hit by the gauntlet has disadvantage on attack rolls against targets other than you until the start of your next turn, as the armor magically emits a distracting pulse when the creature attacks someone else.</li>
+              <li><b>Defensive Field.</b> As a bonus action, you can gain temporary hit points equal to your level in this class, replacing any temporary hit points you already have. You lose these temporary hit points if you doff the armor. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.</li>
+            </ul>
+            <p><b>Infiltrator.</b> You customize your armor for subtle undertakings. It has the following features:
+            <ul>
+              <li><b>Lightning Launcher.</b> A gemlike node appears on one of your armored fists or on the chest (your choice). It counts as a simple ranged weapon, with a normal range of 90 feet and a long range of 300 feet, and it deals 1d6 lightning damage on a hit. Once on each of your turns when you hit a creature with it, you can deal an extra 1d6 lightning damage to that target.</li>
+              <li><b>Powered Steps.</b> Your walking speed increases by 5 feet.<li>
+              <li><b>Dampening Field.</b> You have advantage on Dexterity (Stealth) checks. If the armor normally imposes disadvantage on such checks, the advantage and disadvantage cancel each other, as normal.</li>
+            </ul>
+          </div>
+          <div class="w3-text-grey" id = "SHEET_FEATURES_LV3_03">
+            <p><strong><i>The Right Tool for the Job.</i></strong></p>
+            
+            <p>At 3rd level, you've learned how to produce exactly the tool you need: with thieves' tools or artisan's tools in hand, you can magically create one set of artisan's tools in an unoccupied space within 5 feet of you. This creation requires 1 hour of uninterrupted work, which can coincide with a short or long rest. Though the product of magic, the tools are nonmagical, and they vanish when you use this feature again.</p>
+          </div>
+          <div class="w3-text-grey" id = "SHEET_FEATURES_LV4_01">
+            <p><strong><i>Ability Score Improvement.</i></strong></p>
+            
+            <p>When you reach 4th level, 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.</p>
+          </div>
           <div class="w3-text-grey" id = "SHEET_FEATURES_LV5_01"></div>
           <div class="w3-text-grey" id = "SHEET_FEATURES_LV6_01"></div>
         </div>
