@@ -61,12 +61,16 @@ const FEATURE_LIZARDFOLK_5 = "<p><b><i>Natural Armor.</b></i> You have tough, sc
 const FEATURE_LIZARDFOLK_6 = "<p><b><i>Hungry Jaws.</b></i> In battle, you can throw yourself into a vicious feeding frenzy. As a bonus action, you can make a special attack with your bite. If the attack hits, it deals its normal damage, and you gain temporary hit points equal to your Constitution modifier (minimum of 1), and you can't use this trait again until you finish a short or long rest.</p>";
 
 // global field handler
+let name = "Example Character";
 let clss = "";
 let subclass = "";
 let race = "";
 let lvl = 1;
-let ACU = 10; // unarmored defense
-let ACA = 11; // armored AC
+let hp = 24; // hp
+let ac = 10; // overall ac
+let acu = 10; // unarmored defense
+let aca = 11; // armored AC
+let armorType = "unarmored defense";
 let stats = new Array();
 
 function sum(arr){
@@ -214,13 +218,38 @@ function rollStats(){
   stats[5] = sum(XdYkhZ(4,6,3)); 
 }
 
+function nameGen(){
+ name = "Margaret Thatcher";
+}
+
+function calcHP(){
+ hp = statModifiers[stats[2]-1]*lvl; // no rolls yet
+}
+function calcAC(){
+ let dexMod = statModifiers[stats[1]-1];
+ acu = 10 + dexMod;
+ if(clss === "Barbarian"){ acu += statModifiers[stats[2]-1]; } // add con mod for barb
+ if(clss === "Monk"){ acu += statModifiers[stats[4]-1]; } // add wis mod for monk
+ aca = 11 + dexMod;
+ ac = aca; armorType = "leather armor"; // default to leather
+ if(acu > aca){ ac = acu; armorType = "unarmored defense"; }
+}
+
 function generate(){
+  // set titles
+  document.getElementById("SHEET_PROF_TITLE").innerHTML = "Proficiencies"
+  document.getElementById("SHEET_FEATURES_TITLE").innerHTML = "Features";
+  document.getElementById("SHEET_BG_TITLE").innerHTML = "Characterization";
+  document.getElementById("SHEET_FEATURES_CLASS_HEADER").innerHTML = "Class Features";
+  // determine main fields
+  nameGen();
+  document.getElementById("SHEET_BASIC_NAME").innerHTML = name;
   lvl = (Math.random()*20 + 1)|0;
   race = raceOptions[(Math.random()*raceOptions.length)|0];
   clss = classOptions[(Math.random()*classOptions.length)|0];
   if(debug){ race = "Lizardfolk"; clss = "Artificer"; } // defaults for debug
   document.getElementById("SHEET_BASIC_RACECLASS").innerHTML = "" + race + " " + clss + " " + lvl;
-  document.getElementById("SHEET_PROF_BONUS").innerHTML = "Proficiency Bonus: +" + pBonuses[lvl-1]
+  document.getElementById("SHEET_PROF_BONUS").innerHTML = "Proficiency Bonus: +" + pBonuses[lvl-1];
   document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 1 reached in code! Race and class determined!";
   rollStats();
   handleClassFeatures();
@@ -232,4 +261,10 @@ function generate(){
   document.getElementById("SHEET_BASIC_STATS_WIS").innerHTML = "WIS: " + stats[4] + " (" + statModifiers[stats[4]-1]+ ")";
   document.getElementById("SHEET_BASIC_STATS_CHA").innerHTML = "CHA: " + stats[5] + " (" + statModifiers[stats[5]-1]+ ")";
   document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 3 reached in code! Stats displayed properly!";
+  calcHP();
+  calcAC();
+  // set hp, ac text
+  document.getElementById("SHEET_BASIC_STATS_HP").innerHTML = "HP: " + hp;
+  document.getElementById("SHEET_BASIC_STATS_AC").innerHTML = "AC: " + ac + " (" + armorType + ")";
+  document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 4 reached in code! HP/AC displayed properly!";
 }
