@@ -15,11 +15,22 @@ const subraceOptions_genasi = new Array("Fire","Water","Earth","Air");
 const subraceOptions_gith = new Array("Githzerai","Githyanki");
 const subraceOptions_gnome = new Array("Forest","Rock","Deep");
 const subraceOptions_halfling = new Array("Stout","Lightfoot","Ghostwise","Lotusden");
-const subraceOptions_human = new Array("Base","Variant");
 const subraceOptions_merfolk = new Array("Green","Blue");
 
 //subclass
 const subclassOptions_artificer = new Array("Alchemist","Artillerist","Armorer","Battle Smith");
+const subclassOptions_barbarian = new Array("Ancestral Guardian","Battlerager","Beast","Berserker","Storm Herald","Totem Warrior","Wild Magic","Zealot");
+const subclassOptions_bard = new Array("Collge of Creation","College of Eloquence","College of Glamour","College of Lore","College of Spirits","College of Swords","College of Valour","College of Whispers");
+const subclassOptions_cleric = new Array("Arcana","Death","Forge","Grave","Knowledge","Life","Light","Nature","Order","Peace","Tempest","Trickery","Twilight","War");
+const subclassOptions_druid = new Array("Circle of Dreams","Circle of the Land","Circle of the Moon","Circle of Spores","Circle of the Shepherd","Circle of Stars","Circle of Wildfire");
+const subclassOptions_figher = new Array("Arcane Archer","Banneret","Battle Master","Cavalier","Champion","Echo Knight","Eldritch Knight","Psi Warrior","Rune Knight","Samurai","Gunslinger");
+const subclassOptions_monk = new Array("Astral Self","Drunken Master","Four Elements","Kensei","Long Death","Mercy","Open Hand","Shadow","Sun Soul","Ascendant Dragon");
+const subclassOptions_paladin = new Array("Oath of the Ancients","Oath of Conquest","Oath of Glory","Oath of the Crown","Oath of Devotion","Oath of Redemption","Oath of Vengeance","Oath of the Watchers","Oathbreaker");
+const subclassOptions_ranger = new Array("Beast Master","Fey Wanderer","Gloom Stalker","Horizon Walker","Hunter","Monster Slayer","Swarmkeeper","Drakewarden");
+const subclassOptions_rogue = new Array("Arcane Trickster","Assassin","Inquisitive","Mastermind","Phantom","Scout","Soulknife","Swashbuckler","Thief","Wild Card");
+const subclassOptions_sorcerer = new Array("Aberrant Mind","Clockwork Soul","Draconic Bloodline","Divine Soul","Shadow Magic","Storm Sorcery","Wild Magic");
+const subclassOptions_warlock = new Array("Archfey","Celestial","Fathomless","Fiend","Genie","Great Old One","Hexblade","Undying");
+const subclassOptions_wizard = new Array("Abjuration","Evocation","Divination","Conjuration","Enchantment","Illusion","Necromancy","Transmutation","Bladesinging","War Magic","Order of Scribes","Chronurgy","Graviturgy");
 
 //global features
 const FEATURE_ASI_STANDARD = "<p><strong><i>Ability Score Improvement.</i></strong></p><p>When you reach 4th level, 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.</p>";
@@ -306,6 +317,7 @@ function calcHP(){
   hp += 8 + sum(XdY(lvl-1,8));
  }
 }
+
 function calcAC(){
  let dexMod = statModifiers[stats[1]-1];
  acu = 10 + dexMod;
@@ -317,6 +329,58 @@ function calcAC(){
  if(acu > aca){ ac = acu; armorType = "unarmored defense"; }
 }
 
+function genSubClass(){
+ if(clss === "Artificer"){
+   subclass = subclassOptions_artificer[(Math.random()*subclassOptions_artificer.length)|0];
+ } else if(clss === "Barbarian"){
+   subclass = subclassOptions_barbarian[(Math.random()*subclassOptions_barbarian.length)|0];
+ } else if(clss === "Bard"){
+   subclass = subclassOptions_bard[(Math.random()*subclassOptions_bard.length)|0];
+ } else if(clss === "Cleric"){
+   subclass = subclassOptions_cleric[(Math.random()*subclassOptions_cleric.length)|0];
+ } else if(clss === "Fighter"){
+   subclass = subclassOptions_fighter[(Math.random()*subclassOptions_fighter.length)|0];
+ } else if(clss === "Druid"){
+   subclass = subclassOptions_druid[(Math.random()*subclassOptions_druid.length)|0];
+ } else if(clss === "Monk"){
+   subclass = subclassOptions_monk[(Math.random()*subclassOptions_monk.length)|0];
+ } else if(clss === "Paladin"){
+   subclass = subclassOptions_paladin[(Math.random()*subclassOptions_paladin.length)|0];
+ } else if(clss === "Ranger"){
+   subclass = subclassOptions_ranger[(Math.random()*subclassOptions_ranger.length)|0];
+ } else if(clss === "Rogue"){
+   subclass = subclassOptions_rogue[(Math.random()*subclassOptions_rogue.length)|0];
+ } else if(clss === "Sorcerer"){
+   subclass = subclassOptions_sorcerer[(Math.random()*subclassOptions_sorcerer.length)|0];
+ } else if(clss === "Wizard"){
+   subclass = subclassOptions_wizard[(Math.random()*subclassOptions_wizard.length)|0];
+ } else if(clss === "Warlock"){
+   subclass = subclassOptions_warlock[(Math.random()*subclassOptions_warlock.length)|0];
+ }
+}
+
+function genSubRace(){
+ if(race === "Aasimar"){
+   subrace = subraceOptions_aasimar[(Math.random()*subraceOptions_aasimar.length)|0];
+ } else if(race === "Dragonborn"){
+   subrace = subraceOptions_dragonborn[(Math.random()*subraceOptions_dragonborn.length)|0];
+ } else if(race === "Dwarf"){
+   subrace = subraceOptions_dwarf[(Math.random()*subraceOptions_dwarf.length)|0];
+ } else if(race === "Elf"){
+   subrace = subraceOptions_elf[(Math.random()*subraceOptions_elf.length)|0];
+ } else if(race === "Genasi"){
+   subrace = subraceOptions_genasi[(Math.random()*subraceOptions_genasi.length)|0];
+ } else if(race === "Gith"){
+   subrace = subraceOptions_gith[(Math.random()*subraceOptions_gith.length)|0];
+ } else if(race === "Gnome"){
+   subrace = subraceOptions_gnome[(Math.random()*subraceOptions_gnome.length)|0];
+ } else if(race === "Halfling"){
+   subrace = subraceOptions_halfling[(Math.random()*subraceOptions_halfling.length)|0];
+ } else if(race === "Merfolk"){
+   subrace = subraceOptions_merfolk[(Math.random()*subraceOptions_merfolk.length)|0];
+ }
+}
+
 function generate(){
   // set titles
   document.getElementById("SHEET_PROF_TITLE").innerHTML = "Proficiencies"
@@ -324,14 +388,22 @@ function generate(){
   document.getElementById("SHEET_BG_TITLE").innerHTML = "Characterization";
   document.getElementById("SHEET_FEATURES_CLASS_HEADER").innerHTML = "Class Features";
   document.getElementById("SHEET_FEATURES_RACE_HEADER").innerHTML = "Race Features";
+  document.getElementById("SHEET_BG_BACKSTORY_HEADER").innerHTML ="<u>Backstory</u>";
   // determine main fields
+  subclass = "";
+  subrace = "";
   nameGen();
   document.getElementById("SHEET_BASIC_NAME").innerHTML = name;
   lvl = (Math.random()*20 + 1)|0;
   race = raceOptions[(Math.random()*raceOptions.length)|0];
   clss = classOptions[(Math.random()*classOptions.length)|0];
+  genSubClass(); genSubRace();
   // if(debug){ race = "Lizardfolk"; clss = "Artificer"; } // defaults for debug
-  document.getElementById("SHEET_BASIC_RACECLASS").innerHTML = "" + race + " " + clss + " " + lvl;
+  if(subrace === ""){ 
+    document.getElementById("SHEET_BASIC_RACECLASS").innerHTML = "" + race + " " + clss + " (" + subclass + ") " + lvl;
+  } else {
+    document.getElementById("SHEET_BASIC_RACECLASS").innerHTML = "" + race + " (" + subrace + ") " + clss + " (" + subclass + ") " + lvl;
+  }
   document.getElementById("SHEET_PROF_BONUS").innerHTML = "Proficiency Bonus: +" + pBonuses[lvl-1];
   document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 1 reached in code! Race and class determined!";
   rollStats();
