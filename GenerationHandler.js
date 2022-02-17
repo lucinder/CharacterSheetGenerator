@@ -2,9 +2,22 @@ const debug = true; // global debug boolean
 
 const statModifiers = new Array(-5,-4,-4,-3,-3,-2,-2,-1,-1,0,0,1,1,2,2,3,3,4,4,5);
 const pBonuses = new Array(2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6);
-const raceOptions = new Array("Aarakocra","Aasimar","Bugbear","Centaur","Changeling","Dhampir","Metallic Dragonborn","Chromatic Dragonborn","Gem Dragonborn","Dwarf","Avariel Elf","Drow","Eladrin","High Elf","Pallid Elf","Sea Elf","Shadar-Kai","Wood Elf","Fairy","Firbolg","Air Genasi","Earth Genasi","Fire Genasi","Water Genasi","Githyanki","Githzerai","Deep Gnome","Forest Gnome","Rock Gnome", "Goblin","Goliath","Half-Elf","Half-Orc","Stout Halfling","Ghostwise Halfling","Lotusden Halfling","Lightfoot Halfling","Harengon","Hexblood","Hobgoblin","Human","Variant Human","Kalashtar","Kenku","Kobold","Leonin","Lizardfolk","Loxodon","Blue Merfolk","Green Merfolk","Minotaur","Orc","Owlin","Reborn","Satyr","Beasthide Shifter","Longtooth Shifter","Swiftstride Shifter","Wildhunt Shifter","Simic Hybrid","Tabaxi","Tiefling","Tortle","Triton","Vedalken","Warforged","Yuan-Ti");
+const raceOptions = new Array("Aarakocra","Aasimar","Bugbear","Centaur","Changeling","Dhampir","Dragonborn","Dwarf","Elf","Fairy","Firbolg","Genasi","Gith","Gnome", "Goblin","Goliath","Half-Elf","Half-Orc","Halfling","Harengon","Hexblood","Hobgoblin","Human","Kalashtar","Kenku","Kobold","Leonin","Lizardfolk","Loxodon","Merfolk","Minotaur","Orc","Owlin","Reborn","Satyr","Shifter","Simic Hybrid","Tabaxi","Tiefling","Tortle","Triton","Vedalken","Warforged","Yuan-Ti");
 const classOptions = new Array("Artificer","Barbarian","Bard","Cleric","Druid","Fighter","Monk","Paladin","Ranger","Rogue","Sorcerer","Warlock","Wizard");
 
+// subrace
+const subraceOptions_aasimar = new Array("Protector","Scourge","Fallen");
+const subraceOptions_dragonborn = new Array("Red","Green","Blue","White","Black","Gold","Silver","Bronze","Brass","Copper","Emerald","Amethyst","Topaz","Sapphire","Crystal");
+const subraceOptions_dwarf = new Array();
+const subraceOptions_elf = new Array();
+const subraceOptions_genasi = new Array("Fire","Water","Earth","Air");
+const subraceOptions_gith = new Array("Githzerai","Githyanki");
+const subraceOptions_gnome = new Array("Forest","Rock","Deep");
+const subraceOptions_halfling = new Array("Stout","Lightfoot","Ghostwise","Lotusden");
+const subraceOptions_human = new Array("Base","Variant");
+const subraceOptions_merfolk = new Array("Green","Blue");
+
+//subclass
 const subclassOptions_artificer = new Array("Alchemist","Artillerist","Armorer","Battle Smith");
 
 //global features
@@ -34,8 +47,18 @@ const FEATURE_ARTIFICER_ARMORER_15_0 = "<p><b><i>Perfected Armor.</i></b></p><p>
 const FEATURE_ARTIFICER_SPELLCASTING = "<p><b><i>Spellcasting.</b></i>You've studied the workings of magic and how to cast spells, channeling the magic through objects. To observers, you don't appear to be casting spells in a conventional way; you appear to produce wonders from mundane items and outlandish inventions.</p><h6><u>Tools Required</u></h6><p>You produce your artificer spell effects through your tools. You must have a spellcasting focus-specifically thieves' tools or some kind of artisan's tool-in hand when you cast any spell with this Spellcasting feature (meaning the spell has an \"M\" component when you cast it). You must be proficient with the tool to use it in this way. See the equipment chapter in the <i>Player's Handbook</i> for descriptions of these tools.</p><p>After you gain the Infuse Item feature at 2nd level, you can also use any item bearing one of your infusions as a spellcasting focus.</p><h6><u>Cantrips (0-Level Spells)</u></h6><p>At 1st level, you know two cantrips of your choice from the artificer spell list. At higher levels, you learn additional artificer can trips of your choice, as shown in the Cantrips Known column of the Artificer table.</p><p>When you gain a level in this class, you can replace one of the artificer cantrips you know with another cantrip from the artificer spell list.</p><h6><u>Preparing and Casting Spells</u></h6><p>The Artificer table shows how many spell slots you have to cast your artificer spells. To cast one of your artificer spells of 1st level or higher, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest.</p><p>You prepare the list of artificer spells that are available for you to cast, choosing from the artificer spell list. When you do so, choose a number of artificer spells equal to _SPELLSAVAILABLE (your Intelligence modifier + half your artificer level, rounded down, with a minimum of one spell). The spells must be of a level for which you have spell slots.</p><p>For example, if you are a 5th-level artificer, you have four 1st-level and two 2nd-level spell slots. With an Intelligence of 14, your list of prepared spells can include four spells of 1st or 2nd level, in any combination. If you prepare the 1st-level spell Cure Wounds, you can cast it using a lst-level or a 2nd-level slot. Casting the spell doesn't remove it from your list of prepared spells.</p><p>You can change your list of prepared spells when you finish a long rest. Preparing a new list of artificer spells requires time spent tinkering with your spellcasting focuses: at least 1 minute per spell level for each spell on your list.</p><h6><u>Spellcasting Ability</u></h6><p>Intelligence is your spellcasting ability for your artificer spells; your understanding of the theory behind magic allows you to wield these spells with superior skill. You use your Intelligence whenever an artificer spell refers to your spellcasting ability. In addition, you use your Intelligence modifier when setting the saving throw DC for an artificer spell you cast and when making an attack roll with one.</p><p><b>Spell save DC</b> = _SPELLSAVEDC (8 + your proficiency bonus + your Intelligence modifier)</p><p><b>Spell attack modifier</b> = _SPELLATKMODIFIER (your proficiency bonus + your Intelligence modifier)</p><h6><u>Ritual Casting</u></h6><p>You can cast an artificer spell as a ritual if that spell has the ritual tag and you have the spell prepared.</p>";
 
 // race features
+const SPD_DEFAULT = "<p><b>Speed:</b> 30 ft.</p>";
 // aarakocra
-// aasimar
+const FEATURE_AARAKOCRA_1 = "<p><b><i>Flight.</b></i> You have a flying speed of 50 feet. To use this speed, you can't be wearing medium or heavy armor.</p>";
+const FEATURE_AARAKOCRA_2 = "<p><b><i>Talons.</b></i> Your talons are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to 1d4 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike.</p>";
+const SPD_AARAKOCRA = "<p><b>Speed:</b> 25 ft., fly 50 ft.</p>";
+const LANG_AARAKOCRA = new Array("Aarakocra","Auran");
+// aasimar (base)
+const FEATURE_AASIMAR_1 = "<p><b><i>Darkvision.</b></i> Blessed with a radiant soul, your vision can easily cut through darkness. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.</p>";
+const FEATURE_AASIMAR_2 = "<p><b><i>Celestial Resistance.</i></b> You have resistance to necrotic and radiant damage.</p>";
+const FEATURE_AASIMAR_3 = "<p><b><i>Healing Hands.</i></b> As an action, you can touch a creature and cause it to regain a number of hit points equal to your level. Once you use this trait, you can't use it again until you finish a long rest.</p>";
+const FEATURE_AASIMAR_4 = "<p><b><i>Celestial Resistance.</i></b> You have resistance to necrotic and radiant damage.</p>";
+const LANG_AASIMAR = new Array("Celestial");
 // bugbear
 // centaur
 // changeling
@@ -44,6 +67,7 @@ const FEATURE_ARTIFICER_SPELLCASTING = "<p><b><i>Spellcasting.</b></i>You've stu
 // chroma dragonborn
 // gem dragonborn
 // dwarf
+// elf (base)
 // elf (avariel)
 // drow
 // eladrin
@@ -59,6 +83,14 @@ const FEATURE_LIZARDFOLK_3 = "<p><b><i>Hold Breath.</b></i> You can hold your br
 const FEATURE_LIZARDFOLK_4 = "<p><b><i>Hunter's Lore.</b></i> You gain proficiency with two of the following skills of your choice: Animal Handling, Nature, Perception, Stealth, and Survival.</p>";
 const FEATURE_LIZARDFOLK_5 = "<p><b><i>Natural Armor.</b></i> You have tough, scaly skin. When you aren't wearing armor, your AC is 13 + your Dexterity modifier. You can use your natural armor to determine your AC if the armor you wear would leave you with a lower AC. A shield's benefits apply as normal while you use your natural armor.</p>";
 const FEATURE_LIZARDFOLK_6 = "<p><b><i>Hungry Jaws.</b></i> In battle, you can throw yourself into a vicious feeding frenzy. As a bonus action, you can make a special attack with your bite. If the attack hits, it deals its normal damage, and you gain temporary hit points equal to your Constitution modifier (minimum of 1), and you can't use this trait again until you finish a short or long rest.</p>";
+const SPD_LIZARDFOLK = "<p><b>Speed:</b> 30 ft., swim 30 ft.</p>";
+const LANG_LIZARDFOLK = new Array("Draconic");
+// minotaur
+const FEATURE_MINOTAUR_1 = "<p><b><i>Horns.</b></i> Your horns are natural melee weapons, which you can use to make unarmed strikes. If you hit with them, you deal piercing damage equal to 1d6 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike.</p>";
+const FEATURE_MINOTAUR_2 = "<p><b><i>Goring Rush.</b></i> Immediately after you use the Dash action on your turn and move at least 20 feet, you can make one melee attack with your horns as a bonus action.</p>";
+const FEATURE_MINOTAUR_3 = "<p><b><i>Hammering Horns.</b></i> Immediately after you hit a creature with a melee attack as part of the Attack action on your turn, you can use a bonus action to attempt to shove that target with your horns. The target must be no more than one size larger than you and within 5 feet of you. Unless it succeeds on a Strength saving throw against a DC equal to 8 + your proficiency bonus + your Strength modifier, you push it up to 10 feet away from you.</p>";
+const FEATURE_MINOTAUR_4 = "<p><b><i>Imposing Presence.</b></i> You have proficiency in one of the following skills of your choice: Intimidation or Persuasion.</p>";
+const LANG_MINOTAUR = new Array("Minotaur");
 
 // global field handler
 let name = "Example Character";
@@ -125,6 +157,30 @@ function resetFeatures(){
   document.getElementById("SHEET_FEATURES_LV3_04").innerHTML = "";
   document.getElementById("SHEET_FEATURES_LV3_05").innerHTML = "";
   document.getElementById("SHEET_FEATURES_LV4_01").innerHTML = "";
+  document.getElementById("SHEET_FEATURES_LV5_01").innerHTML = "";
+  document.getElementById("SHEET_FEATURES_LV6_01").innerHTML = "";
+  document.getElementById("SHEET_FEATURES_LV7_01").innerHTML = "";
+  document.getElementById("SHEET_FEATURES_LV8_01").innerHTML = "";
+  document.getElementById("SHEET_FEATURES_LV9_01").innerHTML = "";
+  document.getElementById("SHEET_FEATURES_LV10_01").innerHTML = "";
+  document.getElementById("SHEET_FEATURES_LV11_01").innerHTML = "";
+  document.getElementById("SHEET_FEATURES_LV12_01").innerHTML = "";
+  document.getElementById("SHEET_FEATURES_LV13_01").innerHTML = "";
+  document.getElementById("SHEET_FEATURES_LV14_01").innerHTML = "";
+  document.getElementById("SHEET_FEATURES_LV15_01").innerHTML = "";
+  document.getElementById("SHEET_FEATURES_LV16_01").innerHTML = "";
+  document.getElementById("SHEET_FEATURES_LV17_01").innerHTML = "";
+  document.getElementById("SHEET_FEATURES_LV18_01").innerHTML = "";
+  document.getElementById("SHEET_FEATURES_LV19_01").innerHTML = "";
+  document.getElementById("SHEET_FEATURES_LV20_01").innerHTML = "";
+ 
+  document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = "";
+  document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = "";
+  document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = "";
+  document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = "";
+  document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = "";
+  document.getElementById("SHEET_FEATURES_RACE_06").innerHTML = "";
+ 
   document.getElementById("SHEET_FEATURES_SPELLCASTING_HEADER").innerHTML = "";
   document.getElementById("SHEET_FEATURES_SPELLCASTING_DESCRIPTION").innerHTML = "";
 }
@@ -199,6 +255,16 @@ function handleClassFeatures(){
 }
 
 function handleRaceFeatures(){
+  if(race === "Aarakocra"){
+    document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_AARAKOCRA_1;
+    document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_AARAKOCRA_2;
+  }
+  if(race === "Aasimar"){
+    document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_AASIMAR_1;
+    document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_AASIMAR_2;
+    document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_AASIMAR_3;
+    document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_AASIMAR_4;
+  }
   if(race === "Lizardfolk"){
     document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_LIZARDFOLK_1;
     document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_LIZARDFOLK_2;
@@ -206,6 +272,12 @@ function handleRaceFeatures(){
     document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_LIZARDFOLK_4;
     document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_LIZARDFOLK_5;
     document.getElementById("SHEET_FEATURES_RACE_06").innerHTML = FEATURE_LIZARDFOLK_6;
+  }
+  if(race === "Minotaur"){
+    document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_MINOTAUR_1;
+    document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_MINOTAUR_2;
+    document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_MINOTAUR_3;
+    document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_MINOTAUR_4;
   }
 }
 
@@ -254,7 +326,7 @@ function generate(){
   lvl = (Math.random()*20 + 1)|0;
   race = raceOptions[(Math.random()*raceOptions.length)|0];
   clss = classOptions[(Math.random()*classOptions.length)|0];
-  if(debug){ race = "Lizardfolk"; clss = "Artificer"; } // defaults for debug
+  // if(debug){ race = "Lizardfolk"; clss = "Artificer"; } // defaults for debug
   document.getElementById("SHEET_BASIC_RACECLASS").innerHTML = "" + race + " " + clss + " " + lvl;
   document.getElementById("SHEET_PROF_BONUS").innerHTML = "Proficiency Bonus: +" + pBonuses[lvl-1];
   document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 1 reached in code! Race and class determined!";
