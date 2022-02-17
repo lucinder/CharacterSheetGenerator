@@ -17,36 +17,11 @@ const FEATURE_ARTIFICER_3_4 = "<p><strong><i>The Right Tool for the Job.</i></st
 // spellcasting feature variations
 const FEATURE_ARTIFICER_SPELLCASTING = "<p><b><i>Spellcasting.</b></i>You've studied the workings of magic and how to cast spells, channeling the magic through objects. To observers, you don't appear to be casting spells in a conventional way; you appear to produce wonders from mundane items and outlandish inventions.</p><h6><u>Tools Required</u></h6><p>You produce your artificer spell effects through your tools. You must have a spellcasting focus-specifically thieves' tools or some kind of artisan's tool-in hand when you cast any spell with this Spellcasting feature (meaning the spell has an \"M\" component when you cast it). You must be proficient with the tool to use it in this way. See the equipment chapter in the <i>Player's Handbook</i> for descriptions of these tools.</p><p>After you gain the Infuse Item feature at 2nd level, you can also use any item bearing one of your infusions as a spellcasting focus.</p><h6><u>Cantrips (0-Level Spells)</u></h6><p>At 1st level, you know two cantrips of your choice from the artificer spell list. At higher levels, you learn additional artificer can trips of your choice, as shown in the Cantrips Known column of the Artificer table.</p><p>When you gain a level in this class, you can replace one of the artificer cantrips you know with another cantrip from the artificer spell list.</p><h6><u>Preparing and Casting Spells</u></h6><p>The Artificer table shows how many spell slots you have to cast your artificer spells. To cast one of your artificer spells of 1st level or higher, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest.</p><p>You prepare the list of artificer spells that are available for you to cast, choosing from the artificer spell list. When you do so, choose a number of artificer spells equal to _SPELLSAVAILABLE (your Intelligence modifier + half your artificer level, rounded down, with a minimum of one spell). The spells must be of a level for which you have spell slots.</p><p>For example, if you are a 5th-level artificer, you have four 1st-level and two 2nd-level spell slots. With an Intelligence of 14, your list of prepared spells can include four spells of 1st or 2nd level, in any combination. If you prepare the 1st-level spell Cure Wounds, you can cast it using a lst-level or a 2nd-level slot. Casting the spell doesn't remove it from your list of prepared spells.</p><p>You can change your list of prepared spells when you finish a long rest. Preparing a new list of artificer spells requires time spent tinkering with your spellcasting focuses: at least 1 minute per spell level for each spell on your list.</p><h6><u>Spellcasting Ability</u></h6><p>Intelligence is your spellcasting ability for your artificer spells; your understanding of the theory behind magic allows you to wield these spells with superior skill. You use your Intelligence whenever an artificer spell refers to your spellcasting ability. In addition, you use your Intelligence modifier when setting the saving throw DC for an artificer spell you cast and when making an attack roll with one.</p><p><b>Spell save DC</b> = _SPELLSAVEDC (8 + your proficiency bonus + your Intelligence modifier)</p><p><b>Spell attack modifier</b> = _SPELLATKMODIFIER (your proficiency bonus + your Intelligence modifier)</p><h6><u>Ritual Casting</u></h6><p>You can cast an artificer spell as a ritual if that spell has the ritual tag and you have the spell prepared.</p>";
 
-// global stat handler
+// global field handler
+let clss = "";
+let race = "";
+let lvl = 1;
 let stats = new Array();
-
-let ClassFeature = class{
-  constructor(lvl, innerHtml){
-    this.lvl = lvl;
-    this.innerHtml = innerHtml;
-  }
-  get lvl(){ return this.level; }
-  set lvl(newlvl){ this.lvl = newlvl; }
-  get innerHtml(){ return this.innerHtml; }
-}
-
-let DNDClass = class{
-  constructor(name, features, hitDie){
-    this.name = name;
-    this.features = features;
-    this.hitDie = hitDie;
-  }
-  get name(){ return this.name; }
-  *getFeatures(){ 
-    for(const feature of this.features){
-      yield feature;
-    }
-  }
-  get hitDie(){ return this.hitDie; }
-  rollHitDie(){ return (Math.random()*this.hitDie + 1)|0; }
-}
-const clerFeatures = new Array(new ClassFeature());
-const cleric = DNDClass("Cleric",clerFeatures,8);
 
 function sum(arr){
  let total = 0;
@@ -91,29 +66,45 @@ function XdYkhZ(x,y,z){
  }
  return results;
 }
+function resetFeatures(){
+  document.getElementById("SHEET_FEATURES_LV1_01").innerHTML = "";
+  document.getElementById("SHEET_FEATURES_LV2_01").innerHTML = "";
+  document.getElementById("SHEET_FEATURES_LV3_01").innerHTML = "";
+  document.getElementById("SHEET_FEATURES_LV3_02").innerHTML = "";
+  document.getElementById("SHEET_FEATURES_LV3_03").innerHTML = "";
+  document.getElementById("SHEET_FEATURES_LV3_04").innerHTML = "";
+  document.getElementById("SHEET_FEATURES_LV3_05").innerHTML = "";
+  document.getElementById("SHEET_FEATURES_LV4_01").innerHTML = "";
+  document.getElementById("SHEET_FEATURES_SPELLCASTING_HEADER").innerHTML = "";
+  document.getElementById("SHEET_FEATURES_SPELLCASTING_DESCRIPTION").innerHTML = "";
+}
 
-function handleClassFeatures(clss, level){
+function handleClassFeatures(){
+  resetFeatures();
    if(clss === "Artificer"){
       document.getElementById("SHEET_FEATURES_LV1_01").innerHTML = FEATURE_ARTIFICER_1_0;
-      if(level>1){
+      if(lvl>1){
         document.getElementById("SHEET_FEATURES_LV2_01").innerHTML = FEATURE_ARTIFICER_2_0;
       }
-      if(level>2){
+      if(lvl>2){
         document.getElementById("SHEET_FEATURES_LV3_01").innerHTML = FEATURE_ARTIFICER_3_0;
         document.getElementById("SHEET_FEATURES_LV3_02").innerHTML = FEATURE_ARTIFICER_3_1;
         document.getElementById("SHEET_FEATURES_LV3_03").innerHTML = FEATURE_ARTIFICER_3_2;
         document.getElementById("SHEET_FEATURES_LV3_04").innerHTML = FEATURE_ARTIFICER_3_3;
         document.getElementById("SHEET_FEATURES_LV3_05").innerHTML = FEATURE_ARTIFICER_3_4;
       }
-      if(level>3){
+      if(lvl>3){
         document.getElementById("SHEET_FEATURES_LV4_01").innerHTML = FEATURE_ASI_STANDARD;
       }
      document.getElementById("SHEET_FEATURES_SPELLCASTING_HEADER").innerHTML = "Spellcasting";
      let intMod = statModifiers[stats[3]-1];
-     let sam = pBonuses[level] + intMod; // spell attack modifier
-     document.getElementById("SHEET_FEATURES_SPELLCASTING_DESCRIPTION").innerHTML = FEATURE_ARTIFICER_SPELLCASTING.replace("_SPELLATKMODIFIER",sam);
+     let sav = (lvl/2)+intMod; // spells available
+     if(sav < 1) sav = 1;
+     let sam = pBonuses[lvl] + intMod; // spell attack modifier
+     let sdc = 8 + sam;
+     document.getElementById("SHEET_FEATURES_SPELLCASTING_DESCRIPTION").innerHTML = FEATURE_ARTIFICER_SPELLCASTING.replace("_SPELLATKMODIFIER",sam).replace("_SPELLSAVAILABLE",sav).replace("_SPELLSAVEDC",sdc);
    }
-   document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 2 reached in code!";
+   document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 2 reached in code! Class features generated!";
 }
 
 function rollStats(){
@@ -126,11 +117,11 @@ function rollStats(){
 }
 
 function generate(){
-  let level = (Math.random()*20 + 1)|0;
-  let race = raceOptions[(Math.random()*raceOptions.length)|0];
-  document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 1 reached in code!";
-  let clss = classOptions[(Math.random()*classOptions.length)|0];
+  lvl = (Math.random()*20 + 1)|0;
+  race = raceOptions[(Math.random()*raceOptions.length)|0];
+  clss = classOptions[(Math.random()*classOptions.length)|0];
   document.getElementById("SHEET_BASIC_RACECLASS").innerHTML = "" + race + " " + clss + " " + level;
+  document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 1 reached in code! Race and class determined!";
   rollStats();
   handleClassFeatures(clss,level);
   document.getElementById("SHEET_BASIC_STATS_STR").innerHTML = "STR: " + stats[0] + " (" + statModifiers[stats[0]-1]+ ")";
@@ -139,5 +130,5 @@ function generate(){
   document.getElementById("SHEET_BASIC_STATS_INT").innerHTML = "INT: " + stats[3] + " (" + statModifiers[stats[3]-1]+ ")";
   document.getElementById("SHEET_BASIC_STATS_WIS").innerHTML = "WIS: " + stats[4] + " (" + statModifiers[stats[4]-1]+ ")";
   document.getElementById("SHEET_BASIC_STATS_CHA").innerHTML = "CHA: " + stats[5] + " (" + statModifiers[stats[5]-1]+ ")";
-  document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 3 reached in code!";
+  document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 3 reached in code! Stats displayed properly!";
 }
