@@ -1,3 +1,4 @@
+const statModifiers = new Array(-5,-4,-4,-3,-3,-2,-2,-1,-1,0,0,1,1,2,2,3,3,4,4,5);
 const raceOptions = new Array("Aarakocra","Aasimar","Bugbear","Centaur","Changeling","Dhampir","Dragonborn","Dwarf","Elf","Fairy","Firbolg","Genasi","Gith","Gnome","Goblin","Goliath","Half-Elf","Half-Orc","Halfling","Harengon","Hexblood","Hobgoblin","Human","Kalashtar","Kenku","Kobold","Leonin","Lizardfolk","Loxodon","Merfolk","Minotaur","Orc","Owlin","Reborn","Satyr","Shifter","Simic Hybrid","Tabaxi","Tiefling","Tortle","Triton","Vedalken","Warforged","Yuan-Ti");
 const classOptions = new Array("Artificer");
 
@@ -32,6 +33,50 @@ let DNDClass = class{
 const clerFeatures = new Array(new ClassFeature());
 const cleric = DNDClass("Cleric",clerFeatures,8);
 
+function sum(arr){
+ let total = 0;
+ for(i : arr){ 
+   total += i;
+ }
+  return total;
+}
+
+function XdY(x,y){ // generates an xdy int array
+  let results = new Array();
+  for(let i = 0; i < x; i++){
+    results[i] = (Math.random()*y + 1)|0;
+  }
+  return results;
+}
+
+function dropLowest(arr){
+  let lowest = 0;
+  for(let i = 1; i < arr.length; i++){
+    if(arr[i] < arr[lowest]){
+      lowest = i;
+    }
+  }
+  let newArr = new Array();
+  for(let i = 0, j = 0; i < arr.length; i++){
+    if(i != lowest){
+      newArr[j] = arr[i];
+      j++;
+    }
+  }
+  return newArr;
+}
+
+function XdYkhZ(x,y,z){
+ if(z < 1){ return; }
+ let results = XdY(x,y);
+ if(z >= x){ return results; }
+ let dropCount = x - z;
+ for(let i = 0; i < dropCount; i++){
+   results = dropLowest(results);
+ }
+ return results;
+}
+
 function generate(){
   let level = (Math.random()*20 + 1)|0;
   let race = raceOptions[(Math.random()*raceOptions.length)|0];
@@ -40,4 +85,18 @@ function generate(){
   document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 2 reached in code!";
   document.getElementById("SHEET_BASIC_RACECLASS").innerHTML = "" + race + " " + clss + " " + level;
   document.getElementById("SHEET_FEATURES_LV1_01").innerHTML = FEATURE_ARTIFICER_1_0;
+  let stats = new Array();
+  stats[0] = sum(XdYkhZ(4,6,3));
+  stats[1] = sum(XdYkhZ(4,6,3));
+  stats[2] = sum(XdYkhZ(4,6,3));
+  stats[3] = sum(XdYkhZ(4,6,3));
+  stats[4] = sum(XdYkhZ(4,6,3));
+  stats[5] = sum(XdYkhZ(4,6,3));
+  document.getElementById("SHEET_BASIC_STATS_STR").innerHTML = "STR: " + stats[0] + "(" + statModifiers[stats[0]-1]+ ")";
+  document.getElementById("SHEET_BASIC_STATS_DEX").innerHTML = "DEX: " + stats[1] + "(" + statModifiers[stats[1]-1]+ ")";
+  document.getElementById("SHEET_BASIC_STATS_CON").innerHTML = "CON: " + stats[2] + "(" + statModifiers[stats[2]-1]+ ")";
+  document.getElementById("SHEET_BASIC_STATS_INT").innerHTML = "INT: " + stats[3] + "(" + statModifiers[stats[3]-1]+ ")";
+  document.getElementById("SHEET_BASIC_STATS_WIS").innerHTML = "WIS: " + stats[4] + "(" + statModifiers[stats[4]-1]+ ")";
+  document.getElementById("SHEET_BASIC_STATS_CHA").innerHTML = "CHA: " + stats[5] + "(" + statModifiers[stats[5]-1]+ ")";
+  document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 3 reached in code!";
 }
