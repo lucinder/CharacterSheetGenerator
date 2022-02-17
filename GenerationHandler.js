@@ -10,6 +10,7 @@ let ClassFeature = class{
     this.innerHtml = innerHtml;
   }
   get lvl(){ return this.level; }
+  set lvl(lvl){ this.lvl = lvl; }
   get innerHtml(){ return this.innerHtml; }
 }
 
