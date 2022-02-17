@@ -34,7 +34,9 @@ const cleric = DNDClass("Cleric",clerFeatures,8);
 function generate(){
   let level = (int)(Math.random()*20 + 1);
   let race = raceOptions[(int)(Math.random()*raceOptions.length)];
+  document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 1 reached in code!";
   let clss = classOptions[(int)(Math.random()*classOptions.length)];
-  document.getElementById("SHEET_BASIC_RACECLASS").innerHTML = race + " " + clss + " " + level;
- document.getElementById("SHEET_FEATURES_LV1_01").innerHTML = FEATURE_ARTIFICER_1_0;
+  document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 2 reached in code!";
+  document.getElementById("SHEET_BASIC_RACECLASS").innerHTML = "" + race + " " + clss + " " + level;
+  document.getElementById("SHEET_FEATURES_LV1_01").innerHTML = FEATURE_ARTIFICER_1_0;
 }
