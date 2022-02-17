@@ -120,10 +120,10 @@ function generate(){
   lvl = (Math.random()*20 + 1)|0;
   race = raceOptions[(Math.random()*raceOptions.length)|0];
   clss = classOptions[(Math.random()*classOptions.length)|0];
-  document.getElementById("SHEET_BASIC_RACECLASS").innerHTML = "" + race + " " + clss + " " + level;
+  document.getElementById("SHEET_BASIC_RACECLASS").innerHTML = "" + race + " " + clss + " " + lvl;
   document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 1 reached in code! Race and class determined!";
   rollStats();
-  handleClassFeatures(clss,level);
+  handleClassFeatures();
   document.getElementById("SHEET_BASIC_STATS_STR").innerHTML = "STR: " + stats[0] + " (" + statModifiers[stats[0]-1]+ ")";
   document.getElementById("SHEET_BASIC_STATS_DEX").innerHTML = "DEX: " + stats[1] + " (" + statModifiers[stats[1]-1]+ ")";
   document.getElementById("SHEET_BASIC_STATS_CON").innerHTML = "CON: " + stats[2] + " (" + statModifiers[stats[2]-1]+ ")";
