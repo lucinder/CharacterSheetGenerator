@@ -296,6 +296,10 @@ function handleRaceFeatures(){
   }
 }
 
+function handleBgFeatures(){
+  // to be added
+}
+
 function rollStats(){
   stats[0] = sum(XdYkhZ(4,6,3));
   stats[1] = sum(XdYkhZ(4,6,3));
@@ -381,6 +385,17 @@ function genSubRace(){
  }
 }
 
+function getBgFeature(){
+ if(bg === "Outlander"){
+  return "<p><b><u>Background Feature: Wanderer</u></b></p><p>You have an excellent memory for maps and geography, and you can always recall the general layout of terrain, settlements, and other features around you. In addition, you can find food and fresh water for yourself and up to five other people each day, provided that the land offers berries, small game, water, and so forth.</p>";
+ }
+ return "<p><b><u>Background Feature: NYI</u></b></p><p>This background feature has not yet been implemented!</p>";
+}
+
+function getBackstory(){
+  return "To be determined!"; // eventually we'll replace this
+}
+
 function generate(){
   // set titles
   document.getElementById("SHEET_PROF_TITLE").innerHTML = "Proficiencies"
@@ -397,6 +412,7 @@ function generate(){
   lvl = (Math.random()*20 + 1)|0;
   race = raceOptions[(Math.random()*raceOptions.length)|0];
   clss = classOptions[(Math.random()*classOptions.length)|0];
+  bg = bgOptions[(Math.random()*bgOptions.length)|0];
   genSubClass(); genSubRace();
   // if(debug){ race = "Lizardfolk"; clss = "Artificer"; } // defaults for debug
   if(subrace === ""){ 
@@ -409,6 +425,7 @@ function generate(){
   rollStats();
   handleClassFeatures();
   handleRaceFeatures();
+  handleBgFeatures();
   document.getElementById("SHEET_BASIC_STATS_STR").innerHTML = "STR: " + stats[0] + " (" + statModifiers[stats[0]-1]+ ")";
   document.getElementById("SHEET_BASIC_STATS_DEX").innerHTML = "DEX: " + stats[1] + " (" + statModifiers[stats[1]-1]+ ")";
   document.getElementById("SHEET_BASIC_STATS_CON").innerHTML = "CON: " + stats[2] + " (" + statModifiers[stats[2]-1]+ ")";
@@ -422,4 +439,8 @@ function generate(){
   document.getElementById("SHEET_BASIC_STATS_HP").innerHTML = "HP: " + hp;
   document.getElementById("SHEET_BASIC_STATS_AC").innerHTML = "AC: " + ac + " (" + armorType + ")";
   document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 4 reached in code! HP/AC displayed properly!";
+  // set background stuff
+  document.getElementById("SHEET_BG").innerHTML = "Background: " + bg;
+  document.getElementById("SHEET_BG_FEATURE").innerHTML = getBgFeature();
+  document.getElementById("SHEET_BG_BACKSTORY").innerHTML = getBackstory();
 }
