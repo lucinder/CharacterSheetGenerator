@@ -223,7 +223,12 @@ function nameGen(){
 }
 
 function calcHP(){
- hp = statModifiers[stats[2]-1]*lvl; // no rolls yet
+ hp = statModifiers[stats[2]-1]*lvl;
+ if(clss === "Barbarian"){ // more if clauses will be add later
+  hp += 12 + sum(XdY(lvl-1,12));
+ } else {
+  hp += 8 + sum(XdY(lvl-1,8));
+ }
 }
 function calcAC(){
  let dexMod = statModifiers[stats[1]-1];
