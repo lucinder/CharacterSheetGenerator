@@ -32,6 +32,28 @@ const subclassOptions_sorcerer = new Array("Aberrant Mind","Clockwork Soul","Dra
 const subclassOptions_warlock = new Array("Archfey","Celestial","Fathomless","Fiend","Genie","Great Old One","Hexblade","Undying");
 const subclassOptions_wizard = new Array("Abjuration","Evocation","Divination","Conjuration","Enchantment","Illusion","Necromancy","Transmutation","Bladesinging","War Magic","Order of Scribes","Chronurgy","Graviturgy");
 
+// proficiencies by class
+// format: saves, skills, weapons, armor, tools
+const stS = "STR", stD = "DEX", stC = "CON", stI = "INT", stW = "WIS", stA = "CHA";
+const wS = "Simple weapons", wM = "Martial weapons",wW = "Daggers, darts, slings, quarterstaffs, light crossbows",wR="hand crossbows, longswords, rapiers, shortswords",wD="Clubs, daggers, darts, javelins, maces, quarterstaffs, scimitars, sickles, slings, spears";
+const aL = "Light armor", aM = "Medium armor", aH = "Heavy armor", aA = "All armor", aS = "Shields";
+const sA = "Arcana", sAl = "Athletics", sAc = "Acrobatics", sAh = "Animal Handling", sI = "Investigation", sIn = "Insight", sS = "Stealth", sSh = "Sleight of Hand", sSv = "Survival", sN = "Nature", sH = "History", sP = "Perception", sPf = "Performance", sPs = "Persuasion", sD = "Deception", sIt = "Intimidation", sM = "Medicine", sR = "Religion";
+const tT = "Thieves' Tools", tTk = "Tinker's Tools", tH = "Herbalism Kit", tR = "_TOOL", tI = "_INSTRUMENT", tA = "_TOOLINSTRUMENT;
+
+const proficiencies_artificer = new Array(new Array(stC,stI), new Array(sA,sH,sI,sM,sN,sP,sSh), new Array(wS), new Array(aL,aM,aS), new Array(tT,tTk,tR));
+const proficiencies_barbarian = new Array(new Array(stS, stC),new Array(sAh,sAl,sIt,sN,sP,sSv),new Array(wS,wM), new Array(aL,aM,aS),new Array());
+const proficiencies_bard = new Array(new Array(stD, stA),new Array(sA,sAl,sAc,sAh,sI,sIn,sIt,sS,sSh,sSv,sN,sH,sP,sPf,sPs,sD,sM,sR),new Array(wS,wR),new Array(aL),new Array(tI,tI,tI));
+const proficiencies_cleric = new Array(new Array(stW, stA),new Array(sH,sIn,sM,sPs,sR),new Array(wS),new Array(aL,aM,aS),new Array());
+const proficiencies_druid = new Array(new Array(stI,stW),new Array(sA,sAh,sIn,sM,sN,sP,sR,sSv),new Array(wD),new Array(aL,aM,aS),new Array(tH));
+const proficiencies_fighter = new Array(new Array(stS,stC),new Array(sA,sAh,sAl,sH,sIn,sIt,sP,sS),new Array(wS,wM),new Array(aA,aS),new Array());
+const proficiencies_monk = new Array(new Array(stS,stD),new Array(sAc,sAl,sH,sIn,sR,sS),new Array(wS,"shortswords"),new Array(),new Array(tA));
+const proficiencies_paladin = new Array(new Array(stW,stA),new Array(sAl,sIn,sIt,sM,sPs,sR),new Array(wS,wM),new Array(aA,aS),new Array());
+const proficiencies_ranger = new Array(new Array(stS,stD),new Array(sAh,sAl,sIn,sI,sN,sP,sS,sSv),new Array(wS,wM),new Array(aL,aM,aS),new Array());
+const proficiencies_rogue = new Array(new Array(stD,stI),new Array(sAc,sAl,sD,sI,sIt,sIn,sP,sPf,sPs,sSh,sS),new Array(wS,wR),new Array(aL),new Array(tT));
+const proficiencies_sorcerer = new Array(new Array(stC,stA),new Array(sA,sD,sIn,sIt,sPs,sR),new Array(wW),new Array(),new Array());
+const proficiencies_warlock = new Array(new Array(stW,stA),new Array(sA,sD,sH,sI,sIt,sN,sR),new Array(wS),new Array(aL),new Array());
+const proficiencies_wizard = new Array(new Array(stI,stW),new Array(sA,sH,sIn,sI,sM,sR),new Array(wW),new Array(),new Array());
+
 //global features
 const FEATURE_ASI_STANDARD = "<p><strong><i>Ability Score Improvement.</i></strong></p><p>When you reach 4th level, 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.</p>";
 const FEATURE_EA_STANDARD = "<p><strong><i>Extra Attack.</i></strong></p><p>Starting at 5th level, you can attack twice, rather than once, whenever you take the Attack action on your turn.</p>";
@@ -119,6 +141,9 @@ let acu = 10; // unarmored defense
 let aca = 11; // armored AC
 let armorType = "unarmored defense";
 let stats = new Array();
+let skills = new Array();
+let weapons = new Array();
+let armor = new Array();
 
 function sum(arr){
  let total = 0;
@@ -198,6 +223,11 @@ function resetFeatures(){
  
   document.getElementById("SHEET_FEATURES_SPELLCASTING_HEADER").innerHTML = "";
   document.getElementById("SHEET_FEATURES_SPELLCASTING_DESCRIPTION").innerHTML = "";
+}
+
+function handleProficiencies(){
+ document.getElementById("SHEET_PROF_BONUS").innerHTML = "Proficiency Bonus: +" + pBonuses[lvl-1];
+ 
 }
 
 function handleClassFeatures(){
@@ -404,6 +434,7 @@ function generate(){
   document.getElementById("SHEET_FEATURES_CLASS_HEADER").innerHTML = "Class Features";
   document.getElementById("SHEET_FEATURES_RACE_HEADER").innerHTML = "Race Features";
   document.getElementById("SHEET_BG_BACKSTORY_HEADER").innerHTML ="<u>Backstory</u>";
+ 
   // determine main fields
   subclass = "";
   subrace = "";
@@ -414,18 +445,21 @@ function generate(){
   clss = classOptions[(Math.random()*classOptions.length)|0];
   bg = bgOptions[(Math.random()*bgOptions.length)|0];
   genSubClass(); genSubRace();
+ 
   // if(debug){ race = "Lizardfolk"; clss = "Artificer"; } // defaults for debug
   if(subrace === ""){ 
     document.getElementById("SHEET_BASIC_RACECLASS").innerHTML = "" + race + " " + clss + " (" + subclass + ") " + lvl;
   } else {
     document.getElementById("SHEET_BASIC_RACECLASS").innerHTML = "" + race + " (" + subrace + ") " + clss + " (" + subclass + ") " + lvl;
   }
-  document.getElementById("SHEET_PROF_BONUS").innerHTML = "Proficiency Bonus: +" + pBonuses[lvl-1];
   document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 1 reached in code! Race and class determined!";
+ 
   rollStats();
+  handleProficiencies();
   handleClassFeatures();
   handleRaceFeatures();
   handleBgFeatures();
+ 
   document.getElementById("SHEET_BASIC_STATS_STR").innerHTML = "STR: " + stats[0] + " (" + statModifiers[stats[0]-1]+ ")";
   document.getElementById("SHEET_BASIC_STATS_DEX").innerHTML = "DEX: " + stats[1] + " (" + statModifiers[stats[1]-1]+ ")";
   document.getElementById("SHEET_BASIC_STATS_CON").innerHTML = "CON: " + stats[2] + " (" + statModifiers[stats[2]-1]+ ")";
@@ -433,12 +467,14 @@ function generate(){
   document.getElementById("SHEET_BASIC_STATS_WIS").innerHTML = "WIS: " + stats[4] + " (" + statModifiers[stats[4]-1]+ ")";
   document.getElementById("SHEET_BASIC_STATS_CHA").innerHTML = "CHA: " + stats[5] + " (" + statModifiers[stats[5]-1]+ ")";
   document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 3 reached in code! Stats displayed properly!";
+ 
   calcHP();
   calcAC();
   // set hp, ac text
   document.getElementById("SHEET_BASIC_STATS_HP").innerHTML = "HP: " + hp;
   document.getElementById("SHEET_BASIC_STATS_AC").innerHTML = "AC: " + ac + " (" + armorType + ")";
   document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 4 reached in code! HP/AC displayed properly!";
+ 
   // set background stuff
   document.getElementById("SHEET_BG").innerHTML = "Background: " + bg;
   document.getElementById("SHEET_BG_FEATURE").innerHTML = getBgFeature();
