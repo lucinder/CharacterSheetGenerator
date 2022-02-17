@@ -141,9 +141,6 @@ let acu = 10; // unarmored defense
 let aca = 11; // armored AC
 let armorType = "unarmored defense";
 let stats = new Array();
-let skills = new Array();
-let weapons = new Array();
-let armor = new Array();
 
 function sum(arr){
  let total = 0;
@@ -159,6 +156,17 @@ function XdY(x,y){ // generates an xdy int array
     results[i] = (Math.random()*y + 1)|0;
   }
   return results;
+}
+
+function remove(arr, index){
+ let newArr = new Array();
+ for(let i = 0, j = 0; i < arr.length; i++){
+    if(i != index){
+      newArr[j] = arr[i];
+      j++;
+    }
+  }
+  return newArr;
 }
 
 function dropLowest(arr){
@@ -227,7 +235,90 @@ function resetFeatures(){
 
 function handleProficiencies(){
  document.getElementById("SHEET_PROF_BONUS").innerHTML = "Proficiency Bonus: +" + pBonuses[lvl-1];
+ let profs;
+ let numSkills = 2;
+ if(clss === "Artificer"){
+   profs = proficiencies_artificer;
+ } else if(clss === "Barbarian"){
+   profs = proficiencies_barbarian;
+ } else if(clss === "Bard"){
+   profs = proficiencies_bard;
+   numSkills = 3;
+ } else if(clss === "Cleric"){
+   profs = proficiencies_cleric;
+ } else if(clss === "Fighter"){
+   profs = proficiencies_fighter;
+ } else if(clss === "Druid"){
+   profs = proficiencies_druid;
+ } else if(clss === "Monk"){
+   profs = proficiencies_monk;
+ } else if(clss === "Paladin"){
+   profs = proficiencies_paladin;
+ } else if(clss === "Ranger"){
+   profs = proficiencies_ranger;
+   numSkills = 3;
+ } else if(clss === "Rogue"){
+   profs = proficiencies_rogue;
+   numSkills = 4;
+ } else if(clss === "Sorcerer"){
+   profs = proficiencies_sorcerer;
+ } else if(clss === "Wizard"){
+   profs = proficiencies_wizard;
+ } else if(clss === "Warlock"){
+   profs = proficiencies_warlock;
+ }
  
+ let skillsCopy = profs[1]; // copy skill array
+ let savestxt = "";
+ let skillstxt = "";
+ let weaponstxt = "";
+ let armortxt = "";
+ let toolstxt = "";
+ savestxt += "<b>Saving Throws:</b> " + profs[0][0] + ", " + profs[0][1];
+ skillstxt += "<b>Skills:</b> ";
+ 
+ // choose skills
+ // precondition: numSkills <= skillsCopy.length
+ for(let i = 0; i < numSkills; i++){
+  let selectionIndex = (Math.random()*skillsCopy.length)|0;
+  skillstxt += skillsCopy[selectionIndex];
+  if(i != numSkills-1){ skillstxt += ", "; }
+  skillsCopy = remove(skillsCopy,selectionIndex); // remove the selected value from the array
+ }
+ 
+ weaponstxt += "<b>Weapons:</b> ";
+ // fill weapons field
+ for(let i = 0; i < profs[2].length; i++){
+  weaponstxt += profs[2][i];
+  if(i != profs[2].length-1){ weaponstxt += ", "; }
+ }
+ 
+ armortxt += "<b>Armor:</b> ";
+ // fill armor field
+ for(let i = 0; i < profs[3].length; i++){
+  armortxt += profs[3][i];
+  if(i != profs[3].length-1){ armortxt += ", "; }
+ }
+ 
+ toolstxt += "<b>Tools:</b> ";
+ // fill tools field
+ for(let i = 0; i < profs[4].length; i++){
+  toolstxt += profs[4][i];
+  if(i != profs[4].length-1){ toolstxt += ", "; }
+ }
+ 
+ // do last minute checks for empty fields
+ if(skillstxt === "<b>Skills:</b> "){ skillstxt += "None"; }
+ if(weaponstxt === "<b>Weapons:</b> "){ weaponstxt += "None"; }
+ if(armortxt === "<b>Armor:</b> "){ armortxt += "None"; }
+ if(toolstxt === "<b>Tools:</b> "){ toolstxt += "None"; }
+ 
+ // set doc fields
+ document.getElementById("SHEET_PROF_SAVES").innerHTML = savestxt;
+ document.getElementById("SHEET_PROF_SKILLS").innerHTML = skillstxt;
+ document.getElementById("SHEET_PROF_WEAPONS").innerHTML = weaponstxt;
+ document.getElementById("SHEET_PROF_ARMOR").innerHTML = armortxt;
+ document.getElementById("SHEET_PROF_TOOLS").innerHTML = toolstxt;
 }
 
 function handleClassFeatures(){
