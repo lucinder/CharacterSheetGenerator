@@ -17,6 +17,15 @@ const FEATURE_ARTIFICER_3_4 = "<p><strong><i>The Right Tool for the Job.</i></st
 // spellcasting feature variations
 const FEATURE_ARTIFICER_SPELLCASTING = "<p><b><i>Spellcasting.</b></i>You've studied the workings of magic and how to cast spells, channeling the magic through objects. To observers, you don't appear to be casting spells in a conventional way; you appear to produce wonders from mundane items and outlandish inventions.</p><h6><u>Tools Required</u></h6><p>You produce your artificer spell effects through your tools. You must have a spellcasting focus-specifically thieves' tools or some kind of artisan's tool-in hand when you cast any spell with this Spellcasting feature (meaning the spell has an \"M\" component when you cast it). You must be proficient with the tool to use it in this way. See the equipment chapter in the <i>Player's Handbook</i> for descriptions of these tools.</p><p>After you gain the Infuse Item feature at 2nd level, you can also use any item bearing one of your infusions as a spellcasting focus.</p><h6><u>Cantrips (0-Level Spells)</u></h6><p>At 1st level, you know two cantrips of your choice from the artificer spell list. At higher levels, you learn additional artificer can trips of your choice, as shown in the Cantrips Known column of the Artificer table.</p><p>When you gain a level in this class, you can replace one of the artificer cantrips you know with another cantrip from the artificer spell list.</p><h6><u>Preparing and Casting Spells</u></h6><p>The Artificer table shows how many spell slots you have to cast your artificer spells. To cast one of your artificer spells of 1st level or higher, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest.</p><p>You prepare the list of artificer spells that are available for you to cast, choosing from the artificer spell list. When you do so, choose a number of artificer spells equal to _SPELLSAVAILABLE (your Intelligence modifier + half your artificer level, rounded down, with a minimum of one spell). The spells must be of a level for which you have spell slots.</p><p>For example, if you are a 5th-level artificer, you have four 1st-level and two 2nd-level spell slots. With an Intelligence of 14, your list of prepared spells can include four spells of 1st or 2nd level, in any combination. If you prepare the 1st-level spell Cure Wounds, you can cast it using a lst-level or a 2nd-level slot. Casting the spell doesn't remove it from your list of prepared spells.</p><p>You can change your list of prepared spells when you finish a long rest. Preparing a new list of artificer spells requires time spent tinkering with your spellcasting focuses: at least 1 minute per spell level for each spell on your list.</p><h6><u>Spellcasting Ability</u></h6><p>Intelligence is your spellcasting ability for your artificer spells; your understanding of the theory behind magic allows you to wield these spells with superior skill. You use your Intelligence whenever an artificer spell refers to your spellcasting ability. In addition, you use your Intelligence modifier when setting the saving throw DC for an artificer spell you cast and when making an attack roll with one.</p><p><b>Spell save DC</b> = _SPELLSAVEDC (8 + your proficiency bonus + your Intelligence modifier)</p><p><b>Spell attack modifier</b> = _SPELLATKMODIFIER (your proficiency bonus + your Intelligence modifier)</p><h6><u>Ritual Casting</u></h6><p>You can cast an artificer spell as a ritual if that spell has the ritual tag and you have the spell prepared.</p>";
 
+// race features
+//lizardfolk
+const FEATURE_LIZARDFOLK_1 = "<p><b><i>Swim Speed.</b></i> You have a swimming speed of 30 feet.</p>";
+const FEATURE_LIZARDFOLK_2 = "<p><b><i>Cunning Artisan.</b></i> As part of a short rest, you can harvest bone and hide from a slain beast, construct, dragon, monstrosity, or plant creature of size small or larger to create one of the following items: a shield, a club, a javelin, or 1d4 darts or blowgun needles. To use this trait, you need a blade, such as a dagger, or appropriate artisan's tools, such as leatherworker's tools.</p>";
+const FEATURE_LIZAREFOLK_3 = "<p><b><i>Hold Breath.</b></i> You can hold your breath for up to 15 minutes at a time.</p>";
+const FEATURE_LIZARDFOLK_4 = "<p><b><i>Hunter's Lore.</b></i> You gain proficiency with two of the following skills of your choice: Animal Handling, Nature, Perception, Stealth, and Survival.</p>";
+const FEATURE_LIZARDFOLK_5 = "<p><b><i>Natural Armor.</b></i> You have tough, scaly skin. When you aren't wearing armor, your AC is 13 + your Dexterity modifier. You can use your natural armor to determine your AC if the armor you wear would leave you with a lower AC. A shield's benefits apply as normal while you use your natural armor.</p>";
+const FEATURE_LIZARDFOLK_6 = "<p><b><i>Hungry Jaws.</b></i> In battle, you can throw yourself into a vicious feeding frenzy. As a bonus action, you can make a special attack with your bite. If the attack hits, it deals its normal damage, and you gain temporary hit points equal to your Constitution modifier (minimum of 1), and you can't use this trait again until you finish a short or long rest.</p>";
+
 // global field handler
 let clss = "";
 let race = "";
@@ -100,11 +109,22 @@ function handleClassFeatures(){
      let intMod = statModifiers[stats[3]-1];
      let sav = (lvl/2)+intMod; // spells available
      if(sav < 1) sav = 1;
-     let sam = pBonuses[lvl] + intMod; // spell attack modifier
+     let sam = pBonuses[lvl-1] + intMod; // spell attack modifier
      let sdc = 8 + sam;
      document.getElementById("SHEET_FEATURES_SPELLCASTING_DESCRIPTION").innerHTML = FEATURE_ARTIFICER_SPELLCASTING.replace("_SPELLATKMODIFIER",sam).replace("_SPELLSAVAILABLE",sav).replace("_SPELLSAVEDC",sdc);
    }
    document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 2 reached in code! Class features generated!";
+}
+
+function handleRaceFeatures(){
+  if(race === "Lizardfolk"){
+    document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_LIZARDFOLK_1;
+    document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_LIZARDFOLK_2;
+    document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_LIZARDFOLK_3;
+    document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_LIZARDFOLK_4;
+    document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_LIZARDFOLK_5;
+    document.getElementById("SHEET_FEATURES_RACE_06").innerHTML = FEATURE_LIZARDFOLK_6;
+  }
 }
 
 function rollStats(){
@@ -121,6 +141,7 @@ function generate(){
   race = raceOptions[(Math.random()*raceOptions.length)|0];
   clss = classOptions[(Math.random()*classOptions.length)|0];
   document.getElementById("SHEET_BASIC_RACECLASS").innerHTML = "" + race + " " + clss + " " + lvl;
+  document.getElementById("SHEET_PROF_BONUS").innerHTML = "Proficiency Bonus: +" + pBonuses[lvl-1]
   document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 1 reached in code! Race and class determined!";
   rollStats();
   handleClassFeatures();
