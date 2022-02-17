@@ -230,6 +230,7 @@ function calcAC(){
  acu = 10 + dexMod;
  if(clss === "Barbarian"){ acu += statModifiers[stats[2]-1]; } // add con mod for barb
  if(clss === "Monk"){ acu += statModifiers[stats[4]-1]; } // add wis mod for monk
+ if(race === "Lizardfolk"){ acu = 13 + dexMod; }// lizardfolk natural armor
  aca = 11 + dexMod;
  ac = aca; armorType = "leather armor"; // default to leather
  if(acu > aca){ ac = acu; armorType = "unarmored defense"; }
