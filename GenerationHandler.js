@@ -189,7 +189,7 @@ function handleClassFeatures(){
       }
      document.getElementById("SHEET_FEATURES_SPELLCASTING_HEADER").innerHTML = "Spellcasting";
      let intMod = statModifiers[stats[3]-1];
-     let sav = (lvl/2)+intMod; // spells available
+     let sav = (lvl/2)|0+intMod; // spells available
      if(sav < 1) sav = 1;
      let sam = pBonuses[lvl-1] + intMod; // spell attack modifier
      let sdc = 8 + sam;
