@@ -2,6 +2,8 @@ const statModifiers = new Array(-5,-4,-4,-3,-3,-2,-2,-1,-1,0,0,1,1,2,2,3,3,4,4,5
 const raceOptions = new Array("Aarakocra","Aasimar","Bugbear","Centaur","Changeling","Dhampir","Dragonborn","Dwarf","Elf","Fairy","Firbolg","Genasi","Gith","Gnome","Goblin","Goliath","Half-Elf","Half-Orc","Halfling","Harengon","Hexblood","Hobgoblin","Human","Kalashtar","Kenku","Kobold","Leonin","Lizardfolk","Loxodon","Merfolk","Minotaur","Orc","Owlin","Reborn","Satyr","Shifter","Simic Hybrid","Tabaxi","Tiefling","Tortle","Triton","Vedalken","Warforged","Yuan-Ti");
 const classOptions = new Array("Artificer","Barbarian","Bard","Cleric","Druid","Fighter","Monk","Paladin","Ranger","Rogue","Sorcerer","Warlock","Wizard");
 
+//global features
+const FEATURE_ASI_STANDARD = "<p><strong><i>Ability Score Improvement.</i></strong></p><p>When you reach 4th level, 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.</p>";
 // artificer features
 const FEATURE_ARTIFICER_1_0 = "<p><strong><i>Magical Tinkering.</i></strong></p><p>At 1st level, you've learned how to invest a spark of magic into mundane objects. To use this ability, you must have thieves' tools or artisan's tools in hand. You then touch a Tiny nonmagical object as an action and give it one of the following magical properties of your choice:</p><ul><li>The object sheds bright light in a 5-foot radius and dim light for an additional 5 feet.</li><li>Whenever tapped by a creature, the object emits a recorded message that can be heard up to 10 feet away. You utter the message when you bestow this property on the object, and the recording can be no more than 6 seconds long.</li><li>The object continuously emits your choice of an odor or a nonverbal sound (wind, waves, chirping, or the like). The chosen phenomenon is perceivable up to 10 feet away.</li><li>A static visual effect appears on one of the object's surfaces. This effect can be a picture, up to 25 words of text, lines and shapes, or a mixture of these elements, as you like.</li></ul><p>The chosen property lasts indefinitely. As an action, you can touch the object and end the property early.</p><p> You can bestow magic on multiple objects, touching one object each time you use this feature, though a single object can only bear one property at a time. The maximum number of objects you can affect with this feature at one time is equal to your Intelligence modifier (minimum of one object). If you try to exceed your maximum, the oldest property immediately ends, and then the new property applies.</p>";
 const FEATURE_ARTIFICER_2_0 = "<p><strong><i>Infuse Item.</strong></i></p><p>At 2nd level, you've gained the ability to imbue mundane items with certain magical infusions, turning those objects into magic items.</p><ul><li><strong>Infusions Known:</strong>When you gain this feature, pick four artificer infusions to learn. You learn additional infusions of your choice when you reach certain levels in this class, as shown in the Infusions Known column of the Artificer table.Whenever you gain a level in this class, you can replace one of the artificer infusions you learned with a new one.</li><li><strong>Infusing an Item:</strong>Whenever you finish a long rest, you can touch a nonmagical object and imbue it with one of your artificer infusions, turning it into a magic item. An infusion works on only certain kinds of objects, as specified in the infusion's description. If the item requires attunement, you can attune yourself to it the instant you infuse the item. If you decide to attune to the item later, you must do so using the normal process for attunement (see the attunement rules in the <i>Dungeon Master's Guide</i>).Your infusion remains in an item indefinitely, but when you die, the infusion vanishes after a number of days equal to your Intelligence modifier (minimum of 1 day). The infusion also vanishes if you replace your knowledge of the infusion.You can infuse more than one nonmagical object at the end of a long rest; the maximum number of objects appears in the Infused Items column of the Artificer table. You must touch each of the objects, and each of your infusions can be in only one object at a time. Moreover, no object can bear more than one of your infusions at a time. If you try to exceed your maximum number of infusions, the oldest infusion ends, and then the new infusion applies.If an infusion ends on an item that contains other things, like a bag of holding, its contents harmlessly appear in and around its space.</li></ul>";
@@ -83,20 +85,33 @@ function XdYkhZ(x,y,z){
  return results;
 }
 
+function handleClassFeatures(clss, level){
+   if(clss.equals("Artificer")){
+      document.getElementById("SHEET_FEATURES_LV1_01").innerHTML = FEATURE_ARTIFICER_1_0;
+      if(lvl>1){
+        document.getElementById("SHEET_FEATURES_LV2_01").innerHTML = FEATURE_ARTIFICER_2_0;
+      }
+      if(lvl>2){
+        document.getElementById("SHEET_FEATURES_LV3_01").innerHTML = FEATURE_ARTIFICER_3_0;
+        document.getElementById("SHEET_FEATURES_LV3_02").innerHTML = FEATURE_ARTIFICER_3_1;
+        document.getElementById("SHEET_FEATURES_LV3_03").innerHTML = FEATURE_ARTIFICER_3_2;
+        document.getElementById("SHEET_FEATURES_LV3_04").innerHTML = FEATURE_ARTIFICER_3_3;
+        document.getElementById("SHEET_FEATURES_LV3_05").innerHTML = FEATURE_ARTIFICER_3_4;
+      }
+      if(lvl>3){
+        document.getElementById("SHEET_FEATURES_LV4_01").innerHTML = FEATURE_ASI_STANDARD;
+      }
+   }
+   document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 2 reached in code!";
+}
+
 function generate(){
   let level = (Math.random()*20 + 1)|0;
   let race = raceOptions[(Math.random()*raceOptions.length)|0];
   document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 1 reached in code!";
   let clss = classOptions[(Math.random()*classOptions.length)|0];
-  document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 2 reached in code!";
   document.getElementById("SHEET_BASIC_RACECLASS").innerHTML = "" + race + " " + clss + " " + level;
-  document.getElementById("SHEET_FEATURES_LV1_01").innerHTML = FEATURE_ARTIFICER_1_0;
-  document.getElementById("SHEET_FEATURES_LV2_01").innerHTML = FEATURE_ARTIFICER_2_0;
-  document.getElementById("SHEET_FEATURES_LV3_01").innerHTML = FEATURE_ARTIFICER_3_0;
-  document.getElementById("SHEET_FEATURES_LV3_02").innerHTML = FEATURE_ARTIFICER_3_1;
-  document.getElementById("SHEET_FEATURES_LV3_03").innerHTML = FEATURE_ARTIFICER_3_2;
-  document.getElementById("SHEET_FEATURES_LV3_04").innerHTML = FEATURE_ARTIFICER_3_3;
-  document.getElementById("SHEET_FEATURES_LV3_05").innerHTML = FEATURE_ARTIFICER_3_4;
+  handleClassFeatures(clss,level);
   let stats = new Array();
   stats[0] = sum(XdYkhZ(4,6,3));
   stats[1] = sum(XdYkhZ(4,6,3));
