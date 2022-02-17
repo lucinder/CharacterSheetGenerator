@@ -11,7 +11,7 @@ let ClassFeature = class{
     this.innerHtml = innerHtml;
   }
   get lvl(){ return this.level; }
-  set lvl(lvl){ this.lvl = lvl; }
+  set lvl(newlvl){ this.lvl = newlvl; }
   get innerHtml(){ return this.innerHtml; }
 }
 
