@@ -46,6 +46,7 @@
 - Vedalken*
 - Warforged*
 - Yuan-Ti*
+
 \* This race has not had all of its features added.
 
 **Classes Available:**
@@ -62,4 +63,5 @@
 - Sorcerer*
 - Warlock*
 - Wizard*
+
 \* This class has not had all of its features added
