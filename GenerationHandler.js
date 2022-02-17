@@ -35,7 +35,7 @@ const cleric = DNDClass("Cleric",clerFeatures,8);
 
 function sum(arr){
  let total = 0;
- for(i : arr){ 
+ for(let {i} of arr){ 
    total += i;
  }
   return total;
