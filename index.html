@@ -20,13 +20,15 @@
       td{padding-left:4px;}
       th{padding-left:4px;}
     </style>
+    <!-- GENERATION CODE -->
+    <script src="GenerationHandler.js"></script>
   </head>
   <body>
     <!-- Header -->
     <header class="w3-container w3-red w3-center" style="padding:128px 16px">
       <h1 class="w3-margin w3-jumbo">Character Sheet Generator</h1>
       <p class="w3-xlarge">This page is a WIP random generator of preformatted character sheet templates for D&D 5e.</p>
-      <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Generate!</button>
+      <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" onclick="generate()">Generate!</button>
     </header>
     <!-- Basic Character Information -->
     <div class="w3-row-padding w3-padding-64 w3-container">
@@ -63,6 +65,7 @@
           <h1>Features</h1>
           <h5 class="w3-padding-32">Class Features</h5>
           <div class="w3-text-grey" id = "SHEET_FEATURES_LV1_01">
+            <!-- commented out for testing purposes
             <p><strong><i>Magical Tinkering.</i></strong></p>
             
             <p>At 1st level, you've learned how to invest a spark of magic into mundane objects. To use this ability, you must have thieves' tools or artisan's tools in hand. You then touch a Tiny nonmagical object as an action and give it one of the following magical properties of your choice:</p>
@@ -75,6 +78,7 @@
           <p>The chosen property lasts indefinitely. As an action, you can touch the object and end the property early.</p>
           
           <p> You can bestow magic on multiple objects, touching one object each time you use this feature, though a single object can only bear one property at a time. The maximum number of objects you can affect with this feature at one time is equal to your Intelligence modifier (minimum of one object). If you try to exceed your maximum, the oldest property immediately ends, and then the new property applies.</p>
+          -->
         </div>
         <div class="w3-text-grey" id = "SHEET_FEATURES_LV2_01">
           <p><strong><i>Infuse Item.</strong></i></p>
