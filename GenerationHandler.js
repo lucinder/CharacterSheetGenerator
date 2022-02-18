@@ -96,6 +96,12 @@ const FEATURE_AASIMAR_1 = "<p><b><i>Darkvision.</b></i> Blessed with a radiant s
 const FEATURE_AASIMAR_2 = "<p><b><i>Celestial Resistance.</i></b> You have resistance to necrotic and radiant damage.</p>";
 const FEATURE_AASIMAR_3 = "<p><b><i>Healing Hands.</i></b> As an action, you can touch a creature and cause it to regain a number of hit points equal to your level. Once you use this trait, you can't use it again until you finish a long rest.</p>";
 const FEATURE_AASIMAR_4 = "<p><b><i>Celestial Resistance.</i></b> You have resistance to necrotic and radiant damage.</p>";
+// protector aas
+const FEATURE_AASIMAR_PROTECTOR_1 = "<p><b><i>Radiant Soul.</i></b> Starting at 3rd level, you can use your action to unleash the divine energy within yourself, causing your eyes to glimmer and two luminous, incorporeal wings to sprout from your back.<br>Your transformation lasts for 1 minute or until you end it as a bonus action. During it, you have a flying speed of 30 feet, and once on each of your turns, you can deal extra radiant damage to one target when you deal damage to it with an attack or a spell. The extra radiant damage equals your level.<br>Once you use this trait, you can't use it again until you finish a long rest.</p>";
+// sourge aas
+const FEATURE_AASIMAR_SCOURGE_1 = "<p><b><i>Radiant Consumption.</i></b> Starting at 3rd level, you can use your action to unleash the divine energy within yourself, causing a searing light to radiate from you, pour out of your eyes and mouth, and threaten to char you.<br>Your transformation lasts for 1 minute or until you end it as a bonus action. During it, you shed bright light in a 10-foot radius and dim light for an additional 10 feet, and at the end of each of your turns, you and each creature within 10 feet of you take radiant damage equal to half your level (rounded up). In addition, once on each of your turns, you can deal extra radiant damage to one target when you deal damage to it with an attack or a spell. The extra radiant damage equals your level.<br>Once you use this trait, you can't use it again until you finish a long rest.</p>";
+// fallen aas
+const FEATURE_AASIMAR_FALLEN_1 = "<p><b><i>Necrotic Shroud.</i></b> Starting at 3rd level, you can use your action to unleash the divine energy within yourself, causing your eyes to turn into pools of darkness and two skeletal, ghostly, flightless wings to sprout from your back. The instant you transform, other creatures within 10 feet of you that can see you must succeed on a Charisma saving throw (DC 8 + your proficiency bonus + your Charisma modifier) or become frightened of you until the end of your next turn.<br>Your transformation lasts for 1 minute or until you end it as a bonus action. During it, once on each of your turns, you can deal extra necrotic damage to one target when you deal damage to it with an attack or a spell. The extra necrotic damage equals your level.<br>Once you use this trait, you can't use it again until you finish a long rest.</p>";
 // bugbear
 // centaur
 // changeling
@@ -423,6 +429,15 @@ function handleRaceFeatures(){
     document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_AASIMAR_2;
     document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_AASIMAR_3;
     document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_AASIMAR_4;
+    if(subrace === "Protector"){
+      document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_AASIMAR_PROTECTOR_1;
+    }
+    if(subrace === "Scourge"){
+       document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_AASIMAR_SCOURGE_1;
+     }
+    if(subrace === "Fallen"){
+       document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_AASIMAR_FALLEN_1;
+     }
   }
   if(race === "Lizardfolk"){
     document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_LIZARDFOLK_1;
