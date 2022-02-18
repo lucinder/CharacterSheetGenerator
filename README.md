@@ -10,7 +10,7 @@
 - Changeling
 - Dragonborn
 - Dwarf
-- Elf*
+- Elf
 - Fairy*
 - Firbolg*
 - Genasi*
