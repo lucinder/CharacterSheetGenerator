@@ -35,7 +35,7 @@ const subclassOptions_wizard = new Array("Abjuration","Evocation","Divination","
 // proficiencies by class
 // format: saves, skills, weapons, armor, tools
 const stS = "STR", stD = "DEX", stC = "CON", stI = "INT", stW = "WIS", stA = "CHA";
-const wS = "Simple weapons", wM = "Martial weapons",wW = "Daggers, darts, slings, quarterstaffs, light crossbows",wR="hand crossbows, longswords, rapiers, shortswords",wD="Clubs, daggers, darts, javelins, maces, quarterstaffs, scimitars, sickles, slings, spears";
+const wS = "Simple weapons", wM = "Martial weapons",wW = "Daggers, darts, slings, quarterstaffs, light crossbows",wR="hand crossbows, longswords, rapiers, shortswords",wD="Clubs, daggers, darts, javelins, maces, quarterstaffs, scimitars, sickles, slings, spears", wDw = "battleaxes, handaxes, light hammers, warhammers";
 const aL = "Light armor", aM = "Medium armor", aH = "Heavy armor", aA = "All armor", aS = "Shields";
 const sA = "Arcana", sAl = "Athletics", sAc = "Acrobatics", sAh = "Animal Handling", sI = "Investigation", sIn = "Insight", sS = "Stealth", sSh = "Sleight of Hand", sSv = "Survival", sN = "Nature", sH = "History", sP = "Perception", sPf = "Performance", sPs = "Persuasion", sD = "Deception", sIt = "Intimidation", sM = "Medicine", sR = "Religion";
 const tT = "Thieves' Tools", tTk = "Tinker's Tools", tH = "Herbalism Kit", tR = "_TOOL", tI = "_INSTRUMENT", tA = "_TOOLINSTRUMENT";
@@ -156,9 +156,21 @@ const FEATURE_DRAGONBORN_GEM_2 = "<p><b><i>Psionic Mind.</b></i> You can send te
 const FEATURE_DRAGONBORN_GEM_3 = "<p><b><i>Gem Flight.</b></i> Starting at 5th level, you can use a bonus action to manifest spectral wings on your body. These wings last for 1 minute. For the duration, you gain a flying speed equal to your walking speed and can hover. Once you use this trait, you can't do so again until you finish a long rest.</p>";
 
 // dwarf
+const FEATURE_DWARF_1 = "<p><b><i>Darkvision.</b></i> Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.</p>";
+const FEATURE_DWARF_2 = "<p><b><i>Dwarven Resilience.</b></i> You have advantage on saving throws against poison, and you have resistance against poison damage.</p>";
+const FEATURE_DWARF_3 = "<p><b><i>Dwarven Combat Training.</b></i> You have proficiency with the battleaxe, handaxe, light hammer, and warhammer.</p>";
+const FEATURE_DWARF_4 = "<p><b><i>Tool Proficiency.</b></i> You gain proficiency with the artisan's tools of your choice: Smith's tools, brewer's supplies, or mason's tools.</p>";
+const FEATURE_DWARF_5 = "<p><b><i>Stonecunning.</i></b> Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus.</p>";
 // hill dwarf
+const FEATURE_DWARF_HILL = "<p><b><i>Dwarven Toughness.</b></i> Your hit point maximum increases by 1, and it increases by 1 every time you gain a level.</p>";
 // mtn dwarf
+const FEATURE_DWARF_MTN = "<p><b><i>Dwarven Armor Training.</i></b> You have proficiency with light and medium armor.</p>";
 // duergar
+const FEATURE_DWARF_1_DU = "<p><b><i>Superior Darkvision.</b></i> Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 120 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.</p>";
+const FEATURE_DWARF_2_DU = "<p><b><i>Duergar Resilience.</i></b> You have advantage on saving throws against poison, and you have resistance against poison damage. You also have advantage on saving throws against illusions and against being charmed or paralyzed.</p>";
+const FEATURE_DWARF_DUERGAR_1 = "<p><b><i>Duergar Magic.</i></b> When you reach 3rd level, you can cast the Enlarge/Reduce spell on yourself once with this trait, using only the spell's enlarge option. When you reach 5th level, you can cast the Invisibility spell on yourself once with this trait. You don't need material components for either spell, and you can't cast them while you're in direct sunlight, although sunlight has no effect on them once cast. You regain the ability to cast these spells with this trait when you finish a long rest. Intelligence is your spellcasting ability for these spells.</p>";
+const FEATURE_DWARF_DUERGAR_2 = "<p><b><i>Sunlight Sensitivity</i></b> You have disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight when you, the target of your attack, or whatever you are trying to perceive is in direct sunlight.</p>";
+
 // elf (base)
 // elf (avariel)
 // drow
@@ -581,6 +593,23 @@ function handleRaceFeatures(){
        document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_DRAGONBORN_GEM_2;
        if(lvl>4) document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_DRAGONBORN_GEM_3; // 5th level feature
      }
+  }
+  if(race === "Dwarf"){
+    if(subrace === "Duergar"){document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DWARF_1_DU;}
+    else{document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DWARF_1;}
+    if(subrace === "Duergar"){document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_DWARF_2_DU;}
+    else{document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_DWARF_2;}
+    document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_DWARF_3;
+    document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_DWARF_4;
+    document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_DWARF_5;
+    if(subrace === "Hill"){
+      document.getElementById("SHEET_FEATURES_RACE_06").innerHTML = FEATURE_DWARF_HILL;
+    } else if(subrace === "Mountain"){
+      document.getElementById("SHEET_FEATURES_RACE_06").innerHTML = FEATURE_DWARF_MTN;
+    } else if(subrace === "Duergar"){
+      document.getElementById("SHEET_FEATURES_RACE_06").innerHTML = FEATURE_DWARF_DUERGAR_1;
+      document.getElementById("SHEET_FEATURES_RACE_07").innerHTML = FEATURE_DWARF_DUERGAR_2;
+    }
   }
   if(race === "Lizardfolk"){
     document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_LIZARDFOLK_1;
