@@ -124,37 +124,36 @@ const FEATURE_CHANGELING_1 = "<p><b><i>Shapechanger.</i></b> As an action, you c
 const FEATURE_CHANGELING_2 = "<p><b><i>Changeling Instincts.</i></b> You gain proficiency with two of the following skills of your choice: Deception, Insight, Intimidation, and Persuasion.</p>";
 
 // dragonborn variants
-const FEATURE_DRAGONBORN_RED = "<p><b><i>Chromatic Ancestry.</i></b> You have a chromatic dragon ancestor, granting you a special magical affinity. Your ancestor is a red dragon, granting you affinity with the Fire damage type.</p>";
-const FEATURE_DRAGONBORN_GREEN = "<p><b><i>Chromatic Ancestry.</i></b> You have a chromatic dragon ancestor, granting you a special magical affinity. Your ancestor is a green dragon, granting you affinity with the Poison damage type.</p>";
-const FEATURE_DRAGONBORN_BLUE = "<p><b><i>Chromatic Ancestry.</i></b> You have a chromatic dragon ancestor, granting you a special magical affinity. Your ancestor is a blue dragon, granting you affinity with the Lightning damage type.</p>";
-const FEATURE_DRAGONBORN_BLACK = "<p><b><i>Chromatic Ancestry.</i></b> You have a chromatic dragon ancestor, granting you a special magical affinity. Your ancestor is a black dragon, granting you affinity with the Acid damage type.</p>";
-const FEATURE_DRAGONBORN_WHITE = "<p><b><i>Chromatic Ancestry.</i></b> You have a chromatic dragon ancestor, granting you a special magical affinity. Your ancestor is a white dragon, granting you affinity with the Cold damage type.</p>";
+const FEATURE_DRAGONBORN_RED = "<p><b><i>Chromatic Ancestry.</i></b> You have a red dragon ancestor, granting you a special magical affinity with the Fire element.</p>";
+const FEATURE_DRAGONBORN_GREEN = "<p><b><i>Chromatic Ancestry.</i></b> You have a green dragon ancestor, granting you a special magical affinity with the Poison element.</p>";
+const FEATURE_DRAGONBORN_BLUE = "<p><b><i>Chromatic Ancestry.</i></b> You have a blue dragon ancestor, granting you a special magical affinity with the Lightning element.</p>";
+const FEATURE_DRAGONBORN_BLACK = "<p><b><i>Chromatic Ancestry.</i></b> You have a black dragon ancestor, granting you a special magical affinity with the Acid element.</p>";
+const FEATURE_DRAGONBORN_WHITE = "<p><b><i>Chromatic Ancestry.</i></b> You have a white dragon ancestor, granting you a special magical affinity with the Cold element.</p>";
 
-const FEATURE_DRAGONBORN_CRYSTAL = "<p><b><i>Gem Ancestry.</i></b> You have a gem dragon ancestor, granting you a special magical affinity. Your ancestor is a crystal dragon, granting you affinity with the Radiant damage type.</p>";
-const FEATURE_DRAGONBORN_TOPAZ = "<p><b><i>Gem Ancestry.</i></b> You have a gem dragon ancestor, granting you a special magical affinity. Your ancestor is a topaz dragon, granting you affinity with the Necrotic damage type.</p>";
-const FEATURE_DRAGONBORN_AMETHYST = "<p><b><i>Gem Ancestry.</i></b> You have a gem dragon ancestor, granting you a special magical affinity. Your ancestor is a amethyst dragon, granting you affinity with the Force damage type.</p>";
-const FEATURE_DRAGONBORN_SAPPHIRE = "<p><b><i>Gem Ancestry.</i></b> You have a gem dragon ancestor, granting you a special magical affinity. Your ancestor is a sapphire dragon, granting you affinity with the Thunder damage type.</p>";
-const FEATURE_DRAGONBORN_EMERALD = "<p><b><i>Gem Ancestry.</i></b> You have a gem dragon ancestor, granting you a special magical affinity. Your ancestor is a emerald dragon, granting you affinity with the Psychic damage type.</p>";
+const FEATURE_DRAGONBORN_CRYSTAL = "<p><b><i>Gem Ancestry.</i></b> You have a crystal dragon ancestor, granting you a special magical affinity with the Radiant element.</p>";
+const FEATURE_DRAGONBORN_TOPAZ = "<p><b><i>Gem Ancestry.</i></b> You have a topaz dragon ancestor, granting you a special magical affinity with the Necrotic element.</p>";
+const FEATURE_DRAGONBORN_AMETHYST = "<p><b><i>Gem Ancestry.</i></b> You have a amethyst dragon ancestor, granting you a special magical affinity with the Force element.</p>";
+const FEATURE_DRAGONBORN_SAPPHIRE = "<p><b><i>Gem Ancestry.</i></b> You have a sapphire dragon ancestor, granting you a special magical affinity with the Thunder element.</p>";
+const FEATURE_DRAGONBORN_EMERALD = "<p><b><i>Gem Ancestry.</i></b> You have a emerald dragon ancestor, granting you a special magical affinity with the Psychic element.</p>";
 
-const FEATURE_DRAGONBORN_GOLD = "<p><b><i>Metallic Ancestry.</i></b> You have a metallic dragon ancestor, granting you a special magical affinity. Your ancestor is a gold dragon, granting you affinity with the Fire damage type.</p>";
-const FEATURE_DRAGONBORN_SILVER = "<p><b><i>Metallic Ancestry.</i></b> You have a metallic dragon ancestor, granting you a special magical affinity. Your ancestor is a silver dragon, granting you affinity with the Cold damage type.</p>";
-const FEATURE_DRAGONBORN_BRONZE = "<p><b><i>Metallic Ancestry.</i></b> You have a metallic dragon ancestor, granting you a special magical affinity. Your ancestor is a bronze dragon, granting you affinity with the Lightning damage type.</p>";
-const FEATURE_DRAGONBORN_BRASS = "<p><b><i>Metallic Ancestry.</i></b> You have a metallic dragon ancestor, granting you a special magical affinity. Your ancestor is a brass dragon, granting you affinity with the Fire damage type.</p>";
-const FEATURE_DRAGONBORN_COPPER = "<p><b><i>Metallic Ancestry.</i></b> You have a metallic dragon ancestor, granting you a special magical affinity. Your ancestor is a copper dragon, granting you affinity with the Acid damage type.</p>";
+const FEATURE_DRAGONBORN_GOLD = "<p><b><i>Metallic Ancestry.</i></b> You have a gold dragon ancestor, granting you a special magical affinity with the Fire element.</p>";
+const FEATURE_DRAGONBORN_SILVER = "<p><b><i>Metallic Ancestry.</i></b> You have a silver dragon ancestor, granting you a special magical affinity with the Cold element.</p>";
+const FEATURE_DRAGONBORN_BRONZE = "<p><b><i>Metallic Ancestry.</i></b> You have a bronze dragon ancestor, granting you a special magical affinity with the Lightning element.</p>";
+const FEATURE_DRAGONBORN_BRASS = "<p><b><i>Metallic Ancestry.</i></b> You have a brass dragon ancestor, granting you a special magical affinity with the Fire element.</p>";
+const FEATURE_DRAGONBORN_COPPER = "<p><b><i>Metallic Ancestry.</i></b> You have a copper dragon ancestor, granting you a special magical affinity with the Acid element.</p>";
+
+const FEATURE_DRAGONBORN_1 = "<p><b><i>Draconic Resistance.</b></i> You have resistance to the _DTYPE damage.</p>";
 
 // metal dragonborn
-const FEATURE_DRAGONBORN_METALLIC_1 = "<p><b><i>Breath Weapon.</i></b> When you take the Attack action on your turn, you can replace one of your attacks with an exhalation of magical energy in a 15-foot cone. Each creature in that area must make a Dexterity saving throw (DC = 8 + your Constitution modifier + your proficiency bonus). On a failed save, the creature takes 1d10 damage of the type associated with your Metallic Ancestry. On a successful save, it takes half as much damage. This damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10).<br>You can use your Breath Weapon a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.</p>";
-const FEATURE_DRAGONBORN_METALLIC_2 = "<p><b><i>Draconic Resistance.</b></i> You have resistance to the damage type associated with your Metallic Ancestry.</p>";
-const FEATURE_DRAGONBORN_METALLIC_3 = "<p><b><i>Metallic Breath Weapon.</b></i> At 5th level, you gain a second breath weapon. When you take the Attack action on your turn, you can replace one of your attacks with an exhalation in a 15-foot cone. The save DC for this breath is 8 + your Constitution modifier + your proficiency bonus. Whenever you use this trait, choose one:<ul><li>Enervating Breath. Each creature in the cone must succeed on a Constitution saving throw or become incapacitated until the start of your next turn.</li><li>Repulsion Breath. Each creature in the cone must succeed on a Strength saving throw or be pushed 20 feet away from you and be knocked prone.</li></ul>Once you use your Metallic Breath Weapon, you can't do so again until you finish a long rest.</p>";
+const FEATURE_DRAGONBORN_METALLIC_1 = "<p><b><i>Breath Weapon.</i></b> When you take the Attack action on your turn, you can replace one of your attacks with an exhalation of magical energy in a 15-foot cone. Each creature in that area must make a Dexterity saving throw (DC = _DDC [8 + your Constitution modifier + your proficiency bonus]). On a failed save, the creature takes 1d10 _DTYPE damage. On a successful save, it takes half as much damage. This damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10).<br>You can use your Breath Weapon a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.</p>";
+const FEATURE_DRAGONBORN_METALLIC_2 = "<p><b><i>Metallic Breath Weapon.</b></i> At 5th level, you gain a second breath weapon. When you take the Attack action on your turn, you can replace one of your attacks with an exhalation in a 15-foot cone. The save DC for this breath is _DDC (8 + your Constitution modifier + your proficiency bonus). Whenever you use this trait, choose one:<ul><li>Enervating Breath. Each creature in the cone must succeed on a Constitution saving throw or become incapacitated until the start of your next turn.</li><li>Repulsion Breath. Each creature in the cone must succeed on a Strength saving throw or be pushed 20 feet away from you and be knocked prone.</li></ul>Once you use your Metallic Breath Weapon, you can't do so again until you finish a long rest.</p>";
 // chroma dragonborn
-const FEATURE_DRAGONBORN_CHROMATIC_1 = "<p><b><i>Breath Weapon.</b></i> When you take the Attack action on your turn, you can replace one of your attacks with an exhalation of magical energy in a 30-foot line that is 5 feet wide. Each creature in that area must make a Dexterity saving throw (DC = 8 + your Constitution modifier + your proficiency bonus). On a failed save, the creature takes 1d10 damage of the type associated with your Chromatic Ancestry. On a successful save, it takes half as much damage. This damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10).<br>You can use your Breath Weapon a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.</p>";
-const FEATURE_DRAGONBORN_CHROMATIC_2 = "<p><b><i>Draconic Resistance.</b></i> You have resistance to the damage type associated with your Chromatic Ancestry.</p>";
-const FEATURE_DRAGONBORN_CHROMATIC_3 = "<p><b><i>Chromatic Warding.</b></i> Starting at 5th level, as an action, you can channel your draconic energy to protect yourself. For 1 minute, you become immune to the damage type associated with your Chromatic Ancestry. Once you use this trait, you can't do so again until you finish a long rest.</p>";
+const FEATURE_DRAGONBORN_CHROMATIC_1 = "<p><b><i>Breath Weapon.</b></i> When you take the Attack action on your turn, you can replace one of your attacks with an exhalation of magical energy in a 30-foot line that is 5 feet wide. Each creature in that area must make a Dexterity saving throw (DC = _DDC [8 + your Constitution modifier + your proficiency bonus]). On a failed save, the creature takes 1d10 _DTYPE damage. On a successful save, it takes half as much damage. This damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10).<br>You can use your Breath Weapon a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.</p>";
+const FEATURE_DRAGONBORN_CHROMATIC_2 = "<p><b><i>Chromatic Warding.</b></i> Starting at 5th level, as an action, you can channel your draconic energy to protect yourself. For 1 minute, you become immune _DTYPE damage. Once you use this trait, you can't do so again until you finish a long rest.</p>";
 // gem dragonborn
-const FEATURE_DRAGONBORN_GEM_1 = "<p><b><i>Breath Weapon.</b></i> When you take the Attack action on your turn, you can replace one of your attacks with an exhalation of magical energy in a 15-foot cone. Each creature in that area must make a Dexterity saving throw (DC = 8 + your Constitution modifier + your proficiency bonus). On a failed save, the creature takes 1d10 damage of the type associated with your Gem Ancestry. On a successful save, it takes half as much damage. This damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10).<br>You can use your Breath Weapon a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.</p>";
-const FEATURE_DRAGONBORN_GEM_2 = "<p><b><i>Draconic Resistance.</b></i> You have resistance to the damage type associated with your Gem Ancestry.</p>";
-const FEATURE_DRAGONBORN_GEM_3 = "<p><b><i>Psionic Mind.</b></i> You can send telepathic messages to any creature you can see within 30 feet of you. You don't need to share a language with the creature for it to understand these messages, but it must be able to understand at least one language to comprehend them.</p>";
-const FEATURE_DRAGONBORN_GEM_4 = "<p><b><i>Gem Flight.</b></i> Starting at 5th level, you can use a bonus action to manifest spectral wings on your body. These wings last for 1 minute. For the duration, you gain a flying speed equal to your walking speed and can hover. Once you use this trait, you can't do so again until you finish a long rest.</p>";
+const FEATURE_DRAGONBORN_GEM_1 = "<p><b><i>Breath Weapon.</b></i> When you take the Attack action on your turn, you can replace one of your attacks with an exhalation of magical energy in a 15-foot cone. Each creature in that area must make a Dexterity saving throw (DC = _DDC [8 + your Constitution modifier + your proficiency bonus]). On a failed save, the creature takes 1d10 _DTYPE damage. On a successful save, it takes half as much damage. This damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10).<br>You can use your Breath Weapon a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.</p>";
+const FEATURE_DRAGONBORN_GEM_2 = "<p><b><i>Psionic Mind.</b></i> You can send telepathic messages to any creature you can see within 30 feet of you. You don't need to share a language with the creature for it to understand these messages, but it must be able to understand at least one language to comprehend them.</p>";
+const FEATURE_DRAGONBORN_GEM_3 = "<p><b><i>Gem Flight.</b></i> Starting at 5th level, you can use a bonus action to manifest spectral wings on your body. These wings last for 1 minute. For the duration, you gain a flying speed equal to your walking speed and can hover. Once you use this trait, you can't do so again until you finish a long rest.</p>";
 
 // dwarf
 // hill dwarf
@@ -503,35 +502,80 @@ function handleRaceFeatures(){
   }
   if(race === "Dragonborn"){
     if(subrace === "Red" || subrace === "Green" || subrace === "Blue" || subrace === "Black" || subrace === "White"){ // chromatic options
-      if(subrace === "Red") document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_RED;
-      if(subrace === "Green") document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_GREEN;
-      if(subrace === "Blue") document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_BLUE;
-      if(subrace === "Black") document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_BLACK;
-      if(subrace === "White") document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_WHITE;
-      document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_DRAGONBORN_CHROMATIC_1;
-      document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_DRAGONBORN_CHROMATIC_2;
-      if(lvl>4) document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_DRAGONBORN_CHROMATIC_3; // 5th level feature
+      let temp1 = FEATURE_DRAGONBORN_CHROMATIC_1, temp2 = FEATURE_DRAGONBORN_1, temp3 = FEATURE_DRAGONBORN_CHROMATIC_2;
+      if(subrace === "Red"){
+       document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_RED;
+       temp1 = temp1.replace("_DTYPE","Fire"); temp2 = temp2.replace("_DTYPE","Fire"); temp3 = temp3.replace("_DTYPE","Fire");
+      }
+      if(subrace === "Green"){
+       document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_GREEN;
+       temp1 = temp1.replace("_DTYPE","Poison"); temp2 = temp2.replace("_DTYPE","Poison"); temp3 = temp3.replace("_DTYPE","Poison");
+      }
+      if(subrace === "Blue"){
+       document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_BLUE;
+       temp1 = temp1.replace("_DTYPE","Lightning"); temp2 = temp2.replace("_DTYPE","Lightning"); temp3 = temp3.replace("_DTYPE","Lightning");
+      }
+      if(subrace === "Black"){
+       document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_BLACK;
+       temp1 = temp1.replace("_DTYPE","Acid"); temp2 = temp2.replace("_DTYPE","Acid"); temp3 = temp3.replace("_DTYPE","Acid");
+      }
+      if(subrace === "White"){
+       document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_WHITE;
+       temp1 = temp1.replace("_DTYPE","Cold"); temp2 = temp2.replace("_DTYPE","Cold"); temp3 = temp3.replace("_DTYPE","Cold");
+      }
+      document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = temp1;
+      document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = temp2;
+      if(lvl>4) document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = temp3; // 5th level feature
     }
     if(subrace === "Gold" || subrace === "Silver" || subrace === "Bronze" || subrace === "Brass" || subrace === "Copper"){ // metallic options
-      if(subrace === "Gold") document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_GOLD;
-      if(subrace === "Silver") document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_SILVER;
-      if(subrace === "Bronze") document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_BRONZE;
-      if(subrace === "Brass") document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_BRASS;
-      if(subrace === "Copper") document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_COPPER;
-      document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_DRAGONBORN_METALLIC_1;
-      document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_DRAGONBORN_METALLIC_2;
-      if(lvl>4) document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_DRAGONBORN_METALLIC_3; // 5th level feature
+      let temp1 = FEATURE_DRAGONBORN_METALLIC_1, temp2 = FEATURE_DRAGONBORN_1;
+      if(subrace === "Gold" || subrace == "Brass"){
+        if(subrace === "Gold"){ document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_GOLD; }
+        else { document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_BRASS; }
+        temp1 = temp1.replace("_DTYPE","Fire"); temp2 = temp2.replace("_DTYPE","Fire");
+      }
+      if(subrace === "Silver"){ 
+        document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_SILVER;
+        temp1 = temp1.replace("_DTYPE","Cold"); temp2 = temp2.replace("_DTYPE","Cold");
+      }
+      if(subrace === "Bronze"){
+        document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_BRONZE;
+        temp1 = temp1.replace("_DTYPE","Lightning"); temp2 = temp2.replace("_DTYPE","Lightning");
+      }
+      if(subrace === "Copper"){
+        document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_COPPER;
+        temp1 = temp1.replace("_DTYPE","Acid"); temp2 = temp2.replace("_DTYPE","Acid");
+      }
+      document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = temp1;
+      document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = temp2;
+      if(lvl>4) document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_DRAGONBORN_METALLIC_2; // 5th level feature
     }
     if(subrace === "Crystal" || subrace === "Topaz" || subrace === "Amethyst" || subrace === "Sapphire" || subrace === "Emerald"){ // gem options
-       if(subrace === "Crystal") document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_CRYSTAL;
-       if(subrace === "Topaz") document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_TOPAZ;
-       if(subrace === "Amethyst") document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_AMETHYST;
-       if(subrace === "Sapphire") document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_SAPPHIRE;
-       if(subrace === "Emerald") document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_EMERALD;
-       document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_DRAGONBORN_GEM_1;
-       document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_DRAGONBORN_GEM_2;
-       document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_DRAGONBORN_GEM_3;
-       if(lvl>4) document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_DRAGONBORN_GEM_4; // 5th level feature
+       let temp1 = FEATURE_DRAGONBORN_GEM_1, temp2 = FEATURE_DRAGONBORN_1;
+       if(subrace === "Crystal"){
+        document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_CRYSTAL;
+        temp1 = temp1.replace("_DTYPE","Radiant"); temp2 = temp2.replace("_DTYPE","Radiant");
+       }
+       if(subrace === "Topaz"){
+        document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_TOPAZ;
+        temp1 = temp1.replace("_DTYPE","Necrotic"); temp2 = temp2.replace("_DTYPE","Necrotic");
+       }
+       if(subrace === "Amethyst"){
+        document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_AMETHYST;
+        temp1 = temp1.replace("_DTYPE","Force"); temp2 = temp2.replace("_DTYPE","Force");
+       }
+       if(subrace === "Sapphire"){
+        document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_SAPPHIRE;
+        temp1 = temp1.replace("_DTYPE","Thunder"); temp2 = temp2.replace("_DTYPE","Thunder");
+       }
+       if(subrace === "Emerald"){
+        document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_EMERALD;
+        temp1 = temp1.replace("_DTYPE","Psychic"); temp2 = temp2.replace("_DTYPE","Psychic");
+       }
+       document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = temp1;
+       document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = temp2;
+       document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_DRAGONBORN_GEM_2;
+       if(lvl>4) document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_DRAGONBORN_GEM_3; // 5th level feature
      }
   }
   if(race === "Lizardfolk"){
