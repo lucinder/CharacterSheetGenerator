@@ -255,6 +255,10 @@ let spd = 30; // base move speed
 let spdtxt = "";
 let armorType = "unarmored defense";
 let stats = new Array();
+let skills = new Array(); // skill proficiency list
+let wpns = new Array(); // weapon proficiency list
+let amr = new Array(); // armor proficiency list
+let tls = new Array(); // tool proficiency list
 
 function sum(arr){
  let total = 0;
@@ -391,37 +395,52 @@ function handleProficiencies(){
  let weaponstxt = "";
  let armortxt = "";
  let toolstxt = "";
+ 
  savestxt += "<b>Saving Throws:</b> " + profs[0][0] + ", " + profs[0][1];
  skillstxt += "<b>Skills:</b> ";
+ weaponstxt += "<b>Weapons:</b> ";
+ armortxt += "<b>Armor:</b> ";
+ toolstxt += "<b>Tools:</b> ";
  
- // choose skills
+ // choose skills from class
  // precondition: numSkills <= skillsCopy.length
  for(let i = 0; i < numSkills; i++){
   let selectionIndex = (Math.random()*skillsCopy.length)|0;
-  skillstxt += skillsCopy[selectionIndex];
-  if(i != numSkills-1){ skillstxt += ", "; }
+  skills.push(skillsCopy[selectionIndex]);
   skillsCopy = remove(skillsCopy,selectionIndex); // remove the selected value from the array
  }
- 
- weaponstxt += "<b>Weapons:</b> ";
  // fill weapons field
  for(let i = 0; i < profs[2].length; i++){
-  weaponstxt += profs[2][i];
-  if(i != profs[2].length-1){ weaponstxt += ", "; }
+  wpns.push(profs[2][i]);
  }
- 
- armortxt += "<b>Armor:</b> ";
  // fill armor field
  for(let i = 0; i < profs[3].length; i++){
-  armortxt += profs[3][i];
-  if(i != profs[3].length-1){ armortxt += ", "; }
+  amr.push(profs[3][i]);
  }
- 
- toolstxt += "<b>Tools:</b> ";
  // fill tools field
  for(let i = 0; i < profs[4].length; i++){
-  toolstxt += profs[4][i];
-  if(i != profs[4].length-1){ toolstxt += ", "; }
+  tls.push(profs[4][i]);
+ }
+ 
+ // turn skills into txt
+ for(let i = 0; i < skills.length; i++){
+  skillstxt += skills[i];
+  if(i != skills.length-1){ skillstxt += ", "; }
+ }
+ // turn weapons into txt
+ for(let i = 0; i < wpns.length; i++){
+  weaponstxt += wpns[i];
+  if(i != wpns.length-1){ weaponstxt += ", "; }
+ }
+ // turn skills into txt
+ for(let i = 0; i < amr.length; i++){
+  armortxt += amr[i];
+  if(i != amr.length-1){ armortxt += ", "; }
+ }
+ // turn skills into txt
+ for(let i = 0; i < tls.length; i++){
+  toolstxt += tls[i];
+  if(i != tls.length-1){ toolstxt += ", "; }
  }
  
  // do last minute checks for empty fields
