@@ -39,3 +39,15 @@ function genName(){
   }
   return out;
 }
+
+function genName(sylmax){
+  let out = "";
+  let gen = (Math.random()*alph.length)|0;
+  out += alph[gen].toUpperCase() + alphSuffixes[gen][(Math.random()*alphSuffixes[gen].length)|0];;
+  let furthersyl = (Math.random()*sylmax)|0;
+  for(let i = 0; i < furthersyl; i++){
+    gen = (Math.random()*alph.length)|0;
+    out += alph[gen] + alphSuffixes[gen][(Math.random()*alphSuffixes[gen].length)|0];
+  }
+  return out;
+}
