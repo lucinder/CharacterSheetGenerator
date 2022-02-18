@@ -23,7 +23,7 @@ let alphSuffixes = new Array(
   new Array("ir","or","ar","yn","in","il","ae","ay"),
   new Array("thu","th","ne","thay","thae"),
   new Array("al","alk","ir","in","en","or","ay","ae"),
-  new Arrray("in","yn","il","es","is","en"),
+  new Array("in","yn","il","es","is","en"),
   new Array("ava","av","ay","ae"),
   new Array("is","in","id","ir","a","il","or","r"),
   new Array("eth","ath","il","or","un","ae","ay"));
