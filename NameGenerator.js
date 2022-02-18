@@ -3,7 +3,7 @@ let alph = new Array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o"
 let alphSuffixes = new Array(
   new Array("rth","rthu","rtha","rta","rt","stri","stra","tha","th","n","r","l","s","z"), // a
   new Array("rin","or","ran","ear","el","ath","or","orn","an","ury","ary"), // b
-  new Array("u","ura","uru","ur","ir","iru","el","al","uray","urae","or","ro","ri","as","en","e","a"), // c
+  new Array("u","ura","uru","ur","ir","iru","el","al","or","ro","ri","as","en","e","a"), // c
   new Array("ae","ay","il","el","a","aph",""), // d
   new Array("lda","ld","st","sta","th","tha","v","va","d"), // e
   new Array("or","al","ar","in","ay","ae"), // f
