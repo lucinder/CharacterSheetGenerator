@@ -19,7 +19,7 @@ let alphSuffixes = new Array(
   new Array("er","ir","al","an","ern","he","hor","hos","hy","hyl","hi","or"), // p
   new Array("ues","uen","uin","uil","uay","uor"), // q
   new Array("en","el","il","un","in","ae","ay","iel","ael","is","o","as","es"), // r
-  new Array("tar","ar","or","il","ir","at","ata","ay","ae","o","a","el","an","en"), // s
+  new Array("tar","ar","or","il","ir","at","ata","ay","ae","o","a","el","an","en","aph","eph","al","on","in"), // s
   new Array("ir","or","ar","yn","in","il","ae","ay","an","ho","hor","han","ha","he","hri","hro","hre","hal","o"), // t
   new Array("thu","th","ne","thay","thae","r","ra","ri","re"), // u
   new Array("al","alk","ir","in","en","or","ay","ei","an","er","era"), // v
