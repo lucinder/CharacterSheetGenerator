@@ -2,21 +2,21 @@ const GLOBAL_SYLLABLE_MAX = 3;
 let alph = new Array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z");
 let alphSuffixes = new Array(
   new Array("rth","rthu","rtha","rta","rt","stri","stra","tha","th","n","r","l","ssa"), // a
-  new Array("rin","or","ran","ear","el","ath"), // b
-  new Array("ura","uru","ur","ir","iru","el","al","uray","urae"), // c
+  new Array("rin","or","ran","ear","el","ath","or","orn","an","ury","ary"), // b
+  new Array("u","ura","uru","ur","ir","iru","el","al","uray","urae"), // c
   new Array("ae","ay","il","el","a","aph",""), // d
   new Array("lda","ld","st","sta","th","tha","v","va"), // e
   new Array("or","al","ar","in","ay","ae"), // f
   new Array("il","al","lin","ol","ul"), // g
-  new Array("il","ir","ur","al","in","am","iem"), // h
-  new Array("sta","sti","st","th","n","m","r","l","sa","na","el"), // i
+  new Array("il","ir","ur","al","in","am","iem","a","an"), // h
+  new Array("sta","sti","st","th","n","m","r","l","sa","na","el",""), // i
   new Array("em","arl","ay","ae"), // j
   new Array("arn","ar","ey","el","uru","ir","al","a","as"), // k
   new Array("in","or","is","on","ae","ir","ei","er","ia"), // l
   new Array("ir","or","in","ay","ae","er","el"), // m
   new Array("ar","or","ir","el","ae","ay"), // n
   new Array("s","l","n","ssa","r","th"), // o
-  new Array("er","ir","al","an","ern"), // p
+  new Array("er","ir","al","an","ern","he","hor","hos","hy","hyl","hi"), // p
   new Array("ues","uen","uin","uil","uae","uay"), // q
   new Array("en","el","il","un","in","ae","ay"), // r
   new Array("tar","ar","or","il","ir","at","ata","ay","ae"), // s
