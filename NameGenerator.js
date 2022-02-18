@@ -31,7 +31,7 @@ let alphSuffixes = new Array(
 function genName(){
   let out = "";
   let gen = (Math.random()*alph.length)|0;
-  out += alph[gen].toUpperCase();
+  out += alph[gen].toUpperCase() + alphSuffixes[gen][(Math.random()*alphSuffixes[gen].length)|0];;
   let furthersyl = (Math.random()*GLOBAL_SYLLABLE_MAX)|0;
   for(let i = 0; i < furthersyl; i++){
     out += alph[gen] + alphSuffixes[gen][(Math.random()*alphSuffixes[gen].length)|0];
