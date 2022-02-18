@@ -5,7 +5,7 @@
 **Races Available:**
 - Aarakocra
 - Aasimar
-- Bugbear*
+- Bugbear
 - Centaur*
 - Changeling*
 - Dhampir*
