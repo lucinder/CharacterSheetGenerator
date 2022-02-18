@@ -1,32 +1,32 @@
 const GLOBAL_SYLLABLE_MAX = 3;
 let alph = new Array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z");
 let alphSuffixes = new Array(
-  new Array("rth","rthu","rtha","rta","rt","stri","stra","tha","th","n","r","l"),
-  new Array("rin","or","ran","ear","el"),
-  new Array("ura","uru","ur","ir","iru","el","al","uray","urae"),
-  new Array("ae","ay","il","el","a",""),
-  new Array("lda","ld","st","sta","th","tha","v","va"),
-  new Array("or","al","ar","in","ay","ae"),
-  new Array("il","al","lin","ol","ul"),
-  new Array("il","ir","ur","al","in","am","iem"),
-  new Array("sta","sti","st","th","n","m","r","l","sa","na"),
-  new Array("em","arl","ay","ae"),
-  new Array("arn","ar","ey","el","uru","ir","al","ay"),
-  new Array("in","or","is","on","ae","ir","ay"),
-  new Array("ir","or","in","ay","ae"),
-  new Array("ar","or","ir","el","ae","ay"),
-  new Array("s","l","n","ssa","r","th"),
-  new Array("er","ir","al","an","ern"),
-  new Array("ues","uen","uin","uil","uae","uay"),
-  new Array("en","el","il","un","in","ae","ay"),
-  new Array("tar","ar","or","il","ir","at","ata","ay","ae"),
-  new Array("ir","or","ar","yn","in","il","ae","ay"),
-  new Array("thu","th","ne","thay","thae"),
-  new Array("al","alk","ir","in","en","or","ay","ae"),
-  new Array("in","yn","il","es","is","en"),
-  new Array("ava","av","ay","ae"),
-  new Array("is","in","id","ir","a","il","or","r"),
-  new Array("eth","ath","il","or","un","ae","ay"));
+  new Array("rth","rthu","rtha","rta","rt","stri","stra","tha","th","n","r","l","ssa"), // a
+  new Array("rin","or","ran","ear","el","ath"), // b
+  new Array("ura","uru","ur","ir","iru","el","al","uray","urae"), // c
+  new Array("ae","ay","il","el","a","aph",""), // d
+  new Array("lda","ld","st","sta","th","tha","v","va"), // e
+  new Array("or","al","ar","in","ay","ae"), // f
+  new Array("il","al","lin","ol","ul"), // g
+  new Array("il","ir","ur","al","in","am","iem"), // h
+  new Array("sta","sti","st","th","n","m","r","l","sa","na","el"), // i
+  new Array("em","arl","ay","ae"), // j
+  new Array("arn","ar","ey","el","uru","ir","al","a","as"), // k
+  new Array("in","or","is","on","ae","ir","ei","er","ia"), // l
+  new Array("ir","or","in","ay","ae","er","el"), // m
+  new Array("ar","or","ir","el","ae","ay"), // n
+  new Array("s","l","n","ssa","r","th"), // o
+  new Array("er","ir","al","an","ern"), // p
+  new Array("ues","uen","uin","uil","uae","uay"), // q
+  new Array("en","el","il","un","in","ae","ay"), // r
+  new Array("tar","ar","or","il","ir","at","ata","ay","ae"), // s
+  new Array("ir","or","ar","yn","in","il","ae","ay","an","ho","hor","han","ha","he"), // t
+  new Array("thu","th","ne","thay","thae","r"), // u
+  new Array("al","alk","ir","in","en","or","ay","ae"), // v
+  new Array("in","yn","il","es","is","en"), // w
+  new Array("ava","av","a","ae","or","ar","an"), // x
+  new Array("is","in","id","ir","a","il","or","r","ssa"), // y
+  new Array("eth","ath","il","or","un","a","o","ag")); // z
 
 function genName(){
   let out = "";
