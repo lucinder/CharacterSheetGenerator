@@ -177,7 +177,7 @@ const FEATURE_DWARF_DUERGAR_1 = "<p><b><i>Duergar Magic.</i></b> When you reach 
 const FEATURE_ELF_1 = "<p><b><i>Darkvision.</i></b> Accustomed to twilit forests and the night sky, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.</p>";
 const FEATURE_ELF_2 = "<p><b><i>Keen Senses.</i></b> You have proficiency in the Perception skill.</p>";
 const FEATURE_ELF_3 = "<p><b><i>Fey Ancestry.</i></b> You have advantage on saving throws against being charmed, and magic can't put you to sleep.</p>";
-const FEATURE_ELF_4 = "<p><b><i>Trance.</i></b> Elves don't need to sleep. Instead, they meditate deeply, remaining semiconscious, for 4 hours a day. (The Common word for such meditation is "trance.") While meditating, you can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, you gain the same benefit that a human does from 8 hours of sleep.</p>";
+const FEATURE_ELF_4 = "<p><b><i>Trance.</i></b> Elves don't need to sleep. Instead, they meditate deeply, remaining semiconscious, for 4 hours a day. (The Common word for such meditation is \"trance.\") While meditating, you can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, you gain the same benefit that a human does from 8 hours of sleep.</p>";
 // elf (avariel)
 const FEATURE_ELF_AVARIEL_1 = "<p><b><i>Extra Language.</i></b> You can speak, read, and write Auran.</p>";
 const FEATURE_ELF_AVARIEL_1 = "<p><b><i>Flight.</i></b> You have a flying speed of 30 feet. To use this speed, you can't be wearing medium or heavy armor.</p>";
@@ -228,7 +228,6 @@ const FEATURE_MINOTAUR_1 = "<p><b><i>Horns.</b></i> Your horns are natural melee
 const FEATURE_MINOTAUR_2 = "<p><b><i>Goring Rush.</b></i> Immediately after you use the Dash action on your turn and move at least 20 feet, you can make one melee attack with your horns as a bonus action.</p>";
 const FEATURE_MINOTAUR_3 = "<p><b><i>Hammering Horns.</b></i> Immediately after you hit a creature with a melee attack as part of the Attack action on your turn, you can use a bonus action to attempt to shove that target with your horns. The target must be no more than one size larger than you and within 5 feet of you. Unless it succeeds on a Strength saving throw against a DC equal to 8 + your proficiency bonus + your Strength modifier, you push it up to 10 feet away from you.</p>";
 const FEATURE_MINOTAUR_4 = "<p><b><i>Imposing Presence.</b></i> You have proficiency in one of the following skills of your choice: Intimidation or Persuasion.</p>";
-const LANG_MINOTAUR = new Array("Minotaur");
 // orc
 // owlin
 // satyr
@@ -311,6 +310,7 @@ function XdYkhZ(x,y,z){
  }
  return results;
 }
+
 function resetFeatures(){
   document.getElementById("SHEET_FEATURES_LV1_01").innerHTML = "";
   document.getElementById("SHEET_FEATURES_LV2_01").innerHTML = "";
@@ -343,6 +343,8 @@ function resetFeatures(){
   document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = "";
   document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = "";
   document.getElementById("SHEET_FEATURES_RACE_06").innerHTML = "";
+  document.getElementById("SHEET_FEATURES_RACE_07").innerHTML = "";
+  document.getElementById("SHEET_FEATURES_RACE_08").innerHTML = "";
  
   document.getElementById("SHEET_FEATURES_SPELLCASTING_HEADER").innerHTML = "";
   document.getElementById("SHEET_FEATURES_SPELLCASTING_DESCRIPTION").innerHTML = "";
