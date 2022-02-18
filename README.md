@@ -9,7 +9,7 @@
 - Centaur
 - Changeling
 - Dragonborn
-- Dwarf*
+- Dwarf
 - Elf*
 - Fairy*
 - Firbolg*
