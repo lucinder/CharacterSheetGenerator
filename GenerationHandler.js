@@ -363,9 +363,6 @@ function handleClassFeatures(){
       }
       if(lvl>2){
         document.getElementById("SHEET_FEATURES_LV3_01").innerHTML = FEATURE_ARTIFICER_3_0;
-         // 3rd level subclass choice
-        subclass = subclassOptions_artificer[(Math.random()*subclassOptions_artificer.length)|0];
-        if(debug){ subclass = "Armorer"; }
         if(subclass === "Armorer"){
           document.getElementById("SHEET_FEATURES_LV3_02").innerHTML = FEATURE_ARTIFICER_ARMORER_3_0;
           document.getElementById("SHEET_FEATURES_LV3_03").innerHTML = FEATURE_ARTIFICER_ARMORER_3_1;
