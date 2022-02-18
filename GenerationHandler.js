@@ -1,7 +1,7 @@
 const debug = false; // global debug boolean
 
-const statModifiers = new Array(-5,-4,-4,-3,-3,-2,-2,-1,-1,0,0,1,1,2,2,3,3,4,4,5);
-const pBonuses = new Array(2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6);
+const statModifiers = new Array(-5,-5,-4,-4,-3,-3,-2,-2,-1,-1,0,0,1,1,2,2,3,3,4,4,5);
+const pBonuses = new Array(0,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6);
 const raceOptions = new Array("Aarakocra","Aasimar","Bugbear","Centaur","Changeling","Dragonborn","Dwarf","Elf","Fairy","Firbolg","Genasi","Gith","Gnome", "Goblin","Goliath","Half-Elf","Half-Orc","Halfling","Harengon","Hexblood","Hobgoblin","Human","Kalashtar","Kenku","Kobold","Leonin","Lizardfolk","Loxodon","Merfolk","Minotaur","Orc","Owlin","Satyr","Shifter","Simic Hybrid","Tabaxi","Tiefling","Tortle","Triton","Vedalken","Warforged","Yuan-Ti");
 const classOptions = new Array("Artificer","Barbarian","Bard","Cleric","Druid","Fighter","Monk","Paladin","Ranger","Rogue","Sorcerer","Warlock","Wizard");
 const bgOptions = new Array("Acolyte","Anthropologist","Archaeologist","Athlete","Charlatan","City Watch","Clan Crafter","Cloistered Scholar","Courtier","Criminal","Entertainer","Faceless","Faction Agent","Far Traveler","Feylost","Fisher","Folk Hero","Gambler","Grinner","Guild Artisan","Haunted One","Hermit","House Agent","Inheritor","Investigator","Knight of the Order","Marine","Mercenary Veteran","Noble","Outlander","Sage","Sailor","Shipwright","Smuggler","Soldier","Urban Bounty Hunter","Urchin","Tribe Member","Carnival Hand");
@@ -309,7 +309,7 @@ function resetFeatures(){
 }
 
 function handleProficiencies(){
- document.getElementById("SHEET_PROF_BONUS").innerHTML = "Proficiency Bonus: +" + pBonuses[lvl-1];
+ document.getElementById("SHEET_PROF_BONUS").innerHTML = "Proficiency Bonus: +" + pBonuses[lvl];
  let profs;
  let numSkills = 2;
  if(clss === "Artificer"){
@@ -452,10 +452,10 @@ function handleClassFeatures(){
        document.getElementById("SHEET_FEATURES_LV20_01").innerHTML = FEATURE_ARTIFICER_20_0;
       }
      document.getElementById("SHEET_FEATURES_SPELLCASTING_HEADER").innerHTML = "Spellcasting";
-     let intMod = statModifiers[stats[3]-1];
+     let intMod = statModifiers[stats[3]];
      let sav = (lvl/2)|0+intMod; // spells available
      if(sav < 1) sav = 1;
-     let sam = pBonuses[lvl-1] + intMod; // spell attack modifier
+     let sam = pBonuses[lvl] + intMod; // spell attack modifier
      let sdc = 8 + sam;
      document.getElementById("SHEET_FEATURES_SPELLCASTING_DESCRIPTION").innerHTML = FEATURE_ARTIFICER_SPELLCASTING.replace("_SPELLATKMODIFIER",sam).replace("_SPELLSAVAILABLE",sav).replace("_SPELLSAVEDC",sdc);
    }
@@ -501,8 +501,10 @@ function handleRaceFeatures(){
     document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_CHANGELING_2;
   }
   if(race === "Dragonborn"){
+    let ddc = 8 + statModifiers[stats[2]] + pBonuses[lvl]; // 8+prof+conmod
     if(subrace === "Red" || subrace === "Green" || subrace === "Blue" || subrace === "Black" || subrace === "White"){ // chromatic options
       let temp1 = FEATURE_DRAGONBORN_CHROMATIC_1, temp2 = FEATURE_DRAGONBORN_1, temp3 = FEATURE_DRAGONBORN_CHROMATIC_2;
+      temp1 = temp1.replace("_DDC",ddc); // replace bw save dc
       if(subrace === "Red"){
        document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_RED;
        temp1 = temp1.replace("_DTYPE","Fire"); temp2 = temp2.replace("_DTYPE","Fire"); temp3 = temp3.replace("_DTYPE","Fire");
@@ -528,7 +530,8 @@ function handleRaceFeatures(){
       if(lvl>4) document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = temp3; // 5th level feature
     }
     if(subrace === "Gold" || subrace === "Silver" || subrace === "Bronze" || subrace === "Brass" || subrace === "Copper"){ // metallic options
-      let temp1 = FEATURE_DRAGONBORN_METALLIC_1, temp2 = FEATURE_DRAGONBORN_1;
+      let temp1 = FEATURE_DRAGONBORN_METALLIC_1, temp2 = FEATURE_DRAGONBORN_1, temp3 = FEATURE_DRAGONBORN_METALLIC_2;
+      temp1 = temp1.replace("_DDC",ddc); temp3 = temp3.replace("_DDC",ddc);// replace bw save dc
       if(subrace === "Gold" || subrace == "Brass"){
         if(subrace === "Gold"){ document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_GOLD; }
         else { document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_BRASS; }
@@ -548,10 +551,11 @@ function handleRaceFeatures(){
       }
       document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = temp1;
       document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = temp2;
-      if(lvl>4) document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_DRAGONBORN_METALLIC_2; // 5th level feature
+      if(lvl>4) document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = temp3; // 5th level feature
     }
     if(subrace === "Crystal" || subrace === "Topaz" || subrace === "Amethyst" || subrace === "Sapphire" || subrace === "Emerald"){ // gem options
        let temp1 = FEATURE_DRAGONBORN_GEM_1, temp2 = FEATURE_DRAGONBORN_1;
+       temp1 = temp1.replace("_DDC",ddc); // replace bw save dc
        if(subrace === "Crystal"){
         document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_CRYSTAL;
         temp1 = temp1.replace("_DTYPE","Radiant"); temp2 = temp2.replace("_DTYPE","Radiant");
@@ -612,7 +616,7 @@ function nameGen(){
 }
 
 function calcHP(){
- hp = statModifiers[stats[2]-1]*lvl;
+ hp = statModifiers[stats[2]]*lvl;
  if(clss === "Barbarian"){ // more if clauses will be add later
   hp += 12 + sum(XdY(lvl-1,12));
  } else {
@@ -621,10 +625,10 @@ function calcHP(){
 }
 
 function calcAC(){
- let dexMod = statModifiers[stats[1]-1];
+ let dexMod = statModifiers[stats[1]];
  acu = 10 + dexMod;
- if(clss === "Barbarian"){ acu += statModifiers[stats[2]-1]; } // add con mod for barb
- if(clss === "Monk"){ acu += statModifiers[stats[4]-1]; } // add wis mod for monk
+ if(clss === "Barbarian"){ acu += statModifiers[stats[2]]; } // add con mod for barb
+ if(clss === "Monk"){ acu += statModifiers[stats[4]]; } // add wis mod for monk
  if(race === "Lizardfolk"){ acu = 13 + dexMod; }// lizardfolk natural armor
  aca = 11 + dexMod;
  ac = aca; armorType = "leather armor"; // default to leather
@@ -728,12 +732,12 @@ function generate(){
   handleRaceFeatures();
   handleBgFeatures();
  
-  document.getElementById("SHEET_BASIC_STATS_STR").innerHTML = "STR: " + stats[0] + " (" + statModifiers[stats[0]-1]+ ")";
-  document.getElementById("SHEET_BASIC_STATS_DEX").innerHTML = "DEX: " + stats[1] + " (" + statModifiers[stats[1]-1]+ ")";
-  document.getElementById("SHEET_BASIC_STATS_CON").innerHTML = "CON: " + stats[2] + " (" + statModifiers[stats[2]-1]+ ")";
-  document.getElementById("SHEET_BASIC_STATS_INT").innerHTML = "INT: " + stats[3] + " (" + statModifiers[stats[3]-1]+ ")";
-  document.getElementById("SHEET_BASIC_STATS_WIS").innerHTML = "WIS: " + stats[4] + " (" + statModifiers[stats[4]-1]+ ")";
-  document.getElementById("SHEET_BASIC_STATS_CHA").innerHTML = "CHA: " + stats[5] + " (" + statModifiers[stats[5]-1]+ ")";
+  document.getElementById("SHEET_BASIC_STATS_STR").innerHTML = "STR: " + stats[0] + " (" + statModifiers[stats[0]]+ ")";
+  document.getElementById("SHEET_BASIC_STATS_DEX").innerHTML = "DEX: " + stats[1] + " (" + statModifiers[stats[1]]+ ")";
+  document.getElementById("SHEET_BASIC_STATS_CON").innerHTML = "CON: " + stats[2] + " (" + statModifiers[stats[2]]+ ")";
+  document.getElementById("SHEET_BASIC_STATS_INT").innerHTML = "INT: " + stats[3] + " (" + statModifiers[stats[3]]+ ")";
+  document.getElementById("SHEET_BASIC_STATS_WIS").innerHTML = "WIS: " + stats[4] + " (" + statModifiers[stats[4]]+ ")";
+  document.getElementById("SHEET_BASIC_STATS_CHA").innerHTML = "CHA: " + stats[5] + " (" + statModifiers[stats[5]]+ ")";
   document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 3 reached in code! Stats displayed properly!";
  
   calcHP();
