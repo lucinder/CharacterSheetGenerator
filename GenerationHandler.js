@@ -1,5 +1,3 @@
-import NameGenerator.js;
-
 const debug = false; // global debug boolean
 
 const statModifiers = new Array(-5,-4,-4,-3,-3,-2,-2,-1,-1,0,0,1,1,2,2,3,3,4,4,5);
@@ -479,7 +477,7 @@ function rollStats(){
 }
 
 function nameGen(){
- name = NameGenerator.genName();
+ name = genName();
 }
 
 function calcHP(){
