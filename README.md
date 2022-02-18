@@ -6,7 +6,7 @@
 - Aarakocra
 - Aasimar
 - Bugbear
-- Centaur*
+- Centaur
 - Changeling*
 - Dhampir*
 - Dragonborn*
