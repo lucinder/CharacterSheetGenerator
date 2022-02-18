@@ -7,9 +7,8 @@
 - Aasimar
 - Bugbear
 - Centaur
-- Changeling*
-- Dhampir*
-- Dragonborn*
+- Changeling
+- Dragonborn
 - Dwarf*
 - Elf*
 - Fairy*
