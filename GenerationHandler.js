@@ -86,7 +86,8 @@ const FEATURE_ARTIFICER_SPELLCASTING = "<p><b><i>Spellcasting.</b></i>You've stu
 // race features
 const SPD_DEFAULT = "<p><b>Speed:</b> 30 ft.</p>";
 const LANGS = new Array("Aarakocra","Abyssal","Auran","Celestial","Elvish","Dwarvish","Draconic","Giant","Gith","Gnomish","Goblin","Infernal","Leonin","Loxodon","Merfolk","Minotaur","Orc","Primordial","Sylvan","Vedalken");
-const FEATURE_DARKVISION = "<p><b><i>Darkvision.</b></i> You can see in dim light within 60 feet of you as if it were bright light and in darkness as if it were dim light. You discern colors in that darkness only as shades of gray.</p>"
+const FEATURE_DARKVISION = "<p><b><i>Darkvision.</b></i> You can see in dim light within 60 feet of you as if it were bright light and in darkness as if it were dim light. You discern colors in that darkness only as shades of gray.</p>";
+const FEATURE_POWERFULBUILD = "<p><b><i>Powerful Build.</i></b> You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift.</p>";
 // aarakocra
 const FEATURE_AARAKOCRA_1 = "<p><b><i>Flight.</b></i> You have a flying speed of 50 feet. To use this speed, you can't be wearing medium or heavy armor.</p>";
 const FEATURE_AARAKOCRA_2 = "<p><b><i>Talons.</b></i> Your talons are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to 1d4 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike.</p>";
@@ -103,6 +104,9 @@ const FEATURE_AASIMAR_SCOURGE_1 = "<p><b><i>Radiant Consumption.</i></b> Startin
 // fallen aas
 const FEATURE_AASIMAR_FALLEN_1 = "<p><b><i>Necrotic Shroud.</i></b> Starting at 3rd level, you can use your action to unleash the divine energy within yourself, causing your eyes to turn into pools of darkness and two skeletal, ghostly, flightless wings to sprout from your back. The instant you transform, other creatures within 10 feet of you that can see you must succeed on a Charisma saving throw (DC 8 + your proficiency bonus + your Charisma modifier) or become frightened of you until the end of your next turn.<br>Your transformation lasts for 1 minute or until you end it as a bonus action. During it, once on each of your turns, you can deal extra necrotic damage to one target when you deal damage to it with an attack or a spell. The extra necrotic damage equals your level.<br>Once you use this trait, you can't use it again until you finish a long rest.</p>";
 // bugbear
+const FEATURE_BUGBEAR_1 = "<p><b><i>Long-Limbed.</i><b> When you make a melee attack on your turn, your reach for it is 5 feet greater than normal.</p>";
+const FEATURE_BUGBEAR_2 = "<p><b><i>Sneaky.</i></b> You are proficient in the Stealth skill.</p>";
+const FEATURE_BUGBEAR_3 = "<p><b><i>Surprise Attack.</i></b> If you surprise a creature and hit it with an attack on your first turn in combat, the attack deals an extra 2d6 damage to it. You can use this trait only once per combat.</p>";
 // centaur
 // changeling
 // dhampir
@@ -429,15 +433,22 @@ function handleRaceFeatures(){
     document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_AASIMAR_2;
     document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_AASIMAR_3;
     document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_AASIMAR_4;
-    if(subrace === "Protector"){
+    if(subrace === "Protector" && lvl > 2){
       document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_AASIMAR_PROTECTOR_1;
     }
-    if(subrace === "Scourge"){
+    if(subrace === "Scourge" && lvl > 2){
        document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_AASIMAR_SCOURGE_1;
      }
-    if(subrace === "Fallen"){
+    if(subrace === "Fallen" && lvl > 2){
        document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_AASIMAR_FALLEN_1;
      }
+  }
+  if(race === "Bugbear"){
+    document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DARKVISION;
+    document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_POWERFULBUILD;
+    document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_BUGBEAR_1;
+    document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_BUGBEAR_2;
+    document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_BUGBEAR_3;
   }
   if(race === "Lizardfolk"){
     document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_LIZARDFOLK_1;
