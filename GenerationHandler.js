@@ -88,6 +88,8 @@ const SPD_DEFAULT = "<p><b>Speed:</b> 30 ft.</p>";
 const LANGS = new Array("Aarakocra","Abyssal","Auran","Celestial","Elvish","Dwarvish","Draconic","Giant","Gith","Gnomish","Goblin","Infernal","Leonin","Loxodon","Merfolk","Minotaur","Orc","Primordial","Sylvan","Vedalken");
 const FEATURE_DARKVISION = "<p><b><i>Darkvision.</b></i> You can see in dim light within 60 feet of you as if it were bright light and in darkness as if it were dim light. You discern colors in that darkness only as shades of gray.</p>";
 const FEATURE_POWERFULBUILD = "<p><b><i>Powerful Build.</i></b> You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift.</p>";
+const FEATURE_CREATURETYPE_FEY = "<p><b><i>Fey.</i></b> Your creature type is fey, rather than humanoid.</p>";
+
 // aarakocra
 const FEATURE_AARAKOCRA_1 = "<p><b><i>Flight.</b></i> You have a flying speed of 50 feet. To use this speed, you can't be wearing medium or heavy armor.</p>";
 const FEATURE_AARAKOCRA_2 = "<p><b><i>Talons.</b></i> Your talons are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to 1d4 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike.</p>";
@@ -108,6 +110,10 @@ const FEATURE_BUGBEAR_1 = "<p><b><i>Long-Limbed.</i></b> When you make a melee a
 const FEATURE_BUGBEAR_2 = "<p><b><i>Sneaky.</i></b> You are proficient in the Stealth skill.</p>";
 const FEATURE_BUGBEAR_3 = "<p><b><i>Surprise Attack.</i></b> If you surprise a creature and hit it with an attack on your first turn in combat, the attack deals an extra 2d6 damage to it. You can use this trait only once per combat.</p>";
 // centaur
+const FEATURE_CENTAUR_1 = "<p><b><i>Charge.</i></b> If you move at least 30 feet straight toward a target and then hit it with a melee weapon attack on the same turn, you can immediately follow that attack with a bonus action, making one attack against the target with your hooves.</p>";
+const FEATURE_CENTAUR_2 = "<p><b><i>Hooves.</i></b> Your hooves are natural melee weapons, which you can use to make unarmed strikes. If you hit with them, you deal bludgeoning damage equal to 1d4 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike.</p>";
+const FEATURE_CENTAUR_3 = "<p><b><i>Equine Build.</i></b> You count as one size larger when determining your carrying capacity and the weight you can push or drag.<br>In addition, any climb that requires hands and feet is especially difficult for you because of your equine legs. When you make such a climb, each foot of movement costs you 4 extra feet, instead of the normal 1 extra foot.</p>";
+const FEATURE_CENTAUR_4 = "<p><b><i>Survivor.</i></b> You have proficiency in one of the following skills of your choice: Animal Handling, Medicine, Nature, or Survival.</p>";
 // changeling
 // dhampir
 // metal dragonborn
@@ -446,6 +452,13 @@ function handleRaceFeatures(){
     document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_BUGBEAR_1;
     document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_BUGBEAR_2;
     document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_BUGBEAR_3;
+  }
+ if(race === "Centaur"){
+    document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_CREATURETYPE_FEY;
+    document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_CENTAUR_1;
+    document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_CENTAUR_2;
+    document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_CENTAUR_3;
+    document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_CENTAUR_4;
   }
   if(race === "Lizardfolk"){
     document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_LIZARDFOLK_1;
