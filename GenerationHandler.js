@@ -84,16 +84,19 @@ const FEATURE_ARTIFICER_ARMORER_15_0 = "<p><b><i>Perfected Armor.</i></b></p><p>
 const FEATURE_ARTIFICER_SPELLCASTING = "<p><b><i>Spellcasting.</b></i>You've studied the workings of magic and how to cast spells, channeling the magic through objects. To observers, you don't appear to be casting spells in a conventional way; you appear to produce wonders from mundane items and outlandish inventions.</p><h6><u>Tools Required</u></h6><p>You produce your artificer spell effects through your tools. You must have a spellcasting focus-specifically thieves' tools or some kind of artisan's tool-in hand when you cast any spell with this Spellcasting feature (meaning the spell has an \"M\" component when you cast it). You must be proficient with the tool to use it in this way. See the equipment chapter in the <i>Player's Handbook</i> for descriptions of these tools.</p><p>After you gain the Infuse Item feature at 2nd level, you can also use any item bearing one of your infusions as a spellcasting focus.</p><h6><u>Cantrips (0-Level Spells)</u></h6><p>At 1st level, you know two cantrips of your choice from the artificer spell list. At higher levels, you learn additional artificer can trips of your choice, as shown in the Cantrips Known column of the Artificer table.</p><p>When you gain a level in this class, you can replace one of the artificer cantrips you know with another cantrip from the artificer spell list.</p><h6><u>Preparing and Casting Spells</u></h6><p>The Artificer table shows how many spell slots you have to cast your artificer spells. To cast one of your artificer spells of 1st level or higher, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest.</p><p>You prepare the list of artificer spells that are available for you to cast, choosing from the artificer spell list. When you do so, choose a number of artificer spells equal to _SPELLSAVAILABLE (your Intelligence modifier + half your artificer level, rounded down, with a minimum of one spell). The spells must be of a level for which you have spell slots.</p><p>For example, if you are a 5th-level artificer, you have four 1st-level and two 2nd-level spell slots. With an Intelligence of 14, your list of prepared spells can include four spells of 1st or 2nd level, in any combination. If you prepare the 1st-level spell Cure Wounds, you can cast it using a lst-level or a 2nd-level slot. Casting the spell doesn't remove it from your list of prepared spells.</p><p>You can change your list of prepared spells when you finish a long rest. Preparing a new list of artificer spells requires time spent tinkering with your spellcasting focuses: at least 1 minute per spell level for each spell on your list.</p><h6><u>Spellcasting Ability</u></h6><p>Intelligence is your spellcasting ability for your artificer spells; your understanding of the theory behind magic allows you to wield these spells with superior skill. You use your Intelligence whenever an artificer spell refers to your spellcasting ability. In addition, you use your Intelligence modifier when setting the saving throw DC for an artificer spell you cast and when making an attack roll with one.</p><p><b>Spell save DC</b> = _SPELLSAVEDC (8 + your proficiency bonus + your Intelligence modifier)</p><p><b>Spell attack modifier</b> = _SPELLATKMODIFIER (your proficiency bonus + your Intelligence modifier)</p><h6><u>Ritual Casting</u></h6><p>You can cast an artificer spell as a ritual if that spell has the ritual tag and you have the spell prepared.</p>";
 
 // race features
-const SPD_DEFAULT = "<p><b>Speed:</b> 30 ft.</p>";
+const SPD_DEFAULT = "<p><b>Speed:</b> _SPD ft.</p>";
+const SPD_SWIM_DEFAULT = "<p><b>Speed:</b> _SPD ft., swim 30 ft.</p>";
+const SPD_FLY_DEFAULT = "<p><b>Speed:</b> _SPD ft., fly 30 ft.</p>";
 const LANGS = new Array("Aarakocra","Abyssal","Auran","Celestial","Elvish","Dwarvish","Draconic","Giant","Gith","Gnomish","Goblin","Infernal","Leonin","Loxodon","Merfolk","Minotaur","Orc","Primordial","Sylvan","Vedalken");
 const FEATURE_DARKVISION = "<p><b><i>Darkvision.</b></i> You can see in dim light within 60 feet of you as if it were bright light and in darkness as if it were dim light. You discern colors in that darkness only as shades of gray.</p>";
 const FEATURE_POWERFULBUILD = "<p><b><i>Powerful Build.</i></b> You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift.</p>";
 const FEATURE_CREATURETYPE_FEY = "<p><b><i>Fey.</i></b> Your creature type is fey, rather than humanoid.</p>";
+const FEATURE_SUNSENS = "<p><b><i>Sunlight Sensitivity</i></b> You have disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight when you, the target of your attack, or whatever you are trying to perceive is in direct sunlight.</p>";
 
 // aarakocra
 const FEATURE_AARAKOCRA_1 = "<p><b><i>Flight.</b></i> You have a flying speed of 50 feet. To use this speed, you can't be wearing medium or heavy armor.</p>";
 const FEATURE_AARAKOCRA_2 = "<p><b><i>Talons.</b></i> Your talons are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to 1d4 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike.</p>";
-const SPD_AARAKOCRA = "<p><b>Speed:</b> 25 ft., fly 50 ft.</p>";
+const SPD_AARAKOCRA = "<p><b>Speed:</b> _SPD ft., fly 50 ft.</p>";
 
 // aasimar (base)
 const FEATURE_AASIMAR_1 = "<p><b><i>Darkvision.</b></i> Blessed with a radiant soul, your vision can easily cut through darkness. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.</p>";
@@ -117,7 +120,6 @@ const FEATURE_CENTAUR_1 = "<p><b><i>Charge.</i></b> If you move at least 30 feet
 const FEATURE_CENTAUR_2 = "<p><b><i>Hooves.</i></b> Your hooves are natural melee weapons, which you can use to make unarmed strikes. If you hit with them, you deal bludgeoning damage equal to 1d4 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike.</p>";
 const FEATURE_CENTAUR_3 = "<p><b><i>Equine Build.</i></b> You count as one size larger when determining your carrying capacity and the weight you can push or drag.<br>In addition, any climb that requires hands and feet is especially difficult for you because of your equine legs. When you make such a climb, each foot of movement costs you 4 extra feet, instead of the normal 1 extra foot.</p>";
 const FEATURE_CENTAUR_4 = "<p><b><i>Survivor.</i></b> You have proficiency in one of the following skills of your choice: Animal Handling, Medicine, Nature, or Survival.</p>";
-const SPD_CENTAUR = "<p><b>Speed:</b> 40 ft.</p>";
 
 // changeling
 const FEATURE_CHANGELING_1 = "<p><b><i>Shapechanger.</i></b> As an action, you can change your appearance and your voice. You determine the specifics of the changes, including your coloration, hair length, and sex. You can also adjust your height and weight, but not so much that your size changes. You can make yourself appear as a member of another race, though none of your game statistics change. You can't duplicate the appearance of a creature you've never seen, and you must adopt a form that has the same basic arrangement of limbs that you have. Your clothing and equipment aren't changed by this trait.<br>You stay in the new form until you use an action to revert to your true form or until you die.</p>";
@@ -161,25 +163,50 @@ const FEATURE_DWARF_2 = "<p><b><i>Dwarven Resilience.</b></i> You have advantage
 const FEATURE_DWARF_3 = "<p><b><i>Dwarven Combat Training.</b></i> You have proficiency with the battleaxe, handaxe, light hammer, and warhammer.</p>";
 const FEATURE_DWARF_4 = "<p><b><i>Tool Proficiency.</b></i> You gain proficiency with the artisan's tools of your choice: Smith's tools, brewer's supplies, or mason's tools.</p>";
 const FEATURE_DWARF_5 = "<p><b><i>Stonecunning.</i></b> Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus.</p>";
+const SPD_DWARF= "<p><b>Speed:</b> _SPD ft. Your speed is not reduced by wearing heavy armor.</p>";
 // hill dwarf
 const FEATURE_DWARF_HILL = "<p><b><i>Dwarven Toughness.</b></i> Your hit point maximum increases by 1, and it increases by 1 every time you gain a level.</p>";
 // mtn dwarf
 const FEATURE_DWARF_MTN = "<p><b><i>Dwarven Armor Training.</i></b> You have proficiency with light and medium armor.</p>";
 // duergar
-const FEATURE_DWARF_1_DU = "<p><b><i>Superior Darkvision.</b></i> Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 120 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.</p>";
-const FEATURE_DWARF_2_DU = "<p><b><i>Duergar Resilience.</i></b> You have advantage on saving throws against poison, and you have resistance against poison damage. You also have advantage on saving throws against illusions and against being charmed or paralyzed.</p>";
+const FEATURE_DWARF_1_D = "<p><b><i>Superior Darkvision.</b></i> Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 120 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.</p>";
+const FEATURE_DWARF_2_D = "<p><b><i>Duergar Resilience.</i></b> You have advantage on saving throws against poison, and you have resistance against poison damage. You also have advantage on saving throws against illusions and against being charmed or paralyzed.</p>";
 const FEATURE_DWARF_DUERGAR_1 = "<p><b><i>Duergar Magic.</i></b> When you reach 3rd level, you can cast the Enlarge/Reduce spell on yourself once with this trait, using only the spell's enlarge option. When you reach 5th level, you can cast the Invisibility spell on yourself once with this trait. You don't need material components for either spell, and you can't cast them while you're in direct sunlight, although sunlight has no effect on them once cast. You regain the ability to cast these spells with this trait when you finish a long rest. Intelligence is your spellcasting ability for these spells.</p>";
-const FEATURE_DWARF_DUERGAR_2 = "<p><b><i>Sunlight Sensitivity</i></b> You have disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight when you, the target of your attack, or whatever you are trying to perceive is in direct sunlight.</p>";
 
 // elf (base)
+const FEATURE_ELF_1 = "<p><b><i>Darkvision.</i></b> Accustomed to twilit forests and the night sky, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.</p>";
+const FEATURE_ELF_2 = "<p><b><i>Keen Senses.</i></b> You have proficiency in the Perception skill.</p>";
+const FEATURE_ELF_3 = "<p><b><i>Fey Ancestry.</i></b> You have advantage on saving throws against being charmed, and magic can't put you to sleep.</p>";
+const FEATURE_ELF_4 = "<p><b><i>Trance.</i></b> Elves don't need to sleep. Instead, they meditate deeply, remaining semiconscious, for 4 hours a day. (The Common word for such meditation is "trance.") While meditating, you can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, you gain the same benefit that a human does from 8 hours of sleep.</p>";
 // elf (avariel)
+const FEATURE_ELF_AVARIEL_1 = "<p><b><i>Extra Language.</i></b> You can speak, read, and write Auran.</p>";
+const FEATURE_ELF_AVARIEL_1 = "<p><b><i>Flight.</i></b> You have a flying speed of 30 feet. To use this speed, you can't be wearing medium or heavy armor.</p>";
 // drow
+const FEATURE_ELF_1_D = "<p><b><i>Superior Darkvision.</b></i> Accustomed to the depths of the Underdark, you have superior vision in dark and dim conditions. You can see in dim light within 120 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.</p>";
+const FEATURE_ELF_DROW_1 = "<p><b><i>Drow Magic.</i></b> You know the dancing lights cantrip. When you reach 3rd level, you can cast the faerie fire spell once with this trait; you regain the ability to cast it when you finish a long rest. When you reach 5th level, you can also cast the darkness spell once per day with this trait; you regain the ability to cast it when you finish a long rest. Charisma is your spellcasting ability for these spells.</p>";
+const FEATURE_ELF_DROW_2 = "<p><b><i>Drow Weapon Training.</i></b> You have proficiency with rapiers, shortswords, and hand crossbows.</p>";
 // eladrin
+const FEATURE_ELF_ELADRIN_1 = "<p><b><i>Fey Step.</i></b> As a bonus action, you can magically teleport up to 30 feet to an unoccupied space you can see. Once you use this trait, you can't do so again until you finish a short or long rest.<br>When you reach 3rd level, your Fey Step gains an additional effect based on your season; if the effect requires a saving throw, the DC equals _EDC (8 + your proficiency bonus + your Charisma modifier):<ul><li><b>Autumn.</b> Immediately after you use your Fey Step, up to two creatures of your choice that you can see within 10 feet of you must succeed on a Wisdom saving throw or be charmed by you for 1 minute, or until you or your companions deal any damage to it.</li><li><b>Winter.</b> When you use your Fey Step, one creature of your choice that you can see within 5 feet of you before you teleport must succeed on a Wisdom saving throw or be frightened of you until the end of your next turn.</li><li><b>Spring.</b> When you use your Fey Step, you can touch one willing creature within 5 feet of you. That creature then teleports instead of you, appearing in an unoccupied space of your choice that you can see within 30 feet of you.</li><li><b>Summer.</b> Immediately after you use your Fey Step, each creature of your choice that you can see within 5 feet of you takes fire damage equal to your Charisma modifier (minimum of 1 damage).</li></ul></p>";
 // high elf
+const FEATURE_ELF_HIGH_1 = "<p><b><i>Elf Weapon Training.</i></b> You have proficiency with the longsword, shortsword, shortbow, and longbow.</p>";
+// ^ wood elves also get this feature!
+const FEATURE_ELF_HIGH_2 = "<p><b><i>Cantrip.</i></b> You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting ability for it.</p>";
+const FEATURE_ELF_HIGH_3 = "<p><b><i>Extra Language.</i></b> You can speak, read, and write one extra language of your choosing.</p>";
 // sea elf
+const FEATURE_ELF_SEA_1 = "<p><b><i>Sea Elf Training.</i></b> You have proficiency with the longsword, shortsword, shortbow, and longbow.</p>";
+const FEATURE_ELF_SEA_2 = "<p><b><i>Child of the Sea.</i></b> You have a swimming speed of 30 feet, and you can breathe air and water.</p>";
+const FEATURE_ELF_SEA_3 = "<p><b><i>Friend of the Sea.</i></b> Using gestures and sounds, you can communicate simple ideas with any beast that has an innate swimming speed.</p>";
+const FEATURE_ELF_SEA_4 = "<p><b><i>Extra Language.</i></b> You can speak, read, and write Aquan.</p>";
 // pallid elf
+const FEATURE_ELF_PALLID_1 = "<p><b><i>Incisive Sense.</i></b> You have advantage on Intelligence (Investigation) and Wisdom (Insight) checks.</p>";
+const FEATURE_ELF_PALLID_2 = "<p><b><i>Blessing of the Moon Weaver.</i></b> You know the light cantrip. When you reach 3rd level, you can cast the sleep spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the invisibility spell (targeting yourself only) once with this trait and regain the ability to do so when you finish a long rest. Casting these spells with this trait doesn't require material components. Wisdom is your spellcasting ability for these spells.</p>";
 // shadar kai
+const FEATURE_ELF_SHADAR_1 = "<p><b><i>Necrotic Resistance.</i></b> You have resistance to necrotic damage.</p>";
+const FEATURE_ELF_SHADAR_2 = "<p><b><i>Blessing of the Raven Queen.</i></b> As a bonus action, you can magically teleport up to 30 feet to an unoccupied space you can see. Once you use this trait, you can't do so again until you finish a long rest.<br>Starting at 3rd level, you also gain resistance to all damage when you teleport using this trait. The resistance lasts until the start of your next turn. During that time, you appear ghostly and translucent.</p>";
 // wood elf
+const FEATURE_ELF_WOOD_1 = "<p><b><i>Fleet of Foot.</i></b> Your base walking speed increases to 35 feet.</p>";
+const FEATURE_ELF_WOOD_2 = "<p><b><i>Mask of the Wild.</i></b> You can attempt to hide even when you are only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.</p>";
+
 // fairy
 // firbolg
 // fire genasi
@@ -193,7 +220,6 @@ const FEATURE_LIZARDFOLK_3 = "<p><b><i>Hold Breath.</b></i> You can hold your br
 const FEATURE_LIZARDFOLK_4 = "<p><b><i>Hunter's Lore.</b></i> You gain proficiency with two of the following skills of your choice: Animal Handling, Nature, Perception, Stealth, and Survival.</p>";
 const FEATURE_LIZARDFOLK_5 = "<p><b><i>Natural Armor.</b></i> You have tough, scaly skin. When you aren't wearing armor, your AC is 13 + your Dexterity modifier. You can use your natural armor to determine your AC if the armor you wear would leave you with a lower AC. A shield's benefits apply as normal while you use your natural armor.</p>";
 const FEATURE_LIZARDFOLK_6 = "<p><b><i>Hungry Jaws.</b></i> In battle, you can throw yourself into a vicious feeding frenzy. As a bonus action, you can make a special attack with your bite. If the attack hits, it deals its normal damage, and you gain temporary hit points equal to your Constitution modifier (minimum of 1), and you can't use this trait again until you finish a short or long rest.</p>";
-const SPD_LIZARDFOLK = "<p><b>Speed:</b> 30 ft., swim 30 ft.</p>";
 // merfolk
 // green mer
 // blue mer
@@ -226,6 +252,8 @@ let hp = 24; // hp
 let ac = 10; // overall ac
 let acu = 10; // unarmored defense
 let aca = 11; // armored AC
+let spd = 30; // base move speed
+let spdtxt = "";
 let armorType = "unarmored defense";
 let stats = new Array();
 
@@ -475,9 +503,13 @@ function handleClassFeatures(){
 }
 
 function handleRaceFeatures(){
+  spd = 30;
+  spdtxt = SPD_DEFAULT;
   if(race === "Aarakocra"){
     document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_AARAKOCRA_1;
     document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_AARAKOCRA_2;
+    spd = 25;
+    spdtxt = SPD_AARAKOCRA;
   }
   if(race === "Aasimar"){
     document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_AASIMAR_1;
@@ -507,6 +539,7 @@ function handleRaceFeatures(){
     document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_CENTAUR_2;
     document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_CENTAUR_3;
     document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_CENTAUR_4;
+    spd = 40;
   }
   if(race === "Changeling"){
     document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_CHANGELING_1;
@@ -595,9 +628,10 @@ function handleRaceFeatures(){
      }
   }
   if(race === "Dwarf"){
-    if(subrace === "Duergar"){document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DWARF_1_DU;}
+    spdtxt = SPD_DWARF;
+    if(subrace === "Duergar"){document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DWARF_1_D;}
     else{document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DWARF_1;}
-    if(subrace === "Duergar"){document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_DWARF_2_DU;}
+    if(subrace === "Duergar"){document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_DWARF_2_D;}
     else{document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_DWARF_2;}
     document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_DWARF_3;
     document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_DWARF_4;
@@ -608,8 +642,54 @@ function handleRaceFeatures(){
       document.getElementById("SHEET_FEATURES_RACE_06").innerHTML = FEATURE_DWARF_MTN;
     } else if(subrace === "Duergar"){
       document.getElementById("SHEET_FEATURES_RACE_06").innerHTML = FEATURE_DWARF_DUERGAR_1;
-      document.getElementById("SHEET_FEATURES_RACE_07").innerHTML = FEATURE_DWARF_DUERGAR_2;
+      document.getElementById("SHEET_FEATURES_RACE_07").innerHTML = FEATURE_SUNSENS;
     }
+  }
+  if(race === "Elf"){
+   let edc = 8 + pBonuses[lvl] + statModifiers[stats[5]]; // cha save dc for eladrin features
+   if(subrace === "Drow"){document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_ELF_1_D;}
+   else{document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_ELF_1;}
+   document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_ELF_2;
+   document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_ELF_3;
+   document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_ELF_4;
+   if(subrace === "Avariel"){
+     document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_ELF_AVARIEL_1;
+     document.getElementById("SHEET_FEATURES_RACE_06").innerHTML = FEATURE_ELF_AVARIEL_2;
+     spdtxt = SPD_FLY_DEFAULT;
+   }
+   if(subrace === "Drow"){
+     document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_ELF_DROW_1;
+     document.getElementById("SHEET_FEATURES_RACE_06").innerHTML = FEATURE_ELF_DROW__2;
+   }
+   if(subrace === "Eladrin"){
+     document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_ELF_ELADRIN_1;
+   }
+   if(subrace === "High" || subrace === "Wood"){
+     document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_ELF_HIGH_1;
+     if(subrace === "High"){
+       document.getElementById("SHEET_FEATURES_RACE_06").innerHTML = FEATURE_ELF_HIGH_2;
+       document.getElementById("SHEET_FEATURES_RACE_07").innerHTML = FEATURE_ELF_HIGH_3;
+     } else {
+       document.getElementById("SHEET_FEATURES_RACE_06").innerHTML = FEATURE_ELF_WOOD_1;
+       document.getElementById("SHEET_FEATURES_RACE_07").innerHTML = FEATURE_ELF_WOOD_2;
+       spd = 35; // move speed update
+     }
+   }
+   if(subrace === "Pallid"){
+     document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_ELF_PALLID_1;
+     document.getElementById("SHEET_FEATURES_RACE_06").innerHTML = FEATURE_ELF_PALLID_2;
+   }
+   if(subrace === "Sea"){
+     document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_ELF_SEA_1;
+     document.getElementById("SHEET_FEATURES_RACE_06").innerHTML = FEATURE_ELF_SEA_2;
+     document.getElementById("SHEET_FEATURES_RACE_07").innerHTML = FEATURE_ELF_SEA_3;
+     document.getElementById("SHEET_FEATURES_RACE_08").innerHTML = FEATURE_ELF_SEA_4;
+     spdtxt = SPD_SWIM_DEFAULT;
+   }
+   if(subrace === "Shadar-Kai"){
+     document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_ELF_SHADAR_1;
+     document.getElementById("SHEET_FEATURES_RACE_06").innerHTML = FEATURE_ELF_SHADAR_2;
+   }
   }
   if(race === "Lizardfolk"){
     document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_LIZARDFOLK_1;
@@ -625,6 +705,7 @@ function handleRaceFeatures(){
     document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_MINOTAUR_3;
     document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_MINOTAUR_4;
   }
+  
 }
 
 function handleBgFeatures(){
@@ -771,10 +852,13 @@ function generate(){
  
   calcHP();
   calcAC();
-  // set hp, ac text
+  spdtxt = spdtxt.replace("_SPD",spd);
+  
+  // set hp, ac, spd text
   document.getElementById("SHEET_BASIC_STATS_HP").innerHTML = "HP: " + hp;
   document.getElementById("SHEET_BASIC_STATS_AC").innerHTML = "AC: " + ac + " (" + armorType + ")";
-  document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 4 reached in code! HP/AC displayed properly!";
+  document.getElementById("SHEET_BASIC_STATS_SPD").innerHTML = spdtxt;
+  document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 4 reached in code! HP/AC/speed displayed properly!";
  
   // set background stuff
   document.getElementById("SHEET_BG").innerHTML = "Background: " + bg;
