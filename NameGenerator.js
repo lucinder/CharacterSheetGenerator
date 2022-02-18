@@ -3,15 +3,15 @@ let alph = new Array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o"
 let alphSuffixes = new Array(
   new Array("rth","rthu","rtha","rta","rt","stri","stra","tha","th","n","r","l","s","z"), // a
   new Array("rin","or","ran","ear","el","ath","or","orn","an","ury","ary"), // b
-  new Array("u","ura","uru","ur","ir","iru","el","al","uray","urae"), // c
+  new Array("u","ura","uru","ur","ir","iru","el","al","uray","urae","or","ro","ri","as","en","e","a"), // c
   new Array("ae","ay","il","el","a","aph",""), // d
-  new Array("lda","ld","st","sta","th","tha","v","va"), // e
+  new Array("lda","ld","st","sta","th","tha","v","va","d"), // e
   new Array("or","al","ar","in","ay","ae"), // f
   new Array("il","al","lin","ol","ul"), // g
   new Array("il","ir","ur","al","in","am","iem","a","an"), // h
   new Array("sta","sti","st","th","n","m","r","l","sa","na","el",""), // i
   new Array("em","arl","ay","ae"), // j
-  new Array("arn","ar","ey","el","uru","ir","al","a","as"), // k
+  new Array("arn","ar","ey","el","uru","ir","al","a","as","e","ae"), // k
   new Array("i","o","eo","in","or","is","on","ae","ir","ei","er","ia"), // l
   new Array("ir","or","in","ay","ae","er","el"), // m
   new Array("ar","or","ir","el","ae","ay"), // n
