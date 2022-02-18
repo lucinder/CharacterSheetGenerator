@@ -477,7 +477,7 @@ function rollStats(){
 }
 
 function nameGen(){
- name = genName();
+ name = genName(2) + " " + genName(3);
 }
 
 function calcHP(){
