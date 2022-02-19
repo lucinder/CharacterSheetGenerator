@@ -1,4 +1,5 @@
-const debug = false; // global debug boolean
+const debug = true; // global debug boolean
+const debugtxt = "";
 
 const statModifiers = new Array(-5,-5,-4,-4,-3,-3,-2,-2,-1,-1,0,0,1,1,2,2,3,3,4,4,5);
 const pBonuses = new Array(0,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6);
@@ -344,17 +345,12 @@ function XdY(x,y){ // generates an xdy int array
   return results;
 }
 
-function getIndex(arr, item){
-  let index = -1;
-  for(let i = 0; i < arr.length; i++){
-    if(item === arr[i]){ index = i; }
-  }
-  return index;
-}
-
 function remove(arr, index){
- // document.getElementById("DEBUG_TEXT").innerHTML = "TEST: n = " + index + ", is n considered a number? " + (typeof(index) === 'number');
- if(!(typeof(index) === 'number')){ index = getIndex(arr,index); } // if we're trying to remove an item instead of its index, get the index to remove
+ debugtxt += "TEST: n = " + index + ", is n considered a number? " + (typeof(index) === 'number') + ".";
+ if(!(typeof(index) === 'number')){ 
+   debugtxt += " Index of item: " + arr.indexOf(index);
+   index = arr.indexOf(index);
+ } // if we're trying to remove an item instead of its index, get the index to remove
  let newArr = new Array();
  for(let i = 0, j = 0; i < arr.length; i++){
     if(i != index){
@@ -533,7 +529,7 @@ function handleProficiencies(){
  }
  if(race === "Centaur"){ // survivor
    let j = Math.random()*proficiencies_centaur.length;
-   document.getElementById("DEBUG_TEXT").innerHTML = "TEST: race prof = " + proficiencies_centaur[j];
+   debugtxt += "\nTEST: race prof = " + proficiencies_centaur[j];
    if(!(skills.includes(proficiencies_centaur[j]))){
      skills.push(proficiencies_centaur[j]);
    }
@@ -541,7 +537,7 @@ function handleProficiencies(){
  if(race === "Orc"){ // primal intuition
    for(let i = 0; i < 2; i++){
      let j = Math.random()*proficiencies_orc.length;
-     document.getElementById("DEBUG_TEXT").innerHTML = "TEST: race prof = " + proficiencies_orc[j];
+     debugtxt += "\nTEST: race prof = " + proficiencies_orc[j];
      if(!(skills.includes(proficiencies_orc[j]))){
        skills.push(proficiencies_orc[j]);
        remove(proficiencies_orc, proficiencies_orc[j]);
@@ -552,7 +548,7 @@ function handleProficiencies(){
  if(race === "Changeling"){ // changeling instincts
    for(let i = 0; i < 2; i++){
      let j = Math.random()*proficiencies_changeling.length;
-     document.getElementById("DEBUG_TEXT").innerHTML = "TEST: race prof = " + proficiencies_changeling[j];
+     debugtxt += "\nTEST: race prof = " + proficiencies_changeling[j];
      if(!(skills.includes(proficiencies_changeling[j]))){
        skills.push(proficiencies_changeling[j]);
        remove(proficiencies_changeling, proficiencies_changeling[j]);
@@ -664,7 +660,7 @@ function handleClassFeatures(){
      let sdc = 8 + sam;
      document.getElementById("SHEET_FEATURES_SPELLCASTING_DESCRIPTION").innerHTML = FEATURE_ARTIFICER_SPELLCASTING.replace("_SPELLATKMODIFIER",sam).replace("_SPELLSAVAILABLE",sav).replace("_SPELLSAVEDC",sdc);
    }
-   document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 2 reached in code! Class features generated!";
+   debugtxt += "\nCheckpoint 2: Class Features generated!";
 }
 
 
@@ -1109,7 +1105,7 @@ function generate(){
   } else {
     document.getElementById("SHEET_BASIC_RACECLASS").innerHTML = "" + race + " (" + subrace + ") " + clss + " (" + subclass + ") " + lvl;
   }
-  document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 1 reached in code! Race and class determined!";
+  debugtxt += "\nCheckpoint 1: Race/Class displayed properly!";
  
   rollStats();
   handleProficiencies();
@@ -1124,20 +1120,23 @@ function generate(){
   document.getElementById("SHEET_BASIC_STATS_INT").innerHTML = "INT: " + stats[3] + " (" + statModifiers[stats[3]]+ ")";
   document.getElementById("SHEET_BASIC_STATS_WIS").innerHTML = "WIS: " + stats[4] + " (" + statModifiers[stats[4]]+ ")";
   document.getElementById("SHEET_BASIC_STATS_CHA").innerHTML = "CHA: " + stats[5] + " (" + statModifiers[stats[5]]+ ")";
-  // document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 3 reached in code! Stats displayed properly!";
+  debugtxt += "\nCheckpoint 3: Stats displayed properly!";
  
   calcHP();
   calcAC();
   spdtxt = spdtxt.replace("_SPD",spd);
   
   // set hp, ac, spd text
-  document.getElementById("SHEET_BASIC_STATS_HP").innerHTML = "HP: " + hp;
-  document.getElementById("SHEET_BASIC_STATS_AC").innerHTML = "AC: " + ac + " (" + armorType + ")";
+  document.getElementById("SHEET_BASIC_STATS_HP").innerHTML = "<b>HP:</b> " + hp;
+  document.getElementById("SHEET_BASIC_STATS_AC").innerHTML = "<b>AC:</b> " + ac + " (" + armorType + ")";
   document.getElementById("SHEET_BASIC_STATS_SPD").innerHTML = spdtxt;
-  // document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 4 reached in code! HP/AC/speed displayed properly!";
+  debugtxt += "\nCheckpoint 4: HP/AC/speed displayed properly!";
  
   // set background stuff
   document.getElementById("SHEET_BG").innerHTML = "Background: " + bg;
   document.getElementById("SHEET_BG_FEATURE").innerHTML = getBgFeature();
   document.getElementById("SHEET_BG_BACKSTORY").innerHTML = getBackstory();
+  debugtxt += "\nCheckpoint 5: Background section displayed properly!";
+ 
+  if(debug){ document.getElementById("DEBUG_TEXT").innerHTML = debugtxt; }
 }
