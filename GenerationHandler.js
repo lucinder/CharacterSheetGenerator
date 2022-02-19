@@ -353,6 +353,7 @@ function getIndex(arr, item){
 }
 
 function remove(arr, index){
+ document.getElementById("DEBUG_TEXT").innerHTML = "TEST: n = " + index + ", is n considered a number? " + (typeof(index) === 'number');
  if(!(typeof(index) === 'number')){ index = getIndex(arr,index); } // if we're trying to remove an item instead of its index, get the index to remove
  let newArr = new Array();
  for(let i = 0, j = 0; i < arr.length; i++){
@@ -1120,7 +1121,7 @@ function generate(){
   document.getElementById("SHEET_BASIC_STATS_INT").innerHTML = "INT: " + stats[3] + " (" + statModifiers[stats[3]]+ ")";
   document.getElementById("SHEET_BASIC_STATS_WIS").innerHTML = "WIS: " + stats[4] + " (" + statModifiers[stats[4]]+ ")";
   document.getElementById("SHEET_BASIC_STATS_CHA").innerHTML = "CHA: " + stats[5] + " (" + statModifiers[stats[5]]+ ")";
-  document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 3 reached in code! Stats displayed properly!";
+  // document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 3 reached in code! Stats displayed properly!";
  
   calcHP();
   calcAC();
