@@ -498,15 +498,17 @@ function handleProficiencies(){
  }
  
  // race proficiencies
- if(!(wpns.includes("Martial weapons"))){
+ if(!(wpns.includes(wM))){
    if(race === "Dwarf"){
      wpns.push(wDw);
    }
-   if(race === "Elf" && (subrace === "High" || subrace === "Wood")){
-     wpns.push(wEw);
-   }
-   if(subrace === "Drow"){
-     wpns.push(wDr);
+   if(!(wpns.includes(wR))){ // rogue/bard weapons cover everything elvish 
+     if(race === "Elf" && (subrace === "High" || subrace === "Wood")){
+       wpns.push(wEw);
+     }
+     if(subrace === "Drow"){
+       wpns.push(wDr);
+     }
    }
  }
  if(subrace === "Mountain"){ // light + medium armor proficiency
