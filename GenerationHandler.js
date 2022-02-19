@@ -1079,6 +1079,8 @@ function getBackstory(){
 }
 
 function generate(){
+  resetFeatures();
+  
   // set titles
   document.getElementById("SHEET_PROF_TITLE").innerHTML = "Proficiencies"
   document.getElementById("SHEET_FEATURES_TITLE").innerHTML = "Features";
