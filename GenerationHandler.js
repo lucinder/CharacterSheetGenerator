@@ -35,10 +35,10 @@ const subclassOptions_wizard = new Array("Abjuration","Evocation","Divination","
 // proficiencies by class
 // format: saves, skills, weapons, armor, tools
 const stS = "STR", stD = "DEX", stC = "CON", stI = "INT", stW = "WIS", stA = "CHA";
-const wS = "Simple weapons", wM = "Martial weapons",wW = "Daggers, darts, slings, quarterstaffs, light crossbows",wR="hand crossbows, longswords, rapiers, shortswords",wD="Clubs, daggers, darts, javelins, maces, quarterstaffs, scimitars, sickles, slings, spears", wDw = "battleaxes, handaxes, light hammers, warhammers", wEw = "longswords, shortswords, shortbows, longbows";
+const wS = "Simple weapons", wM = "Martial weapons",wW = "Daggers, darts, slings, quarterstaffs, light crossbows",wR="hand crossbows, longswords, rapiers, shortswords",wD="Clubs, daggers, darts, javelins, maces, quarterstaffs, scimitars, sickles, slings, spears", wDw = "battleaxes, handaxes, light hammers, warhammers", wEw = "longswords, shortswords, shortbows, longbows", wDr = "rapiers, shortswords, hand crossbows.";
 const aL = "Light armor", aM = "Medium armor", aH = "Heavy armor", aA = "All armor", aS = "Shields";
 const sA = "Arcana", sAl = "Athletics", sAc = "Acrobatics", sAh = "Animal Handling", sI = "Investigation", sIn = "Insight", sS = "Stealth", sSh = "Sleight of Hand", sSv = "Survival", sN = "Nature", sH = "History", sP = "Perception", sPf = "Performance", sPs = "Persuasion", sD = "Deception", sIt = "Intimidation", sM = "Medicine", sR = "Religion";
-const tT = "Thieves' Tools", tTk = "Tinker's Tools", tH = "Herbalism Kit", tR = "_TOOL", tI = "_INSTRUMENT", tA = "_TOOLINSTRUMENT";
+const tT = "Thieves' Tools", tTk = "Tinker's Tools", tH = "Herbalism Kit", tS = "Smith's Tools", tB = "Brewer's Supplies", tM = "Mason's Tools", tR = "_TOOL", tI = "_INSTRUMENT", tA = "_TOOLINSTRUMENT";
 
 const proficiencies_artificer = new Array(new Array(stC,stI), new Array(sA,sH,sI,sM,sN,sP,sSh), new Array(wS), new Array(aL,aM,aS), new Array(tT,tTk,tR));
 const proficiencies_barbarian = new Array(new Array(stS, stC),new Array(sAh,sAl,sIt,sN,sP,sSv),new Array(wS,wM), new Array(aL,aM,aS),new Array());
@@ -121,10 +121,12 @@ const FEATURE_CENTAUR_1 = "<p><b><i>Charge.</i></b> If you move at least 30 feet
 const FEATURE_CENTAUR_2 = "<p><b><i>Hooves.</i></b> Your hooves are natural melee weapons, which you can use to make unarmed strikes. If you hit with them, you deal bludgeoning damage equal to 1d4 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike.</p>";
 const FEATURE_CENTAUR_3 = "<p><b><i>Equine Build.</i></b> You count as one size larger when determining your carrying capacity and the weight you can push or drag.<br>In addition, any climb that requires hands and feet is especially difficult for you because of your equine legs. When you make such a climb, each foot of movement costs you 4 extra feet, instead of the normal 1 extra foot.</p>";
 const FEATURE_CENTAUR_4 = "<p><b><i>Survivor.</i></b> You have proficiency in one of the following skills of your choice: Animal Handling, Medicine, Nature, or Survival.</p>";
+const proficiencies_centaur = new Array(sAh,sM,sN,sSv);
 
 // changeling
 const FEATURE_CHANGELING_1 = "<p><b><i>Shapechanger.</i></b> As an action, you can change your appearance and your voice. You determine the specifics of the changes, including your coloration, hair length, and sex. You can also adjust your height and weight, but not so much that your size changes. You can make yourself appear as a member of another race, though none of your game statistics change. You can't duplicate the appearance of a creature you've never seen, and you must adopt a form that has the same basic arrangement of limbs that you have. Your clothing and equipment aren't changed by this trait.<br>You stay in the new form until you use an action to revert to your true form or until you die.</p>";
 const FEATURE_CHANGELING_2 = "<p><b><i>Changeling Instincts.</i></b> You gain proficiency with two of the following skills of your choice: Deception, Insight, Intimidation, and Persuasion.</p>";
+const proficiencies_changeling = new Array(sD,sIn,sIt,sPs);
 
 // dragonborn variants
 const FEATURE_DRAGONBORN_RED = "<p><b><i>Chromatic Ancestry.</i></b> You have a red dragon ancestor, granting you a special magical affinity with the Fire element.</p>";
@@ -165,6 +167,7 @@ const FEATURE_DWARF_3 = "<p><b><i>Dwarven Combat Training.</b></i> You have prof
 const FEATURE_DWARF_4 = "<p><b><i>Tool Proficiency.</b></i> You gain proficiency with the artisan's tools of your choice: Smith's tools, brewer's supplies, or mason's tools.</p>";
 const FEATURE_DWARF_5 = "<p><b><i>Stonecunning.</i></b> Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus.</p>";
 const SPD_DWARF= "<p><b>Speed:</b> _SPD ft. Your speed is not reduced by wearing heavy armor.</p>";
+const proficiencies_dwarf = new Array(tS,tB,tM);
 // hill dwarf
 const FEATURE_DWARF_HILL = "<p><b><i>Dwarven Toughness.</b></i> Your hit point maximum increases by 1, and it increases by 1 every time you gain a level.</p>";
 // mtn dwarf
@@ -495,11 +498,23 @@ function handleProficiencies(){
  }
  
  // race proficiencies
- if(race === "Dwarf" && !(wpns.includes("Martial weapons"))){
-   wpns.push(wDw);
+ if(!(wpns.includes("Martial weapons"))){
+   if(race === "Dwarf"){
+     wpns.push(wDw);
+   }
+   if(race === "Elf" && (subrace === "High" || subrace === "Wood")){
+     wpns.push(wEw);
+   }
+   if(subrace === "Drow"){
+     wpns.push(wDr);
+   }
  }
- if(race === "Elf" && (subrace === "High" || subrace === "Wood") && !(wpns.includes("Martial weapons"))){
-   wpns.push(wEw);
+ if(subrace === "Mountain"){ // light + medium armor proficiency
+    if(!(amr.includes(aL))){ amr.push(aL); }
+    if(!(amr.includes(aM))){ amr.push(aM); }
+ }
+ if(race === "Elf" && !(skills.includes(sP))){ // keen senses
+   skills.push(sP);
  }
  
  // turn skills into txt
@@ -877,7 +892,14 @@ function handleRaceFeatures(){
     document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_MINOTAUR_4;
     langs.push("Minotaur");
     remove(LANGS, "Minotaur");
-  } 
+  }
+ 
+  // language randomization
+  for(let i = 0; i < randlangcount; i++){
+    let newLang = LANGS[Math.random()*LANGS.length];
+    langs.push(newLang);
+    remove(LANGS, newLang);
+  }
 }
 
 function handleBgFeatures(){
@@ -910,8 +932,15 @@ function calcHP(){
  hp = statModifiers[stats[2]]*lvl;
  if(clss === "Barbarian"){ // more if clauses will be add later
   hp += 12 + sum(XdY(lvl-1,12));
+ } else if(clss === "Fighter" || clss === "Paladin" || clss === "Ranger"){
+  hp += 10 + sum(XdY(lvl-1,10));
+ } else if(clss === "Wizard" || clss === "Sorcerer") {
+  hp += 6 + sum(XdY(lvl-1,6));
  } else {
   hp += 8 + sum(XdY(lvl-1,8));
+ }
+ if(subrace === "Hill"){ // hill dwarf feature
+   hp += lvl;
  }
 }
 
