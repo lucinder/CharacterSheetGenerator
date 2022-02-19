@@ -121,12 +121,12 @@ const FEATURE_CENTAUR_1 = "<p><b><i>Charge.</i></b> If you move at least 30 feet
 const FEATURE_CENTAUR_2 = "<p><b><i>Hooves.</i></b> Your hooves are natural melee weapons, which you can use to make unarmed strikes. If you hit with them, you deal bludgeoning damage equal to 1d4 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike.</p>";
 const FEATURE_CENTAUR_3 = "<p><b><i>Equine Build.</i></b> You count as one size larger when determining your carrying capacity and the weight you can push or drag.<br>In addition, any climb that requires hands and feet is especially difficult for you because of your equine legs. When you make such a climb, each foot of movement costs you 4 extra feet, instead of the normal 1 extra foot.</p>";
 const FEATURE_CENTAUR_4 = "<p><b><i>Survivor.</i></b> You have proficiency in one of the following skills of your choice: Animal Handling, Medicine, Nature, or Survival.</p>";
-const proficiencies_centaur = new Array(sAh,sM,sN,sSv);
+let proficiencies_centaur = new Array(sAh,sM,sN,sSv);
 
 // changeling
 const FEATURE_CHANGELING_1 = "<p><b><i>Shapechanger.</i></b> As an action, you can change your appearance and your voice. You determine the specifics of the changes, including your coloration, hair length, and sex. You can also adjust your height and weight, but not so much that your size changes. You can make yourself appear as a member of another race, though none of your game statistics change. You can't duplicate the appearance of a creature you've never seen, and you must adopt a form that has the same basic arrangement of limbs that you have. Your clothing and equipment aren't changed by this trait.<br>You stay in the new form until you use an action to revert to your true form or until you die.</p>";
 const FEATURE_CHANGELING_2 = "<p><b><i>Changeling Instincts.</i></b> You gain proficiency with two of the following skills of your choice: Deception, Insight, Intimidation, and Persuasion.</p>";
-const proficiencies_changeling = new Array(sD,sIn,sIt,sPs);
+let proficiencies_changeling = new Array(sD,sIn,sIt,sPs);
 
 // dragonborn variants
 const FEATURE_DRAGONBORN_RED = "<p><b><i>Chromatic Ancestry.</i></b> You have a red dragon ancestor, granting you a special magical affinity with the Fire element.</p>";
@@ -167,7 +167,6 @@ const FEATURE_DWARF_3 = "<p><b><i>Dwarven Combat Training.</b></i> You have prof
 const FEATURE_DWARF_4 = "<p><b><i>Tool Proficiency.</b></i> You gain proficiency with the artisan's tools of your choice: Smith's tools, brewer's supplies, or mason's tools.</p>";
 const FEATURE_DWARF_5 = "<p><b><i>Stonecunning.</i></b> Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus.</p>";
 const SPD_DWARF= "<p><b>Speed:</b> _SPD ft. Your speed is not reduced by wearing heavy armor.</p>";
-const proficiencies_dwarf = new Array(tS,tB,tM);
 // hill dwarf
 const FEATURE_DWARF_HILL = "<p><b><i>Dwarven Toughness.</b></i> Your hit point maximum increases by 1, and it increases by 1 every time you gain a level.</p>";
 // mtn dwarf
@@ -295,7 +294,7 @@ const FEATURE_MINOTAUR_4 = "<p><b><i>Imposing Presence.</b></i> You have profici
 // orc
 const FEATURE_ORC_1 = "<p><b><i>Aggressive.</i></b> As a bonus action, you can move up to your movement speed toward a hostile creature you can see or hear. You must end this move closer to the enemy than you started.</p>";
 const FEATURE_ORC_2 = "<p><b><i>Primal Intuition.</i></b> You have proficiency in two of the following skills of your choice: Animal Handling, Insight, Intimidation, Medicine, Perception, and Survival.</p>";
-const proficiencies_orc = new Array(sAh,sIn,sIt,sM,sP,sSv);
+let proficiencies_orc = new Array(sAh,sIn,sIt,sM,sP,sSv);
 
 // owlin
 // satyr
