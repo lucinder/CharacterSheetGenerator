@@ -401,7 +401,7 @@ function resetFeatures(){
   // reload race proficiency arrays that might have removes called
   proficiencies_changeling = new Array(sD,sIn,sIt,sPs);
   proficiencies_orc = new Array(sAh,sIn,sIt,sM,sP,sSv);
-  debugtxt += "<br>TEST: Orc array [5] = " + proficiencies_orc[5] + ", Changeling array [3] = " + proficiencies_changeling[3];
+  // debugtxt += "<br>TEST: Orc array [5] = " + proficiencies_orc[5] + ", Changeling array [3] = " + proficiencies_changeling[3];
  
   document.getElementById("SHEET_FEATURES_LV1_01").innerHTML = "";
   document.getElementById("SHEET_FEATURES_LV2_01").innerHTML = "";
@@ -535,7 +535,7 @@ function handleProficiencies(){
  }
  if(race === "Centaur"){ // survivor
    let j = Math.random()*proficiencies_centaur.length;
-   debugtxt += "<br>TEST: race prof = " + proficiencies_centaur[j];
+   debugtxt += "<br>TEST: n = " + j + ", race prof = " + proficiencies_centaur[j];
    if(!(skills.includes(proficiencies_centaur[j]))){
      skills.push(proficiencies_centaur[j]);
    }
@@ -543,7 +543,7 @@ function handleProficiencies(){
  if(race === "Orc"){ // primal intuition
    for(let i = 0; i < 2; i++){
      let j = Math.random()*proficiencies_orc.length;
-     debugtxt += "<br>TEST: race prof = " + proficiencies_orc[j];
+     debugtxt += "<br>TEST: n = " + j + ", race prof = " + proficiencies_orc[j];
      if(!(skills.includes(proficiencies_orc[j]))){
        skills.push(proficiencies_orc[j]);
        remove(proficiencies_orc, proficiencies_orc[j]);
@@ -553,7 +553,7 @@ function handleProficiencies(){
  if(race === "Changeling"){ // changeling instincts
    for(let i = 0; i < 2; i++){
      let j = Math.random()*proficiencies_changeling.length;
-     debugtxt += "<br>TEST: race prof = " + proficiencies_changeling[j];
+     debugtxt += "<br>TEST: n = " + j + ", race prof = " + proficiencies_changeling[j];
      if(!(skills.includes(proficiencies_changeling[j]))){
        skills.push(proficiencies_changeling[j]);
        remove(proficiencies_changeling, proficiencies_changeling[j]);
