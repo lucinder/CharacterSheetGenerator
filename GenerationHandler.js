@@ -353,7 +353,7 @@ function getIndex(arr, item){
 }
 
 function remove(arr, index){
- document.getElementById("DEBUG_TEXT").innerHTML = "TEST: n = " + index + ", is n considered a number? " + (typeof(index) === 'number');
+ // document.getElementById("DEBUG_TEXT").innerHTML = "TEST: n = " + index + ", is n considered a number? " + (typeof(index) === 'number');
  if(!(typeof(index) === 'number')){ index = getIndex(arr,index); } // if we're trying to remove an item instead of its index, get the index to remove
  let newArr = new Array();
  for(let i = 0, j = 0; i < arr.length; i++){
@@ -533,6 +533,7 @@ function handleProficiencies(){
  }
  if(race === "Centaur"){ // survivor
    let j = Math.random()*proficiencies_centaur.length;
+   document.getElementById("DEBUG_TEXT").innerHTML = "TEST: race prof = " + proficiencies_centaur[j];
    if(!(skills.includes(proficiencies_centaur[j]))){
      skills.push(proficiencies_centaur[j]);
    }
@@ -540,9 +541,10 @@ function handleProficiencies(){
  if(race === "Orc"){ // primal intuition
    for(let i = 0; i < 2; i++){
      let j = Math.random()*proficiencies_orc.length;
+     document.getElementById("DEBUG_TEXT").innerHTML = "TEST: race prof = " + proficiencies_orc[j];
      if(!(skills.includes(proficiencies_orc[j]))){
        skills.push(proficiencies_orc[j]);
-       remove(proficiencies_orc, j);
+       remove(proficiencies_orc, proficiencies_orc[j]);
      }
    }
    proficiencies_orc = new Array(sAh,sIn,sIt,sM,sP,sSv); // reset changeling array
@@ -550,9 +552,10 @@ function handleProficiencies(){
  if(race === "Changeling"){ // changeling instincts
    for(let i = 0; i < 2; i++){
      let j = Math.random()*proficiencies_changeling.length;
+     document.getElementById("DEBUG_TEXT").innerHTML = "TEST: race prof = " + proficiencies_changeling[j];
      if(!(skills.includes(proficiencies_changeling[j]))){
        skills.push(proficiencies_changeling[j]);
-       remove(proficiencies_changeling, j);
+       remove(proficiencies_changeling, proficiencies_changeling[j]);
      }
    }
    proficiencies_changeling = new Array(sD,sIn,sIt,sPs); // reset changeling array
