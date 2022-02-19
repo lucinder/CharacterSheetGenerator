@@ -398,6 +398,11 @@ function resetFeatures(){
   tls = new Array();
   langs = new Array("Common");
  
+  // reload race proficiency arrays that might have removes called
+  proficiencies_changeling = new Array(sD,sIn,sIt,sPs);
+  proficiencies_orc = new Array(sAh,sIn,sIt,sM,sP,sSv);
+  debugtxt += "<br>TEST: Orc array [5] = " + proficiencies_orc[5] + ", Changeling array [3] = " + proficiencies_changeling[3];
+ 
   document.getElementById("SHEET_FEATURES_LV1_01").innerHTML = "";
   document.getElementById("SHEET_FEATURES_LV2_01").innerHTML = "";
   document.getElementById("SHEET_FEATURES_LV3_01").innerHTML = "";
@@ -544,7 +549,6 @@ function handleProficiencies(){
        remove(proficiencies_orc, proficiencies_orc[j]);
      }
    }
-   proficiencies_orc = new Array(sAh,sIn,sIt,sM,sP,sSv); // reset changeling array
  }
  if(race === "Changeling"){ // changeling instincts
    for(let i = 0; i < 2; i++){
@@ -555,7 +559,6 @@ function handleProficiencies(){
        remove(proficiencies_changeling, proficiencies_changeling[j]);
      }
    }
-   proficiencies_changeling = new Array(sD,sIn,sIt,sPs); // reset changeling array
  }
  if(race === "Half-Orc" && !(skills.includes(sIt))) skills.push(sIt); // half orc menacing feature
  if(race === "Minotaur"){ // imposing presence - choose intimidation or persuasion
