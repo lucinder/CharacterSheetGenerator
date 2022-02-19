@@ -251,6 +251,11 @@ const FEATURE_GENASI_EARTH_2 = "<p><b><i>Merge with Stone.</b></i> You can cast 
 
 // half-elf
 
+// half-orc
+const FEATURE_HALFORC_1 = "<p><b><i>Menacing</i></b> You gain proficiency in the Intimidation skill.</p>";
+const FEATURE_HALFORC_2 = "<p><b><i>Relentless Endurance</i></b> When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. You can't use this feature again until you finish a long rest.</p>";
+const FEATURE_HALFORC_3 = "<p><b><i>Savage Attacks</i></b> When you score a critical hit with a melee weapon attack, you can roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit.</p>";
+
 // halfling
 
 // harengon
@@ -286,7 +291,12 @@ const FEATURE_MINOTAUR_1 = "<p><b><i>Horns.</b></i> Your horns are natural melee
 const FEATURE_MINOTAUR_2 = "<p><b><i>Goring Rush.</b></i> Immediately after you use the Dash action on your turn and move at least 20 feet, you can make one melee attack with your horns as a bonus action.</p>";
 const FEATURE_MINOTAUR_3 = "<p><b><i>Hammering Horns.</b></i> Immediately after you hit a creature with a melee attack as part of the Attack action on your turn, you can use a bonus action to attempt to shove that target with your horns. The target must be no more than one size larger than you and within 5 feet of you. Unless it succeeds on a Strength saving throw against a DC equal to 8 + your proficiency bonus + your Strength modifier, you push it up to 10 feet away from you.</p>";
 const FEATURE_MINOTAUR_4 = "<p><b><i>Imposing Presence.</b></i> You have proficiency in one of the following skills of your choice: Intimidation or Persuasion.</p>";
+
 // orc
+const FEATURE_ORC_1 = "<p><b><i>Aggressive.</i></b> As a bonus action, you can move up to your movement speed toward a hostile creature you can see or hear. You must end this move closer to the enemy than you started.</p>";
+const FEATURE_ORC_2 = "<p><b><i>Primal Intuition.</i></b> You have proficiency in two of the following skills of your choice: Animal Handling, Insight, Intimidation, Medicine, Perception, and Survival.</p>";
+const proficiencies_orc = new Array(sAh,sIn,sIt,sM,sP,sSv);
+
 // owlin
 // satyr
 // shifter
@@ -500,23 +510,57 @@ function handleProficiencies(){
  // race proficiencies
  if(!(wpns.includes(wM))){
    if(race === "Dwarf"){
-     wpns.push(wDw);
+     wpns.push(wDw); // dwarven combat training
+     if(!(tls.includes(tS))) tls.push(tS); // dwarven tool proficiencies
+     else if(!(tls.includes(tM))) tls.push(tM);
+     else if(!(tls.includes(tB))) tls.push(tB);
    }
    if(!(wpns.includes(wR))){ // rogue/bard weapons cover everything elvish 
-     if(race === "Elf" && (subrace === "High" || subrace === "Wood")){
+     if(race === "Elf" && (subrace === "High" || subrace === "Wood")){ // elf weapon training
        wpns.push(wEw);
      }
-     if(subrace === "Drow"){
+     if(subrace === "Drow"){ // drow weapons training
        wpns.push(wDr);
      }
    }
  }
- if(subrace === "Mountain"){ // light + medium armor proficiency
+ if(subrace === "Mountain"){ // dwarven armor training- light + medium armor proficiency
     if(!(amr.includes(aL))){ amr.push(aL); }
     if(!(amr.includes(aM))){ amr.push(aM); }
  }
  if(race === "Elf" && !(skills.includes(sP))){ // keen senses
    skills.push(sP);
+ }
+ if(race === "Centaur"){ // survivor
+   let j = Math.random()*proficiencies_centaur.length;
+   if(!(skills.includes(proficiencies_centaur[j]))){
+     skills.push(proficiencies_centaur[j]);
+   }
+ }
+ if(race === "Orc"){ // primal intuition
+   for(let i = 0; i < 2; i++){
+     let j = Math.random()*proficiencies_orc.length;
+     if(!(skills.includes(proficiencies_orc[j]))){
+       skills.push(proficiencies_orc[j]);
+       remove(proficiencies_orc, j);
+     }
+   }
+   proficiencies_orc = new Array(sAh,sIn,sIt,sM,sP,sSv); // reset changeling array
+ }
+ if(race === "Changeling"){ // changeling instincts
+   for(let i = 0; i < 2; i++){
+     let j = Math.random()*proficiencies_changeling.length;
+     if(!(skills.includes(proficiencies_changeling[j]))){
+       skills.push(proficiencies_changeling[j]);
+       remove(proficiencies_changeling, j);
+     }
+   }
+   proficiencies_changeling = new Array(sD,sIn,sIt,sPs); // reset changeling array
+ }
+ if(race === "Half-Orc" && !(skills.includes(sIt))) skills.push(sIt); // half orc menacing feature
+ if(race === "Minotaur"){ // imposing presence - choose intimidation or persuasion
+   if(!(skills.includes(sIt))) skills.push(sIt);
+   else if (!(skills.includes(sPs))) skills.push(sPs);
  }
  
  // turn skills into txt
@@ -894,6 +938,20 @@ function handleRaceFeatures(){
     document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_MINOTAUR_4;
     langs.push("Minotaur");
     remove(LANGS, "Minotaur");
+  }
+  if(race === "Half-Orc" || race === "Orc"){
+    document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DARKVISION;
+    if(race === "Half-Orc"){
+      document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_HALFORC_1;
+      document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_HALFORC_2;
+      document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_HALFORC_3;
+    } else {
+      document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_ORC_1;
+      document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_ORC_2;
+      document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_POWERFULBUILD;
+    }
+    langs.push("Orc");
+    remove(LANGS, "Orc");
   }
  
   // language randomization
