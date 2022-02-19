@@ -23,6 +23,19 @@
     <!-- GENERATION CODE -->
     <script src="NameGenerator.js"></script>
     <script src="GenerationHandler.js"></script>
+    <script> // debug toggle and key-gen
+	    document.addEventListener('DOMContentLoaded', () => {
+            'use strict';
+            document.addEventListener('keydown', event => {
+                const key = event.key.toLowerCase();
+                if (key == ' ' || key == '\n'){
+                    generate();
+                } else if (key == 'd') {
+                    toggleDbg();
+                }
+            });
+        });
+	</script>
   </head>
   <body>
     <!-- Header -->
