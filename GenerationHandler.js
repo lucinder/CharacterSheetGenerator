@@ -534,7 +534,7 @@ function handleProficiencies(){
    skills.push(sP);
  }
  if(race === "Centaur"){ // survivor
-   let j = Math.random()*proficiencies_centaur.length;
+   let j = (Math.random()*proficiencies_centaur.length)|0;
    debugtxt += "<br>TEST: n = " + j + ", race prof = " + proficiencies_centaur[j];
    if(!(skills.includes(proficiencies_centaur[j]))){
      skills.push(proficiencies_centaur[j]);
@@ -542,8 +542,8 @@ function handleProficiencies(){
  }
  if(race === "Orc"){ // primal intuition
    for(let i = 0; i < 2; i++){
-     let j = Math.random()*proficiencies_orc.length;
-     debugtxt += "<br>TEST: n = " + j + ", race prof = " + proficiencies_orc[j];
+     let j = (Math.random()*proficiencies_orc.length)|0;
+     // debugtxt += "<br>TEST: n = " + j + ", race prof = " + proficiencies_orc[j];
      if(!(skills.includes(proficiencies_orc[j]))){
        skills.push(proficiencies_orc[j]);
        remove(proficiencies_orc, proficiencies_orc[j]);
@@ -552,8 +552,8 @@ function handleProficiencies(){
  }
  if(race === "Changeling"){ // changeling instincts
    for(let i = 0; i < 2; i++){
-     let j = Math.random()*proficiencies_changeling.length;
-     debugtxt += "<br>TEST: n = " + j + ", race prof = " + proficiencies_changeling[j];
+     let j = (Math.random()*proficiencies_changeling.length)|0;
+     // debugtxt += "<br>TEST: n = " + j + ", race prof = " + proficiencies_changeling[j];
      if(!(skills.includes(proficiencies_changeling[j]))){
        skills.push(proficiencies_changeling[j]);
        remove(proficiencies_changeling, proficiencies_changeling[j]);
