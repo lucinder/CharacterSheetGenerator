@@ -1,4 +1,4 @@
-let debug = true; // global debug boolean
+let debug = false; // global debug boolean
 let debugtxt = "";
 
 const statModifiers = new Array(-5,-5,-4,-4,-3,-3,-2,-2,-1,-1,0,0,1,1,2,2,3,3,4,4,5);
@@ -1080,6 +1080,17 @@ function getBackstory(){
   return "To be determined!"; // eventually we'll replace this
 }
 
+function loadDbg(){
+  document.getElementById("DEBUG_TEXT").innerHTML = debugtxt;
+  if(!debug) document.getElementById("DEBUG_TEXT").hidden = true; // hide if debug is inactive
+  else document.getElementById("DEBUG_TEXT").hidden = false; // unhide if debug is activated
+}
+
+function toggleDbg(){
+  debug = !debug;
+  loadDbg();
+}
+
 function generate(){
   resetFeatures();
   
@@ -1141,5 +1152,5 @@ function generate(){
   document.getElementById("SHEET_BG_BACKSTORY").innerHTML = getBackstory();
   debugtxt += "<br>Checkpoint 5: Background section displayed properly!";
  
-  if(debug){ document.getElementById("DEBUG_TEXT").innerHTML = debugtxt; }
+  loadDbg();
 }
