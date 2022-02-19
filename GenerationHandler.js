@@ -346,7 +346,7 @@ function XdY(x,y){ // generates an xdy int array
 }
 
 function remove(arr, index){
- debugtxt += "TEST: n = " + index + ", is n considered a number? " + (typeof(index) === 'number') + ".";
+ debugtxt += "<br>TEST: n = " + index + ", is n considered a number? " + (typeof(index) === 'number') + ".";
  if(!(typeof(index) === 'number')){ 
    debugtxt += " Index of item: " + arr.indexOf(index);
    index = arr.indexOf(index);
@@ -391,6 +391,7 @@ function XdYkhZ(x,y,z){
 
 function resetFeatures(){
   LANGS = new Array("Aarakocra","Abyssal","Auran","Celestial","Elvish","Dwarvish","Draconic","Giant","Gith","Gnomish","Goblin","Infernal","Leonin","Loxodon","Merfolk","Minotaur","Orc","Primordial","Sylvan","Vedalken");
+  debugtxt = "";
   skills = new Array();
   wpns = new Array();
   amr = new Array();
@@ -529,7 +530,7 @@ function handleProficiencies(){
  }
  if(race === "Centaur"){ // survivor
    let j = Math.random()*proficiencies_centaur.length;
-   debugtxt += "\nTEST: race prof = " + proficiencies_centaur[j];
+   debugtxt += "<br>TEST: race prof = " + proficiencies_centaur[j];
    if(!(skills.includes(proficiencies_centaur[j]))){
      skills.push(proficiencies_centaur[j]);
    }
@@ -537,7 +538,7 @@ function handleProficiencies(){
  if(race === "Orc"){ // primal intuition
    for(let i = 0; i < 2; i++){
      let j = Math.random()*proficiencies_orc.length;
-     debugtxt += "\nTEST: race prof = " + proficiencies_orc[j];
+     debugtxt += "<br>TEST: race prof = " + proficiencies_orc[j];
      if(!(skills.includes(proficiencies_orc[j]))){
        skills.push(proficiencies_orc[j]);
        remove(proficiencies_orc, proficiencies_orc[j]);
@@ -548,7 +549,7 @@ function handleProficiencies(){
  if(race === "Changeling"){ // changeling instincts
    for(let i = 0; i < 2; i++){
      let j = Math.random()*proficiencies_changeling.length;
-     debugtxt += "\nTEST: race prof = " + proficiencies_changeling[j];
+     debugtxt += "<br>TEST: race prof = " + proficiencies_changeling[j];
      if(!(skills.includes(proficiencies_changeling[j]))){
        skills.push(proficiencies_changeling[j]);
        remove(proficiencies_changeling, proficiencies_changeling[j]);
@@ -660,7 +661,7 @@ function handleClassFeatures(){
      let sdc = 8 + sam;
      document.getElementById("SHEET_FEATURES_SPELLCASTING_DESCRIPTION").innerHTML = FEATURE_ARTIFICER_SPELLCASTING.replace("_SPELLATKMODIFIER",sam).replace("_SPELLSAVAILABLE",sav).replace("_SPELLSAVEDC",sdc);
    }
-   debugtxt += "\nCheckpoint 2: Class Features generated!";
+   debugtxt += "<br>Checkpoint 2: Class Features generated!";
 }
 
 
@@ -1105,7 +1106,7 @@ function generate(){
   } else {
     document.getElementById("SHEET_BASIC_RACECLASS").innerHTML = "" + race + " (" + subrace + ") " + clss + " (" + subclass + ") " + lvl;
   }
-  debugtxt += "\nCheckpoint 1: Race/Class displayed properly!";
+  debugtxt += "<br>Checkpoint 1: Race/Class displayed properly!";
  
   rollStats();
   handleProficiencies();
@@ -1120,7 +1121,7 @@ function generate(){
   document.getElementById("SHEET_BASIC_STATS_INT").innerHTML = "INT: " + stats[3] + " (" + statModifiers[stats[3]]+ ")";
   document.getElementById("SHEET_BASIC_STATS_WIS").innerHTML = "WIS: " + stats[4] + " (" + statModifiers[stats[4]]+ ")";
   document.getElementById("SHEET_BASIC_STATS_CHA").innerHTML = "CHA: " + stats[5] + " (" + statModifiers[stats[5]]+ ")";
-  debugtxt += "\nCheckpoint 3: Stats displayed properly!";
+  debugtxt += "<br>Checkpoint 3: Stats displayed properly!";
  
   calcHP();
   calcAC();
@@ -1130,13 +1131,13 @@ function generate(){
   document.getElementById("SHEET_BASIC_STATS_HP").innerHTML = "<b>HP:</b> " + hp;
   document.getElementById("SHEET_BASIC_STATS_AC").innerHTML = "<b>AC:</b> " + ac + " (" + armorType + ")";
   document.getElementById("SHEET_BASIC_STATS_SPD").innerHTML = spdtxt;
-  debugtxt += "\nCheckpoint 4: HP/AC/speed displayed properly!";
+  debugtxt += "<br>Checkpoint 4: HP/AC/speed displayed properly!";
  
   // set background stuff
   document.getElementById("SHEET_BG").innerHTML = "Background: " + bg;
   document.getElementById("SHEET_BG_FEATURE").innerHTML = getBgFeature();
   document.getElementById("SHEET_BG_BACKSTORY").innerHTML = getBackstory();
-  debugtxt += "\nCheckpoint 5: Background section displayed properly!";
+  debugtxt += "<br>Checkpoint 5: Background section displayed properly!";
  
   if(debug){ document.getElementById("DEBUG_TEXT").innerHTML = debugtxt; }
 }
