@@ -599,7 +599,6 @@ function handleProficiencies(){
 }
 
 function handleClassFeatures(){
-  resetFeatures();
    if(clss === "Artificer"){
       document.getElementById("SHEET_FEATURES_LV1_01").innerHTML = FEATURE_ARTIFICER_1_0;
       if(lvl>1){
