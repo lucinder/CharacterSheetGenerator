@@ -1082,8 +1082,11 @@ function getBackstory(){
 
 function loadDbg(){
   document.getElementById("DEBUG_TEXT").innerHTML = debugtxt;
-  if(!debug) document.getElementById("DEBUG_TEXT").hidden = true; // hide if debug is inactive
-  else document.getElementById("DEBUG_TEXT").hidden = false; // unhide if debug is activated
+  if(debug){
+   document.getElementById("DEBUG_TEXT").hidden = false; // show if debug is activated
+  } else {
+   document.getElementById("DEBUG_TEXT").hidden = true; // hide otherwise
+  }
 }
 
 function toggleDbg(){
