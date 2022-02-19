@@ -11,8 +11,8 @@
 - Dragonborn
 - Dwarf
 - Elf
-- Fairy*
-- Firbolg*
+- Fairy
+- Firbolg
 - Genasi*
 - Gith*
 - Gnome*
