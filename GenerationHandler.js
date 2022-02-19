@@ -728,7 +728,7 @@ function handleRaceFeatures(){
    }
    if(subrace === "Drow"){
      document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_ELF_DROW_1;
-     document.getElementById("SHEET_FEATURES_RACE_06").innerHTML = FEATURE_ELF_DROW__2;
+     document.getElementById("SHEET_FEATURES_RACE_06").innerHTML = FEATURE_ELF_DROW_2;
    }
    if(subrace === "Eladrin"){
      document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_ELF_ELADRIN_1;
