@@ -1131,7 +1131,7 @@ function generate(){
   document.getElementById("SHEET_BASIC_STATS_HP").innerHTML = "HP: " + hp;
   document.getElementById("SHEET_BASIC_STATS_AC").innerHTML = "AC: " + ac + " (" + armorType + ")";
   document.getElementById("SHEET_BASIC_STATS_SPD").innerHTML = spdtxt;
-  document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 4 reached in code! HP/AC/speed displayed properly!";
+  // document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 4 reached in code! HP/AC/speed displayed properly!";
  
   // set background stuff
   document.getElementById("SHEET_BG").innerHTML = "Background: " + bg;
