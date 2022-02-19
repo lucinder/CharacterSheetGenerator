@@ -19,7 +19,7 @@
 - Goblin*
 - Goliath*
 - Half-Elf*
-- Half-Orc*
+- Half-Orc
 - Halfling*
 - Harengon*
 - Hexblood*
@@ -33,7 +33,7 @@
 - Loxodon*
 - Merfolk*
 - Minotaur
-- Orc*
+- Orc
 - Owlin*
 - Reborn*
 - Satyr*
