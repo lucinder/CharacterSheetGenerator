@@ -219,9 +219,51 @@ const FEATURE_FIRBOLG_2 = "<p><b><i>Hidden Step.</i></b> As a bonus action, you 
 const FEATURE_FIRBOLG_3 = "<p><b><i>Speech of Beast and Leaf.</i></b> You have the ability to communicate in a limited manner with Beasts, Plants, and vegetation. They can understand the meaning of your words, though you have no special ability to understand them in return. You have advantage on all Charisma checks you make to influence them.</p>";
 
 // fire genasi
+const FEATURE_GENASI_FIRE_1 = "<p><b><i>Fire Resistance.</b></i> You have resistance to fire damage.</p>";
+const FEATURE_GENASI_FIRE_2 = "<p><b><i>Reach to the Blaze.</b></i> You know the produce flame cantrip. Once you reach 3rd level, you can cast the burning hands spell once with this trait as a 1st-level spell, and you regain the ability to cast it this way when you finish a long rest. Constitution is your spellcasting ability for these spells.</p>";
 // air genasi
+const FEATURE_GENASI_AIR_1 = "<p><b><i>Unending Breath.</b></i> You can hold your breath indefinitely while you're not incapacitated.</p>";
+const FEATURE_GENASI_AIR_2 = "<p><b><i>Mingle with the Wind.</b></i> You can cast the levitate spell once with this trait, requiring no material components, and you regain the ability to cast it this way when you finish a long rest. Constitution is your spellcasting ability for this spell.</p>";
 // water genasi
+const FEATURE_GENASI_WATER_1 = "<p><b><i>Acid Resistance.</b></i> You have resistance to acid damage.</p>";
+const FEATURE_GENASI_WATER_2 = "<p><b><i>Amphibious.</b></i> You can breathe air and water.</p>";
+const FEATURE_GENASI_WATER_3 = "<p><b><i>Swim.</b></i> You have a swimming speed of 30 feet.</p>";
+const FEATURE_GENASI_WATER_4 = "<p><b><i>Call to the Wave.</b></i> You know the shape water cantrip. When you reach 3rd level, you can cast the create or destroy water spell as a 2nd-level spell once with this trait, and you regain the ability to cast it this way when you finish a long rest. Constitution is your spellcasting ability for these spells.</p>";
 // earth genasi
+const FEATURE_GENASI_EARTH_1 = "<p><b><i>Earth Walk.</b></i> You can move across difficult terrain made of earth or stone without expending extra movement.</p>";
+const FEATURE_GENASI_EARTH_2 = "<p><b><i>Merge with Stone.</b></i> You can cast the pass without trace spell once with this trait, requiring no material components, and you regain the ability to cast it this way when you finish a long rest. Constitution is your spellcasting ability for this spell.</p>";
+
+// gith
+// githzerai
+// githyanki
+
+// gnome
+// deep gnome
+// forest gnome
+// rock gnome
+
+// goblin
+
+// goliath
+
+// half-elf
+
+// halfling
+
+// harengon
+
+// hobgoblin
+
+// human
+
+// kalashtar
+
+// kenku
+
+// kobold
+
+// leonin
+
 // lizardfolk
 const FEATURE_LIZARDFOLK_1 = "<p><b><i>Swim Speed.</b></i> You have a swimming speed of 30 feet.</p>";
 const FEATURE_LIZARDFOLK_2 = "<p><b><i>Cunning Artisan.</b></i> As part of a short rest, you can harvest bone and hide from a slain beast, construct, dragon, monstrosity, or plant creature of size small or larger to create one of the following items: a shield, a club, a javelin, or 1d4 darts or blowgun needles. To use this trait, you need a blade, such as a dagger, or appropriate artisan's tools, such as leatherworker's tools.</p>";
@@ -229,9 +271,13 @@ const FEATURE_LIZARDFOLK_3 = "<p><b><i>Hold Breath.</b></i> You can hold your br
 const FEATURE_LIZARDFOLK_4 = "<p><b><i>Hunter's Lore.</b></i> You gain proficiency with two of the following skills of your choice: Animal Handling, Nature, Perception, Stealth, and Survival.</p>";
 const FEATURE_LIZARDFOLK_5 = "<p><b><i>Natural Armor.</b></i> You have tough, scaly skin. When you aren't wearing armor, your AC is 13 + your Dexterity modifier. You can use your natural armor to determine your AC if the armor you wear would leave you with a lower AC. A shield's benefits apply as normal while you use your natural armor.</p>";
 const FEATURE_LIZARDFOLK_6 = "<p><b><i>Hungry Jaws.</b></i> In battle, you can throw yourself into a vicious feeding frenzy. As a bonus action, you can make a special attack with your bite. If the attack hits, it deals its normal damage, and you gain temporary hit points equal to your Constitution modifier (minimum of 1), and you can't use this trait again until you finish a short or long rest.</p>";
+
+// loxodon
+
 // merfolk
 // green mer
 // blue mer
+
 // minotaur
 const FEATURE_MINOTAUR_1 = "<p><b><i>Horns.</b></i> Your horns are natural melee weapons, which you can use to make unarmed strikes. If you hit with them, you deal piercing damage equal to 1d6 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike.</p>";
 const FEATURE_MINOTAUR_2 = "<p><b><i>Goring Rush.</b></i> Immediately after you use the Dash action on your turn and move at least 20 feet, you can make one melee attack with your horns as a bonus action.</p>";
@@ -781,6 +827,30 @@ function handleRaceFeatures(){
     remove(LANGS, "Elvish");
     langs.push("Giant");
     remove(LANGS, "Giant");
+  }
+  if(race === "Genasi"){
+    document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DARKVISION;
+    if(subrace === "Fire"){
+      document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_GENASI_FIRE_1;
+      document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_GENASI_FIRE_2;
+    }
+    if(subrace === "Earth"){
+      document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_GENASI_EARTH_1;
+      document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_GENASI_EARTH_2;
+    }
+    if(subrace === "Air"){
+      document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_GENASI_AIR_1;
+      document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_GENASI_AIR_2;
+    }
+   if(subrace === "Water"){
+      document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_GENASI_WATER_1;
+      document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_GENASI_WATER_2;
+      document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_GENASI_WATER_3;
+      document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_GENASI_WATER_4;
+      spdtxt = SPD_SWIM_DEFAULT;
+    }
+    langs.push("Primordial");
+    remove(LANGS, "Primordial");
   }
   if(race === "Lizardfolk"){
     document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_LIZARDFOLK_1;
