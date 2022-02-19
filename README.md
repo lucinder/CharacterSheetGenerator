@@ -13,7 +13,7 @@
 - Elf
 - Fairy
 - Firbolg
-- Genasi*
+- Genasi
 - Gith*
 - Gnome*
 - Goblin*
