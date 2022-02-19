@@ -35,7 +35,7 @@ const subclassOptions_wizard = new Array("Abjuration","Evocation","Divination","
 // proficiencies by class
 // format: saves, skills, weapons, armor, tools
 const stS = "STR", stD = "DEX", stC = "CON", stI = "INT", stW = "WIS", stA = "CHA";
-const wS = "Simple weapons", wM = "Martial weapons",wW = "Daggers, darts, slings, quarterstaffs, light crossbows",wR="hand crossbows, longswords, rapiers, shortswords",wD="Clubs, daggers, darts, javelins, maces, quarterstaffs, scimitars, sickles, slings, spears", wDw = "battleaxes, handaxes, light hammers, warhammers";
+const wS = "Simple weapons", wM = "Martial weapons",wW = "Daggers, darts, slings, quarterstaffs, light crossbows",wR="hand crossbows, longswords, rapiers, shortswords",wD="Clubs, daggers, darts, javelins, maces, quarterstaffs, scimitars, sickles, slings, spears", wDw = "battleaxes, handaxes, light hammers, warhammers", wEw = "longswords, shortswords, shortbows, longbows";
 const aL = "Light armor", aM = "Medium armor", aH = "Heavy armor", aA = "All armor", aS = "Shields";
 const sA = "Arcana", sAl = "Athletics", sAc = "Acrobatics", sAh = "Animal Handling", sI = "Investigation", sIn = "Insight", sS = "Stealth", sSh = "Sleight of Hand", sSv = "Survival", sN = "Nature", sH = "History", sP = "Perception", sPf = "Performance", sPs = "Persuasion", sD = "Deception", sIt = "Intimidation", sM = "Medicine", sR = "Religion";
 const tT = "Thieves' Tools", tTk = "Tinker's Tools", tH = "Herbalism Kit", tR = "_TOOL", tI = "_INSTRUMENT", tA = "_TOOLINSTRUMENT";
@@ -492,6 +492,14 @@ function handleProficiencies(){
  // fill tools field
  for(let i = 0; i < profs[4].length; i++){
   tls.push(profs[4][i]);
+ }
+ 
+ // race proficiencies
+ if(race === "Dwarf" && !(wpns.includes("Martial weapons"))){
+   wpns.push(wDw);
+ }
+ if(race === "Elf" && (subrace === "High" || subrace === "Wood") && !(wpns.includes("Martial weapons"))){
+   wpns.push(wEw);
  }
  
  // turn skills into txt
