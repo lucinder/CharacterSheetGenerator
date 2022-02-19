@@ -88,6 +88,7 @@ const SPD_DEFAULT = "<p><b>Speed:</b> _SPD ft.</p>";
 const SPD_SWIM_DEFAULT = "<p><b>Speed:</b> _SPD ft., swim 30 ft.</p>";
 const SPD_FLY_DEFAULT = "<p><b>Speed:</b> _SPD ft., fly 30 ft.</p>";
 const LANGS = new Array("Aarakocra","Abyssal","Auran","Celestial","Elvish","Dwarvish","Draconic","Giant","Gith","Gnomish","Goblin","Infernal","Leonin","Loxodon","Merfolk","Minotaur","Orc","Primordial","Sylvan","Vedalken");
+
 const FEATURE_DARKVISION = "<p><b><i>Darkvision.</b></i> You can see in dim light within 60 feet of you as if it were bright light and in darkness as if it were dim light. You discern colors in that darkness only as shades of gray.</p>";
 const FEATURE_POWERFULBUILD = "<p><b><i>Powerful Build.</i></b> You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift.</p>";
 const FEATURE_CREATURETYPE_FEY = "<p><b><i>Fey.</i></b> Your creature type is fey, rather than humanoid.</p>";
@@ -208,7 +209,15 @@ const FEATURE_ELF_WOOD_1 = "<p><b><i>Fleet of Foot.</i></b> Your base walking sp
 const FEATURE_ELF_WOOD_2 = "<p><b><i>Mask of the Wild.</i></b> You can attempt to hide even when you are only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.</p>";
 
 // fairy
+const FEATURE_FAIRY_1 = "<p><b><i>Fairy Magic.</i></b> You know the druidcraft cantrip. Starting at 3rd level, you can cast the faerie fire spell with this trait. Starting at 5th level, you can also cast the enlarge/reduce spell with this trait. Once you cast faerie fire or enlarge/reduce with this trait, you can't cast that spell with it again until you finish a long rest. You can also cast either of those spells using any spell slots you have of the appropriate level.<br>Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells when you cast them with this trait (choose when you select this race).</p>";
+const FEATURE_FAIRY_2 = "<p><b><i>Flight.</i></b> Because of your wings, you have a flying speed equal to your walking speed. You can't use this flying speed if you're wearing medium or heavy armor.</p>";
+const SPD_FAIRY = "<p><b>Speed:</b> _SPD ft., fly equal to your walking speed</p>";
+
 // firbolg
+const FEATURE_FIRBOLG_1 = "<p><b><i>Firbolg Magic.</i></b> You can cast detect magic and disguise self spells with this trait. When you use this version of disguise self, you can seem up to 3 feet shorter or taller. Once you cast either of these spells with this trait, you can't cast that spell with it again until you finish a long rest. You can also cast these spells using any spell slots you have.<br>Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells when you cast them with this trait (choose when you select this race).</p>";
+const FEATURE_FIRBOLG_2 = "<p><b><i>Hidden Step.</i></b> As a bonus action, you can magically turn invisible until the start of your next turn or until you attack, make a damage roll, or force someone to make a saving throw. You can use this trait a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.</p>";
+const FEATURE_FIRBOLG_3 = "<p><b><i>Speech of Beast and Leaf.</i></b> You have the ability to communicate in a limited manner with Beasts, Plants, and vegetation. They can understand the meaning of your words, though you have no special ability to understand them in return. You have advantage on all Charisma checks you make to influence them.</p>";
+
 // fire genasi
 // air genasi
 // water genasi
@@ -259,6 +268,7 @@ let skills = new Array(); // skill proficiency list
 let wpns = new Array(); // weapon proficiency list
 let amr = new Array(); // armor proficiency list
 let tls = new Array(); // tool proficiency list
+let langs = new Array("Common"); // language proficiency list
 
 function sum(arr){
  let total = 0;
@@ -276,7 +286,16 @@ function XdY(x,y){ // generates an xdy int array
   return results;
 }
 
+function getIndex(arr, item){
+  let index = -1;
+  for(let i = 0; i < arr.length; i++){
+    if(item === arr[i]){ index = i; }
+  }
+  return index;
+}
+
 function remove(arr, index){
+ if(!(typeof(index) === 'number')){ index = getIndex(arr,index); } // if we're trying to remove an item instead of its index, get the index to remove
  let newArr = new Array();
  for(let i = 0, j = 0; i < arr.length; i++){
     if(i != index){
@@ -316,6 +335,13 @@ function XdYkhZ(x,y,z){
 }
 
 function resetFeatures(){
+  LANGS = new Array("Aarakocra","Abyssal","Auran","Celestial","Elvish","Dwarvish","Draconic","Giant","Gith","Gnomish","Goblin","Infernal","Leonin","Loxodon","Merfolk","Minotaur","Orc","Primordial","Sylvan","Vedalken");
+  skills = new Array();
+  wpns = new Array();
+  amr = new Array();
+  tls = new Array();
+  langs = new Array("Common");
+ 
   document.getElementById("SHEET_FEATURES_LV1_01").innerHTML = "";
   document.getElementById("SHEET_FEATURES_LV2_01").innerHTML = "";
   document.getElementById("SHEET_FEATURES_LV3_01").innerHTML = "";
@@ -523,14 +549,21 @@ function handleClassFeatures(){
    document.getElementById("DEBUG_TEXT").innerHTML = "Checkpoint 2 reached in code! Class features generated!";
 }
 
+
+
 function handleRaceFeatures(){
   spd = 30;
+  randlangcount = 0;
   spdtxt = SPD_DEFAULT;
   if(race === "Aarakocra"){
     document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_AARAKOCRA_1;
     document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_AARAKOCRA_2;
     spd = 25;
     spdtxt = SPD_AARAKOCRA;
+    langs.push("Aarakocra");
+    remove(LANGS, "Aarakocra");
+    langs.push("Auran");
+    remove(LANGS, "Auran");
   }
   if(race === "Aasimar"){
     document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_AASIMAR_1;
@@ -542,10 +575,12 @@ function handleRaceFeatures(){
     }
     if(subrace === "Scourge" && lvl > 2){
        document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_AASIMAR_SCOURGE_1;
-     }
+    }
     if(subrace === "Fallen" && lvl > 2){
        document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_AASIMAR_FALLEN_1;
-     }
+    }
+    langs.push("Celestial");
+    remove(LANGS, "Celestial");
   }
   if(race === "Bugbear"){
     document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DARKVISION;
@@ -553,6 +588,8 @@ function handleRaceFeatures(){
     document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_BUGBEAR_1;
     document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_BUGBEAR_2;
     document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_BUGBEAR_3;
+    langs.push("Goblin");
+    remove(LANGS, "Goblin");
   }
  if(race === "Centaur"){
     document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_CREATURETYPE_FEY;
@@ -561,10 +598,13 @@ function handleRaceFeatures(){
     document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_CENTAUR_3;
     document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_CENTAUR_4;
     spd = 40;
+    langs.push("Sylvan");
+    remove(LANGS, "Sylvan");
   }
   if(race === "Changeling"){
     document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_CHANGELING_1;
     document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_CHANGELING_2;
+    randlangcount = 2;
   }
   if(race === "Dragonborn"){
     let ddc = 8 + statModifiers[stats[2]] + pBonuses[lvl]; // 8+prof+conmod
@@ -647,6 +687,8 @@ function handleRaceFeatures(){
        document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_DRAGONBORN_GEM_2;
        if(lvl>4) document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_DRAGONBORN_GEM_3; // 5th level feature
      }
+    langs.push("Draconic");
+    remove(LANGS, "Draconic");
   }
   if(race === "Dwarf"){
     spdtxt = SPD_DWARF;
@@ -664,7 +706,11 @@ function handleRaceFeatures(){
     } else if(subrace === "Duergar"){
       document.getElementById("SHEET_FEATURES_RACE_06").innerHTML = FEATURE_DWARF_DUERGAR_1;
       document.getElementById("SHEET_FEATURES_RACE_07").innerHTML = FEATURE_SUNSENS;
+      langs.push("Undercommon");
+      remove(LANGS, "Undercommon");
     }
+    langs.push("Dwarvish");
+    remove(LANGS, "Dwarvish");
   }
   if(race === "Elf"){
    let edc = 8 + pBonuses[lvl] + statModifiers[stats[5]]; // cha save dc for eladrin features
@@ -677,6 +723,8 @@ function handleRaceFeatures(){
      document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_ELF_AVARIEL_1;
      document.getElementById("SHEET_FEATURES_RACE_06").innerHTML = FEATURE_ELF_AVARIEL_2;
      spdtxt = SPD_FLY_DEFAULT;
+     langs.push("Auran");
+     remove(LANGS, "Auran");
    }
    if(subrace === "Drow"){
      document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_ELF_DROW_1;
@@ -690,6 +738,7 @@ function handleRaceFeatures(){
      if(subrace === "High"){
        document.getElementById("SHEET_FEATURES_RACE_06").innerHTML = FEATURE_ELF_HIGH_2;
        document.getElementById("SHEET_FEATURES_RACE_07").innerHTML = FEATURE_ELF_HIGH_3;
+       randlangcount = 1;
      } else {
        document.getElementById("SHEET_FEATURES_RACE_06").innerHTML = FEATURE_ELF_WOOD_1;
        document.getElementById("SHEET_FEATURES_RACE_07").innerHTML = FEATURE_ELF_WOOD_2;
@@ -706,11 +755,32 @@ function handleRaceFeatures(){
      document.getElementById("SHEET_FEATURES_RACE_07").innerHTML = FEATURE_ELF_SEA_3;
      document.getElementById("SHEET_FEATURES_RACE_08").innerHTML = FEATURE_ELF_SEA_4;
      spdtxt = SPD_SWIM_DEFAULT;
+     langs.push("Aquan");
+     remove(LANGS, "Aquan");
    }
    if(subrace === "Shadar-Kai"){
      document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_ELF_SHADAR_1;
      document.getElementById("SHEET_FEATURES_RACE_06").innerHTML = FEATURE_ELF_SHADAR_2;
    }
+    langs.push("Elvish");
+    remove(LANGS, "Elvish");
+  }
+  if(race === "Fairy"){
+    document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_FAIRY_1;
+    document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_FAIRY_2;
+    spdtxt = SPD_FAIRY;
+    langs.push("Sylvan");
+    remove(LANGS, "Sylvan");
+  }
+  if(race === "Firbolg"){
+    document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_FIRBOLG_1;
+    document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_FIRBOLG_2;
+    document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_POWERFULBUILD;
+    document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_FIRBOLG_3;
+    langs.push("Elvish");
+    remove(LANGS, "Elvish");
+    langs.push("Giant");
+    remove(LANGS, "Giant");
   }
   if(race === "Lizardfolk"){
     document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_LIZARDFOLK_1;
@@ -719,18 +789,30 @@ function handleRaceFeatures(){
     document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_LIZARDFOLK_4;
     document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_LIZARDFOLK_5;
     document.getElementById("SHEET_FEATURES_RACE_06").innerHTML = FEATURE_LIZARDFOLK_6;
+    langs.push("Draconic");
+    remove(LANGS, "Draconic");
   }
   if(race === "Minotaur"){
     document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_MINOTAUR_1;
     document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_MINOTAUR_2;
     document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_MINOTAUR_3;
     document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_MINOTAUR_4;
-  }
-  
+    langs.push("Minotaur");
+    remove(LANGS, "Minotaur");
+  } 
 }
 
 function handleBgFeatures(){
   // to be added
+}
+
+function handleLangs(){
+  let ltext = "<b>Languages:</b> ";
+  for(let i = 0; i < langs.length; i++){
+    ltext += langs[i];
+    if(i != langs.length-1) ltext += ", ";
+  }
+  document.getElementById("SHEET_PROF_LANGS").innerHTML = ltext;
 }
 
 function rollStats(){
@@ -862,6 +944,7 @@ function generate(){
   handleClassFeatures();
   handleRaceFeatures();
   handleBgFeatures();
+  handleLangs();
  
   document.getElementById("SHEET_BASIC_STATS_STR").innerHTML = "STR: " + stats[0] + " (" + statModifiers[stats[0]]+ ")";
   document.getElementById("SHEET_BASIC_STATS_DEX").innerHTML = "DEX: " + stats[1] + " (" + statModifiers[stats[1]]+ ")";
