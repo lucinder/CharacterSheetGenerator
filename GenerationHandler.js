@@ -1008,7 +1008,7 @@ function handleRaceFeatures(){
  
   // language randomization
   for(let i = 0; i < randlangcount; i++){
-    let newLang = LANGS[Math.random()*LANGS.length];
+    let newLang = LANGS[(Math.random()*LANGS.length)|0];
     langs.push(newLang);
     remove(LANGS, newLang);
   }
