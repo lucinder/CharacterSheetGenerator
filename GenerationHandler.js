@@ -36,24 +36,26 @@ const subclassOptions_wizard = new Array("Abjuration","Evocation","Divination","
 // proficiencies by class
 // format: saves, skills, weapons, armor, tools
 const stS = "STR", stD = "DEX", stC = "CON", stI = "INT", stW = "WIS", stA = "CHA";
-const wS = "Simple weapons", wM = "Martial weapons",wW = "Daggers, darts, slings, quarterstaffs, light crossbows",wR="hand crossbows, longswords, rapiers, shortswords",wD="Clubs, daggers, darts, javelins, maces, quarterstaffs, scimitars, sickles, slings, spears", wDw = "battleaxes, handaxes, light hammers, warhammers", wEw = "longswords, shortswords, shortbows, longbows", wDr = "rapiers, shortswords, hand crossbows.";
+const wS = "Simple weapons", wM = "Martial weapons",
+      wSs = "shortswords", wLs = "longswords", wGs = "greatswords", wLc = "light crossbows", wHc = "hand crossbows", wRp = "rapiers", wSb = "shortbows", wLb = "longbows", wCb = "clubs", wDg = "daggers", wDt = "darts", wJ = "javelins", wMc = "maces", wQ = "quarterstaffs", wSc = "scimitars", wSk = "sickles", wSl = "slings", wSp = "spears", wBa = "battleaxes", wHa = "handaxes", wLh = "light hammers", wWh = "warhammers";
+      // wW = "Daggers, darts, slings, quarterstaffs, light crossbows",wR="hand crossbows, longswords, rapiers, shortswords",wD="Clubs, daggers, darts, javelins, maces, quarterstaffs, scimitars, sickles, slings, spears", wDw = "battleaxes, handaxes, light hammers, warhammers", wEw = "longswords, shortswords, shortbows, longbows", wDr = "rapiers, shortswords, hand crossbows.", wG = "shortswords, longswords, greatswords";
 const aL = "Light armor", aM = "Medium armor", aH = "Heavy armor", aA = "All armor", aS = "Shields";
 const sA = "Arcana", sAl = "Athletics", sAc = "Acrobatics", sAh = "Animal Handling", sI = "Investigation", sIn = "Insight", sS = "Stealth", sSh = "Sleight of Hand", sSv = "Survival", sN = "Nature", sH = "History", sP = "Perception", sPf = "Performance", sPs = "Persuasion", sD = "Deception", sIt = "Intimidation", sM = "Medicine", sR = "Religion";
 const tT = "Thieves' Tools", tTk = "Tinker's Tools", tH = "Herbalism Kit", tS = "Smith's Tools", tB = "Brewer's Supplies", tM = "Mason's Tools", tR = "_TOOL", tI = "_INSTRUMENT", tA = "_TOOLINSTRUMENT";
 
 const proficiencies_artificer = new Array(new Array(stC,stI), new Array(sA,sH,sI,sM,sN,sP,sSh), new Array(wS), new Array(aL,aM,aS), new Array(tT,tTk,tR));
 const proficiencies_barbarian = new Array(new Array(stS, stC),new Array(sAh,sAl,sIt,sN,sP,sSv),new Array(wS,wM), new Array(aL,aM,aS),new Array());
-const proficiencies_bard = new Array(new Array(stD, stA),new Array(sA,sAl,sAc,sAh,sI,sIn,sIt,sS,sSh,sSv,sN,sH,sP,sPf,sPs,sD,sM,sR),new Array(wS,wR),new Array(aL),new Array(tI,tI,tI));
+const proficiencies_bard = new Array(new Array(stD, stA),new Array(sA,sAl,sAc,sAh,sI,sIn,sIt,sS,sSh,sSv,sN,sH,sP,sPf,sPs,sD,sM,sR),new Array(wS,wHc,wLs,wRp,wSs),new Array(aL),new Array(tI,tI,tI));
 const proficiencies_cleric = new Array(new Array(stW, stA),new Array(sH,sIn,sM,sPs,sR),new Array(wS),new Array(aL,aM,aS),new Array());
-const proficiencies_druid = new Array(new Array(stI,stW),new Array(sA,sAh,sIn,sM,sN,sP,sR,sSv),new Array(wD),new Array(aL,aM,aS),new Array(tH));
+const proficiencies_druid = new Array(new Array(stI,stW),new Array(sA,sAh,sIn,sM,sN,sP,sR,sSv),new Array(wCb,wDg,wDt,wJ,wMc,wQ,wSc,wSk,wSl,wSp),new Array(aL,aM,aS),new Array(tH));
 const proficiencies_fighter = new Array(new Array(stS,stC),new Array(sA,sAh,sAl,sH,sIn,sIt,sP,sS),new Array(wS,wM),new Array(aA,aS),new Array());
-const proficiencies_monk = new Array(new Array(stS,stD),new Array(sAc,sAl,sH,sIn,sR,sS),new Array(wS,"shortswords"),new Array(),new Array(tA));
+const proficiencies_monk = new Array(new Array(stS,stD),new Array(sAc,sAl,sH,sIn,sR,sS),new Array(wS,wSs),new Array(),new Array(tA));
 const proficiencies_paladin = new Array(new Array(stW,stA),new Array(sAl,sIn,sIt,sM,sPs,sR),new Array(wS,wM),new Array(aA,aS),new Array());
 const proficiencies_ranger = new Array(new Array(stS,stD),new Array(sAh,sAl,sIn,sI,sN,sP,sS,sSv),new Array(wS,wM),new Array(aL,aM,aS),new Array());
-const proficiencies_rogue = new Array(new Array(stD,stI),new Array(sAc,sAl,sD,sI,sIt,sIn,sP,sPf,sPs,sSh,sS),new Array(wS,wR),new Array(aL),new Array(tT));
-const proficiencies_sorcerer = new Array(new Array(stC,stA),new Array(sA,sD,sIn,sIt,sPs,sR),new Array(wW),new Array(),new Array());
+const proficiencies_rogue = new Array(new Array(stD,stI),new Array(sAc,sAl,sD,sI,sIt,sIn,sP,sPf,sPs,sSh,sS),new Array(wS,wHc,wLs,wRp,wSs),new Array(aL),new Array(tT));
+const proficiencies_sorcerer = new Array(new Array(stC,stA),new Array(sA,sD,sIn,sIt,sPs,sR),new Array(wDg,wDt,wSl,wQ,wLc),new Array(),new Array());
 const proficiencies_warlock = new Array(new Array(stW,stA),new Array(sA,sD,sH,sI,sIt,sN,sR),new Array(wS),new Array(aL),new Array());
-const proficiencies_wizard = new Array(new Array(stI,stW),new Array(sA,sH,sIn,sI,sM,sR),new Array(wW),new Array(),new Array());
+const proficiencies_wizard = new Array(new Array(stI,stW),new Array(sA,sH,sIn,sI,sM,sR),new Array(wDg,wDt,wSl,wQ,wLc),new Array(),new Array());
 
 //global features
 const FEATURE_ASI_STANDARD = "<p><strong><i>Ability Score Improvement.</i></strong></p><p>When you reach 4th level, 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.</p>";
@@ -237,8 +239,13 @@ const FEATURE_GENASI_EARTH_1 = "<p><b><i>Earth Walk.</b></i> You can move across
 const FEATURE_GENASI_EARTH_2 = "<p><b><i>Merge with Stone.</b></i> You can cast the pass without trace spell once with this trait, requiring no material components, and you regain the ability to cast it this way when you finish a long rest. Constitution is your spellcasting ability for this spell.</p>";
 
 // gith
-// githzerai
 // githyanki
+const FEATURE_GITHYANKI_1 = "<p><b><i>Decadent Mastery.</i></b> You learn one language of your choice, and you are proficient with one skill or tool of your choice. In the timeless city of Tu'narath, githyanki have bountiful time to master odd bits of knowledge.</p>";
+const FEATURE_GITHYANKI_2 = "<p><b><i>Martial Prodigy.</i></b> You are proficient with light and medium armor and with shortswords, longswords, and greatswords.</p>";
+const FEATURE_GITHYANKI_3 = "<p><b><i>Githyanki Psionics.</i></b> You know the mage hand cantrip, and the hand is invisible when you cast the cantrip with this trait.<br>When you reach 3rd level, you can cast jump once with this trait, and you regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the misty step spell once with this trait, and you regain the ability to do so when you finish a long rest.<br>Intelligence is your spellcasting ability for these spells. When you cast them with this trait, they don't require components.</p>";
+// githzerai
+const FEATURE_GITHZERAI_1 = "<p><b><i>Mental Discipline.</i></b> You have advantage on saving throws against the charmed and frightened conditions. Under the tutelage of monastic masters, githzerai learn to govern their own minds.</p>";
+const FEATURE_GITHZERAI_2 = "<p><b><i>Githzerai Psionics.</i></b> You know the mage hand cantrip, and the hand is invisible when you cast the cantrip with this trait.<br>When you reach 3rd level, you can cast shield once with this trait, and you regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the detect thoughts spell once with this trait, and you regain the ability to do so when you finish a long rest.<br>Wisdom is your spellcasting ability for these spells. When you cast them with this trait, they don't require components.</p>";
 
 // gnome
 // deep gnome
@@ -441,6 +448,19 @@ function resetFeatures(){
   document.getElementById("SHEET_FEATURES_SPELLCASTING_DESCRIPTION").innerHTML = "";
 }
 
+// shorthand functions
+function addWpn(w){ if(!(wpns.includes(w))) wpns.push(w); }
+function addAmr(a){ if(!(amr.includes(a))) amr.push(a); }
+function addSkl(s){ if(!(skills.includes(s))) skills.push(s); }
+function addTl(t){ if(!(tls.includes(t))) tls.push(t); }
+
+// longhand functions
+function addWeapon(w){ addWpn(w); }
+function addArmor(a){ addAmr(a); }
+function addSkill(s){ addSkl(s); }
+function addTool(t){ addTl(t); }
+
+// proficiency handling for races + classes
 function handleProficiencies(){
  document.getElementById("SHEET_PROF_BONUS").innerHTML = "Proficiency Bonus: +" + pBonuses[lvl];
  let profs;
@@ -493,74 +513,91 @@ function handleProficiencies(){
  // precondition: numSkills <= skillsCopy.length
  for(let i = 0; i < numSkills; i++){
   let selectionIndex = (Math.random()*skillsCopy.length)|0;
-  skills.push(skillsCopy[selectionIndex]);
+  addSkl(skillsCopy[selectionIndex]);
   skillsCopy = remove(skillsCopy,selectionIndex); // remove the selected value from the array
  }
  // fill weapons field
  for(let i = 0; i < profs[2].length; i++){
-  wpns.push(profs[2][i]);
+  addWpn(profs[2][i]);
  }
  // fill armor field
  for(let i = 0; i < profs[3].length; i++){
-  amr.push(profs[3][i]);
+  addAmr(profs[3][i]);
  }
  // fill tools field
  for(let i = 0; i < profs[4].length; i++){
-  tls.push(profs[4][i]);
+  addTl(profs[4][i]);
  }
  
  // race proficiencies
  if(!(wpns.includes(wM))){
    if(race === "Dwarf"){
-     wpns.push(wDw); // dwarven combat training
+     // dwarven combat training
+     if(!(wpns.includes(wS))){
+        addWpn(wLh);
+        addWpn(wHa);
+     }
+     if(!(wpns.includes(wM))){
+        addWpn(wBa);
+        addWpn(wWh);
+     }
      if(!(tls.includes(tS))) tls.push(tS); // dwarven tool proficiencies
      else if(!(tls.includes(tM))) tls.push(tM);
      else if(!(tls.includes(tB))) tls.push(tB);
    }
-   if(!(wpns.includes(wR))){ // rogue/bard weapons cover everything elvish 
-     if(race === "Elf" && (subrace === "High" || subrace === "Wood")){ // elf weapon training
-       wpns.push(wEw);
+   if(race === "Elf" && (subrace === "High" || subrace === "Wood")){ // elf weapon training
+     if(!(wpns.includes(wS))) addWpn(wSb);
+     if(!(wpns.includes(wM))){
+        addWpn(wLb);
+        addWpn(wSs);
+        addWpn(wLs);
      }
-     if(subrace === "Drow"){ // drow weapons training
-       wpns.push(wDr);
+   }
+   if(subrace === "Drow"){ // drow weapons training
+     if(!(wpns.includes(wM))){
+        addWpn(wRp);
+        addWpn(wSs);
+        addWpn(wHc);
      }
    }
  }
- if(subrace === "Mountain"){ // dwarven armor training- light + medium armor proficiency
+ if(subrace === "Mountain" || subrace === "Githyanki"){ // dwarven armor training // martial prodigy- light + medium armor proficiency
     if(!(amr.includes(aL))){ amr.push(aL); }
     if(!(amr.includes(aM))){ amr.push(aM); }
+    if(subrace === "Githyanki" && !(wpns.includes(wM))){
+      addWpn(wSs);
+      addWpn(wLs);
+      addWpn(wGs);
+    }
  }
- if(race === "Elf" && !(skills.includes(sP))){ // keen senses
+ if(race === "Elf"){ // keen senses
    skills.push(sP);
  }
+ 
  if(race === "Centaur"){ // survivor
    let j = (Math.random()*proficiencies_centaur.length)|0;
    debugtxt += "<br>TEST: n = " + j + ", race prof = " + proficiencies_centaur[j];
-   if(!(skills.includes(proficiencies_centaur[j]))){
-     skills.push(proficiencies_centaur[j]);
-   }
+   addSkl(proficiencies_centaur[j]);
  }
+ 
  if(race === "Orc"){ // primal intuition
    for(let i = 0; i < 2; i++){
      let j = (Math.random()*proficiencies_orc.length)|0;
      // debugtxt += "<br>TEST: n = " + j + ", race prof = " + proficiencies_orc[j];
-     if(!(skills.includes(proficiencies_orc[j]))){
-       skills.push(proficiencies_orc[j]);
-       remove(proficiencies_orc, proficiencies_orc[j]);
-     }
+     addSkl(proficiencies_orc[j]);
+     remove(proficiencies_orc, proficiencies_orc[j]);
    }
  }
+ 
  if(race === "Changeling"){ // changeling instincts
    for(let i = 0; i < 2; i++){
      let j = (Math.random()*proficiencies_changeling.length)|0;
      // debugtxt += "<br>TEST: n = " + j + ", race prof = " + proficiencies_changeling[j];
-     if(!(skills.includes(proficiencies_changeling[j]))){
-       skills.push(proficiencies_changeling[j]);
-       remove(proficiencies_changeling, proficiencies_changeling[j]);
-     }
+     addSkl(proficiencies_changeling[j]);
+     remove(proficiencies_changeling, proficiencies_changeling[j]);
    }
  }
- if(race === "Half-Orc" && !(skills.includes(sIt))) skills.push(sIt); // half orc menacing feature
+ if(race === "Half-Orc") addSkl(sIt); // half orc menacing feature
  if(race === "Minotaur"){ // imposing presence - choose intimidation or persuasion
    if(!(skills.includes(sIt))) skills.push(sIt);
    else if (!(skills.includes(sPs))) skills.push(sPs);
@@ -922,6 +959,19 @@ function handleRaceFeatures(){
     }
     langs.push("Primordial");
     remove(LANGS, "Primordial");
+  }
+  if(race === "Gith"){
+    if(subrace === "Githyanki"){
+      document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_GITHYANKI_1;
+      document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_GITHYANKI_2;
+      document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_GITHYANKI_3;
+      randlangcount = 1;
+    } else {
+      document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_GITHZERAI_1;
+      document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_GITHZERAI_2;
+    }
+    langs.push("Gith");
+    remove(LANGS, "Gith");
   }
   if(race === "Lizardfolk"){
     document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_LIZARDFOLK_1;
