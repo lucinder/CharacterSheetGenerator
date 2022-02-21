@@ -19,6 +19,10 @@
     .fa-anchor,.fa-coffee {font-size:200px}
       td{padding-left:4px; padding-right:8px;}
       th{padding-left:4px;}
+      specialButton{
+	padding: 0;
+	border: none;
+	background: none; }
     </style>
     <!-- JQuery Import
     <script language="JavaScript" type="text/javascript" src="jquery-3.6.0.min.js"></script>
@@ -47,13 +51,11 @@
       <p class="w3-xlarge">This page is a WIP random generator of preformatted character sheet templates for D&D 5e.</p>
       <p id="DEBUG_TEXT"></p>
       <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" onclick="generate()">Generate!</button>
-      <br>
-      <button class="w3-left" id="MOREOPTIONSBUTTON" onclick="toggleMoreOptions()">More Options...</button>
+      <br><br><br>
+      <button class="w3-button w3-left specialButton" id="MOREOPTIONSBUTTON" onclick="toggleMoreOptions()">More Options...</button>
       <div class="w3-row-padding w-100" id = "MOREOPTIONS" hidden = "hidden">
-       <div class="w3-left col-sm-1">
-        <label for="SELECT_RACE">Race:</label>
-       </div>
        <div class="w3-left col-sm-2">
+        <label for="SELECT_RACE">Race:</label>
 	<select id="SELECT_RACE" name="SELECT_RACE">
           <option value="Random">Random</option>
           <option value="Aarakocra">Aarakocra</option>
@@ -62,10 +64,8 @@
 	  <option value="Centaur">Centaur</option>	
         </select>
        </div>
-       <div class="w3-left col-sm-1">
-        <label for="SELECT_CLASS">Class:</label>
-       </div>
        <div class="w3-left col-sm-2">
+        <label for="SELECT_CLASS">Class:</label>
 	<select id="SELECT_CLASS" name="SELECT_CLASS">
           <option value="Random">Random</option>
           <option value="Artificer">Artificer</option>
@@ -83,10 +83,8 @@
 	  <option value="Wizard">Wizard</option>
         </select>
        </div>
-       <div class="w3-left col-sm-1">
-        <label for="SELECT_LVL">Level:</label>
-       </div>
        <div class="w3-left col-sm-2">
+        <label for="SELECT_LVL">Level:</label>
 	<select id="SELECT_LVL" name="SELECT_LVL">
           <option value="Random">Random</option>
           <option value="1">1</option>
