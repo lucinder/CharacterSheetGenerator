@@ -14,7 +14,7 @@
 - Fairy
 - Firbolg
 - Genasi
-- Gith*
+- Gith
 - Gnome*
 - Goblin*
 - Goliath*
