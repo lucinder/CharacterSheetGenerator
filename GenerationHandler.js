@@ -1246,6 +1246,17 @@ function toggleDbg(){
   loadDbg();
 }
 
+function toggleMoreOptions(){
+ let moreOp = document.getElementById("MOREOPTIONS");
+ if(moreOp.getAttribute("hidden")){
+   moreOp.removeAttribute("hidden"); // show
+   document.getElementById("MOREOPTIONSBUTTON").innerText = "Less Options...";
+ } else {
+   moreOp.setAttribute("hidden", "hidden"); // hide
+   document.getElementById("MOREOPTIONSBUTTON").innerText = "More Options...";
+ }
+}
+
 function loadPregens(){
  racePreset = document.querySelector('#SELECT_RACE').value;    
  classPreset = document.querySelector('#SELECT_CLASS').value;    
