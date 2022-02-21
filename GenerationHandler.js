@@ -414,30 +414,7 @@ function resetFeatures(){
   proficiencies_orc = new Array(sAh,sIn,sIt,sM,sP,sSv);
   // debugtxt += "<br>TEST: Orc array [5] = " + proficiencies_orc[5] + ", Changeling array [3] = " + proficiencies_changeling[3];
  
-  document.getElementById("SHEET_FEATURES_LV1_01").innerHTML = "";
-  document.getElementById("SHEET_FEATURES_LV2_01").innerHTML = "";
-  document.getElementById("SHEET_FEATURES_LV3_01").innerHTML = "";
-  document.getElementById("SHEET_FEATURES_LV3_02").innerHTML = "";
-  document.getElementById("SHEET_FEATURES_LV3_03").innerHTML = "";
-  document.getElementById("SHEET_FEATURES_LV3_04").innerHTML = "";
-  document.getElementById("SHEET_FEATURES_LV3_05").innerHTML = "";
-  document.getElementById("SHEET_FEATURES_LV4_01").innerHTML = "";
-  document.getElementById("SHEET_FEATURES_LV5_01").innerHTML = "";
-  document.getElementById("SHEET_FEATURES_LV6_01").innerHTML = "";
-  document.getElementById("SHEET_FEATURES_LV7_01").innerHTML = "";
-  document.getElementById("SHEET_FEATURES_LV8_01").innerHTML = "";
-  document.getElementById("SHEET_FEATURES_LV9_01").innerHTML = "";
-  document.getElementById("SHEET_FEATURES_LV10_01").innerHTML = "";
-  document.getElementById("SHEET_FEATURES_LV11_01").innerHTML = "";
-  document.getElementById("SHEET_FEATURES_LV12_01").innerHTML = "";
-  document.getElementById("SHEET_FEATURES_LV13_01").innerHTML = "";
-  document.getElementById("SHEET_FEATURES_LV14_01").innerHTML = "";
-  document.getElementById("SHEET_FEATURES_LV15_01").innerHTML = "";
-  document.getElementById("SHEET_FEATURES_LV16_01").innerHTML = "";
-  document.getElementById("SHEET_FEATURES_LV17_01").innerHTML = "";
-  document.getElementById("SHEET_FEATURES_LV18_01").innerHTML = "";
-  document.getElementById("SHEET_FEATURES_LV19_01").innerHTML = "";
-  document.getElementById("SHEET_FEATURES_LV20_01").innerHTML = "";
+  document.getElementById("SHEET_FEATURES_CLASS").innerHTML = "";
  
   document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = "";
   document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = "";
