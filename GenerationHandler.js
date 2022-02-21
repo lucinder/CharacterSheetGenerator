@@ -688,7 +688,8 @@ function handleClassFeatures(){
    }   
    let sct = document.getElementById("SHEET_FEATURES_CLASS");
    for(let i = 0; i < cf.length; i++){ // fill html sections
-      let node = document.createTextNode(cf[i]);
+      let node = document.createElement("div");
+      node.innerHTML = cf[i];
       sct.appendChild(node);
    }
    debugtxt += "<br>Checkpoint 2: Class Features generated!";
