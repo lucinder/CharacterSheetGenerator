@@ -47,7 +47,9 @@
       <p class="w3-xlarge">This page is a WIP random generator of preformatted character sheet templates for D&D 5e.</p>
       <p id="DEBUG_TEXT"></p>
       <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" onclick="generate()">Generate!</button>
-      <div class="row w-100">
+      <br>
+      <button id="MOREOPTIONSBUTTON" onclick="toggleMoreOptions()">More Options...</button>
+      <div class="row w-100" id = "MOREOPTIONS" hidden = "hidden">
        <div class="col-sm-2">
         <label for="SELECT_RACE">Race:</label>
        </div>
