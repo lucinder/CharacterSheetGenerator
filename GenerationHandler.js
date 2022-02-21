@@ -5,7 +5,7 @@ let racePreset = "Random";
 let classPreset = "Random";
 let lvlPreset = -1;
 
-const statModifiers = new Array(-5,-5,-4,-4,-3,-3,-2,-2,-1,-1,0,0,1,1,2,2,3,3,4,4,5);
+const statModifiers = new Array(-5,-5,-4,-4,-3,-3,-2,-2,-1,-1,0,0,1,1,2,2,3,3,4,4,5,5,6,6,7); // now goes up to 24 for lv 20 barb
 const pBonuses = new Array(0,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6);
 const raceOptions = new Array("Aarakocra","Aasimar","Bugbear","Centaur","Changeling","Dragonborn","Dwarf","Elf","Fairy","Firbolg","Genasi","Gith","Gnome", "Goblin","Goliath","Half-Elf","Half-Orc","Halfling","Harengon","Hexblood","Hobgoblin","Human","Kalashtar","Kenku","Kobold","Leonin","Lizardfolk","Loxodon","Merfolk","Minotaur","Orc","Owlin","Satyr","Shifter","Simic Hybrid","Tabaxi","Tiefling","Tortle","Triton","Vedalken","Warforged","Yuan-Ti");
 const classOptions = new Array("Artificer","Barbarian","Bard","Cleric","Druid","Fighter","Monk","Paladin","Ranger","Rogue","Sorcerer","Warlock","Wizard");
