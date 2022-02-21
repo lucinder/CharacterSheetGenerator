@@ -686,9 +686,11 @@ function handleClassFeatures(){
      let sdc = 8 + sam;
      document.getElementById("SHEET_FEATURES_SPELLCASTING_DESCRIPTION").innerHTML = FEATURE_ARTIFICER_SPELLCASTING.replace("_SPELLATKMODIFIER",sam).replace("_SPELLSAVAILABLE",sav).replace("_SPELLSAVEDC",sdc);
    }   
+   let sct = document.getElementById("SHEET_FEATURES_CLASS");
    for(let i = 0; i < cf.length; i++){ // fill html sections
-      $("#SHEET_FEATURES_CLASS").append('<div class="w3-text-grey" id="SHEET_FEATURES_CLASS_"' + i + '></div>');
-      document.getElementById("SHEET_FEATURES_CLASS_" + i).innerHTML = cf[i]; 
+      let txt = "SHEET_FEATURES_CLASS_" + i;
+      sct.appendChild('<div class="w3-text-grey" id="' + txt +'"></div>');
+      document.getElementById(txt).innerHTML = cf[i]; 
    }
    debugtxt += "<br>Checkpoint 2: Class Features generated!";
 }
