@@ -329,6 +329,8 @@ let aca = 11; // armored AC
 let spd = 30; // base move speed
 let spdtxt = "";
 let armorType = "unarmored defense";
+let rf = new Array(); // race features
+let cf = new Array(); // class features
 let stats = new Array();
 let skills = new Array(); // skill proficiency list
 let wpns = new Array(); // weapon proficiency list
@@ -399,6 +401,8 @@ function XdYkhZ(x,y,z){
 function resetFeatures(){
   LANGS = new Array("Aarakocra","Abyssal","Auran","Celestial","Elvish","Dwarvish","Draconic","Giant","Gith","Gnomish","Goblin","Infernal","Leonin","Loxodon","Merfolk","Minotaur","Orc","Primordial","Sylvan","Vedalken");
   debugtxt = "";
+  rf = new Array();
+  cf = new Array();
   skills = new Array();
   wpns = new Array();
   amr = new Array();
@@ -453,12 +457,16 @@ function addWpn(w){ if(!(wpns.includes(w))) wpns.push(w); }
 function addAmr(a){ if(!(amr.includes(a))) amr.push(a); }
 function addSkl(s){ if(!(skills.includes(s))) skills.push(s); }
 function addTl(t){ if(!(tls.includes(t))) tls.push(t); }
+function addRF(f){ if(!(rf.includes(f))) rf.push(f); }
+function addCF(f){ if(!(cf.includes(f))) cf.push(f); }
 
 // longhand functions
 function addWeapon(w){ addWpn(w); }
 function addArmor(a){ addAmr(a); }
 function addSkill(s){ addSkl(s); }
 function addTool(t){ addTl(t); }
+function addRaceFeature(f){ addRF(f); }
+function addClassFeature(f){ addCF(f); }
 
 // proficiency handling for races + classes
 function handleProficiencies(){
@@ -640,58 +648,59 @@ function handleProficiencies(){
 
 function handleClassFeatures(){
    if(clss === "Artificer"){
-      document.getElementById("SHEET_FEATURES_LV1_01").innerHTML = FEATURE_ARTIFICER_1_0;
+      addCF(FEATURE_ARTIFICER_1_0);
       if(lvl>1){
-        document.getElementById("SHEET_FEATURES_LV2_01").innerHTML = FEATURE_ARTIFICER_2_0;
+        addCF(FEATURE_ARTIFICER_2_0);
       }
       if(lvl>2){
-        document.getElementById("SHEET_FEATURES_LV3_01").innerHTML = FEATURE_ARTIFICER_3_0;
+        addCF(FEATURE_ARTIFICER_3_0);
         if(subclass === "Armorer"){
-          document.getElementById("SHEET_FEATURES_LV3_02").innerHTML = FEATURE_ARTIFICER_ARMORER_3_0;
-          document.getElementById("SHEET_FEATURES_LV3_03").innerHTML = FEATURE_ARTIFICER_ARMORER_3_1;
-          document.getElementById("SHEET_FEATURES_LV3_04").innerHTML = FEATURE_ARTIFICER_ARMORER_3_2;
-          document.getElementById("SHEET_FEATURES_LV3_05").innerHTML = FEATURE_ARTIFICER_ARMORER_3_3;
+          addCF(FEATURE_ARTIFICER_ARMORER_3_0);
+          addCF(FEATURE_ARTIFICER_ARMORER_3_1);
+          addCF(FEATURE_ARTIFICER_ARMORER_3_2);
+          addCF(FEATURE_ARTIFICER_ARMORER_3_3);
         }
       }
       if(lvl>3){
-        document.getElementById("SHEET_FEATURES_LV4_01").innerHTML = FEATURE_ASI_STANDARD;
+        addCF(FEATURE_ASI_STANDARD);
       }
       if(lvl>4){ // 5th lvl subclass feature
         if(subclass === "Armorer"){
-          document.getElementById("SHEET_FEATURES_LV5_01").innerHTML = FEATURE_EA_STANDARD;
+          addCF(FEATURE_EA_STANDARD);
         }
       }
       if(lvl>5){ // 6th level main feature
-       document.getElementById("SHEET_FEATURES_LV6_01").innerHTML = FEATURE_ARTIFICER_6_0;
+       addCF(FEATURE_ARTIFICER_6_0);
       }
       if(lvl>6){ // 7th level main feature
-       document.getElementById("SHEET_FEATURES_LV7_01").innerHTML = FEATURE_ARTIFICER_7_0;
+       addCF(FEATURE_ARTIFICER_7_0);
       }
       if(lvl>8){ // 9th level subclass feature
         if(subclass === "Armorer"){
-          document.getElementById("SHEET_FEATURES_LV9_01").innerHTML = FEATURE_ARTIFICER_ARMORER_9_0;
+          addCF(FEATURE_ARTIFICER_ARMORER_9_0);
         }
       }
       if(lvl>9){ // 10th level main feature
-       document.getElementById("SHEET_FEATURES_LV10_01").innerHTML = FEATURE_ARTIFICER_10_0;
+       addCF(FEATURE_ARTIFICER_10_0);
       }
       if(lvl>10){ // 11th level main feature
-       document.getElementById("SHEET_FEATURES_LV11_01").innerHTML = FEATURE_ARTIFICER_11_0;
+       addCF(FEATURE_ARTIFICER_11_0);
       }
       if(lvl>13){ // 14th level main feature
-       document.getElementById("SHEET_FEATURES_LV14_01").innerHTML = FEATURE_ARTIFICER_14_0;
+       addCF(FEATURE_ARTIFICER_14_0);
       }
       if(lvl>14){ // 15th level subclass feature
         if(subclass === "Armorer"){
-          document.getElementById("SHEET_FEATURES_LV15_01").innerHTML = FEATURE_ARTIFICER_ARMORER_15_0;
+          addCF(FEATURE_ARTIFICER_ARMORER_15_0);
         }
       }
       if(lvl > 17){ // 18th lvl main feature
-       document.getElementById("SHEET_FEATURES_LV18_01").innerHTML = FEATURE_ARTIFICER_18_0;
+       addCF(FEATURE_ARTIFICER_18_0);
       }
       if(lvl > 19){ // 20th lvl main feature
-       document.getElementById("SHEET_FEATURES_LV20_01").innerHTML = FEATURE_ARTIFICER_20_0;
+       addCF(FEATURE_ARTIFICER_20_0);
       }
+         // spellcasting
      document.getElementById("SHEET_FEATURES_SPELLCASTING_HEADER").innerHTML = "Spellcasting";
      let intMod = statModifiers[stats[3]];
      let sav = (lvl/2)|0+intMod; // spells available
@@ -699,6 +708,10 @@ function handleClassFeatures(){
      let sam = pBonuses[lvl] + intMod; // spell attack modifier
      let sdc = 8 + sam;
      document.getElementById("SHEET_FEATURES_SPELLCASTING_DESCRIPTION").innerHTML = FEATURE_ARTIFICER_SPELLCASTING.replace("_SPELLATKMODIFIER",sam).replace("_SPELLSAVAILABLE",sav).replace("_SPELLSAVEDC",sdc);
+   }   
+   for(let i = 0; i < cf.length; i++){ // fill html sections
+      $("#SHEET_FEATURES_CLASS").append('<div class="w3-text-grey" id="SHEET_FEATURES_CLASS_"' + i + '></div>');
+      document.getElementById("SHEET_FEATURES_CLASS_" + i).innerHTML = cf[i]; 
    }
    debugtxt += "<br>Checkpoint 2: Class Features generated!";
 }
