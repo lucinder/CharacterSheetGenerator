@@ -1246,9 +1246,16 @@ function toggleDbg(){
   loadDbg();
 }
 
+function loadPregens(){
+ racePreset = document.querySelector('#SELECT_RACE').value;    
+ classPreset = document.querySelector('#SELECT_CLASS').value;    
+ lvlPreset = document.querySelector('#SELECT_LVL').value;    
+}
+
 function generate(){
   resetFeatures();
-  
+  loadPregens();
+      
   // set titles
   document.getElementById("SHEET_PROF_TITLE").innerHTML = "Proficiencies"
   document.getElementById("SHEET_FEATURES_TITLE").innerHTML = "Features";
