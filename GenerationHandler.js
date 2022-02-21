@@ -415,15 +415,7 @@ function resetFeatures(){
   // debugtxt += "<br>TEST: Orc array [5] = " + proficiencies_orc[5] + ", Changeling array [3] = " + proficiencies_changeling[3];
  
   document.getElementById("SHEET_FEATURES_CLASS").innerHTML = "";
- 
-  document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = "";
-  document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = "";
-  document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = "";
-  document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = "";
-  document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = "";
-  document.getElementById("SHEET_FEATURES_RACE_06").innerHTML = "";
-  document.getElementById("SHEET_FEATURES_RACE_07").innerHTML = "";
-  document.getElementById("SHEET_FEATURES_RACE_08").innerHTML = "";
+  document.getElementById("SHEET_FEATURES_RACE").innerHTML = "";
  
   document.getElementById("SHEET_FEATURES_SPELLCASTING_HEADER").innerHTML = "";
   document.getElementById("SHEET_FEATURES_SPELLCASTING_DESCRIPTION").innerHTML = "";
@@ -702,8 +694,8 @@ function handleRaceFeatures(){
   randlangcount = 0;
   spdtxt = SPD_DEFAULT;
   if(race === "Aarakocra"){
-    document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_AARAKOCRA_1;
-    document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_AARAKOCRA_2;
+    addRF(FEATURE_AARAKOCRA_1);
+    addRF(FEATURE_AARAKOCRA_2);
     spd = 25;
     spdtxt = SPD_AARAKOCRA;
     langs.push("Aarakocra");
@@ -712,44 +704,44 @@ function handleRaceFeatures(){
     remove(LANGS, "Auran");
   }
   if(race === "Aasimar"){
-    document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_AASIMAR_1;
-    document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_AASIMAR_2;
-    document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_AASIMAR_3;
-    document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_AASIMAR_4;
+    addRF(FEATURE_AASIMAR_1);
+    addRF(FEATURE_AASIMAR_2);
+    addRF(FEATURE_AASIMAR_3);
+    addRF(FEATURE_AASIMAR_4);
     if(subrace === "Protector" && lvl > 2){
-      document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_AASIMAR_PROTECTOR_1;
+      addRF(FEATURE_AASIMAR_PROTECTOR_1);
     }
     if(subrace === "Scourge" && lvl > 2){
-       document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_AASIMAR_SCOURGE_1;
+       addRF(FEATURE_AASIMAR_SCOURGE_1);
     }
     if(subrace === "Fallen" && lvl > 2){
-       document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_AASIMAR_FALLEN_1;
+       addRF(FEATURE_AASIMAR_FALLEN_1);
     }
     langs.push("Celestial");
     remove(LANGS, "Celestial");
   }
   if(race === "Bugbear"){
-    document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DARKVISION;
-    document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_POWERFULBUILD;
-    document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_BUGBEAR_1;
-    document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_BUGBEAR_2;
-    document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_BUGBEAR_3;
+    addRF(FEATURE_DARKVISION);
+    addRF(FEATURE_POWERFULBUILD);
+    addRF(FEATURE_BUGBEAR_1);
+    addRF(FEATURE_BUGBEAR_2);
+    addRF(FEATURE_BUGBEAR_3);
     langs.push("Goblin");
     remove(LANGS, "Goblin");
   }
  if(race === "Centaur"){
-    document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_CREATURETYPE_FEY;
-    document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_CENTAUR_1;
-    document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_CENTAUR_2;
-    document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_CENTAUR_3;
-    document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_CENTAUR_4;
+    addRF(FEATURE_CREATURETYPE_FEY);
+    addRF(FEATURE_CENTAUR_1);
+    addRF(FEATURE_CENTAUR_2);
+    addRF(FEATURE_CENTAUR_3);
+    addRF(FEATURE_CENTAUR_4);
     spd = 40;
     langs.push("Sylvan");
     remove(LANGS, "Sylvan");
   }
   if(race === "Changeling"){
-    document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_CHANGELING_1;
-    document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_CHANGELING_2;
+    addRF(FEATURE_CHANGELING_1);
+    addRF(FEATURE_CHANGELING_2);
     randlangcount = 2;
   }
   if(race === "Dragonborn"){
@@ -758,100 +750,100 @@ function handleRaceFeatures(){
       let temp1 = FEATURE_DRAGONBORN_CHROMATIC_1, temp2 = FEATURE_DRAGONBORN_1, temp3 = FEATURE_DRAGONBORN_CHROMATIC_2;
       temp1 = temp1.replace("_DDC",ddc); // replace bw save dc
       if(subrace === "Red"){
-       document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_RED;
+       addRF(FEATURE_DRAGONBORN_RED);
        temp1 = temp1.replace("_DTYPE","Fire"); temp2 = temp2.replace("_DTYPE","Fire"); temp3 = temp3.replace("_DTYPE","Fire");
       }
       if(subrace === "Green"){
-       document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_GREEN;
+       addRF(FEATURE_DRAGONBORN_GREEN);
        temp1 = temp1.replace("_DTYPE","Poison"); temp2 = temp2.replace("_DTYPE","Poison"); temp3 = temp3.replace("_DTYPE","Poison");
       }
       if(subrace === "Blue"){
-       document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_BLUE;
+       addRF(FEATURE_DRAGONBORN_BLUE);
        temp1 = temp1.replace("_DTYPE","Lightning"); temp2 = temp2.replace("_DTYPE","Lightning"); temp3 = temp3.replace("_DTYPE","Lightning");
       }
       if(subrace === "Black"){
-       document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_BLACK;
+       addRF(FEATURE_DRAGONBORN_BLACK);
        temp1 = temp1.replace("_DTYPE","Acid"); temp2 = temp2.replace("_DTYPE","Acid"); temp3 = temp3.replace("_DTYPE","Acid");
       }
       if(subrace === "White"){
-       document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_WHITE;
+       addRF(FEATURE_DRAGONBORN_WHITE);
        temp1 = temp1.replace("_DTYPE","Cold"); temp2 = temp2.replace("_DTYPE","Cold"); temp3 = temp3.replace("_DTYPE","Cold");
       }
-      document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = temp1;
-      document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = temp2;
-      if(lvl>4) document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = temp3; // 5th level feature
+      addRF(temp1);
+      addRF(temp2);
+      if(lvl>4) addRF(temp3); // 5th level feature
     }
     if(subrace === "Gold" || subrace === "Silver" || subrace === "Bronze" || subrace === "Brass" || subrace === "Copper"){ // metallic options
       let temp1 = FEATURE_DRAGONBORN_METALLIC_1, temp2 = FEATURE_DRAGONBORN_1, temp3 = FEATURE_DRAGONBORN_METALLIC_2;
       temp1 = temp1.replace("_DDC",ddc); temp3 = temp3.replace("_DDC",ddc);// replace bw save dc
       if(subrace === "Gold" || subrace == "Brass"){
-        if(subrace === "Gold"){ document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_GOLD; }
-        else { document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_BRASS; }
+        if(subrace === "Gold"){ addRF(FEATURE_DRAGONBORN_GOLD); }
+        else { addRF(FEATURE_DRAGONBORN_BRASS); }
         temp1 = temp1.replace("_DTYPE","Fire"); temp2 = temp2.replace("_DTYPE","Fire");
       }
       if(subrace === "Silver"){ 
-        document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_SILVER;
+        addRF(FEATURE_DRAGONBORN_SILVER);
         temp1 = temp1.replace("_DTYPE","Cold"); temp2 = temp2.replace("_DTYPE","Cold");
       }
       if(subrace === "Bronze"){
-        document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_BRONZE;
+        addRF(FEATURE_DRAGONBORN_BRONZE);
         temp1 = temp1.replace("_DTYPE","Lightning"); temp2 = temp2.replace("_DTYPE","Lightning");
       }
       if(subrace === "Copper"){
-        document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_COPPER;
+        addRF(FEATURE_DRAGONBORN_COPPER);
         temp1 = temp1.replace("_DTYPE","Acid"); temp2 = temp2.replace("_DTYPE","Acid");
       }
-      document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = temp1;
-      document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = temp2;
-      if(lvl>4) document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = temp3; // 5th level feature
+      addRF(temp1);
+      addRF(temp2);
+      if(lvl>4) addRF(temp3); // 5th level feature
     }
     if(subrace === "Crystal" || subrace === "Topaz" || subrace === "Amethyst" || subrace === "Sapphire" || subrace === "Emerald"){ // gem options
        let temp1 = FEATURE_DRAGONBORN_GEM_1, temp2 = FEATURE_DRAGONBORN_1;
        temp1 = temp1.replace("_DDC",ddc); // replace bw save dc
        if(subrace === "Crystal"){
-        document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_CRYSTAL;
+        addRF(FEATURE_DRAGONBORN_CRYSTAL);
         temp1 = temp1.replace("_DTYPE","Radiant"); temp2 = temp2.replace("_DTYPE","Radiant");
        }
        if(subrace === "Topaz"){
-        document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_TOPAZ;
+        addRF(FEATURE_DRAGONBORN_TOPAZ);
         temp1 = temp1.replace("_DTYPE","Necrotic"); temp2 = temp2.replace("_DTYPE","Necrotic");
        }
        if(subrace === "Amethyst"){
-        document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_AMETHYST;
+        addRF(FEATURE_DRAGONBORN_AMETHYST);
         temp1 = temp1.replace("_DTYPE","Force"); temp2 = temp2.replace("_DTYPE","Force");
        }
        if(subrace === "Sapphire"){
-        document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_SAPPHIRE;
+        addRF(FEATURE_DRAGONBORN_SAPPHIRE);
         temp1 = temp1.replace("_DTYPE","Thunder"); temp2 = temp2.replace("_DTYPE","Thunder");
        }
        if(subrace === "Emerald"){
-        document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DRAGONBORN_EMERALD;
+        addRF(FEATURE_DRAGONBORN_EMERALD);
         temp1 = temp1.replace("_DTYPE","Psychic"); temp2 = temp2.replace("_DTYPE","Psychic");
        }
-       document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = temp1;
-       document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = temp2;
-       document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_DRAGONBORN_GEM_2;
-       if(lvl>4) document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_DRAGONBORN_GEM_3; // 5th level feature
+       addRF(temp1);
+       addRF(temp2);
+       addRF(FEATURE_DRAGONBORN_GEM_2);
+       if(lvl>4) addRF(FEATURE_DRAGONBORN_GEM_3); // 5th level feature
      }
     langs.push("Draconic");
     remove(LANGS, "Draconic");
   }
   if(race === "Dwarf"){
     spdtxt = SPD_DWARF;
-    if(subrace === "Duergar"){document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DWARF_1_D;}
-    else{document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DWARF_1;}
-    if(subrace === "Duergar"){document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_DWARF_2_D;}
-    else{document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_DWARF_2;}
-    document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_DWARF_3;
-    document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_DWARF_4;
-    document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_DWARF_5;
+    if(subrace === "Duergar"){ addRF(FEATURE_DWARF_1_D);}
+    else{ addRF(FEATURE_DWARF_1);}
+    if(subrace === "Duergar"){ addRF(FEATURE_DWARF_2_D);}
+    else{ addRF(FEATURE_DWARF_2);}
+    addRF(FEATURE_DWARF_3);
+    addRF(FEATURE_DWARF_4);
+    addRF(FEATURE_DWARF_5);
     if(subrace === "Hill"){
-      document.getElementById("SHEET_FEATURES_RACE_06").innerHTML = FEATURE_DWARF_HILL;
+      addRF(FEATURE_DWARF_HILL);
     } else if(subrace === "Mountain"){
-      document.getElementById("SHEET_FEATURES_RACE_06").innerHTML = FEATURE_DWARF_MTN;
+      addRF(FEATURE_DWARF_MTN);
     } else if(subrace === "Duergar"){
-      document.getElementById("SHEET_FEATURES_RACE_06").innerHTML = FEATURE_DWARF_DUERGAR_1;
-      document.getElementById("SHEET_FEATURES_RACE_07").innerHTML = FEATURE_SUNSENS;
+      addRF(FEATURE_DWARF_DUERGAR_1);
+      addRF(FEATURE_SUNSENS);
       langs.push("Undercommon");
       remove(LANGS, "Undercommon");
     }
@@ -860,93 +852,93 @@ function handleRaceFeatures(){
   }
   if(race === "Elf"){
    let edc = 8 + pBonuses[lvl] + statModifiers[stats[5]]; // cha save dc for eladrin features
-   if(subrace === "Drow"){document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_ELF_1_D;}
-   else{document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_ELF_1;}
-   document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_ELF_2;
-   document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_ELF_3;
-   document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_ELF_4;
+   if(subrace === "Drow"){ addRF(FEATURE_ELF_1_D);}
+   else{ addRF(FEATURE_ELF_1);}
+   addRF(FEATURE_ELF_2);
+   addRF(FEATURE_ELF_3);
+   addRF(FEATURE_ELF_4);
    if(subrace === "Avariel"){
-     document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_ELF_AVARIEL_1;
-     document.getElementById("SHEET_FEATURES_RACE_06").innerHTML = FEATURE_ELF_AVARIEL_2;
+     addRF(FEATURE_ELF_AVARIEL_1);
+     addRF(FEATURE_ELF_AVARIEL_2);
      spdtxt = SPD_FLY_DEFAULT;
      langs.push("Auran");
      remove(LANGS, "Auran");
    }
    if(subrace === "Drow"){
-     document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_ELF_DROW_1;
-     document.getElementById("SHEET_FEATURES_RACE_06").innerHTML = FEATURE_ELF_DROW_2;
+     addRF(FEATURE_ELF_DROW_1);
+     addRF(FEATURE_ELF_DROW_2);
    }
    if(subrace === "Eladrin"){
-     document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_ELF_ELADRIN_1;
+     addRF(FEATURE_ELF_ELADRIN_1);
    }
    if(subrace === "High" || subrace === "Wood"){
-     document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_ELF_HIGH_1;
+     addRF(FEATURE_ELF_HIGH_1);
      if(subrace === "High"){
-       document.getElementById("SHEET_FEATURES_RACE_06").innerHTML = FEATURE_ELF_HIGH_2;
-       document.getElementById("SHEET_FEATURES_RACE_07").innerHTML = FEATURE_ELF_HIGH_3;
+       addRF(FEATURE_ELF_HIGH_2);
+       addRF(FEATURE_ELF_HIGH_3);
        randlangcount = 1;
      } else {
-       document.getElementById("SHEET_FEATURES_RACE_06").innerHTML = FEATURE_ELF_WOOD_1;
-       document.getElementById("SHEET_FEATURES_RACE_07").innerHTML = FEATURE_ELF_WOOD_2;
+       addRF(FEATURE_ELF_WOOD_1);
+       addRF(FEATURE_ELF_WOOD_2);
        spd = 35; // move speed update
      }
    }
    if(subrace === "Pallid"){
-     document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_ELF_PALLID_1;
-     document.getElementById("SHEET_FEATURES_RACE_06").innerHTML = FEATURE_ELF_PALLID_2;
+     addRF(FEATURE_ELF_PALLID_1);
+     addRF(FEATURE_ELF_PALLID_2);
    }
    if(subrace === "Sea"){
-     document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_ELF_SEA_1;
-     document.getElementById("SHEET_FEATURES_RACE_06").innerHTML = FEATURE_ELF_SEA_2;
-     document.getElementById("SHEET_FEATURES_RACE_07").innerHTML = FEATURE_ELF_SEA_3;
-     document.getElementById("SHEET_FEATURES_RACE_08").innerHTML = FEATURE_ELF_SEA_4;
+     addRF(FEATURE_ELF_SEA_1);
+     addRF(FEATURE_ELF_SEA_2);
+     addRF(FEATURE_ELF_SEA_3);
+     addRF(FEATURE_ELF_SEA_4);
      spdtxt = SPD_SWIM_DEFAULT;
      langs.push("Aquan");
      remove(LANGS, "Aquan");
    }
    if(subrace === "Shadar-Kai"){
-     document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_ELF_SHADAR_1;
-     document.getElementById("SHEET_FEATURES_RACE_06").innerHTML = FEATURE_ELF_SHADAR_2;
+     addRF(FEATURE_ELF_SHADAR_1);
+     addRF(FEATURE_ELF_SHADAR_2);
    }
     langs.push("Elvish");
     remove(LANGS, "Elvish");
   }
   if(race === "Fairy"){
-    document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_FAIRY_1;
-    document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_FAIRY_2;
+    addRF(FEATURE_FAIRY_1);
+    addRF(FEATURE_FAIRY_2);
     spdtxt = SPD_FAIRY;
     langs.push("Sylvan");
     remove(LANGS, "Sylvan");
   }
   if(race === "Firbolg"){
-    document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_FIRBOLG_1;
-    document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_FIRBOLG_2;
-    document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_POWERFULBUILD;
-    document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_FIRBOLG_3;
+    addRF(FEATURE_FIRBOLG_1);
+    addRF(FEATURE_FIRBOLG_2);
+    addRF(FEATURE_POWERFULBUILD);
+    addRF(FEATURE_FIRBOLG_3);
     langs.push("Elvish");
     remove(LANGS, "Elvish");
     langs.push("Giant");
     remove(LANGS, "Giant");
   }
   if(race === "Genasi"){
-    document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DARKVISION;
+    addRF(FEATURE_DARKVISION);
     if(subrace === "Fire"){
-      document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_GENASI_FIRE_1;
-      document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_GENASI_FIRE_2;
+      addRF(FEATURE_GENASI_FIRE_1);
+      addRF(FEATURE_GENASI_FIRE_2);
     }
     if(subrace === "Earth"){
-      document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_GENASI_EARTH_1;
-      document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_GENASI_EARTH_2;
+      addRF(FEATURE_GENASI_EARTH_1);
+      addRF(FEATURE_GENASI_EARTH_2);
     }
     if(subrace === "Air"){
-      document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_GENASI_AIR_1;
-      document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_GENASI_AIR_2;
+      addRF(FEATURE_GENASI_AIR_1);
+      addRF(FEATURE_GENASI_AIR_2);
     }
    if(subrace === "Water"){
-      document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_GENASI_WATER_1;
-      document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_GENASI_WATER_2;
-      document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_GENASI_WATER_3;
-      document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_GENASI_WATER_4;
+      addRF(FEATURE_GENASI_WATER_1);
+      addRF(FEATURE_GENASI_WATER_2);
+      addRF(FEATURE_GENASI_WATER_3);
+      addRF(FEATURE_GENASI_WATER_4);
       spdtxt = SPD_SWIM_DEFAULT;
     }
     langs.push("Primordial");
@@ -954,45 +946,45 @@ function handleRaceFeatures(){
   }
   if(race === "Gith"){
     if(subrace === "Githyanki"){
-      document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_GITHYANKI_1;
-      document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_GITHYANKI_2;
-      document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_GITHYANKI_3;
+      addRF(FEATURE_GITHYANKI_1);
+      addRF(FEATURE_GITHYANKI_2);
+      addRF(FEATURE_GITHYANKI_3);
       randlangcount = 1;
     } else {
-      document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_GITHZERAI_1;
-      document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_GITHZERAI_2;
+      addRF(FEATURE_GITHZERAI_1);
+      addRF(FEATURE_GITHZERAI_2);
     }
     langs.push("Gith");
     remove(LANGS, "Gith");
   }
   if(race === "Lizardfolk"){
-    document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_LIZARDFOLK_1;
-    document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_LIZARDFOLK_2;
-    document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_LIZARDFOLK_3;
-    document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_LIZARDFOLK_4;
-    document.getElementById("SHEET_FEATURES_RACE_05").innerHTML = FEATURE_LIZARDFOLK_5;
-    document.getElementById("SHEET_FEATURES_RACE_06").innerHTML = FEATURE_LIZARDFOLK_6;
+    addRF(FEATURE_LIZARDFOLK_1);
+    addRF(FEATURE_LIZARDFOLK_2);
+    addRF(FEATURE_LIZARDFOLK_3);
+    addRF(FEATURE_LIZARDFOLK_4);
+    addRF(FEATURE_LIZARDFOLK_5);
+    addRF(FEATURE_LIZARDFOLK_6);
     langs.push("Draconic");
     remove(LANGS, "Draconic");
   }
   if(race === "Minotaur"){
-    document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_MINOTAUR_1;
-    document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_MINOTAUR_2;
-    document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_MINOTAUR_3;
-    document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_MINOTAUR_4;
+    addRF(FEATURE_MINOTAUR_1);
+    addRF(FEATURE_MINOTAUR_2);
+    addRF(FEATURE_MINOTAUR_3);
+    addRF(FEATURE_MINOTAUR_4);
     langs.push("Minotaur");
     remove(LANGS, "Minotaur");
   }
   if(race === "Half-Orc" || race === "Orc"){
-    document.getElementById("SHEET_FEATURES_RACE_01").innerHTML = FEATURE_DARKVISION;
+    addRF(FEATURE_DARKVISION);
     if(race === "Half-Orc"){
-      document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_HALFORC_1;
-      document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_HALFORC_2;
-      document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_HALFORC_3;
+      addRF(FEATURE_HALFORC_1);
+      addRF(FEATURE_HALFORC_2);
+      addRF(FEATURE_HALFORC_3);
     } else {
-      document.getElementById("SHEET_FEATURES_RACE_02").innerHTML = FEATURE_ORC_1;
-      document.getElementById("SHEET_FEATURES_RACE_03").innerHTML = FEATURE_ORC_2;
-      document.getElementById("SHEET_FEATURES_RACE_04").innerHTML = FEATURE_POWERFULBUILD;
+      addRF(FEATURE_ORC_1);
+      addRF(FEATURE_ORC_2);
+      addRF(FEATURE_POWERFULBUILD);
     }
     langs.push("Orc");
     remove(LANGS, "Orc");
@@ -1004,6 +996,13 @@ function handleRaceFeatures(){
     langs.push(newLang);
     remove(LANGS, newLang);
   }
+      
+  let sct = document.getElementById("SHEET_FEATURES_RACE");
+   for(let i = 0; i < rf.length; i++){ // fill html sections
+      let node = document.createElement("div");
+      node.innerHTML = rf[i];
+      sct.appendChild(node);
+   }
 }
 
 function handleBgFeatures(){
