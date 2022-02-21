@@ -1,6 +1,10 @@
 let debug = false; // global debug boolean
 let debugtxt = "";
 
+let racePreset = "Random";
+let classPreset = "Random";
+let lvlPreset = -1;
+
 const statModifiers = new Array(-5,-5,-4,-4,-3,-3,-2,-2,-1,-1,0,0,1,1,2,2,3,3,4,4,5);
 const pBonuses = new Array(0,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6);
 const raceOptions = new Array("Aarakocra","Aasimar","Bugbear","Centaur","Changeling","Dragonborn","Dwarf","Elf","Fairy","Firbolg","Genasi","Gith","Gnome", "Goblin","Goliath","Half-Elf","Half-Orc","Halfling","Harengon","Hexblood","Hobgoblin","Human","Kalashtar","Kenku","Kobold","Leonin","Lizardfolk","Loxodon","Merfolk","Minotaur","Orc","Owlin","Satyr","Shifter","Simic Hybrid","Tabaxi","Tiefling","Tortle","Triton","Vedalken","Warforged","Yuan-Ti");
@@ -369,6 +373,10 @@ let wpns = new Array(); // weapon proficiency list
 let amr = new Array(); // armor proficiency list
 let tls = new Array(); // tool proficiency list
 let langs = new Array("Common"); // language proficiency list
+
+function preloadRace(newRace){ racePreset = newRace; }
+function preloadClass(newClass){ classPreset = newClass; }
+function preloadLvl(newLvl){ if(typeof(newLvl) === 'number') lvlPreset = newLvl; }
 
 function sum(arr){
  let total = 0;
@@ -1254,9 +1262,21 @@ function generate(){
   subrace = "";
   nameGen();
   document.getElementById("SHEET_BASIC_NAME").innerHTML = name;
-  lvl = (Math.random()*20 + 1)|0;
-  race = raceOptions[(Math.random()*raceOptions.length)|0];
-  clss = classOptions[(Math.random()*classOptions.length)|0];
+  if(racePreset === "Random"){
+      race = raceOptions[(Math.random()*raceOptions.length)|0];
+  } else {
+      race = racePreset;     
+  }
+  if(classPreset === "Random"){
+      clss = classOptions[(Math.random()*classOptions.length)|0];
+  } else {
+      clss = classPreset;
+  }
+  if(lvlPreset == -1){
+      lvl = (Math.random()*20 + 1)|0;
+  } else {
+      lvl = lvlPreset;
+  }
   bg = bgOptions[(Math.random()*bgOptions.length)|0];
   genSubClass(); genSubRace();
  
