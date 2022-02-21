@@ -376,7 +376,7 @@ let langs = new Array("Common"); // language proficiency list
 
 function preloadRace(newRace){ racePreset = newRace; }
 function preloadClass(newClass){ classPreset = newClass; }
-function preloadLvl(newLvl){ if(typeof(newLvl) === 'number') lvlPreset = newLvl; }
+function preloadLvl(newLvl){ if(parseInt(newLvl) > 0 && parseInt(newLvl) <= 20) lvlPreset = parseInt(newLvl); }
 
 function sum(arr){
  let total = 0;
