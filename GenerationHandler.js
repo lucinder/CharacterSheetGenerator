@@ -748,7 +748,7 @@ function handleClassFeatures(){
     }
    }
       
-   if(class === "Bard"){
+   if(clss === "Bard"){
       addCF(FEATURE_BARD_1_0);     
       if(lvl>1){
          addCF(FEATURE_BARD_2_0);
