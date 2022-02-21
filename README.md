@@ -50,8 +50,8 @@
 
 **Classes Available:**
 - Artificer
-- Barbarian*
-- Bard*
+- Barbarian
+- Bard
 - Cleric*
 - Druid*
 - Fighter*
