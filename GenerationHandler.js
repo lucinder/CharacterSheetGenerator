@@ -1251,9 +1251,11 @@ function toggleMoreOptions(){
  if(moreOp.getAttribute("hidden")){
    moreOp.removeAttribute("hidden"); // show
    document.getElementById("MOREOPTIONSBUTTON").innerText = "Less Options...";
+   document.getElementById("HEAD_CONTAINER").style.paddingBottom = '10px'; // increase lower padding
  } else {
    moreOp.setAttribute("hidden", "hidden"); // hide
    document.getElementById("MOREOPTIONSBUTTON").innerText = "More Options...";
+   document.getElementById("HEAD_CONTAINER").style.paddingBottom = '6px';
  }
 }
 
