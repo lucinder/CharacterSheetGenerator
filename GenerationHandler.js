@@ -76,12 +76,30 @@ const FEATURE_ARTIFICER_14_0 = "<p><b><i>Magic Item Savant.</i></b></p><p>At 14t
 const FEATURE_ARTIFICER_18_0 = "<p><b><i>Magic Item Master.</i></b></p><p>Starting at 18th level, you can attune up to six magic items at once.</p>";
 const FEATURE_ARTIFICER_20_0 = "<p><b><i>Soul of Artifice.</i></b></p><p>At 20th level, you develop a mystical connection to your magic items, which you can draw on for protection:</p><ul><li>You gain a +1 bonus to all saving throws per magic item you are currently attuned to.</li><li>If you're reduced to 0 hit points but not killed out-right, you can use your reaction to end one of your artificer infusions, causing you to drop to 1 hit point instead of 0.</li></ul>";
 
+// artificer armorer
 const FEATURE_ARTIFICER_ARMORER_3_0 = "<p><b><i>Tools of the Trade.</i></b></p><p>When you adopt this specialization at 3rd level, you gain proficiency with heavy armor. You also gain proficiency with smith's tools. If you already have this tool proficiency, you gain proficiency with one other type of artisan's tools of your choice.</p>";
 const FEATURE_ARTIFICER_ARMORER_3_1 = "<p><b><i>Armorer Spells.</i></b></p><p>Starting at 3rd level, you always have certain spells prepared after you reach particular levels in this class, as shown in the Armorer Spells table. These spells count as artificer spells for you, but they don't count against the number of artificer spells you prepare.</p><h6><b>Armorer Spells:</b></h6><table class=\"w3-flat-clouds w3-margin\"><tr class=\"w3-flat-silver\"> <!-- Header Row --><th style=\"padding-right:12px;\">Artificer Level</th><th>Armorer Spells</th></tr><tr> <!-- 1st level spells --><td>3rd</td><td>Magic Missile, Thunderwave</td></tr><tr> <!-- 2nd level spells --><td>5th</td><td>Mirror Image, Shatter</td></tr><tr> <!-- 3rd level spells --><td>9th</td><td>Hypnotic Pattern, Lightning Bolt</td></tr><tr> <!-- 4th level spells --><td>13th</td><td>Fire Shield, Greater Invisibility</td></tr><tr> <!-- 5th level spells --><td>17th</td><td>Passwall, Wall of Force</td></tr></table>";
 const FEATURE_ARTIFICER_ARMORER_3_2 = "<p><b><i>Arcane Armor.</i></b></p><p>Beginning at 3rd level, your metallurgical pursuits have led to you making armor a conduit for your magic. As an action, you can turn a suit of armor you are wearing into Arcane Armor, provided you have smith's tools in hand.</p><p>You gain the following benefits while wearing this armor:</p><ul><li>If the armor normally has a Strength requirement, the arcane armor lacks this requirement for you.</li><li>You can use the arcane armor as a spellcasting focus for your artificer spells.</li><li>The armor attaches to you and can’t be removed against your will. It also expands to cover your entire body, although you can retract or deploy the helmet as a bonus action. The armor replaces any missing limbs, functioning identically to a body part it is replacing.</li><li>You can doff or don the armor as an action.</li></ul><p>The armor continues to be Arcane Armor until you don another suit of armor or you die.</p>";
 const FEATURE_ARTIFICER_ARMORER_3_3 = "<p><b><i>Armor Model.</i></b></p><p>Beginning at 3rd level, you can customize your Arcane Armor. When you do so, choose one of the following armor models: Guardian or Infiltrator. The model you choose gives you special benefits while you wear it.</p><p>Each model includes a special weapon. When you attack with that weapon, you can add your Intelligence modifier, instead of Strength or Dexterity, to the attack and damage rolls.</p><p>You can change the armor's model whenever you finish a short or long rest, provided you have smith's tools in hand.</p><p><b>Guardian.</b> You design your armor to be in the front line of conflict. It has the following features:<p><ul><li><b>Thunder Gauntlets.</b> Each of the armor's gauntlets counts as a simple melee weapon while you aren't holding anything in it, and it deals 1d8 thunder damage on a hit. A creature hit by the gauntlet has disadvantage on attack rolls against targets other than you until the start of your next turn, as the armor magically emits a distracting pulse when the creature attacks someone else.</li><li><b>Defensive Field.</b> As a bonus action, you can gain temporary hit points equal to your level in this class, replacing any temporary hit points you already have. You lose these temporary hit points if you doff the armor. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.</li></ul><p><b>Infiltrator.</b> You customize your armor for subtle undertakings. It has the following features:<ul><li><b>Lightning Launcher.</b> A gemlike node appears on one of your armored fists or on the chest (your choice). It counts as a simple ranged weapon, with a normal range of 90 feet and a long range of 300 feet, and it deals 1d6 lightning damage on a hit. Once on each of your turns when you hit a creature with it, you can deal an extra 1d6 lightning damage to that target.</li><li><b>Powered Steps.</b> Your walking speed increases by 5 feet.</li><li><b>Dampening Field.</b> You have advantage on Dexterity (Stealth) checks. If the armor normally imposes disadvantage on such checks, the advantage and disadvantage cancel each other, as normal.</li></ul>";
 const FEATURE_ARTIFICER_ARMORER_9_0 = "<p><b><i>Armor Modifications.</i></b></p><p>At 9th level, you learn how to use your artificer infusions to specially modify your Arcane Armor. That armor now counts as separate items for the purposes of your Infuse Items feature: armor (the chest piece), boots, helmet, and the armor's special weapon. Each of those items can bear one of your infusions, and the infusions transfer over if you change your armor's model with the Armor Model feature. In addition, the maximum number of items you can infuse at once increases by 2, but those extra items must be part of your Arcane Armor.</p>";
 const FEATURE_ARTIFICER_ARMORER_15_0 = "<p><b><i>Perfected Armor.</i></b></p><p>At 15th level, your Arcane Armor gains additional benefits based on its model, as shown below.</p><p><b>Guardian.</b> When a Huge or smaller creature you can see ends its turn within 30 feet of you, you can use your reaction to magically force the creature to make a Strength saving throw against your spell save DC, pulling the creature up to 30 feet toward you to an unoccupied space. If you pull the target to a space within 5 feet of you, you can make a melee weapon attack against it as part of this reaction.</p><p>You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses of it when you finish a long rest.</p><p><b>Infiltrator.</b> Any creature that takes lightning damage from your Lightning Launcher glimmers with magical light until the start of your next turn. The glimmering creature sheds dim light in a 5-foot radius, and it has disadvantage on attack rolls against you, as the light jolts it if it attacks you. In addition, the next attack roll against it has advantage, and if that attack hits, the target takes an extra 1d6 lightning damage.</p>";
+
+// barbarian
+const FEATURE_BARBARIAN_1_0 = "<p><b><i>Rage.</i></b></p><p>In battle, you fight with primal ferocity. On your turn, you can enter a rage as a bonus action.</p><p>While raging, you gain the following benefits if you aren't wearing heavy armor:</p><ul><li>You have advantage on Strength checks and Strength saving throws.</li><li>When you make a melee weapon attack using Strength, you gain a bonus to the damage roll that increases as you gain levels as a barbarian, as shown in the Rage Damage column of the Barbarian table.</li><li>You have resistance to bludgeoning, piercing, and slashing damage.</li></ul><p>If you are able to cast spells, you can't cast them or concentrate on them while raging.</p><p>Your rage lasts for 1 minute. It ends early if you are knocked unconscious or if your turn ends and you haven't attacked a hostile creature since your last turn or taken damage since then. You can also end your rage on your turn as a bonus action.</p><p>Once you have raged the number of times shown for your barbarian level in the Rages column of the Barbarian table, you must finish a long rest before you can rage again.</p>";
+const FEATURE_BARBARIAN_1_1 = "<p><b><i>Unarmored Defense.</i></b></p><p>While you are not wearing any armor, your armor class equals 10 + your Dexterity modifier + your Constitution modifier. You can use a shield and still gain this benefit.</p>";
+const FEATURE_BARBARIAN_2_0 = "<p><b><i>Danger Sense.</i></b></p><p>At 2nd level, you gain an uncanny sense of when things nearby aren't as they should be, giving you an edge when you dodge away from danger. You have advantage on Dexterity saving throws against effects that you can see, such as traps and spells. To gain this benefit, you can't be blinded, deafened, or incapacitated.</p>";
+const FEATURE_BARBARIAN_2_1 = "<p><b><i>Reckless Attack.</i></b></p><p>Starting at 2nd level, you can throw aside all concern for defense to attack with fierce desperation. When you make your first attack on your turn, you can decide to attack recklessly. Doing so gives you advantage on melee weapon attack rolls using Strength during this turn, but attack rolls against you have advantage until your next turn.</p>";
+const FEATURE_BARBARIAN_5_0 = "<p><b><i>Fast Movement.</i></b></p><p>Starting at 5th level, your speed increases by 10 feet while you aren't wearing heavy armor.</p>";
+const FEATURE_BARBARIAN_7_0 = "<p><b><i>Feral Instinct.</i></b></p><p>By 7th level, your instincts are so honed that you have advantage on initiative rolls.</p><p>Additionally, if you are surprised at the beginning of combat and aren't incapacitated, you can act normally on your first turn, but only if you enter your rage before doing anything else on that turn.</p>";
+const FEATURE_BARBARIAN_9_0 = "<p><b><i>Brutal Critical.</i></b></p><p>Beginning at 9th level, you can roll one additional weapon damage die when determining the extra damage for a critical hit with a melee attack.</p><p>This increases to two additional dice at 13th level and three additional dice at 17th level.</p>";
+const FEATURE_BARBARIAN_11_0 = "<p><b><i>Relentless Rage.</i></b></p><p>Starting at 11th level, your rage can keep you fighting despite grievous wounds. If you drop to 0 hit points while you're raging and don't die outright, you can make a DC 10 Constitution saving throw. If you succeed, you drop to 1 hit point instead.</p><p>Each time you use this feature after the first, the DC increases by 5. When you finish a short or long rest, the DC resets to 10.</p>";
+const FEATURE_BARBARIAN_15_0 = "<p><b><i>Persistent Rage.</i></b></p><p>Beginning at 15th level, your rage is so fierce that it ends early only if you fall unconscious or if you choose to end it.</p>";
+const FEATURE_BARBARIAN_18_0 = "<p><b><i>Indomitable Might.</i></b></p><p>Beginning at 18th level, if your total for a Strength check is less than your Strength score, you can use that score in place of the total.</p>";
+const FEATURE_BARBARIAN_20_0 = "<p><b><i>Primal Champion.</i></b></p><p>At 20th level, you embody the power of the wilds. Your Strength and Constitution scores increase by 4. Your maximum for those scores is now 24.</p>";
+
+
+// bard
+
 
 // spellcasting feature variations
 const FEATURE_ARTIFICER_SPELLCASTING = "<p><b><i>Spellcasting.</b></i>You've studied the workings of magic and how to cast spells, channeling the magic through objects. To observers, you don't appear to be casting spells in a conventional way; you appear to produce wonders from mundane items and outlandish inventions.</p><h6><u>Tools Required</u></h6><p>You produce your artificer spell effects through your tools. You must have a spellcasting focus-specifically thieves' tools or some kind of artisan's tool-in hand when you cast any spell with this Spellcasting feature (meaning the spell has an \"M\" component when you cast it). You must be proficient with the tool to use it in this way. See the equipment chapter in the <i>Player's Handbook</i> for descriptions of these tools.</p><p>After you gain the Infuse Item feature at 2nd level, you can also use any item bearing one of your infusions as a spellcasting focus.</p><h6><u>Cantrips (0-Level Spells)</u></h6><p>At 1st level, you know two cantrips of your choice from the artificer spell list. At higher levels, you learn additional artificer can trips of your choice, as shown in the Cantrips Known column of the Artificer table.</p><p>When you gain a level in this class, you can replace one of the artificer cantrips you know with another cantrip from the artificer spell list.</p><h6><u>Preparing and Casting Spells</u></h6><p>The Artificer table shows how many spell slots you have to cast your artificer spells. To cast one of your artificer spells of 1st level or higher, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest.</p><p>You prepare the list of artificer spells that are available for you to cast, choosing from the artificer spell list. When you do so, choose a number of artificer spells equal to _SPELLSAVAILABLE (your Intelligence modifier + half your artificer level, rounded down, with a minimum of one spell). The spells must be of a level for which you have spell slots.</p><p>For example, if you are a 5th-level artificer, you have four 1st-level and two 2nd-level spell slots. With an Intelligence of 14, your list of prepared spells can include four spells of 1st or 2nd level, in any combination. If you prepare the 1st-level spell Cure Wounds, you can cast it using a lst-level or a 2nd-level slot. Casting the spell doesn't remove it from your list of prepared spells.</p><p>You can change your list of prepared spells when you finish a long rest. Preparing a new list of artificer spells requires time spent tinkering with your spellcasting focuses: at least 1 minute per spell level for each spell on your list.</p><h6><u>Spellcasting Ability</u></h6><p>Intelligence is your spellcasting ability for your artificer spells; your understanding of the theory behind magic allows you to wield these spells with superior skill. You use your Intelligence whenever an artificer spell refers to your spellcasting ability. In addition, you use your Intelligence modifier when setting the saving throw DC for an artificer spell you cast and when making an attack roll with one.</p><p><b>Spell save DC</b> = _SPELLSAVEDC (8 + your proficiency bonus + your Intelligence modifier)</p><p><b>Spell attack modifier</b> = _SPELLATKMODIFIER (your proficiency bonus + your Intelligence modifier)</p><h6><u>Ritual Casting</u></h6><p>You can cast an artificer spell as a ritual if that spell has the ritual tag and you have the spell prepared.</p>";
@@ -669,7 +687,7 @@ function handleClassFeatures(){
       if(lvl > 19){ // 20th lvl main feature
        addCF(FEATURE_ARTIFICER_20_0);
       }
-         // spellcasting
+     // spellcasting
      document.getElementById("SHEET_FEATURES_SPELLCASTING_HEADER").innerHTML = "Spellcasting";
      let intMod = statModifiers[stats[3]];
      let sav = (lvl/2)|0+intMod; // spells available
@@ -677,13 +695,52 @@ function handleClassFeatures(){
      let sam = pBonuses[lvl] + intMod; // spell attack modifier
      let sdc = 8 + sam;
      document.getElementById("SHEET_FEATURES_SPELLCASTING_DESCRIPTION").innerHTML = FEATURE_ARTIFICER_SPELLCASTING.replace("_SPELLATKMODIFIER",sam).replace("_SPELLSAVAILABLE",sav).replace("_SPELLSAVEDC",sdc);
-   }   
+   } 
+      
+   if(clss === "Barbarian"){
+    addCF(FEATURE_BARBARIAN_1_0);
+    addCF(FEATURE_BARBARIAN_1_1);   
+    if(lvl>1){
+     addCF(FEATURE_BARBARIAN_2_0);
+     addCF(FEATURE_BARBARIAN_2_1);   
+    }
+    if(lvl>3){
+      addCF(FEATURE_ASI_STANDARD);
+    }
+    if(lvl>4){ 
+      addCF(FEATURE_EA_STANDARD);
+      addCF(FEATURE_BARBARIAN_5_0);  
+    }
+    if(lvl>6){ 
+      addCF(FEATURE_BARBARIAN_7_0);  
+    }
+    if(lvl>8){ 
+      addCF(FEATURE_BARBARIAN_9_0);  
+    }
+    if(lvl>10){ 
+      addCF(FEATURE_BARBARIAN_11_0);  
+    }
+    if(lvl>14){ 
+      addCF(FEATURE_BARBARIAN_15_0);  
+    }
+    if(lvl>17){ 
+      addCF(FEATURE_BARBARIAN_18_0);  
+    }
+    if(lvl>19){ 
+      addCF(FEATURE_BARBARIAN_20_0);  
+      // increase str + con by 4 ea.
+      stats[0] = stats[0]+4;
+      stats[2] = stats[2]+4;
+    }
+   }
+      
    let sct = document.getElementById("SHEET_FEATURES_CLASS");
    for(let i = 0; i < cf.length; i++){ // fill html sections
       let node = document.createElement("div");
       node.innerHTML = cf[i];
       sct.appendChild(node);
    }
+   
    debugtxt += "<br>Checkpoint 2: Class Features generated!";
 }
 
