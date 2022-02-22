@@ -792,7 +792,7 @@ function handleClassFeatures(){
      document.getElementById("SHEET_FEATURES_SPELLCASTING_DESCRIPTION").innerHTML = FEATURE_BARD_SPELLCASTING.replace("_SPELLATKMODIFIER",sam).replace("_SPELLSAVEDC",sdc);
    }
    
-   if(clss === "CLERIC"){
+   if(clss === "Cleric"){
       if(lvl>1){
          addCF(FEATURE_CLERIC_2_0);
       }
