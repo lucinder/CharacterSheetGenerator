@@ -478,7 +478,7 @@ function fillClassOptions(){
   document.getElementById("SELECT_CLASS").innerHTML = "";
   for(let i = 0; i < classOptions.length; i++){
     let c = classOptions[i];
-    internalTxt = '<option value="' + c + '">' + c +'</option>';     
+    internalTxt += '<option value="' + c + '">' + c +'</option>';     
   }
   document.getElementById("SELECT_CLASS").innerHTML = internalTxt;
 }
@@ -488,14 +488,24 @@ function fillRaceOptions(){
   document.getElementById("SELECT_RACE").innerHTML = "";
   for(let i = 0; i < raceOptions.length; i++){
     let r = raceOptions[i];
-    internalTxt = '<option value="' + r + '">' + r +'</option>';     
+    internalTxt += '<option value="' + r + '">' + r +'</option>';     
   }
   document.getElementById("SELECT_RACE").innerHTML = internalTxt;
+}
+
+function fillLvlOptions(){
+  let internalTxt = '<option value="Random">Random</option>';
+  document.getElementById("SELECT_LVL").innerHTML = "";
+  for(let i = 1; i <= 20; i++){
+    internalTxt += '<option value="' + i + '">' + i +'</option>';     
+  }
+  document.getElementById("SELECT_LVL").innerHTML = internalTxt;
 }
 
 function init(){
   fillRaceOptions();
   fillClassOptions();
+  fillLvlOptions();
   resetFeatures();
 }
 
