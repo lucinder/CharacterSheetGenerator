@@ -68,7 +68,7 @@
             	var options = (typeof(srSelector[val]) != "undefined") ? srSelector[val] : {};
             	$('<option value="Random">Random</option>').appendTo(target);
             	$.each(options , function(index,value) {
-               	  $('<option value="' + index + '">' + value + '</option>').appendTo(target);
+               	  $('<option value="' + value + '">' + value + '</option>').appendTo(target);
             	});
             }
     	});
@@ -80,6 +80,7 @@
        <div class="w3-left col-sm-2">
         <label for="SELECT_CLASS">Class:</label>
 	<select id="SELECT_CLASS" name="SELECT_CLASS"></select>
+       </div>
 	<script type="text/javascript">
 	$('#SELECT_CLASS').on('change', function(e){
             var source = $(this),
@@ -95,7 +96,6 @@
             }
     	});
 	</script>
-       </div>
 	<div class="w3-left col-sm-3">
 	  <label for="SELECT_SUBCLASS">Subclass:</label>
 	  <select id="SELECT_SUBCLASS" name="SELECT_SUBCLASS"></select>
