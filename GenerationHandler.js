@@ -37,6 +37,8 @@ const subclassOptions_sorcerer = new Array("Aberrant Mind","Clockwork Soul","Dra
 const subclassOptions_warlock = new Array("Archfey","Celestial","Fathomless","Fiend","Genie","Great Old One","Hexblade","Undying");
 const subclassOptions_wizard = new Array("Abjuration","Evocation","Divination","Conjuration","Enchantment","Illusion","Necromancy","Transmutation","Bladesinging","War Magic","Order of Scribes","Chronurgy","Graviturgy");
 
+let scSelector = {"Artificer":subclassOptions_artificer, "Barbarian":subclassOptions_barbarian,"Bard":subclassOptions_bard,"Cleric":subclassOptions_cleric,"Druid":subclassOptions_druid,"Fighter":subclassOptions_fighter,"Monk":subclassOptions_monk,"Paladin":subclassOptions_paladin,"Ranger":subclassOptions_ranger,"Rogue":subclassOptions_rogue,"Sorcerer":subclassOptions_sorcerer,"Warlock":subclassOptions_warlock,"Wizard":subclassOptions_wizard};
+
 // proficiencies by class
 // format: saves, skills, weapons, armor, tools
 const stS = "STR", stD = "DEX", stC = "CON", stI = "INT", stW = "WIS", stA = "CHA";
