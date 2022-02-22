@@ -110,8 +110,8 @@
             if(typeof(srSelector[val]) != "undefined"){
             	var options = (typeof(srSelector[val]) != "undefined") ? srSelector[val] : {};
             	$('<option value="Random">Random</option>').appendTo(target);
-            	$.each( options , function(index) {
-               	  $('<option value="' + index + '">' + index + '</option>').appendTo(target);
+            	$.each(options , function(value) {
+               	  $('<option value="' + value + '">' + value + '</option>').appendTo(target);
             	});
             }
     	});
@@ -147,8 +147,8 @@
             if(typeof(scSelector[val]) != "undefined"){
             	var options = (typeof(scSelector[val]) != "undefined") ? scSelector[val] : {};
             	$('<option value="Random">Random</option>').appendTo(target);
-            	$.each( options , function(index) {
-               	  $('<option value="' + index + '">' + index + '</option>').appendTo(target);
+            	$.each(options , function(value) {
+               	  $('<option value="' + value + '">' + value + '</option>').appendTo(target);
             	});
             }
     	});
