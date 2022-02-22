@@ -1329,7 +1329,7 @@ function toggleMoreOptions(){
 }
 
 function loadPregens(){
- racePreset = document.querySelector('#SELECT_RACE').value;    
+ racePreset = document.querySelector('#SELECT_RACE').index;    
  classPreset = document.querySelector('#SELECT_CLASS').value;   
  srPreset = document.querySelector('#SELECT_SUBRACE').value;    
  scPreset = document.querySelector('#SELECT_SUBCLASS').value;    
