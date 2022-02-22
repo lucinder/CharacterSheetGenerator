@@ -109,9 +109,9 @@
       	    $(target).empty();
             if(typeof(srSelector[val]) != "undefined"){
             	var options = (typeof(srSelector[val]) != "undefined") ? srSelector[val] : {};
-            	$('<option>Random</option>').appendTo(target);
-            	$.each( options , function(value, index) {
-               	  $('<option value="' + value + '">' + index + '</option>').appendTo(target);
+            	$('<option value="Random">Random</option>').appendTo(target);
+            	$.each( options , function(index) {
+               	  $('<option value="' + index + '">' + index + '</option>').appendTo(target);
             	});
             }
     	});
@@ -146,9 +146,9 @@
       	    $(target).empty();
             if(typeof(scSelector[val]) != "undefined"){
             	var options = (typeof(scSelector[val]) != "undefined") ? scSelector[val] : {};
-            	$('<option>Random</option>').appendTo(target);
-            	$.each( options , function(value, index) {
-               	  $('<option value="' + value + '">' + index + '</option>').appendTo(target);
+            	$('<option value="Random">Random</option>').appendTo(target);
+            	$.each( options , function(index) {
+               	  $('<option value="' + index + '">' + index + '</option>').appendTo(target);
             	});
             }
     	});
