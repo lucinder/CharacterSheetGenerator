@@ -90,7 +90,7 @@
             	var options = (typeof(scSelector[val]) != "undefined") ? scSelector[val] : {};
             	$('<option value="Random">Random</option>').appendTo(target);
             	$.each(options , function(index,value) {
-               	  $('<option value="' + value + '">' + index + '</option>').appendTo(target);
+               	  $('<option value="' + value + '">' + value + '</option>').appendTo(target);
             	});
             }
     	});
