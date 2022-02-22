@@ -3,6 +3,8 @@ let debugtxt = "";
 
 let racePreset = "Random";
 let classPreset = "Random";
+let srPreset = "";
+let scPreset = "Random";
 let lvlPreset = -1;
 
 const statModifiers = new Array(-5,-5,-4,-4,-3,-3,-2,-2,-1,-1,0,0,1,1,2,2,3,3,4,4,5,5,6,6,7); // now goes up to 24 for lv 20 barb
@@ -364,6 +366,7 @@ let name = "Example Character";
 let clss = "";
 let subclass = "";
 let race = "";
+let subrace = "";
 let lvl = 1;
 let hp = 24; // hp
 let ac = 10; // overall ac
@@ -383,6 +386,8 @@ let langs = new Array("Common"); // language proficiency list
 
 function preloadRace(newRace){ racePreset = newRace; }
 function preloadClass(newClass){ classPreset = newClass; }
+function preloadSubrace(newSubrace){ srPreset = newSubrace; }
+function preloadSubclass(newSubclass){ scPreset = newSubclass; }
 function preloadLvl(newLvl){ if(parseInt(newLvl) > 0 && parseInt(newLvl) <= 20) lvlPreset = parseInt(newLvl); }
 
 function sum(arr){
@@ -1289,7 +1294,9 @@ function toggleMoreOptions(){
 
 function loadPregens(){
  racePreset = document.querySelector('#SELECT_RACE').value;    
- classPreset = document.querySelector('#SELECT_CLASS').value;    
+ classPreset = document.querySelector('#SELECT_CLASS').value;   
+ srPreset = document.querySelector('#SELECT_SUBRACE').value;    
+ scPreset = document.querySelector('#SELECT_SUBCLASS').value;    
  lvlPreset = document.querySelector('#SELECT_LVL').value;    
 }
 
@@ -1306,19 +1313,29 @@ function generate(){
   document.getElementById("SHEET_BG_BACKSTORY_HEADER").innerHTML ="<u>Backstory</u>";
  
   // determine main fields
-  subclass = "";
-  subrace = "";
   nameGen();
   document.getElementById("SHEET_BASIC_NAME").innerHTML = name;
+  subclass = "";
+  subrace = "";
   if(racePreset === "Random"){
       race = raceOptions[(Math.random()*raceOptions.length)|0];
   } else {
       race = racePreset;     
   }
+  if(srPreset === "Random"){
+      genSubRace();
+  } else if(!(srPreset === "")){
+      subrace = srPreset;
+  }
   if(classPreset === "Random"){
       clss = classOptions[(Math.random()*classOptions.length)|0];
   } else {
       clss = classPreset;
+  }
+  if(scPreset === "Random"){
+      genSubClass();
+  } else if(!(scPreset === "")){
+      subclass = scPreset;
   }
   if(lvlPreset == -1){
       lvl = (Math.random()*20 + 1)|0;
@@ -1326,7 +1343,6 @@ function generate(){
       lvl = lvlPreset;
   }
   bg = bgOptions[(Math.random()*bgOptions.length)|0];
-  genSubClass(); genSubRace();
  
   // if(debug){ race = "Lizardfolk"; clss = "Artificer"; } // defaults for debug
   if(subrace === ""){ 
