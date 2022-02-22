@@ -1331,7 +1331,7 @@ function toggleMoreOptions(){
 function loadPregens(){
  racePreset = document.querySelector('#SELECT_RACE').value;    
  classPreset = document.querySelector('#SELECT_CLASS').value;   
- srPreset = document.querySelector('#SELECT_SUBRACE').index;    
+ srPreset = document.querySelector('#SELECT_SUBRACE').selectedIndex;    
  scPreset = document.querySelector('#SELECT_SUBCLASS').value;    
  lvlPreset = document.querySelector('#SELECT_LVL').value;    
 }
@@ -1370,10 +1370,10 @@ function generate(){
   }
   if(scPreset === "Random"){
       genSubClass();
-  } else if(!(scPreset === "")){
+  } else if(!(scPreset === "" || scpreset === "undefined")){
       subclass = scPreset;
   }
-  if(lvlPreset == -1){
+  if(lvlPreset == -1 || lvlPreset === "Random"){
       lvl = (Math.random()*20 + 1)|0;
   } else {
       lvl = lvlPreset;
