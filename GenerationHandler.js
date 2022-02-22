@@ -3,7 +3,7 @@ let debugtxt = "";
 
 let racePreset = "Random";
 let classPreset = "Random";
-let srPreset = "";
+let srPreset = "Random";
 let scPreset = "Random";
 let lvlPreset = -1;
 
@@ -1358,9 +1358,9 @@ function generate(){
   } else {
       race = racePreset;     
   }
-  if(srPreset === "Random"){
+  if(srPreset === "Random" && !(typeof(srSelector[race]) === "undefined")){
       genSubRace();
-  } else if(!(srPreset === "")){
+  } else if(!(srPreset === "" || srPreset === "Random")){
       subrace = srPreset;
   }
   if(classPreset === "Random"){
