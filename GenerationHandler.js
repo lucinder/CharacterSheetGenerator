@@ -21,6 +21,7 @@ const subraceOptions_gith = new Array("Githzerai","Githyanki");
 const subraceOptions_gnome = new Array("Forest","Rock","Deep");
 const subraceOptions_halfling = new Array("Stout","Lightfoot","Ghostwise","Lotusden");
 const subraceOptions_merfolk = new Array("Green","Blue");
+let srSelector = {"Aasimar":subraceOptions_aasimar,"Dragonborn":subraceOptions_dragonborn,"Dwarf":subraceOptions_dwarf,"Elf":subraceOptions_elf,"Genasi":subraceOptions_genasi,"Gith":subraceOptions_gith,"Gnome":subraceOptions_gnome,"Halfling":subraceOptions_halfling,"Merfolk":subraceOptions_merfolk,};
 
 //subclass
 const subclassOptions_artificer = new Array("Alchemist","Artillerist","Armorer","Battle Smith");
