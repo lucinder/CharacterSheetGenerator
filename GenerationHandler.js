@@ -473,6 +473,32 @@ function resetFeatures(){
   document.getElementById("SHEET_FEATURES_SPELLCASTING_DESCRIPTION").innerHTML = "";
 }
 
+function fillClassOptions(){
+  let internalTxt = '<option value="Random">Random</option>';
+  document.getElementById("SELECT_CLASS").innerHTML = "";
+  for(let i = 0; i < classOptions.length; i++){
+    let c = classOptions[i];
+    internalTxt = '<option value="' + c + '">' + c +'</option>';     
+  }
+  document.getElementById("SELECT_CLASS").innerHTML = internalTxt;
+}
+
+function fillRaceOptions(){
+  let internalTxt = '<option value="Random">Random</option>';
+  document.getElementById("SELECT_RACE").innerHTML = "";
+  for(let i = 0; i < raceOptions.length; i++){
+    let r = raceOptions[i];
+    internalTxt = '<option value="' + r + '">' + r +'</option>';     
+  }
+  document.getElementById("SELECT_RACE").innerHTML = internalTxt;
+}
+
+function init(){
+  fillRaceOptions();
+  fillClassOptions();
+  resetsFeatures();
+}
+
 // shorthand functions
 function addWpn(w){ if(!(wpns.includes(w))) wpns.push(w); }
 function addAmr(a){ if(!(amr.includes(a))) amr.push(a); }
