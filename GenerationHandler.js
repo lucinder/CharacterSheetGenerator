@@ -496,7 +496,7 @@ function fillRaceOptions(){
 function init(){
   fillRaceOptions();
   fillClassOptions();
-  resetsFeatures();
+  resetFeatures();
 }
 
 // shorthand functions
