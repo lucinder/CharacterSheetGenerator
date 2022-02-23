@@ -948,7 +948,7 @@ function handleClassFeatures(){
       if((8 + pBonuses[lvl] + statModifiers[stats[1]]) > fdc) fdc = 8 + pBonuses[lvl] + statModifiers[stats[1]]; // use dex mod if dex mod is higher
       let fmnv = fManeuvers[(Math.random()*fManeuvers.length)|0]; // handle maneuver selection
       fs = fs.replace("_FDC",fdc).replace("_FMANEUVER",fmnv);
-      addCF(FEATURE_FIGHTINGSTYLE.replace("_FSTYLE"));
+      addCF(FEATURE_FIGHTINGSTYLE.replace("_FSTYLE",fs));
       addCF(FEATURE_FIGHTER_1_0);
       if(lvl>1){
          addCF(FEATURE_FIGHTER_2_0);
