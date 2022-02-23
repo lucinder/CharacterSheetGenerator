@@ -1399,20 +1399,20 @@ function sortStats(){
  for(let i = 0; i < 3; i++){ // set 3 most important stats by class
     largest = largestItemIndex(statsTemp);
     if(i == 0){ // primary stat
-       dbgTxt += "<br>Priority stat 1 index: " + priorityStats[clss][0] + ", Former stat = " + statTemp[priorityStats[clss][0]] + ", New stat = " + statsTemp[largest];
+       debugtxt += "<br>Priority stat 1 index: " + priorityStats[clss][0] + ", Former stat = " + statTemp[priorityStats[clss][0]] + ", New stat = " + statsTemp[largest];
        newStats[priorityStats[clss][0]] = statsTemp[largest];
        remove(statsTemp,largest);
-       dbtTxt += ". Is temp array resizing correctly? " + (statsTemp.length == 5);
+       debugtxt += ". Is temp array resizing correctly? " + (statsTemp.length == 5);
     } else if (i == 1){ // secondary stat
-       dbgTxt += "<br>Priority stat 2 index: " + priorityStats[clss][1] + ", Former stat = " + statTemp[priorityStats[clss][1]] + ", New stat = " + statsTemp[largest];
+       debugtxt += "<br>Priority stat 2 index: " + priorityStats[clss][1] + ", Former stat = " + statTemp[priorityStats[clss][1]] + ", New stat = " + statsTemp[largest];
        newStats[priorityStats[clss][1]] = statsTemp[largest];
        remove(statsTemp,largest);
-       dbtTxt += ". Is temp array resizing correctly? " + (statsTemp.length == 4);
+       debugtxt += ". Is temp array resizing correctly? " + (statsTemp.length == 4);
     } else { // tertiary stat
-       dbgTxt += "<br>Priority stat 3 index: " + priorityStats[clss][2] + ", Former stat = " + statTemp[priorityStats[clss][2]] + ", New stat = " + statsTemp[largest];
+       debugtxt += "<br>Priority stat 3 index: " + priorityStats[clss][2] + ", Former stat = " + statTemp[priorityStats[clss][2]] + ", New stat = " + statsTemp[largest];
        newStats[priorityStats[clss][2]] = statsTemp[largest];
        remove(statsTemp,largest);
-       dbtTxt += ". Is temp array resizing correctly? " + (statsTemp.length == 3);
+       debugtxt += ". Is temp array resizing correctly? " + (statsTemp.length == 3);
     }
  }
  for(let i = newStats.length - 1; i >= 0; i--){ // fill in remaining stats in reverse-descending order (str will generally be dumped)
@@ -1420,7 +1420,7 @@ function sortStats(){
        largest = largestItemIndex(statsTemp);
        newStats[i] = statsTemp[largest];
        remove(statsTemp,largest);
-       dbgTxt += "<br>i = " + i + ", Former stat = " + stats[i] + ", New stat = " + newStats[i];
+       debugtxt += "<br>i = " + i + ", Former stat = " + stats[i] + ", New stat = " + newStats[i];
     }
   }
   stats = newStats;
