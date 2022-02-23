@@ -9,6 +9,7 @@ let lvlPreset = -1;
 
 const statModifiers = new Array(-5,-5,-4,-4,-3,-3,-2,-2,-1,-1,0,0,1,1,2,2,3,3,4,4,5,5,6,6,7); // now goes up to 24 for lv 20 barb
 const pBonuses = new Array(0,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6);
+const priorityStats = {"Artificer":new Array(3,1,4), "Barbarian":new Array(0,2,4),"Bard":new Array(5,1,4),"Cleric":new Array(4,2,0),"Druid":new Array(4,5,3),"Fighter":new Array(0,2,4),"Monk":new Array(1,4,2),"Paladin":new Array(0,5,2),"Ranger":new Array(1,4,2),"Rogue":new Array(1,5,3),"Sorcerer":new Array(5,2,4),"Warlock":new Array(5,2,4),"Wizard":new Array(3,1,4)};
 const raceOptions = new Array("Aarakocra","Aasimar","Bugbear","Centaur","Changeling","Dragonborn","Dwarf","Elf","Fairy","Firbolg","Genasi","Gith","Gnome", "Goblin","Goliath","Half-Elf","Half-Orc","Halfling","Harengon","Hexblood","Hobgoblin","Human","Kalashtar","Kenku","Kobold","Leonin","Lizardfolk","Loxodon","Merfolk","Minotaur","Orc","Owlin","Satyr","Shifter","Simic Hybrid","Tabaxi","Tiefling","Tortle","Triton","Vedalken","Warforged","Yuan-Ti");
 const classOptions = new Array("Artificer","Barbarian","Bard","Cleric","Druid","Fighter","Monk","Paladin","Ranger","Rogue","Sorcerer","Warlock","Wizard");
 const bgOptions = new Array("Acolyte","Anthropologist","Archaeologist","Athlete","Charlatan","City Watch","Clan Crafter","Cloistered Scholar","Courtier","Criminal","Entertainer","Faceless","Faction Agent","Far Traveler","Feylost","Fisher","Folk Hero","Gambler","Grinner","Guild Artisan","Haunted One","Hermit","House Agent","Inheritor","Investigator","Knight of the Order","Marine","Mercenary Veteran","Noble","Outlander","Sage","Sailor","Shipwright","Smuggler","Soldier","Urban Bounty Hunter","Urchin","Tribe Member","Carnival Hand");
@@ -1383,6 +1384,40 @@ function rollStats(){
   stats[5] = sum(XdYkhZ(4,6,3)); 
 }
 
+function largestItemIndex(arr){ // precondition: arr size > 0
+  let maxI = 0;
+  for(let i = 0; i < arr.length; i++){
+     if(arr[i] > arr[maxI) maxI = i;
+  }
+  return maxI;
+}
+
+function sortStats(){
+ let statsTemp = stats;
+ let newStats = new Array(-1,-1,-1,-1,-1,-1);
+ for(let i = 0; i < 3; i++){ // set 3 most important stats by class
+    let largest = largestItemIndex(statsTemp);
+    if(i == 0){ // primary stat
+       newStats[priorityStats[clss][0]] = statsTemp[largest];
+       remove(statsTemp,largest);
+    } else if (i == 1){ // secondary stat
+       newStats[priorityStats[clss][1]] = statsTemp[largest];
+       remove(statsTemp,largest);
+    } else { // tertiary stat
+       newStats[priorityStats[clss][2]] = statsTemp[largest];
+       remove(statsTemp,largest);
+    }
+ }
+ for(let i = newStats.length - 1; i >= 0; i--){ // fill in remaining stats in reverse-descending order (str will generally be dumped)
+    if(newStats[i] == -1){
+       int largest = largestItemIndex(statsTemp);
+       newStats[i] = statsTemp[largest];
+       remove(statsTemp,largest);
+    }
+  }
+  stats = newStats;
+}
+
 function nameGen(){
  name = genName(2) + " " + genName(3);
 }
@@ -1565,6 +1600,7 @@ function generate(){
   debugtxt += "<br>Checkpoint 1: Race/Class displayed properly!";
  
   rollStats();
+  sortStats();
   handleProficiencies();
   handleClassFeatures();
   handleRaceFeatures();
