@@ -194,7 +194,7 @@ let fManeuvers = {mv_ambush,mv_bait,mv_brace,mv_cs,mv_cp,mv_disarm,mv_distract,m
 const SPD_DEFAULT = "<p><b>Speed:</b> _SPD ft.</p>";
 const SPD_SWIM_DEFAULT = "<p><b>Speed:</b> _SPD ft., swim 30 ft.</p>";
 const SPD_FLY_DEFAULT = "<p><b>Speed:</b> _SPD ft., fly 30 ft.</p>";
-let LANGS = new Array("Aarakocra","Abyssal","Auran","Celestial","Elvish","Dwarvish","Draconic","Giant","Gith","Gnomish","Goblin","Infernal","Leonin","Loxodon","Merfolk","Minotaur","Orc","Primordial","Sylvan","Vedalken");
+let ALL_LANGS = {"Aarakocra","Abyssal","Auran","Celestial","Elvish","Dwarvish","Draconic","Giant","Gith","Gnomish","Goblin","Infernal","Leonin","Loxodon","Merfolk","Minotaur","Orc","Primordial","Sylvan","Vedalken"};
 
 const FEATURE_DARKVISION = "<p><b><i>Darkvision.</b></i> You can see in dim light within 60 feet of you as if it were bright light and in darkness as if it were dim light. You discern colors in that darkness only as shades of gray.</p>";
 const FEATURE_POWERFULBUILD = "<p><b><i>Powerful Build.</i></b> You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift.</p>";
@@ -510,7 +510,7 @@ function XdYkhZ(x,y,z){
 }
 
 function resetFeatures(){
-  LANGS = new Array("Aarakocra","Abyssal","Auran","Celestial","Elvish","Dwarvish","Draconic","Giant","Gith","Gnomish","Goblin","Infernal","Leonin","Loxodon","Merfolk","Minotaur","Orc","Primordial","Sylvan","Vedalken");
+  ALL_LANGS = new Array("Aarakocra","Abyssal","Auran","Celestial","Elvish","Dwarvish","Draconic","Giant","Gith","Gnomish","Goblin","Infernal","Leonin","Loxodon","Merfolk","Minotaur","Orc","Primordial","Sylvan","Vedalken");
   debugtxt = "";
   rf = new Array();
   cf = new Array();
@@ -986,9 +986,9 @@ function handleRaceFeatures(){
     spd = 25;
     spdtxt = SPD_AARAKOCRA;
     langs.push("Aarakocra");
-    remove(LANGS, "Aarakocra");
+    remove(ALL_LANGS, "Aarakocra");
     langs.push("Auran");
-    remove(LANGS, "Auran");
+    remove(ALL_LANGS, "Auran");
   }
   if(race === "Aasimar"){
     addRF(FEATURE_AASIMAR_1);
@@ -1005,7 +1005,7 @@ function handleRaceFeatures(){
        addRF(FEATURE_AASIMAR_FALLEN_1);
     }
     langs.push("Celestial");
-    remove(LANGS, "Celestial");
+    remove(ALL_LANGS, "Celestial");
   }
   if(race === "Bugbear"){
     addRF(FEATURE_DARKVISION);
@@ -1014,7 +1014,7 @@ function handleRaceFeatures(){
     addRF(FEATURE_BUGBEAR_2);
     addRF(FEATURE_BUGBEAR_3);
     langs.push("Goblin");
-    remove(LANGS, "Goblin");
+    remove(ALL_LANGS, "Goblin");
   }
  if(race === "Centaur"){
     addRF(FEATURE_CREATURETYPE_FEY);
@@ -1024,7 +1024,7 @@ function handleRaceFeatures(){
     addRF(FEATURE_CENTAUR_4);
     spd = 40;
     langs.push("Sylvan");
-    remove(LANGS, "Sylvan");
+    remove(ALL_LANGS, "Sylvan");
   }
   if(race === "Changeling"){
     addRF(FEATURE_CHANGELING_1);
@@ -1113,7 +1113,7 @@ function handleRaceFeatures(){
        if(lvl>4) addRF(FEATURE_DRAGONBORN_GEM_3); // 5th level feature
      }
     langs.push("Draconic");
-    remove(LANGS, "Draconic");
+    remove(ALL_LANGS, "Draconic");
   }
   if(race === "Dwarf"){
     spdtxt = SPD_DWARF;
@@ -1132,10 +1132,10 @@ function handleRaceFeatures(){
       addRF(FEATURE_DWARF_DUERGAR_1);
       addRF(FEATURE_SUNSENS);
       langs.push("Undercommon");
-      remove(LANGS, "Undercommon");
+      remove(ALL_LANGS, "Undercommon");
     }
     langs.push("Dwarvish");
-    remove(LANGS, "Dwarvish");
+    remove(ALL_LANGS, "Dwarvish");
   }
   if(race === "Elf"){
    let edc = 8 + pBonuses[lvl] + statModifiers[stats[5]]; // cha save dc for eladrin features
@@ -1149,7 +1149,7 @@ function handleRaceFeatures(){
      addRF(FEATURE_ELF_AVARIEL_2);
      spdtxt = SPD_FLY_DEFAULT;
      langs.push("Auran");
-     remove(LANGS, "Auran");
+     remove(ALL_LANGS, "Auran");
    }
    if(subrace === "Drow"){
      addRF(FEATURE_ELF_DROW_1);
@@ -1181,21 +1181,21 @@ function handleRaceFeatures(){
      addRF(FEATURE_ELF_SEA_4);
      spdtxt = SPD_SWIM_DEFAULT;
      langs.push("Aquan");
-     remove(LANGS, "Aquan");
+     remove(ALL_LANGS, "Aquan");
    }
    if(subrace === "Shadar-Kai"){
      addRF(FEATURE_ELF_SHADAR_1);
      addRF(FEATURE_ELF_SHADAR_2);
    }
     langs.push("Elvish");
-    remove(LANGS, "Elvish");
+    remove(ALL_LANGS, "Elvish");
   }
   if(race === "Fairy"){
     addRF(FEATURE_FAIRY_1);
     addRF(FEATURE_FAIRY_2);
     spdtxt = SPD_FAIRY;
     langs.push("Sylvan");
-    remove(LANGS, "Sylvan");
+    remove(ALL_LANGS, "Sylvan");
   }
   if(race === "Firbolg"){
     addRF(FEATURE_FIRBOLG_1);
@@ -1203,9 +1203,9 @@ function handleRaceFeatures(){
     addRF(FEATURE_POWERFULBUILD);
     addRF(FEATURE_FIRBOLG_3);
     langs.push("Elvish");
-    remove(LANGS, "Elvish");
+    remove(ALL_LANGS, "Elvish");
     langs.push("Giant");
-    remove(LANGS, "Giant");
+    remove(ALL_LANGS, "Giant");
   }
   if(race === "Genasi"){
     addRF(FEATURE_DARKVISION);
@@ -1229,7 +1229,7 @@ function handleRaceFeatures(){
       spdtxt = SPD_SWIM_DEFAULT;
     }
     langs.push("Primordial");
-    remove(LANGS, "Primordial");
+    remove(ALL_LANGS, "Primordial");
   }
   if(race === "Gith"){
     if(subrace === "Githyanki"){
@@ -1242,7 +1242,7 @@ function handleRaceFeatures(){
       addRF(FEATURE_GITHZERAI_2);
     }
     langs.push("Gith");
-    remove(LANGS, "Gith");
+    remove(ALL_LANGS, "Gith");
   }
   if(race === "Lizardfolk"){
     addRF(FEATURE_LIZARDFOLK_1);
@@ -1252,7 +1252,7 @@ function handleRaceFeatures(){
     addRF(FEATURE_LIZARDFOLK_5);
     addRF(FEATURE_LIZARDFOLK_6);
     langs.push("Draconic");
-    remove(LANGS, "Draconic");
+    remove(ALL_LANGS, "Draconic");
   }
   if(race === "Minotaur"){
     addRF(FEATURE_MINOTAUR_1);
@@ -1260,7 +1260,7 @@ function handleRaceFeatures(){
     addRF(FEATURE_MINOTAUR_3);
     addRF(FEATURE_MINOTAUR_4);
     langs.push("Minotaur");
-    remove(LANGS, "Minotaur");
+    remove(ALL_LANGS, "Minotaur");
   }
   if(race === "Half-Orc" || race === "Orc"){
     addRF(FEATURE_DARKVISION);
@@ -1274,14 +1274,14 @@ function handleRaceFeatures(){
       addRF(FEATURE_POWERFULBUILD);
     }
     langs.push("Orc");
-    remove(LANGS, "Orc");
+    remove(ALL_LANGS, "Orc");
   }
  
   // language randomization
   for(let i = 0; i < randlangcount; i++){
-    let newLang = LANGS[(Math.random()*LANGS.length)|0];
+    let newLang = ALL_LANGS[(Math.random()*ALL_LANGS.length)|0];
     langs.push(newLang);
-    remove(LANGS, newLang);
+    remove(ALL_LANGS, newLang);
   }
       
   let sct = document.getElementById("SHEET_FEATURES_RACE");
