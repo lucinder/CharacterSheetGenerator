@@ -1410,7 +1410,7 @@ function sortStats(){
  }
  for(let i = newStats.length - 1; i >= 0; i--){ // fill in remaining stats in reverse-descending order (str will generally be dumped)
     if(newStats[i] == -1){
-       int largest = largestItemIndex(statsTemp);
+       let largest = largestItemIndex(statsTemp);
        newStats[i] = statsTemp[largest];
        remove(statsTemp,largest);
     }
