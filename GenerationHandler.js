@@ -71,6 +71,7 @@ const FEATURE_EA_STANDARD = "<p><strong><i>Extra Attack.</i></strong></p><p>Star
 const FEATURE_ASI_FIGHTER = "<p><strong><i>Ability Score Improvement.</i></strong></p><p>When you reach 4th level, and again at 6th, 8th, 12th, 14th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.</p>";
 const FEATURE_EA_FIGHTER = "<p><strong><i>Extra Attack.</i></strong></p><p>Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.<p></p>The number of attacks increases to three when you reach 11th level in this class and to four when you reach 20th level in this class.</p>";
 const FEATURE_FIGHTINGSTYLE = "<p><b><i>Fighting Style.</i></b></p><p>_FSTYLE</p>";
+const FEATURE_EVASION = "<p><b><i>Evasion.</i></b></p><p>Beginning at 7th level, you can nimbly dodge out of the way of certain area effects, such as a red dragon's fiery breath or an Ice Storm spell. When you are subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you instead take no damage if you succeed on the saving throw, and only half damage if you fail.</p>";
 
 // fighting styles
 let fs_archery = "<b>Archery.</b> You gain a +2 bonus to attack rolls you make with ranged weapons.";
@@ -184,6 +185,21 @@ let mv_trip = "<p><u>Trip Attack</u></p><p>When you hit a creature with a weapon
 let fManeuvers = new Array(mv_ambush,mv_bait,mv_brace,mv_cs,mv_cp,mv_disarm,mv_distract,mv_evasive,mv_feint,mv_goad,mv_grapple,mv_lunge,mv_mv,mv_menace,mv_parry,mv_precision,mv_push,mv_toss,mv_rally,mv_riposte,mv_sweep,mv_assess,mv_trip);
 
 // monk
+const FEATURE_MONK_1_0 = "<p><b><i>Unarmored Defense.</i></b></p><p>Beginning at 1st level, while you are wearing no armor and not wielding a shield, your AC equals 10 + your Dexterity modifier + your Wisdom modifier.</p>";
+const FEATURE_MONK_1_1 = "<p><b><i>Martial Arts.</i></b></p><p>Your practice of martial arts gives you mastery of combat styles that use unarmed strikes and monk weapons, which are shortswords and any simple melee weapons that don't have the two-handed or heavy property.</p><p>You gain the following benefits while you are unarmed or wielding only monk weapons and you aren't wearing armor or wielding a shield.</p><ul><li>You can use Dexterity instead of Strength for the attack and damage rolls of your unarmed strikes and monk weapons.</li><li>You can roll a d4 in place of the normal damage of your unarmed strike or monk weapon. This die changes as you gain monk levels, as shown in the Martial Arts column of the Monk table.</li><li>When you use the Attack action with an unarmed strike or a monk weapon on your turn, you can make one unarmed strike as a bonus action. For example, if you take the Attack action and attack with a quarterstaff, you can also make an unarmed strike as a bonus action, assuming you haven't already taken a bonus action this turn.</li></ul><p>Certain monasteries use specialized forms of the monk weapons. For example, you might use a club that is two lengths of wood connected by a short chain (called a nunchaku) or a sickle with a shorter, straighter blade (called a kama).</p>";
+const FEATURE_MONK_2_0 = "<p><b><i>Ki.</i></b></p><p>Starting at 2nd level, your training allows you to harness the mystic energy of ki. Your access to this energy is represented by a number of ki points. Your monk level determines the number of points you have, as shown in the Ki Points column of the Monk table.</p><p>You can spend these points to fuel various ki features. You start knowing three such features: Flurry of Blows, Patient Defense, and Step of the Wind. You learn more ki features as you gain levels in this class.</p><p>When you spend a ki point, it is unavailable until you finish a short or long rest, at the end of which you draw all of your expended ki back into yourself. You must spend at least 30 minutes of the rest meditating to regain your ki points.</p><p>Some of your ki features require your target to make a saving throw to resist the feature's effects. The saving throw DC is calculated as follows:</p><p><b>Ki save DC</b> = _KIDC (8 + your proficiency bonus + your Wisdom modifier)</p><ul><li><b>Flurry of Blows.</b> Immediately after you take the Attack action on your turn, you can spend 1 ki point to make two unarmed strikes as a bonus action.</li><li><b>Patient Defense.</b> You can spend 1 ki point to take the Dodge action as a bonus action on your turn.</li><li><b>Step of the Wind.</b> You can spend 1 ki point to take the Disengage or Dash action as a bonus action on your turn, and your jump distance is doubled for the turn.</li></ul>";
+const FEATURE_MONK_2_1 = "<p><b><i>Unarmored Movement.</i></b></p><p>Starting at 2nd level, your speed increases by 10 feet while you are not wearing armor or wielding a shield. This bonus increases when you reach certain monk levels, as shown in the Monk table.</p><p>At 9th level, you gain the ability to move along vertical surfaces and across liquids on your turn without falling during the move.</p>";
+const FEATURE_MONK_3_0 = "<p><b><i>Deflect Missiles.</i></b></p><p>Starting at 3rd level, you can use your reaction to deflect or catch the missile when you are hit by a ranged weapon attack. When you do so, the damage you take from the attack is reduced by 1d10 + your Dexterity modifier + your monk level.</p><p>If you reduce the damage to 0, you can catch the missile if it is small enough for you to hold in one hand and you have at least one hand free. If you catch a missile in this way, you can spend 1 ki point to make a ranged attack (range 20/60 feet) with the weapon or piece of ammunition you just caught, as part of the same reaction. You make this attack with proficiency, regardless of your weapon proficiencies, and the missile counts as a monk weapon for the attack.</p>";
+const FEATURE_MONK_4_0 = "<p><b><i>Slow Fall.</i></b></p><p>Beginning at 4th level, you can use your reaction when you fall to reduce any falling damage you take by an amount equal to five times your monk level.</p>";
+const FEATURE_MONK_5_0 = "<p><b><i>Stunning Strike.</i></b></p><p>Starting at 5th level, you can interfere with the flow of ki in an opponent's body. When you hit another creature with a melee weapon attack, you can spend 1 ki point to attempt a stunning strike. The target must succeed on a Constitution saving throw or be stunned until the end of your next turn.</p>";
+const FEATURE_MONK_6_0 = "<p><b><i>Ki-Empowered Strikes.</i></b></p><p>Starting at 6th level, your unarmed strikes count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.</p>";
+const FEATURE_MONK_7_0 = "<p><b><i>Stillness of Mind.</i></b></p><p>Starting at 7th level, you can use your action to end one effect on yourself that is causing you to be charmed or frightened.</p>";
+const FEATURE_MONK_10_0 = "<p><b><i>Purity of Body.</i></b></p><p>At 10th level, your mastery of the ki flowing through you makes you immune to disease and poison.</p>";
+const FEATURE_MONK_13_0 = "<p><b><i>Tongue of the Sun and Moon.</i></b></p><p>Starting at 13th level, you learn to touch the ki of other minds so that you understand all spoken languages. Moreover, any creature that can understand a language can understand what you say.</p>";
+const FEATURE_MONK_14_0 = "<p><b><i>Diamond Soul.</i></b></p><p>Beginning at 14th level, your mastery of ki grants you proficiency in all saving throws.</p><p>Additionally, whenever you make a saving throw and fail, you can spend 1 ki point to reroll it and take the second result.</p>";
+const FEATURE_MONK_15_0 = "<p><b><i>Timeless Body.</i></b></p><p>At 15th level, your ki sustains you so that you suffer none of the frailty of old age, and you can't be aged magically. You can still die of old age, however. In addition, you no longer need food or water.</p>";
+const FEATURE_MONK_18_0 = "<p><b><i>Empty Body.</i></b></p><p>Beginning at 18th level, you can use your action to spend 4 ki points to become invisible for 1 minute. During that time, you also have resistance to all damage but force damage.</p><p>Additionally, you can spend 8 ki points to cast the astral projection spell, without needing material components. When you do so, you can't take any other creatures with you.</p>";
+const FEATURE_MONK_20_0 = "<p><b><i>Perfect Self.</i></b></p><p>At 20th level, when you roll for initiative and have no ki points remaining, you regain 4 ki points.</p>";
 
 // paladin
 
@@ -627,7 +643,11 @@ function handleProficiencies(){
  let armortxt = "";
  let toolstxt = "";
  
- savestxt += "<b>Saving Throws:</b> " + profs[0][0] + ", " + profs[0][1];
+ if(clss === "Monk" && lvl > 13){ // diamond soul feature
+    savestxt += "<b>Saving Throws:</b> All";
+ } else {
+    savestxt += "<b>Saving Throws:</b> " + profs[0][0] + ", " + profs[0][1];
+ }
  skillstxt += "<b>Skills:</b> ";
  weaponstxt += "<b>Weapons:</b> ";
  armortxt += "<b>Armor:</b> ";
@@ -961,6 +981,53 @@ function handleClassFeatures(){
       }
       if(lvl>8){
          addCF(FEATURE_FIGHTER_9_0);
+      }
+   }
+   if(clss === "Monk"){
+      addCF(FEATURE_MONK_1_0);
+      addCF(FEATURE_MONK_1_1);
+      if(lvl>1){
+         let kdc = 8 + pBonuses[lvl] + statModifiers[stats[4]];
+         let k = FEATURE_MONK_2_0;
+         k = k.replace("_KIDC",kdc);
+         addCF(k);
+         addCF(FEATURE_MONK_2_0);
+      }
+      if(lvl>2){
+         addCF(FEATURE_MONK_3_0);
+      }
+      if(lvl>3){
+         addCF(FEATURE_ASI_STANDARD);
+         addCF(FEATURE_MONK_4_0);
+      }
+      if(lvl>4){
+         addCF(FEATURE_EA_STANDARD);
+         addCF(FEATURE_MONK_5_0);
+      }
+      if(lvl>5){
+         addCF(FEATURE_MONK_6_0);
+      }
+      if(lvl>6){
+         addCF(FEATURE_EVASION);
+         addCF(FEATURE_MONK_7_0);
+      }
+      if(lvl>9){
+         addCF(FEATURE_MONK_10_0);
+      }
+      if(lvl>12){
+         addCF(FEATURE_MONK_13_0);
+      }
+      if(lvl>13){
+         addCF(FEATURE_MONK_14_0);
+      }
+      if(lvl>14){
+         addCF(FEATURE_MONK_15_0);
+      }
+      if(lvl>17){
+         addCF(FEATURE_MONK_18_0);
+      }
+      if(lvl>19){
+         addCF(FEATURE_MONK_20_0);
       }
    }
       
