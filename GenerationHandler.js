@@ -1387,7 +1387,7 @@ function rollStats(){
 function largestItemIndex(arr){ // precondition: arr size > 0
   let maxI = 0;
   for(let i = 0; i < arr.length; i++){
-     if(arr[i] > arr[maxI) maxI = i;
+     if(arr[i] > arr[maxI]) maxI = i;
   }
   return maxI;
 }
