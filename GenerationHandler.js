@@ -991,7 +991,7 @@ function handleClassFeatures(){
          let k = FEATURE_MONK_2_0;
          k = k.replace("_KIDC",kdc);
          addCF(k);
-         addCF(FEATURE_MONK_2_0);
+         addCF(FEATURE_MONK_2_1);
       }
       if(lvl>2){
          addCF(FEATURE_MONK_3_0);
