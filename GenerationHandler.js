@@ -1401,17 +1401,17 @@ function sortStats(){
     if(i == 0){ // primary stat
        debugtxt += "<br>Priority stat 1 index: " + priorityStats[clss][0] + ", Former stat = " + statsTemp[priorityStats[clss][0]] + ", New stat = " + statsTemp[largest];
        newStats[priorityStats[clss][0]] = statsTemp[largest];
-       remove(statsTemp,largest);
+       statsTemp = remove(statsTemp,largest);
        debugtxt += ". Is temp array resizing correctly? " + (statsTemp.length == 5);
     } else if (i == 1){ // secondary stat
        debugtxt += "<br>Priority stat 2 index: " + priorityStats[clss][1] + ", Former stat = " + statsTemp[priorityStats[clss][1]] + ", New stat = " + statsTemp[largest];
        newStats[priorityStats[clss][1]] = statsTemp[largest];
-       remove(statsTemp,largest);
+       statsTemp = remove(statsTemp,largest);
        debugtxt += ". Is temp array resizing correctly? " + (statsTemp.length == 4);
     } else { // tertiary stat
        debugtxt += "<br>Priority stat 3 index: " + priorityStats[clss][2] + ", Former stat = " + statsTemp[priorityStats[clss][2]] + ", New stat = " + statsTemp[largest];
        newStats[priorityStats[clss][2]] = statsTemp[largest];
-       remove(statsTemp,largest);
+       statsTemp = remove(statsTemp,largest);
        debugtxt += ". Is temp array resizing correctly? " + (statsTemp.length == 3);
     }
  }
@@ -1419,7 +1419,7 @@ function sortStats(){
     if(newStats[i] == -1){
        largest = largestItemIndex(statsTemp);
        newStats[i] = statsTemp[largest];
-       remove(statsTemp,largest);
+       statsTemp = remove(statsTemp,largest);
        debugtxt += "<br>i = " + i + ", Former stat = " + stats[i] + ", New stat = " + newStats[i];
     }
   }
