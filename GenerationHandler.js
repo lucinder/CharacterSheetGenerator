@@ -157,7 +157,7 @@ const FEATURE_DRUID_20_0 = "<p><b><i>Archdruid.</i></b></p><p>At 20th level, you
 const FEATURE_FIGHTER_1_0 = "<p><b><i>Second Wind.</i></b></p><p>You have a limited well of stamina that you can draw on to protect yourself from harm. On your turn, you can use a bonus action to regain hit points equal to 1d10 + your fighter level.</p><p>Once you use this feature, you must finish a short or long rest before you can use it again.</p>";
 const FEATURE_FIGHTER_2_0 = "<p><b><i>Action Surge.</i></b></p><p>Starting at 2nd level, you can push yourself beyond your normal limits for a moment. On your turn, you can take one additional action.</p><p>Once you use this feature, you must finish a short or long rest before you can use it again. Starting at 17th level, you can use it twice before a rest, but only once on the same turn.</p>";
 const FEATURE_FIGHTER_9_0 = "<p><b><i>Indomitable.</i></b></p><p>Beginning at 9th level, you can reroll a saving throw that you fail. If you do so, you must use the new roll, and you can't use this feature again until you finish a long rest.</p><p>You can use this feature twice between long rests starting at 13th level and three times between long rests starting at 17th level.</p>";
-let fStyles_fighter = {fs_archery,fs_bfighting,fs_def,fs_duel,fs_gwf,fs_inter,fs_prot,fs_maneuver,fs_twf,fs_2wf,fs_uf,fs_cqs,fs_mariner,fs_tf};
+let fStyles_fighter = new Array(fs_archery,fs_bfighting,fs_def,fs_duel,fs_gwf,fs_inter,fs_prot,fs_maneuver,fs_twf,fs_2wf,fs_uf,fs_cqs,fs_mariner,fs_tf);
 let mv_ambush = "<p><u>Ambush</u></p><p>When you make a Dexterity (Stealth) check or an initiative roll, you can expend one superiority die and add the die to the roll, provided you aren't incapacitated.</p>";
 let mv_bait = "<p><u>Bait and Switch</u></p><p>When you're within 5 feet of a creature on your turn, you can expend one superiority die and switch places with that creature, provided you spend at least 5 feet of movement and the creature is willing and isn't incapacitated. This movement doesn't provoke opportunity attacks.<br>Roll the superiority die. Until the start of your next turn, you or the other creature (your choice) gains a bonus to AC equal to the number rolled.</p>";
 let mv_brace = "<p><u>Brace</u></p><p>When a creature you can see moves into the reach you have with the melee weapon you're wielding, you can use your reaction to expend one superiority die and make one attack against the creature, using that weapon. If the attack hits, add the superiority die to the weapon's damage roll.</p>";
@@ -181,7 +181,7 @@ let mv_riposte = "<p><u>Riposte</u></p><p>When a creature misses you with a mele
 let mv_sweep = "<p><u>Sweeping Attack</u></p><p>When you hit a creature with a melee weapon attack, you can expend one superiority die to attempt to damage another creature with the same attack. Choose another creature within 5 feet of the original target and within your reach. If the original attack roll would hit the second creature, it takes damage equal to the number you roll on your superiority die. The damage is of the same type dealt by the original attack.</p>";
 let mv_assess = "<p><u>Tactical Assessment</u></p><p>When you make an Intelligence (Investigation), an Intelligence (History), or a Wisdom (Insight) check, you can expend one superiority die and add the superiority die to the ability check.</p>";
 let mv_trip = "<p><u>Trip Attack</u></p><p>When you hit a creature with a weapon attack, you can expend one superiority die to attempt to knock the target down. You add the superiority die to the attack's damage roll, and if the target is Large or smaller, it must make a Strength saving throw. On a failed save, you knock the target prone.</p>";
-let fManeuvers = {mv_ambush,mv_bait,mv_brace,mv_cs,mv_cp,mv_disarm,mv_distract,mv_evasive,mv_feint,mv_goad,mv_grapple,mv_lunge,mv_mv,mv_menace,mv_parry,mv_precision,mv_push,mv_toss,mv_rally,mv_riposte,mv_sweep,mv_assess,mv_trip};
+let fManeuvers = new Array(mv_ambush,mv_bait,mv_brace,mv_cs,mv_cp,mv_disarm,mv_distract,mv_evasive,mv_feint,mv_goad,mv_grapple,mv_lunge,mv_mv,mv_menace,mv_parry,mv_precision,mv_push,mv_toss,mv_rally,mv_riposte,mv_sweep,mv_assess,mv_trip);
 
 // monk
 
@@ -194,7 +194,7 @@ let fManeuvers = {mv_ambush,mv_bait,mv_brace,mv_cs,mv_cp,mv_disarm,mv_distract,m
 const SPD_DEFAULT = "<p><b>Speed:</b> _SPD ft.</p>";
 const SPD_SWIM_DEFAULT = "<p><b>Speed:</b> _SPD ft., swim 30 ft.</p>";
 const SPD_FLY_DEFAULT = "<p><b>Speed:</b> _SPD ft., fly 30 ft.</p>";
-let ALL_LANGS = {"Aarakocra","Abyssal","Auran","Celestial","Elvish","Dwarvish","Draconic","Giant","Gith","Gnomish","Goblin","Infernal","Leonin","Loxodon","Merfolk","Minotaur","Orc","Primordial","Sylvan","Vedalken"};
+let ALL_LANGS = new Array("Aarakocra","Abyssal","Auran","Celestial","Elvish","Dwarvish","Draconic","Giant","Gith","Gnomish","Goblin","Infernal","Leonin","Loxodon","Merfolk","Minotaur","Orc","Primordial","Sylvan","Vedalken");
 
 const FEATURE_DARKVISION = "<p><b><i>Darkvision.</b></i> You can see in dim light within 60 feet of you as if it were bright light and in darkness as if it were dim light. You discern colors in that darkness only as shades of gray.</p>";
 const FEATURE_POWERFULBUILD = "<p><b><i>Powerful Build.</i></b> You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift.</p>";
