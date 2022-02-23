@@ -1358,9 +1358,9 @@ function generate(){
   } else {
       race = racePreset;     
   }
-  if(srPreset === "Random" && !(typeof(srSelector[race]) === "undefined")){
+  if(srPreset === "Random" || !(typeof(srSelector[race]) === "undefined")){ // not all races have subraces: we only want to randomize initially if we switch to a race that DOES have subraces
       genSubRace();
-  } else if(!(srPreset === "" || srPreset === "Random")){
+  } else {
       subrace = srPreset;
   }
   if(classPreset === "Random"){
@@ -1368,9 +1368,9 @@ function generate(){
   } else {
       clss = classPreset;
   }
-  if(scPreset === "Random"){
+  if(scPreset === "Random" || scPreset === ""){ // every class has some subclasses, so if we switch to a different class without choosing a subclass, just randomize one
       genSubClass();
-  } else if(!(scPreset === "" || typeof(scPreset) === "undefined")){
+  } else {
       subclass = scPreset;
   }
   if(lvlPreset == -1 || lvlPreset === "Random"){
