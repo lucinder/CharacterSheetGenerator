@@ -1392,7 +1392,7 @@ function largestItemIndex(arr){ // precondition: arr size > 0
   return maxI;
 }
 
-function sortStats(){
+function sortStats(){ // includes racial asi
  let statsTemp = stats;
  let newStats = new Array(-1,-1,-1,-1,-1,-1);
  let largest = -1;
@@ -1400,12 +1400,12 @@ function sortStats(){
     largest = largestItemIndex(statsTemp);
     if(i == 0){ // primary stat
        debugtxt += "<br>Priority stat 1 index: " + priorityStats[clss][0] + ", Former stat = " + statsTemp[priorityStats[clss][0]] + ", New stat = " + statsTemp[largest];
-       newStats[priorityStats[clss][0]] = statsTemp[largest];
+       newStats[priorityStats[clss][0]] = statsTemp[largest] + 2; // give racial +2 to most important stat
        statsTemp = remove(statsTemp,largest);
        debugtxt += ". Is temp array resizing correctly? " + (statsTemp.length == 5);
     } else if (i == 1){ // secondary stat
        debugtxt += "<br>Priority stat 2 index: " + priorityStats[clss][1] + ", Former stat = " + statsTemp[priorityStats[clss][1]] + ", New stat = " + statsTemp[largest];
-       newStats[priorityStats[clss][1]] = statsTemp[largest];
+       newStats[priorityStats[clss][1]] = statsTemp[largest] + 1; // give racial +1 to second most important stat
        statsTemp = remove(statsTemp,largest);
        debugtxt += ". Is temp array resizing correctly? " + (statsTemp.length == 4);
     } else { // tertiary stat
