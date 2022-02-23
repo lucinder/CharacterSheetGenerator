@@ -72,6 +72,7 @@ const FEATURE_ASI_FIGHTER = "<p><strong><i>Ability Score Improvement.</i></stron
 const FEATURE_EA_FIGHTER = "<p><strong><i>Extra Attack.</i></strong></p><p>Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.<p></p>The number of attacks increases to three when you reach 11th level in this class and to four when you reach 20th level in this class.</p>";
 const FEATURE_FIGHTINGSTYLE = "<p><b><i>Fighting Style.</i></b></p><p>_FSTYLE</p>";
 const FEATURE_EVASION = "<p><b><i>Evasion.</i></b></p><p>Beginning at 7th level, you can nimbly dodge out of the way of certain area effects, such as a red dragon's fiery breath or an Ice Storm spell. When you are subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you instead take no damage if you succeed on the saving throw, and only half damage if you fail.</p>";
+const umSpdBonus = new Array(0,0,10,10,10,10,15,15,15,15,20,20,20,20,25,25,25,25,30,30,30);
 
 // fighting styles
 let fs_archery = "<b>Archery.</b> You gain a +2 bonus to attack rolls you make with ranged weapons.";
@@ -528,6 +529,7 @@ function XdYkhZ(x,y,z){
 function resetFeatures(){
   ALL_LANGS = new Array("Aarakocra","Abyssal","Auran","Celestial","Elvish","Dwarvish","Draconic","Giant","Gith","Gnomish","Goblin","Infernal","Leonin","Loxodon","Merfolk","Minotaur","Orc","Primordial","Sylvan","Vedalken");
   debugtxt = "";
+  spd = 30;
   rf = new Array();
   cf = new Array();
   skills = new Array();
@@ -992,6 +994,7 @@ function handleClassFeatures(){
          k = k.replace("_KIDC",kdc);
          addCF(k);
          addCF(FEATURE_MONK_2_1);
+         spd += umSpdBonus[lvl]; // unarmored movement speed bonus
       }
       if(lvl>2){
          addCF(FEATURE_MONK_3_0);
@@ -1044,13 +1047,12 @@ function handleClassFeatures(){
 
 
 function handleRaceFeatures(){
-  spd = 30;
   randlangcount = 0;
   spdtxt = SPD_DEFAULT;
   if(race === "Aarakocra"){
     addRF(FEATURE_AARAKOCRA_1);
     addRF(FEATURE_AARAKOCRA_2);
-    spd = 25;
+    spd -= 5; // 25 base move speed
     spdtxt = SPD_AARAKOCRA;
     langs.push("Aarakocra");
     remove(ALL_LANGS, "Aarakocra");
@@ -1089,7 +1091,7 @@ function handleRaceFeatures(){
     addRF(FEATURE_CENTAUR_2);
     addRF(FEATURE_CENTAUR_3);
     addRF(FEATURE_CENTAUR_4);
-    spd = 40;
+    spd += 10; // 40 base move speed
     langs.push("Sylvan");
     remove(ALL_LANGS, "Sylvan");
   }
@@ -1234,7 +1236,7 @@ function handleRaceFeatures(){
      } else {
        addRF(FEATURE_ELF_WOOD_1);
        addRF(FEATURE_ELF_WOOD_2);
-       spd = 35; // move speed update
+       spd += 5; // base move spd 35
      }
    }
    if(subrace === "Pallid"){
