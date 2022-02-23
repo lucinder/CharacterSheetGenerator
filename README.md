@@ -52,9 +52,9 @@
 - Artificer
 - Barbarian
 - Bard
-- Cleric*
-- Druid*
-- Fighter*
+- Cleric
+- Druid
+- Fighter
 - Monk*
 - Paladin*
 - Ranger*
