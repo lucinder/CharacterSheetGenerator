@@ -1111,14 +1111,12 @@ function handleClassFeatures(){
       addCF(FEATURE_RANGER_1_1);
       if(lvl>1){
          addCF(FEATURE_FIGHTINGSTYLE.replace("_FSTYLE",fs));
-         // paladin spellcasting
+         // ranger spellcasting
            document.getElementById("SHEET_FEATURES_SPELLCASTING_HEADER").innerHTML = "Spellcasting";
-           let chaMod = statModifiers[stats[5]];
-           let sam = pBonuses[lvl] + chaMod; // spell attack modifier
-           let sav = (lvl/2)|0+chaMod; // spells available
-           if(sav < 1) sav = 1;
+           let wisMod = statModifiers[stats[4]];
+           let sam = pBonuses[lvl] + wisMod; // spell attack modifier
            let sdc = 8 + sam;
-           document.getElementById("SHEET_FEATURES_SPELLCASTING_DESCRIPTION").innerHTML = FEATURE_PALADIN_SPELLCASTING.replace("_SPELLATKMODIFIER",sam).replace("_SPELLSAVEDC",sdc).replace("_SPELLSAVAILABLE",sav);
+           document.getElementById("SHEET_FEATURES_SPELLCASTING_DESCRIPTION").innerHTML = FEATURE_RANGER_SPELLCASTING.replace("_SPELLATKMODIFIER",sam).replace("_SPELLSAVEDC",sdc);
       }
       if(lvl>2){
          addCF(FEATURE_RANGER_3_0);
