@@ -1192,7 +1192,7 @@ function handleClassFeatures(){
     }
    }
    
-   if(clss === "Sorcerer){
+   if(clss === "Sorcerer"){
     if(lvl>1){
      addCF(FEATURE_SORCERER_2_0);   
     }
