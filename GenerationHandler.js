@@ -96,7 +96,7 @@ let fs_druid = "<b>Druidic Warrior.</b> You learn two cantrips of your choice fr
 
 // spellcasting feature variations
 // artificers, clerics, druids, paladins are preparatory
-// bards, rangers, sorcerers are nonpreparatory
+// bards, rangers, sorcerers, warlocks are nonpreparatory
 const FEATURE_ARTIFICER_SPELLCASTING = "<p><b><i>Spellcasting.</b></i> You've studied the workings of magic and how to cast spells, channeling the magic through objects. To observers, you don't appear to be casting spells in a conventional way; you appear to produce wonders from mundane items and outlandish inventions.</p><h6><u>Tools Required</u></h6><p>You produce your artificer spell effects through your tools. You must have a spellcasting focus-specifically thieves' tools or some kind of artisan's tool-in hand when you cast any spell with this Spellcasting feature (meaning the spell has an \"M\" component when you cast it). You must be proficient with the tool to use it in this way. See the equipment chapter in the <i>Player's Handbook</i> for descriptions of these tools.</p><p>After you gain the Infuse Item feature at 2nd level, you can also use any item bearing one of your infusions as a spellcasting focus.</p><h6><u>Cantrips (0-Level Spells)</u></h6><p>At 1st level, you know two cantrips of your choice from the artificer spell list. At higher levels, you learn additional artificer can trips of your choice, as shown in the Cantrips Known column of the Artificer table.</p><p>When you gain a level in this class, you can replace one of the artificer cantrips you know with another cantrip from the artificer spell list.</p><h6><u>Preparing and Casting Spells</u></h6><p>The Artificer table shows how many spell slots you have to cast your artificer spells. To cast one of your artificer spells of 1st level or higher, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest.</p><p>You prepare the list of artificer spells that are available for you to cast, choosing from the artificer spell list. When you do so, choose a number of artificer spells equal to _SPELLSAVAILABLE (your Intelligence modifier + half your artificer level, rounded down, with a minimum of one spell). The spells must be of a level for which you have spell slots.</p><p>For example, if you are a 5th-level artificer, you have four 1st-level and two 2nd-level spell slots. With an Intelligence of 14, your list of prepared spells can include four spells of 1st or 2nd level, in any combination. If you prepare the 1st-level spell Cure Wounds, you can cast it using a lst-level or a 2nd-level slot. Casting the spell doesn't remove it from your list of prepared spells.</p><p>You can change your list of prepared spells when you finish a long rest. Preparing a new list of artificer spells requires time spent tinkering with your spellcasting focuses: at least 1 minute per spell level for each spell on your list.</p><h6><u>Spellcasting Ability</u></h6><p>Intelligence is your spellcasting ability for your artificer spells; your understanding of the theory behind magic allows you to wield these spells with superior skill. You use your Intelligence whenever an artificer spell refers to your spellcasting ability. In addition, you use your Intelligence modifier when setting the saving throw DC for an artificer spell you cast and when making an attack roll with one.</p><p><b>Spell save DC</b> = _SPELLSAVEDC (8 + your proficiency bonus + your Intelligence modifier)</p><p><b>Spell attack modifier</b> = _SPELLATKMODIFIER (your proficiency bonus + your Intelligence modifier)</p><h6><u>Ritual Casting</u></h6><p>You can cast an artificer spell as a ritual if that spell has the ritual tag and you have the spell prepared.</p>";
 const FEATURE_BARD_SPELLCASTING = "<p><b><i>Spellcasting.</b></i> You have learned to untangle and reshape the fabric of reality in harmony with your wishes and music. Your spells are part of your vast repertoire, magic that you can tune to different situations.</p><h6><u>Cantrips</u></h6><p>You know two cantrips of your choice from the bard spell list. You learn additional bard cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Bard table.</p><h6><u>Spell Slots</u></h6><p>The Bard table shows how many spell slots you have to cast your bard spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest. For example, if you know the 1st-level spell Cure Wounds and have a 1st-level and a 2nd-level spell slot available, you can cast Cure Wounds using either slot.</p><h6><u>Spells Known of 1st Level and Higher</u></h6><p>You know four 1st-level spells of your choice from the bard spell list.</p><p>The Spells Known column of the Bard table shows when you learn more bard spells of your choice. Each of these spells must be of a level for which you have spell slots, as shown on the table. For instance, when you reach 3rd level in this class, you can learn one new spell of 1st or 2nd level.</p><p>Additionally, when you gain a level in this class, you can choose one of the bard spells you know and replace it with another spell from the bard spell list, which also must be of a level for which you have spell slots.</p><h6><u>Spellcasting Ability</u></h6><p>Charisma is your spellcasting ability for your bard spells. Your magic comes from the heart and soul you pour into the performance of your music or oration. You use your Charisma whenever a spell refers to your spellcasting ability. In addition, you use your Charisma modifier when setting the saving throw DC for a bard spell you cast and when making an attack roll with one.</p><p><b>Spell save DC</b> = _SPELLSAVEDC (8 + your proficiency bonus + your Charisma modifier)</p><p><b>Spell attack modifier</b> = _SPELLATKMODIFIER (your proficiency bonus + your Charisma modifier)</p><h6><u>Ritual Casting</u></h6><p>You can cast any bard spell you know as a ritual if that spell has the ritual tag.</p><h6><u>Spellcasting Focus</u></h6><p>You can use a musical instrument as a spellcasting focus for your bard spells.</p>";
 const FEATURE_CLERIC_SPELLCASTING = "<p><b><i>Spellcasting.</b></i> As a conduit for divine power, you can cast cleric spells.</p><h6><u>Cantrips</u></h6><p>At 1st level, you know three cantrips of your choice from the cleric spell list. You learn additional cleric cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Cleric table.</p><h6><u>Spell Slots</u></h6><p>The Cleric table shows how many spell slots you have to cast your cleric spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest.</p><p>You prepare the list of cleric spells that are available for you to cast, choosing from the cleric spell list. When you do so, choose _SPELLSAVAILABLE cleric spells (a number equal to your Wisdom modifier + your cleric level, minimum of one spell). The spells must be of a level for which you have spell slots.</p><p>For example, if you are a 3rd-level cleric, you have four 1st-level and two 2nd-level spell slots. With a Wisdom of 16, your list of prepared spells can include six spells of 1st or 2nd level, in any combination. If you prepare the 1st-level spell Cure Wounds, you can cast it using a 1st-level or 2nd-level slot. Casting the spell doesn't remove it from your list of prepared spells.</p><p>You can change your list of prepared spells when you finish a long rest. Preparing a new list of cleric spells requires time spent in prayer and meditation: at least 1 minute per spell level for each spell on your list.</p><h6><u>Spellcasting Ability</u></h6><p>Wisdom is your spellcasting ability for your cleric spells. The power of your spells comes from your devotion to your deity. You use your Wisdom whenever a cleric spell refers to your spellcasting ability. In addition, you use your Wisdom modifier when setting the saving throw DC for a cleric spell you cast and when making an attack roll with one.</p><p><b>Spell save DC</b> = _SPELLSAVEDC (8 + your proficiency bonus + your Wisdom modifier)</p><p><b>Spell attack modifier</b> = _SPELLATKMODIFIER (your proficiency bonus + your Wisdom modifier)</p><h6><u>Ritual Casting</u></h6><p>You can cast a cleric spell as a ritual if that spell has the ritual tag and you have the spell prepared.</p><h6><u>Spellcasting Focus</u></h6><p>You can use a holy symbol as a spellcasting focus for your cleric spells.</p>";
@@ -104,6 +104,7 @@ const FEATURE_DRUID_SPELLCASTING = "<p><b><i>Spellcasting.</b></i> Drawing on th
 const FEATURE_PALADIN_SPELLCASTING = "<p><b><i>Spellcasting.</b></i> By 2nd level, you have learned to draw on divine magic through meditation and prayer to cast spells as a cleric does.</p><h6><u>Preparing and Casting Spells</u></h6><p>The Paladin table shows how many spell slots you have to cast your paladin spells. To cast one of your paladin spells of 1st level or higher, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest.</p><p>You prepare the list of paladin spells that are available for you to cast, choosing from the paladin spell list. When you do so, choose a number of paladin spells equal to _SPELLSAVAILABLE (your Charisma modifier + half your paladin level, rounded down, with a minimum of one spell). The spells must be of a level for which you have spell slots.</p><p>For example, if you are a 5th-level paladin, you have four 1st-level and two 2nd-level spell slots. With a Charisma of 14, your list of prepared spells can include four spells of 1st or 2nd level, in any combination. If you prepare the 1st-level spell Cure Wounds, you can cast it using a 1st-level or a 2nd-level slot. Casting the spell doesn't remove it from your list of prepared spells.</p><p>You can change your list of prepared spells when you finish a long rest. Preparing a new list of paladin spells requires time spent in prayer and meditation: at least 1 minute per spell level for each spell on your list.</p><h6><u>Spellcasting Ability</u></h6><p>Charisma is your spellcasting ability for your paladin spells, since their power derives from the strength of your convictions. You use your Charisma whenever a spell refers to your spellcasting ability. In addition, you use your Charisma modifier when setting the saving throw DC for a paladin spell you cast and when making an attack roll with one.</p><p><b>Spell save DC</b> = _SPELLSAVEDC (8 + your proficiency bonus + your Charisma modifier)</p><p><b>Spell attack modifier</b> = _SPELLATKMODIFIER (your proficiency bonus + your Charisma modifier)</p><h6><u>Spellcasting Focus</u></h6><p>You can use a holy symbol as a spellcasting focus for your paladin spells.</p>";
 const FEATURE_RANGER_SPELLCASTING = "<p><b><i>Spellcasting.</b></i> By the time you reach 2nd level, you have learned to use the magical essence of nature to cast spells, much as a druid does.</p><h6><u>Spell Slots</u></h6><p>The Ranger table shows how many spell slots you have to cast your spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest.</p><p>For example, if you know the 1st-level spell Animal Friendship and have a 1st-level and a 2nd-level spell slot available, you can cast Animal Friendship using either slot.</p><h6><u>Spells Known of 1st Level and Higher</u></h6><p>You know two 1st-level spells of your choice from the ranger spell list.</p><p>The Spells Known column of the Ranger table shows when you learn more ranger spells of your choice. Each of these spells must be of a level for which you have spell slots. For instance, when you reach 5th level in this class, you can learn one new spell of 1st or 2nd level.</p><p>Additionally, when you gain a level in this class, you can choose one of the ranger spells you know and replace it with another spell from the ranger spell list, which also must be of a level for which you have spell slots.</p><h6><u>Spellcasting Ability</u></h6><p>Wisdom is your spellcasting ability for your ranger spells, since your magic draws on your attunement to nature. You use your Wisdom whenever a spell refers to your spellcasting ability. In addition, you use your Wisdom modifier when setting the saving throw DC for a ranger spell you cast and when making an attack roll with one.</p><p><b>Spell save DC</b> = _SPELLSAVEDC (8 + your proficiency bonus + your Wisdom modifier)</p><p><b>Spell attack modifier</b> = _SPELLATKMODIFIER (your proficiency bonus + your Wisdom modifier)</p>";
 const FEATURE_SORCERER_SPELLCASTING = "<p><b><i>Spellcasting.</b></i> An event in your past, or in the life of a parent or ancestor, left an indelible mark on you, infusing you with arcane magic. This font of magic, whatever its origin, fuels your spells.</p><h6><u>Cantrips</u></h6><p>At 1st level, you know four cantrips of your choice from the sorcerer spell list. You learn additional sorcerer cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Sorcerer table.</p><h6><u>Spell Slots</u></h6><p>The Sorcerer table shows how many spell slots you have to cast your sorcerer spells of 1st level and higher. To cast one of these sorcerer spells, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest.</p><p>For example, if you know the 1st-level spell Burning Hands and have a 1st-level and a 2nd-level spell slot available, you can cast Burning Hands using either slot.</p><h6><u>Spells Known of 1st Level and Higher</u></h6><p>You know two 1st-level spells of your choice from the sorcerer spell list.</p><p>The Spells Known column of the Sorcerer table shows when you learn more sorcerer spells of your choice. Each of these spells must be of a level for which you have spell slots. For instance, when you reach 3rd level in this class, you can learn one new spell of 1st or 2nd level.</p><p>Additionally, when you gain a level in this class, you can choose one of the sorcerer spells you know and replace it with another spell from the sorcerer spell list, which also must be of a level for which you have spell slots.</p><h6><u>Spellcasting Ability</u></h6><p>Charisma is your spellcasting ability for your sorcerer spells, since the power of your magic relies on your ability to project your will into the world. You use your Charisma whenever a spell refers to your spellcasting ability. In addition, you use your Charisma modifier when setting the saving throw DC for a sorcerer spell you cast and when making an attack roll with one.</p><p><b>Spell save DC</b> = _SPELLSAVEDC (8 + your proficiency bonus + your Charisma modifier)</p><p><b>Spell attack modifier</b> = _SPELLATKMODIFIER (your proficiency bonus + your Charisma modifier)</p><h6><u>Spellcasting Focus</u></h6><p>You can use an arcane focus as a spellcasting focus for your sorcerer spells.</p>";
+const FEATURE_WARLOCK_SPELLCASTING = "<p><b><i>Pact Magic.</i></b> Your arcane research and the magic bestowed on you by your patron have given you facility with spells.</p><h6><u>Cantrips</u></h6><p>You know two cantrips of your choice from the warlock spell list. You learn additional warlock cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Warlock table.</p><h6><u>Spell Slots</u></h6><p>The Warlock table shows how many spell slots you have to cast your warlock spells of 1st through 5th level. The table also shows what the level of those slots is; all of your spell slots are the same level. To cast one of your warlock spells of 1st level or higher, you must expend a spell slot. You regain all expended spell slots when you finish a short or long rest.</p><p>For example, when you are 5th level, you have two 3rd-level spell slots. To cast the 1st-level spell Witch Bolt, you must spend one of those slots, and you cast it as a 3rd-level spell.</p><h6><u>Spells Known of 1st Level and Higher</u></h6><p>At 1st level, you know two 1st-level spells of your choice from the warlock spell list.</p><p>The Spells Known column of the Warlock table shows when you learn more warlock spells of your choice of 1st level or higher. A spell you choose must be of a level no higher than what's shown in the table's Slot Level column for your level. When you reach 6th level, for example, you learn a new warlock spell, which can be 1st, 2nd, or 3rd level.</p><p>Additionally, when you gain a level in this class, you can choose one of the warlock spells you know and replace it with another spell from the warlock spell list, which also must be of a level for which you have spell slots.</p><h6><u>Spellcasting Ability</u></h6><p>Charisma is your spellcasting ability for your warlock spells, so you use your Charisma whenever a spell refers to your spellcasting ability. In addition, you use your Charisma modifier when setting the saving throw DC for a warlock spell you cast and when making an attack roll with one.</p><p><b>Spell save DC</b> = _SPELLSAVEDC (8 + your proficiency bonus + your Charisma modifier)</p><p><b>Spell attack modifier</b> = _SPELLATKMODIFIER (your proficiency bonus + your Charisma modifier)</p><h6><u>Spellcasting Focus</u></h6><p>You can use an arcane focus as a spellcasting focus for your warlock spells.</p>";
 
 //feature template
 // const FEATURE_CLASS_0_0 = "<p><b><i>Feature.</i></b></p><p></p>";
@@ -252,6 +253,94 @@ const FEATURE_SORCERER_3_0 = "<p><b><i>Metamagic.</i></b></p><p>At 3rd level, yo
 const FEATURE_SORCERER_20_0 = "<p><b><i>Sorcerous Restoration.</i></b></p><p>At 20th level, you regain 4 expended sorcery points whenever you finish a short rest.</p>";
 
 // warlock
+const pactboon_Blade = "<b>Pact of the Blade</b><ul><li>You can use your action to create a pact weapon in your empty hand. You can choose the form that this melee weapon takes each time you create it. You are proficient with it while you wield it. This weapon counts as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.</li><li>Your pact weapon disappears if it is more than 5 feet away from you for 1 minute or more. It also disappears if you use this feature again, if you dismiss the weapon (no action required), or if you die.</li><li>You can transform one magic weapon into your pact weapon by performing a special ritual while you hold the weapon. You perform the ritual over the course of 1 hour, which can be done during a short rest.</li><li>You can then dismiss the weapon, shunting it into an extradimensional space, and it appears whenever you create your pact weapon thereafter. You can't affect an artifact or a sentient weapon in this way. The weapon ceases being your pact weapon if you die, if you perform the 1-hour ritual on a different weapon, or if you use a 1-hour ritual to break your bond to it. The weapon appears at your feet if it is in the extradimensional space when the bond breaks.</li></ul>";
+const pactboon_Chain = "<b>Pact of the Chain</b><ul><li>You learn the Find Familiar spell and can cast it as a ritual. The spell doesn't count against your number of spells known.</li><li>When you cast the spell, you can choose one of the normal forms for your familiar or one of the following special forms: imp, pseudodragon, quasit, or sprite.</li><li>Additionally, when you take the Attack action, you can forgo one of your own attacks to allow your familiar to use its reaction to make one attack with its reaction.</li></ul>";
+const pactboon_Tome = "<b>Pact of the Tome</b><ul><li>Your patron gives you a grimoire called a Book of Shadows. When you gain this feature, choose three cantrips from any class's spell list (the three needn't be from the same list). While the book is on your person, you can cast those cantrips at will. They don't count against your number of cantrips known. If they don't appear on the warlock spell list, they are nonetheless warlock spells for you.</li><li>If you lose your Book of Shadows, you can perform a 1-hour ceremony to receive a replacement from your patron. This ceremony can be performed during a short or long rest, and it destroys the previous book. The book turns to ash when you die.</li></ul>";
+const pactboon_Talisman = "<b>Pact of the Talisman</b><ul><li>Your patron gives you an amulet, a talisman that can aid the wearer when the need is great. When the wearer fails an ability check, they can add a d4 to the roll, potentially turning the roll into a success. This benefit can be used a number of times equal to your proficiency bonus, and all expended uses are restored when you finish a long rest.</li><li>If you lose the talisman, you can perform a 1-hour ceremony to receive a replacement from your patron. This ceremony can be performed during a short or long rest, and it destroys the previous amulet. The talisman turns to ash when you die.</li></ul>";
+const pactboon_Starchain = "<b>Pact of the Star Chain</b><ul><li>The Seeker grants you a chain forged from starlight, decorated with seven gleaming motes of brightness. While the chain is on your person, you know the Augury spell and can cast it as a ritual. The spell doesn’t count against your number of spells known.</li><li>Additionally, you can invoke the Seeker’s power to gain advantage on an Intelligence check while you carry this item. Once you use this ability, you cannot use it again until you complete a short or long rest.</li><li>If you lose your Star Chain, you can perform a 1-hour ceremony to receive a replacement from the Seeker. The ceremony can be performed during a short or long rest, and it destroys the previous chain. The chain disappears in a flash of light when you die.</li></ul>";
+const FEATURE_WARLOCK_2_0 = "<p><b><i>Eldritch Invocations.</i></b></p><p>In your study of occult lore, you have unearthed Eldritch Invocations, fragments of forbidden knowledge that imbue you with an abiding magical ability.</p><p>At 2nd level, you gain two eldritch invocations of your choice. When you gain certain warlock levels, you gain additional invocations of your choice, as shown in the Invocations Known column of the Warlock table. A level prerequisite refers to your level in this class.</p><p>Additionally, when you gain a level in this class, you can choose one of the invocations you know and replace it with another invocation that you could learn at that level.</p>";
+const FEATURE_WARLOCK_3_0 = "<p><b><i>Pact Boon.</i></b></p><p>At 3rd level, your otherworldly patron bestows a gift upon you for your loyal service.</p><ul><li>_PACTBOON</li></ul>";
+const FEATURE_WARLOCK_11_0 = "<p><b><i>Mystic Arcanum.</i></b></p><p>At 11th level, your patron bestows upon you a magical secret called an arcanum. Choose one 6th-level spell from the warlock spell list as this arcanum.</p><p>You can cast your arcanum spell once without expending a spell slot. You must finish a long rest before you can do so again.</p><p>At higher levels, you gain more warlock spells of your choice that can be cast in this way: one 7th-level spell at 13th level, one 8th-level spell at 15th level, and one 9th-level spell at 17th level. You regain all uses of your Mystic Arcanum when you finish a long rest.</p>";
+const FEATURE_WARLOCK_20_0 = "<p><b><i>Eldritch Master.</i></b></p><p>At 20th level, you can draw on your inner reserve of mystical power while entreating your patron to regain expended spell slots. You can spend 1 minute entreating your patron for aid to regain all your expended spell slots from your Pact Magic feature. Once you regain spell slots with this feature, you must finish a long rest before you can do so again.</p>";
+let pactboons = new Array(pactboon_Blade, pactboon_Chain, pactboon_Tome, pactboon_Talisman);
+let ei_a = "<li><p><b><u>Agonizing Blast</u></b></p><p><b><i>Prerequisite: Eldritch Blast cantrip</i></b></p><p></p></li>";
+let ei_ag = "<li><p><b><u>Arcane Gunslinger</u></b></p><p><b><i>Prerequisite: Pact of the Blade feature</i></b></p><p></p></li>";
+let ei_arm = "<li><p><b><u>Armor of Shadows</u></b></p><p></p></li>";
+let ei_as = "<li><p><b><u>Ascendant Step</u></b></p><p><b><i>Prerequisite: 9th level</i></b></p><p></p></li>";
+let ei_am = "<li><p><b><u>Aspect of the Moon</u></b></p><p><b><i>Prerequisite: Pact of the Tome feature</i></b></p><p></p></li>";
+let ei_b = "<li><p><b><u>Beast Speech</u></b></p><p></p></li>";
+let ei_bi = "<li><p><b><u>Beguiling Influence</u></b></p><p></p></li>";
+let ei_bw = "<li><p><b><u>Bewitching Whispers</u></b></p><p><b><i>Prerequisite: 7th level</i></b></p><p></p></li>";
+let ei_bt = "<li><p><b><u>Bond of the Talisman</u></b></p><p><b><i>Prerequisite: 12th level, Pact of the Talisman feature</i></b></p><p></p></li>";
+let ei_bs = "<li><p><b><u>Book of Ancient Secrets</u></b></p><p><b><i>Prerequisite: Pact of the Tome feature</i></b></p><p></p></li>";
+let ei_c = "<li><p><b><u>Chains of Carceri</u></b></p><p><b><i>Prerequisite: 15th level, Pact of the Chain feature</i></b></p><p></p></li>";
+let ei_cf = "<li><p><b><u>Cloak of Flies</u></b></p><p><b><i>Prerequisite: 5th-level</i></b></p><p></p></li>";
+let ei_d = "<li><p><b><u>Devil's Sight</u></b></p><p></p></li>";
+let ei_dw = "<li><p><b><u>Dreadful Word</u></b></p><p><b><i>Prerequisite: 7th level</i></b></p><p></p></li>";
+let ei_em = "<li><p><b><u>Eldritch Mind</u></b></p><p></p></li>";
+let ei_es = "<li><p><b><u>Eldritch Sight</u></b></p><p></p></li>";
+let ei_esm = "<li><p><b><u>Eldritch Smite</u></b></p><p><b><i>Prerequisite: 5th level, Pact of the Blade feature</i></b></p><p></p></li>";
+let ei_esp = "<li><p><b><u>Eldritch Spear</u></b></p><p><b><i>Prerequisite: Eldritch Blast cantrip</i></b></p><p></p></li>";
+let ei_ey = "<li><p><b><u>Eyes of the Rune Keeper</u></b></p><p></p></li>";
+let ei_f = "<li><p><b><u>Far Scribe</u></b></p><p><b><i>Prerequisite: 5th level, Pact of the Tome feature</i></b></p><p></p></li>";
+let ei_fv = "<li><p><b><u>Fiendish Vigor</u></b></p><p></p></li>";
+let ei_g = "<li><p><b><u>Gaze of Two Minds</u></b></p><p></p></li>";
+let ei_gg = "<li><p><b><u>Ghostly Gaze</u></b></p><p><b><i>Prerequisite: 7th level</i></b></p><p></p></li>";
+let ei_gd = "<li><p><b><u>Gift of the Depths</u></b></p><p><b><i>Prerequisite: 5th-level</i></b></p><p></p></li>";
+let ei_ge = "<li><p><b><u>Gift of the Ever-Living Ones</u></b></p><p><b><i>Prerequisite: Pact of the Chain feature</i></b></p><p></p></li>";
+let ei_gp = "<li><p><b><u>Gift of the Protectors</u></b></p><p><b><i>Prerequisite: 9th level, Pact of the Tome feature</i></b></p><p></p></li>";
+let ei_gh = "<li><p><b><u>Grasp of Hadar</u></b></p><p><b><i>Prerequisite: Eldritch Blast cantrip</i></b></p><p></p></li>";
+let ei_ipw = "<li><p><b><u>Improved Pact Weapon</u></b></p><p><b><i>Prerequisite: Pact of the Blade feature</i></b></p><p></p></li>";
+let ei_i = "<li><p><b><u>Investment of the Chain Master</u></b></p><p><b><i>Prerequisite: Pact of the Chain feature</i></b></p><p></p></li>";
+let ei_ll = "<li><p><b><u>Lance of Lethargy</u></b></p><p><b><i>Prerequisite: Eldritch Blast cantrip</i></b></p><p></p></li>";
+let ei_l = "<li><p><b><u>Lifedrinker</u></b></p><p><b><i>Prerequisite: 12th level, Pact of the Blade feature</i></b></p><p></p></li>";
+let ei_mx = "<li><p><b><u>Maddening Hex</u></b></p><p><b><i>Prerequisite: 5th level, Hex spell or a warlock feature that curses</i></b></p><p></p></li>";
+let ei_m = "<li><p><b><u>Mask of Many Faces</u></b></p><p></p></li>";
+let ei_mm = "<li><p><b><u>Master of Myriad Forms</u></b></p><p><b><i>Prerequisite: 15th level</i></b></p><p></p></li>";
+let ei_mc = "<li><p><b><u>Minions of Chaos</u></b></p><p><b><i>Prerequisite: 9th level</i></b></p><p></p></li>";
+let ei_mi = "<li><p><b><u>Mire the Mind</u></b></p><p><b><i>Prerequisite: 5th-level</i></b></p><p></p></li>";
+let ei_mv = "<li><p><b><u>Misty Visions</u></b></p><p></p></li>";
+let ei_o = "<li><p><b><u>One with Shadows</u></b></p><p><b><i>Prerequisite: 5th-level</i></b></p><p></p></li>";
+let ei_ol = "<li><p><b><u>Otherworldly Leap</u></b></p><p><b><i>Prerequisite: 9th level</i></b></p><p></p></li>";
+let ei_p = "<li><p><b><u>Protection of the Talisman</u></b></p><p><b><i>Prerequisite: 7th level, Pact of the Talisman feature</i></b></p><p></p></li>";
+let ei_r = "<li><p><b><u>Rebuke of the Talisman</u></b></p><p><b><i>Prerequisite: Pact of the Talisman feature</i></b></p><p></p></li>";
+let ei_rx = "<li><p><b><u>Relentless Hex</u></b></p><p><b><i>Prerequisite: 7th level, Hex spell or a warlock feature that curses</i></b></p><p></p></li>";
+let ei_rb = "<li><p><b><u>Repelling Blast</u></b></p><p><b><i>Prerequisite: Eldritch Blast cantrip</i></b></p><p></p></li>";
+let ei_s = "<li><p><b><u>Sculptor of Flesh</u></b></p><p><b><i>Prerequisite: 7th level</i></b></p><p></p></li>";
+let ei_ss = "<li><p><b><u>Shroud of Shadow</u></b></p><p><b><i>Prerequisite: 15th level</i></b></p><p></p></li>";
+let ei_so = "<li><p><b><u>Sign of Ill Omen</u></b></p><p><b><i>Prerequisite: 5th-level</i></b></p><p></p></li>";
+let ei_spw = "<li><p><b><u>Superior Pact Weapon</u></b></p><p><b><i>Prerequisite: 9th level, Pact of the Blade feature</i></b></p><p></p></li>";
+let ei_t = "<li><p><b><u>Thief of Five Fates</u></b></p><p></p></li>";
+let ei_tb = "<li><p><b><u>Thirsting Blade</u></b></p><p><b><i>Prerequisite: 5th-level, Pact of the Blade feature</i></b></p><p></p></li>";
+let ei_tl = "<li><p><b><u>Tomb of Levistus</u></b></p><p><b><i>Prerequisite: 5th-level</i></b></p><p></p></li>";
+let ei_te = "<li><p><b><u>Trickster's Escape</u></b></p><p><b><i>Prerequisite: 7th level</i></b></p><p></p></li>";
+let ei_upw = "<li><p><b><u>Ultimate Pact Weapon</u></b></p><p><b><i>Prerequisite: 15th level, Pact of the Blade feature</i></b></p><p></p></li>";
+let ei_u = "<li><p><b><u>Undying Servitude</u></b></p><p><b><i>Prerequisite: 5th-level</i></b></p><p></p></li>";
+let ei_v = "<li><p><b><u>Visions of Distant Realms</u></b></p><p><b><i>Prerequisite: 15th level</i></b></p><p></p></li>";
+let ei_vc = "<li><p><b><u>Voice of the Chain Master</u></b></p><p><b><i>Prerequisite: Pact of the Chain feature</i></b></p><p></p></li>";
+let ei_w = "<li><p><b><u>Whispers of the Grave</u></b></p><p><b><i>Prerequisite: 9th level</i></b></p><p></p></li>";
+let ei_ws = "<li><p><b><u>Witch Sight</u></b></p><p><b><i>Prerequisite: 15th level</i></b></p><p>You can see the true form of any shapechanger or creature concealed by illusion or transmutation magic while the creature is within 30 feet of you and within line of sight.</p></li>";
+
+let ei_base = new Array(ei_a,ei_arm,ei_b,ei_bi,ei_d,ei_em,ei_es,ei_esp,ei_ey,ei_fv,ei_g,ei_gh,ei_ll,ei_m,ei_mv,ei_rb,ei_t);
+let ei_5 = new Array(ei_cf,ei_gd,ei_mx,ei_mi,ei_o,ei_so,ei_tl);
+let ei_7 = new Array(ei_bw,ei_dw,ei_gg,ei_rx,ei_s,ei_te);
+let ei_9 = new Array(ei_as,ei_mc,ei_ol,ei_w);
+let ei_15 = new Array(ei_mm,ei_ss,ei_v,ei_ws);
+let ei_chain_0 = new Array(ei_ge,ei_i,ei_vc);
+let ei_chain_15 = new Array(ei_c);
+let ei_blade_0 = new Array(ei_ag,ei_ipw);
+let ei_blade_5 = new Array(ei_esm,ei_tb);
+let ei_blade_9 = new Array(ei_spw);
+let ei_blade_12 = new Array(ei_l);
+let ei_blade_15 = new Array(ei_upw);
+let ei_tome_0 = new Array(ei_am,ei_bs);
+let ei_tome_5 = new Array(ei_f);
+let ei_tome_9 = new Array(ei_gp);
+let ei_talisman_0 = new Array(ei_r);
+let ei_talisman_7 = new Array(ei_p);
+let ei_talisman_12 = new Array(ei_bt);
+
+const numInvocations = new Array(0,0,2,2,2,3,3,4,4,5,5,5,6,6,6,7,7,7,8,8,8);
 
 // wizard
 
@@ -545,6 +634,17 @@ function remove(arr, index){
     }
   }
   return newArr;
+}
+
+function add(arr1, arr2){
+ let arr3 = new Array(), i=0,j=0;
+ for(i=0; i < arr1.length; i++){
+      arr3[i] = arr1[i];
+ }
+ for(j=0; j < arr2.length; j++){
+      arr3[i+j] = arr2[j];
+ }
+ return arr3;
 }
 
 function dropLowest(arr){
@@ -1211,6 +1311,70 @@ function handleClassFeatures(){
      let sam = pBonuses[lvl] + chaMod; // spell attack modifier
      let sdc = 8 + sam;
      document.getElementById("SHEET_FEATURES_SPELLCASTING_DESCRIPTION").innerHTML = FEATURE_SORCERER_SPELLCASTING.replace("_SPELLATKMODIFIER",sam).replace("_SPELLSAVEDC",sdc);  
+   }
+      
+   if(clss === "Warlock"){ 
+      let temp, pact;
+      let pSel = (Math.random()*4)|0;
+      pact = pactBoons[pSel];
+      let ei = ei_base, eiCount = numInvocations[lvl];
+      if(lvl > 2){
+            if(pact === pactboon_Blade) ei = add(ei,ei_blade_0);
+            if(pact === pactboon_Tome) ei = add(ei,ei_tome_0);
+            if(pact === pactboon_Chain) ei = add(ei,ei_chain_0);
+            if(pact === pactboon_Talisman) ei = add(ei,ei_talisman_0);
+      }
+      if(lvl > 4){
+            ei = add(ei,ei_5);
+            if(pact === pactboon_Blade) ei = add(ei,ei_blade_5);
+            if(pact === pactboon_Tome) ei = add(ei,ei_tome_5);
+      }
+      if(lvl > 6){
+            ei = add(ei,ei_7);
+            if(pact === pactboon_Talisman) ei = add(ei,ei_talisman_7);
+      }
+      if(lvl > 8){
+            ei = add(ei,ei_9);
+            if(pact === pactboon_Blade) ei = add(ei,ei_blade_9);
+            if(pact === pactboon_Tome) ei = add(ei,ei_tome_9);
+      }
+      if(lvl > 11){
+            if(pact === pactboon_Blade) ei = add(ei,ei_blade_12);
+            if(pact === pactboon_Talisman) ei = add(ei,ei_talisman_12);
+      }
+      if(lvl > 14){
+            ei = add(ei,ei_15);
+            if(pact === pactboon_Blade) ei = add(ei,ei_blade_15);
+            if(pact === pactboon_Chain) ei = add(ei,ei_chain_15);
+      }
+      let ei_text;
+      for(let i = 0; i < eiCount; i++) { // select invocations
+            let selected = ei[(Math.random()*ei.length)|0];
+            ei = remove(ei,selected);
+            ei_text += selected;
+      }
+      if(lvl>1){
+         temp = FEATURE_WARLOCK_2_0 + "<ul>" + ei_text + "</ul>";
+         addCF(temp);
+      }
+      if(lvl>2){
+         addCF(FEATURE_WARLOCK_3_0.replace("_PACTBOON",pact));
+      }
+      if(lvl>3){
+         addCF(FEATURE_ASI_STANDARD);
+      }
+      if(lvl>10){
+         addCF(FEATURE_WARLOCK_11_0);
+      }
+      if(lvl>19){
+         addCF(FEATURE_WARLOCK_20_0);
+      }
+      // bard spellcasting
+     document.getElementById("SHEET_FEATURES_SPELLCASTING_HEADER").innerHTML = "Spellcasting";
+     let chaMod = statModifiers[stats[5]];
+     let sam = pBonuses[lvl] + chaMod; // spell attack modifier
+     let sdc = 8 + sam;
+     document.getElementById("SHEET_FEATURES_SPELLCASTING_DESCRIPTION").innerHTML = FEATURE_WARLOCK_SPELLCASTING.replace("_SPELLATKMODIFIER",sam).replace("_SPELLSAVEDC",sdc);
    }
       
    let sct = document.getElementById("SHEET_FEATURES_CLASS");
