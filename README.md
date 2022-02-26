@@ -4,6 +4,8 @@
 
 Note: This generator uses the Revised Ranger features from its UA release in place of the original Ranger features.
 
+Racial ASIs (Ability Score Improvements) are allocated by the generator, but no class-based ASIs are allocated. This is done in order to allow the player to select feats in place of ASIs if they so desire, or allow non-algorithmic stat allocation.
+
 **Races Available:**
 - Aarakocra
 - Aasimar
