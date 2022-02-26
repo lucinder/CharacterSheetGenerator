@@ -448,7 +448,7 @@ const FEATURE_DWARF_HILL = "<p><b><i>Dwarven Toughness.</b></i> Your hit point m
 // mtn dwarf
 const FEATURE_DWARF_MTN = "<p><b><i>Dwarven Armor Training.</i></b> You have proficiency with light and medium armor.</p>";
 // duergar
-const FEATURE_DWARF_1_D = "<p><b><i>Superior Darkvision.</b></i> Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 120 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.</p>";
+const FEATURE_SDARKVISION = "<p><b><i>Superior Darkvision.</b></i> Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 120 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.</p>";
 const FEATURE_DWARF_2_D = "<p><b><i>Duergar Resilience.</i></b> You have advantage on saving throws against poison, and you have resistance against poison damage. You also have advantage on saving throws against illusions and against being charmed or paralyzed.</p>";
 const FEATURE_DWARF_DUERGAR_1 = "<p><b><i>Duergar Magic.</i></b> When you reach 3rd level, you can cast the Enlarge/Reduce spell on yourself once with this trait, using only the spell's enlarge option. When you reach 5th level, you can cast the Invisibility spell on yourself once with this trait. You don't need material components for either spell, and you can't cast them while you're in direct sunlight, although sunlight has no effect on them once cast. You regain the ability to cast these spells with this trait when you finish a long rest. Intelligence is your spellcasting ability for these spells.</p>";
 
@@ -521,9 +521,15 @@ const FEATURE_GITHZERAI_1 = "<p><b><i>Mental Discipline.</i></b> You have advant
 const FEATURE_GITHZERAI_2 = "<p><b><i>Githzerai Psionics.</i></b> You know the mage hand cantrip, and the hand is invisible when you cast the cantrip with this trait.<br>When you reach 3rd level, you can cast shield once with this trait, and you regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the detect thoughts spell once with this trait, and you regain the ability to do so when you finish a long rest.<br>Wisdom is your spellcasting ability for these spells. When you cast them with this trait, they don't require components.</p>";
 
 // gnome
+const FEATURE_GNOME_1 = "<p><b><i>Gnome Cunning.</i></b> You have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic.</p>";
 // deep gnome
+const FEATURE_GNOME_DEEP_1 = "<p><b><i>Stone Camouflage.</i></b> You have advantage on Dexterity (Stealth) checks to hide in rocky terrain.</p>";
 // forest gnome
+const FEATURE_GNOME_FOREST_1 = "<p><b><i>Natural Illusionist.</i></b> You know the minor illusion cantrip. Intelligence is your spellcasting ability for it.</p>";
+const FEATURE_GNOME_FOREST_2 = "<p><b><i>Speak with Small Beasts.</i></b> Through sounds and gestures, you can communicate simple ideas with Small or smaller beasts. Forest gnomes love animals and often keep squirrels, badgers, rabbits, moles, woodpeckers, and other creatures as beloved pets.</p>";
 // rock gnome
+const FEATURE_GNOME_ROCK_1 = "<p><b><i>Artificer's Lore.</i></b> Whenever you make an Intelligence (History) check related to magic items, alchemical objects, or technological devices, you can add twice your proficiency bonus, instead of any proficiency bonus you normally apply</p>";
+const FEATURE_GNOME_ROCK_2 = "<p><b><i>Tinker.</i></b> You have proficiency with artisan's tools (tinker's tools). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours (unless you spend 1 hour repairing it to keep the device functioning), or when you use your action to dismantle it; at that time, you can reclaim the materials used to create it. You can have up to three such devices active at a time.</p><p>When you create a device, choose one of the following options:<ul><li><b><i>Clockwork Toy.</i></b>This toy is a clockwork animal, monster, or person, such as a frog, mouse, bird, dragon, or soldier. When placed on the ground, the toy moves 5 feet across the ground on each of your turns in a random direction. It makes noises as appropriate to the creature it represents.</li><li><b><i>Fire Starter.</i></b>The device produces a miniature flame, which you can use to light a candle, torch, or campfire. Using the device requires your action.</li><li><b><i>Music Box.</i></b>When opened, this music box plays a single song at a moderate volume. The box stops playing when it reaches the song's end or when it is closed.</li><ul></p>";
 
 // goblin
 
@@ -1578,7 +1584,7 @@ function handleRaceFeatures(){
   }
   if(race === "Dwarf"){
     spdtxt = SPD_DWARF;
-    if(subrace === "Duergar"){ addRF(FEATURE_DWARF_1_D);}
+    if(subrace === "Duergar"){ addRF(FEATURE_SDARKVISION);}
     else{ addRF(FEATURE_DWARF_1);}
     if(subrace === "Duergar"){ addRF(FEATURE_DWARF_2_D);}
     else{ addRF(FEATURE_DWARF_2);}
@@ -1704,6 +1710,25 @@ function handleRaceFeatures(){
     }
     langs.push("Gith");
     remove(ALL_LANGS, "Gith");
+  }
+  if(race === "Gnome"){
+    if(subrace === "Deep"){
+      addRF(FEATURE_SDARKVISION);
+      langs.push("Undercommon");
+      remove(ALL_LANGS, "Undercommon");
+    } else { addRF(FEATURE_DARKVISION); }
+    addRF(FEATURE_GNOME_1);
+    if(subrace === "Deep") addRF(FEATURE_GNOME_DEEP_1);
+    if(subrace === "Forest"){
+      addRF(FEATURE_GNOME_FOREST_1);
+      addRF(FEATURE_GNOME_FOREST_2);
+    }
+    if(subrace === "Rock"){
+      addRF(FEATURE_GNOME_ROCK_1);
+      addRF(FEATURE_GNOME_ROCK_2);
+    }
+    langs.push("Gnomish");
+    remove(ALL_LANGS, "Gnomish");
   }
   if(race === "Lizardfolk"){
     addRF(FEATURE_LIZARDFOLK_1);
