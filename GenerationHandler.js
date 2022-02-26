@@ -52,6 +52,7 @@ const aL = "Light armor", aM = "Medium armor", aH = "Heavy armor", aA = "All arm
 const sA = "Arcana", sAl = "Athletics", sAc = "Acrobatics", sAh = "Animal Handling", sI = "Investigation", sIn = "Insight", sS = "Stealth", sSh = "Sleight of Hand", sSv = "Survival", sN = "Nature", sH = "History", sP = "Perception", sPf = "Performance", sPs = "Persuasion", sD = "Deception", sIt = "Intimidation", sM = "Medicine", sR = "Religion";
 const tT = "Thieves' Tools", tTk = "Tinker's Tools", tH = "Herbalism Kit", tS = "Smith's Tools", tB = "Brewer's Supplies", tM = "Mason's Tools", tR = "_TOOL", tI = "_INSTRUMENT", tA = "_TOOLINSTRUMENT";
 
+const allSkills = new Array(sA,sAl,sAc,sAh,sI,sIn,sS,sSh,sSv,sN,sH,sP,sPf,sPs,sD,sIt,sM,sR);
 const proficiencies_artificer = new Array(new Array(stC,stI), new Array(sA,sH,sI,sM,sN,sP,sSh), new Array(wS), new Array(aL,aM,aS), new Array(tT,tTk,tR));
 const proficiencies_barbarian = new Array(new Array(stS, stC),new Array(sAh,sAl,sIt,sN,sP,sSv),new Array(wS,wM), new Array(aL,aM,aS),new Array());
 const proficiencies_bard = new Array(new Array(stD, stA),new Array(sA,sAl,sAc,sAh,sI,sIn,sIt,sS,sSh,sSv,sN,sH,sP,sPf,sPs,sD,sM,sR),new Array(wS,wHc,wLs,wRp,wSs),new Array(aL),new Array(tI,tI,tI));
@@ -536,6 +537,9 @@ const FEATURE_GNOME_ROCK_2 = "<p><b><i>Tinker.</i></b> You have proficiency with
 // goliath
 
 // half-elf
+const FEATURE_HALFELF_1 = "<p><b><i>Darkvision</i></b> Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.</p>";
+const FEATURE_HALFELF_2 = "<p><b><i>Fey Ancestry</i></b> You have advantage on saving throws against being charmed, and magic can't put you to sleep..</p>";
+const FEATURE_HALFELF_3 = "<p><b><i>Skill Versatility</i></b> You gain proficiency in two skills of your choice.</p>";
 
 // half-orc
 const FEATURE_HALFORC_1 = "<p><b><i>Menacing</i></b> You gain proficiency in the Intimidation skill.</p>";
@@ -808,6 +812,7 @@ function handleProficiencies(){
  }
  
  let skillsCopy = profs[1]; // copy skill array
+ let allSkillsCopy = allSkills;
  let savestxt = "";
  let skillstxt = "";
  let weaponstxt = "";
@@ -829,6 +834,7 @@ function handleProficiencies(){
  for(let i = 0; i < numSkills; i++){
   let selectionIndex = (Math.random()*skillsCopy.length)|0;
   addSkl(skillsCopy[selectionIndex]);
+  allSkillsCopy = remove(allSkillsCopy,skillsCopy[selectionIndex]); // remove the selected value from the all-skills array
   skillsCopy = remove(skillsCopy,selectionIndex); // remove the selected value from the array
  }
  // fill weapons field
@@ -895,6 +901,13 @@ function handleProficiencies(){
    addSkl(proficiencies_centaur[j]);
  }
  
+ if(race === "Half-Elf"){ // skill versatility
+   for(let i = 0; i < 2; i++){
+     let j = (Math.random()*allSkillsCopy.length)|0;
+     addSkl(allSkillsCopy[j]);
+     remove(allSkillsCopy, allSkillsCopy[j]);
+   }
+ }
  if(race === "Orc"){ // primal intuition
    for(let i = 0; i < 2; i++){
      let j = (Math.random()*proficiencies_orc.length)|0;
@@ -1747,6 +1760,14 @@ function handleRaceFeatures(){
     addRF(FEATURE_MINOTAUR_4);
     langs.push("Minotaur");
     remove(ALL_LANGS, "Minotaur");
+  }
+  if(race === "Half-Elf"){
+    addRF(FEATURE_HALFELF_1);
+    addRF(FEATURE_HALFELF_2);
+    addRF(FEATURE_HALFELF_3);
+    langs.push("Elvish");
+    remove(ALL_LANGS, "Elvish");
+    randlangcount = 1;
   }
   if(race === "Half-Orc" || race === "Orc"){
     addRF(FEATURE_DARKVISION);
