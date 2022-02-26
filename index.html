@@ -24,6 +24,22 @@
 	padding: 0;
 	border: none;
 	background: none; }
+     .toc_container {
+	background: #f9f9f9 none repeat scroll 0 0;
+	border: 1px solid #aaa;
+	display: table;
+	font-size: 85%;
+	margin-bottom: 1em;
+	padding: 20px;
+	width: auto;
+     }
+     .toc_title {
+	font-weight: 700;
+	text-align: center;
+     }
+     .toc_container li, .toc_container ul, .toc_container ul li{
+	list-style: outside none none !important;
+     }
     </style>
     <!-- JQuery Import -->
     <script language="JavaScript" type="text/javascript" src="jquery-3.6.0.min.js"></script>
@@ -46,7 +62,7 @@
   </head>
   <body onload="init()">
     <!-- Header -->
-    <header class="w3-container w3-center" style="padding-top:128px; padding-left:16px; padding-right:16px; padding-bottom:6px; background-image: url('images/char-generic.png'); background-repeat: no-repeat; background-attachment: fixed; background-size: 100% 100%;" id="HEAD_CONTAINER">
+    <header class="w3-container w3-red w3-center" style="padding-top:128px; padding-left:16px; padding-right:16px; padding-bottom:6px; background-image: url('images/char-generic.png'); background-repeat: no-repeat; background-attachment: fixed; background-size: 100% 100%;" id="HEAD_CONTAINER">
       <h1 class="w3-margin w3-jumbo">Character Sheet Generator</h1>
       <p class="w3-xlarge">This page is a WIP random generator of preformatted character sheet templates for D&D 5e.</p>
       <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" onclick="generate()">Generate!</button>
@@ -106,6 +122,21 @@
        </div>
       </div>
     </header>
+    <div class="w3-row-padding w3-padding-64 w3-container" id = "toc-container" hidden>
+    	<p class="toc_title">Jump to...</p>
+	<ul class="toc_list">
+	<li><a href="#SHEET_BASIC_NAME">Basic Information</a></li>
+	<li><a href="#SHEET_PROF_TITLE">Proficiencies</a></li>
+	<li><a href="#SHEET_FEATURES_TITLE">Features</a>
+		<ul>
+		<li><a href="#SHEET_FEATURES_CLASS_HEADER">Class Features</a></li>
+		<li><a href="#SHEET_FEATURES_RACE_HEADER">Race Features</a></li>
+		<li><a href="#SHEET_FEATURES_SPELLCASTING_HEADER">Spellcasting</a></li>
+		</ul>
+	</li>
+	<li><a href="#SHEET_BG_TITLE">Background</a></li>
+	</ul>
+    </div>    
     <!-- Basic Character Information -->
     <div class="w3-row-padding w3-padding-64 w3-container">
       <div class="w3-content">
@@ -122,7 +153,7 @@
           <p class="w3-text-grey" id = "SHEET_BASIC_STATS_AC"></p>
           <p class="w3-text-grey" id = "SHEET_BASIC_STATS_SPD"></p>
       </div>
-    </div>
+    
     <!-- Proficiencies -->
     <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
       <div class="w3-content">
