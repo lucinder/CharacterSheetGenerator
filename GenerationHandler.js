@@ -537,14 +537,14 @@ const FEATURE_GNOME_ROCK_2 = "<p><b><i>Tinker.</i></b> You have proficiency with
 // goliath
 
 // half-elf
-const FEATURE_HALFELF_1 = "<p><b><i>Darkvision</i></b> Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.</p>";
-const FEATURE_HALFELF_2 = "<p><b><i>Fey Ancestry</i></b> You have advantage on saving throws against being charmed, and magic can't put you to sleep..</p>";
-const FEATURE_HALFELF_3 = "<p><b><i>Skill Versatility</i></b> You gain proficiency in two skills of your choice.</p>";
+const FEATURE_HALFELF_1 = "<p><b><i>Darkvision.</i></b> Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.</p>";
+const FEATURE_HALFELF_2 = "<p><b><i>Fey Ancestry.</i></b> You have advantage on saving throws against being charmed, and magic can't put you to sleep..</p>";
+const FEATURE_HALFELF_3 = "<p><b><i>Skill Versatility.</i></b> You gain proficiency in two skills of your choice.</p>";
 
 // half-orc
-const FEATURE_HALFORC_1 = "<p><b><i>Menacing</i></b> You gain proficiency in the Intimidation skill.</p>";
-const FEATURE_HALFORC_2 = "<p><b><i>Relentless Endurance</i></b> When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. You can't use this feature again until you finish a long rest.</p>";
-const FEATURE_HALFORC_3 = "<p><b><i>Savage Attacks</i></b> When you score a critical hit with a melee weapon attack, you can roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit.</p>";
+const FEATURE_HALFORC_1 = "<p><b><i>Menacing.</i></b> You gain proficiency in the Intimidation skill.</p>";
+const FEATURE_HALFORC_2 = "<p><b><i>Relentless Endurance.</i></b> When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. You can't use this feature again until you finish a long rest.</p>";
+const FEATURE_HALFORC_3 = "<p><b><i>Savage Attacks.</i></b> When you score a critical hit with a melee weapon attack, you can roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit.</p>";
 
 // halfling
 
