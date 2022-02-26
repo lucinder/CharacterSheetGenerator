@@ -1,6 +1,7 @@
 # Character Sheet Generator
 ### Prototype for a D&amp;D 5e random character sheet generator.
 *Right now this is in early WIP stages. Please be patient as more and more features are added!*
+
 Note: This generator uses the Revised Ranger features from its UA release in place of the original Ranger features.
 
 **Races Available:**
@@ -61,7 +62,7 @@ Note: This generator uses the Revised Ranger features from its UA release in pla
 - Ranger
 - Rogue
 - Sorcerer
-- Warlock*
-- Wizard*
+- Warlock
+- Wizard
 
-\* This class has not had all of its features added
+Note: most subclass features have not yet been added.
