@@ -158,6 +158,16 @@ const FEATURE_BARD_20_0 = "<p><b><i>Superior Inspiration.</i></b></p><p>At 20th 
 const FEATURE_CLERIC_2_0 = "<p><b><i>Channel Divinity</i></b></p><p>At 2nd level, you gain the ability to channel divine energy directly from your deity, using that energy to fuel magical effects. You start with two such effects: Turn Undead and an effect determined by your domain. Some domains grant you additional effects as you advance in levels, as noted in the domain description.</p><p>When you use your Channel Divinity, you choose which effect to create. You must then finish a short or long rest to use your Channel Divinity again.</p><p>Some Channel Divinity effects require saving throws. When you use such an effect from this class, the DC equals your cleric spell save DC.</p><p>Beginning at 6th level, you can use your Channel Divinity twice between rests, and beginning at 18th level, you can use it three times between rests. When you finish a short or long rest, you regain your expended uses.</p><p><b><u>Turn Undead.</u></b></p><p>As an action, you present your holy symbol and speak a prayer censuring the undead. Each undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes any damage.</p><p>A turned creature must spend its turns trying to move as far away from you as it can, and it can't willingly move to a space within 30 feet of you. It also can't take reactions. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If there's nowhere to move, the creature can use the Dodge action.</p>";
 const FEATURE_CLERIC_5_0 = "<p><b><i>Destroy Undead.</i></b></p><p>Starting at 5th level, when an undead of CR 1/2 or lower fails its saving throw against your Turn Undead feature, the creature is instantly destroyed.</p><p>The maximum CR of creatures affected by this feature increases at certain levels. At 8th level, the CR increases to 1; at 11th level, the CR increases to 2; at 14th level, the CR increases to 3; and at 17th level, the CR increases to 4.</p>";
 const FEATURE_CLERIC_10_0 = "<p><b><i>Divine Intervention.</i></b></p><p>Beginning at 10th level, you can call on your deity to intervene on your behalf when your need is great.</p><p>Imploring your deity's aid requires you to use your action. Describe the assistance you seek, and roll percentile dice. If you roll a number equal to or lower than your cleric level, your deity intervenes. The DM chooses the nature of the intervention; the effect of any cleric spell or cleric domain spell would be appropriate. If your deity intervenes, you can't use this feature again for 7 days. Otherwise, you can use it again after you finish a long rest.</p><p>At 20th level, your call for intervention succeeds automatically, no roll required.</p>";
+// multi-subclass features
+const FEATURE_CLERIC_DSTRIKE = "<p><b><i>Divine Strike.</i></b></p><p>At 8th level, you gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra 1d8 radiant damage to the target. When you reach 14th level, the extra damage increases to 2d8.</p>";
+
+// life cleric
+const FEATURE_CLERIC_LIFE_1_0 = "<p><b><i>Domain Spells.</i></b></p><p>Each domain has a list of spells-its domain spells that you gain at the cleric levels noted in the domain description. Once you gain a domain spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day.</p><p>If you have a domain spell that doesn't appear on the cleric spell list, the spell is nonetheless a cleric spell for you.</p><h6><b>Life Domain Spells:</b></h6><table class=\"w3-flat-clouds w3-margin\"><tr class=\"w3-flat-silver\"> <!-- Header Row --><th style=\"padding-right:12px;\">Artificer Level</th><th>Armorer Spells</th></tr><tr> <!-- 1st level spells --><td>1st</td><td>Bless, Cure Wounds</td></tr><tr> <!-- 2nd level spells --><td>3rd</td><td>Lesser Restoration, Spiritual Weapon</td></tr><tr> <!-- 3rd level spells --><td>5th</td><td>Beacon of Hope, Revivify</td></tr><tr> <!-- 4th level spells --><td>7th</td><td>Death Ward, Guardian of Faith</td></tr><tr> <!-- 5th level spells --><td>9th</td><td>Mass Cure Wounds, Raise Dead</td></tr></table>";
+const FEATURE_CLERIC_LIFE_1_1 = "<p><b><i>Bonus Proficiency.</i></b></p><p>When you choose this domain at 1st level, you gain proficiency with heavy armor.</p>";
+const FEATURE_CLERIC_LIFE_1_2 = "<p><b><i>Disciple of Life.</i></b></p><p>Also starting at 1st level, your healing spells are more effective. Whenever you use a spell of 1st level or higher to restore hit points to a creature, the creature regains additional hit points equal to 2 + the spell's level.</p>";
+const FEATURE_CLERIC_LIFE_2_0 = "<p><b><i>Channel Divinity: Preserve Life.</i></b></p><p>Starting at 2nd level, you can use your Channel Divinity to heal the badly injured.</p><p>As an action, you present your holy symbol and evoke healing energy that can restore a number of hit points equal to five times your cleric level. Choose any creatures within 30 feet of you, and divide those hit points among them. This feature can restore a creature to no more than half of its hit point maximum. You can't use this feature on an undead or a construct.</p>";
+const FEATURE_CLERIC_LIFE_6_0 = "<p><b><i>Blessed Healer.</i></b></p><p>Beginning at 6th level, the healing spells you cast on others heal you as well. When you cast a spell of 1st level or higher that restores hit points to a creature other than you, you regain hit points equal to 2 + the spell's level.</p>";
+const FEATURE_CLERIC_LIFE_17_0 = "<p><b><i>Supreme Healing.</i></b></p><p>Starting at 17th level, when you would normally roll one or more dice to restore hit points with a spell, you instead use the highest number possible for each die. For example, instead of restoring 2d6 hit points to a creature, you restore 12.</p>";
 
 // druid
 const FEATURE_DRUID_1_0 = "<p><b><i>Druidic.</i></b></p><p>You know Druidic, the secret language of druids. You can speak the language and use it to leave hidden messages. You and others who know this language automatically spot such a message. Others spot the message's presence with a successful DC 15 Wisdom (Perception) check but can't decipher it without magic.</p>";
@@ -1071,8 +1081,14 @@ function handleClassFeatures(){
    }
    
    if(clss === "Cleric"){
+      if(subclass === "Life"){
+         addCF(FEATURE_CLERIC_LIFE_1_0);  
+         addCF(FEATURE_CLERIC_LIFE_1_1);
+         addCF(FEATURE_CLERIC_LIFE_1_2);
+      }
       if(lvl>1){
          addCF(FEATURE_CLERIC_2_0);
+         if(subclass === "Life") addCF(FEATURE_CLERIC_LIFE_2_0);
       }
       if(lvl>3){
          addCF(FEATURE_ASI_STANDARD);
@@ -1080,8 +1096,17 @@ function handleClassFeatures(){
       if(lvl>4){
          addCF(FEATURE_CLERIC_5_0);
       }
+      if(lvl>5){
+         if(subclass === "Life") addCF(FEATURE_CLERIC_LIFE_6_0);
+      }
+      if(lvl>7){
+         if(subclass === "Life") addCF(FEATURE_CLERIC_DSTRIKE);
+      }
       if(lvl>9){
          addCF(FEATURE_CLERIC_10_0);
+      }
+      if(lvl>16){
+         if(subclass === "Life") addCF(FEATURE_CLERIC_LIFE_17_0);
       }
      // cleric spellcasting
      document.getElementById("SHEET_FEATURES_SPELLCASTING_HEADER").innerHTML = "Spellcasting";
