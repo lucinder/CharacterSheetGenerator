@@ -2003,6 +2003,7 @@ function generate(){
   document.getElementById("SHEET_FEATURES_CLASS_HEADER").innerHTML = "Class Features";
   document.getElementById("SHEET_FEATURES_RACE_HEADER").innerHTML = "Race Features";
   document.getElementById("SHEET_BG_BACKSTORY_HEADER").innerHTML ="<u>Backstory</u>";
+  document.getElementById("toc-container").removeAttribute("hidden"); // show toc
  
   // determine main fields
   nameGen();
