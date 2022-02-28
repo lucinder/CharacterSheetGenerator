@@ -53,7 +53,7 @@ const sA = "Arcana", sAl = "Athletics", sAc = "Acrobatics", sAh = "Animal Handli
 const tT = "Thieves' Tools", tTk = "Tinker's Tools", tH = "Herbalism Kit", tS = "Smith's Tools", tB = "Brewer's Supplies", tM = "Mason's Tools", tR = "_TOOL", tI = "_INSTRUMENT", tA = "_TOOLINSTRUMENT";
 
 const allSkills = new Array(sA,sAl,sAc,sAh,sI,sIn,sS,sSh,sSv,sN,sH,sP,sPf,sPs,sD,sIt,sM,sR);
-let sklSelector = {sA:sA,sAl:sAl,sAc:sAc,sAh:sAh,sD:sD,sH:sH,sIn:sIn,sIt:sIt,sI:sI,sM:sM,sN:sN,sP:sP,sPf:sPf,sPs:sPs,sR:sR,sSh:sSh,sS:sS,sSv:sSv};
+// let sklSelector = {sA:sA,sAl:sAl,sAc:sAc,sAh:sAh,sD:sD,sH:sH,sIn:sIn,sIt:sIt,sI:sI,sM:sM,sN:sN,sP:sP,sPf:sPf,sPs:sPs,sR:sR,sSh:sSh,sS:sS,sSv:sSv};
 const proficiencies_artificer = new Array(new Array(stC,stI), new Array(sA,sH,sI,sM,sN,sP,sSh), new Array(wS), new Array(aL,aM,aS), new Array(tT,tTk,tR));
 const proficiencies_barbarian = new Array(new Array(stS, stC),new Array(sAh,sAl,sIt,sN,sP,sSv),new Array(wS,wM), new Array(aL,aM,aS),new Array());
 const proficiencies_bard = new Array(new Array(stD, stA),new Array(sA,sAl,sAc,sAh,sI,sIn,sIt,sS,sSh,sSv,sN,sH,sP,sPf,sPs,sD,sM,sR),new Array(wS,wHc,wLs,wRp,wSs),new Array(aL),new Array(tI,tI,tI));
@@ -711,7 +711,7 @@ function rollSpecial(id){
  let statnames = new Array("STR","DEX","CON","INT","WIS","CHA");
  let statmods = new Array(statModifiers[stats[0]], statModifiers[stats[1]], statModifiers[stats[2]], statModifiers[stats[3]], statModifiers[stats[4]], statModifiers[stats[5]]);
  if(firstDigit == 1 || firstDigit == 2){ // checks + saves
-      let baseRoll = sum(XdY(1,20));
+      result = sum(XdY(1,20));
       if(baseRoll == 20){
             additionalTxt = " (critical success!)";
             res.style.color = "LimeGreen";
@@ -725,10 +725,20 @@ function rollSpecial(id){
       if(firstDigit == 2){ // saves only
             if(saves.includes(statnames[lastDigit])) mod += pBonuses[lvl]; // add proficiency bonus to proficient saves
       }
-      result = (baseRoll + mod)|0;
+      result += mod;
  } else {
        if(lastDigit == 0){
           result = sum(XdY(1,20)) + statmods[1]; // init = dex check
+       }
+       if(lastDigit == 4){ // ability check
+          result = sum(XdY(1,20));
+          let mod = 0;
+          // str based skills
+          // dex based skills
+          // con based skills
+          // int based skills
+          // wis based skills
+          // cha based skills
        }
  }
  outputTxt += result + additionalTxt;
@@ -757,6 +767,15 @@ function resetFeatures(){
  
   document.getElementById("SHEET_FEATURES_SPELLCASTING_HEADER").innerHTML = "";
   document.getElementById("SHEET_FEATURES_SPELLCASTING_DESCRIPTION").innerHTML = "";
+}
+
+function fillSkillOptions(){
+  document.getElementById("SELECT_ABIL").innerHTML = "";
+  for(let i = 0; i < allSkills.length; i++){
+  let c = allSkills[i];
+    internalTxt += '<option value="' + c + '">' + c +'</option>';     
+  }
+  document.getElementById("SELECT_ABIL").innerHTML = internalTxt;
 }
 
 function fillClassOptions(){
@@ -792,6 +811,7 @@ function init(){
   fillRaceOptions();
   fillClassOptions();
   fillLvlOptions();
+  fillSkillOptions();
   resetFeatures();
 }
 
