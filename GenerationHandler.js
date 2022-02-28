@@ -703,14 +703,14 @@ function XdYkhZ(x,y,z){
 function rollSpecial(id){
  let result = -1;
  let outputTxt = "Result: ";
- let lastdigit = id%10, firstdigit = (id/10)|0;
+ let lastDigit = id%10, firstDigit = (id/10)|0;
  let statnames = new Array("STR","DEX","CON","INT","WIS","CHA");
  let statmods = new Array(statModifiers[stats[0]], dexMod = statModifiers[stats[1]], conMod = statModifiers[stats[2]], intMod = statModifiers[stats[3]], wisMod = statModifiers[stats[4]], chaMod = statModifiers[stats[5]]);
  if(firstDigit == 1 || firstDigit == 2){ // checks + saves
       let baseRoll = XdY(1,20);
-      let mod = statmods[lastdigit];
+      let mod = statmods[lastDigit];
       if(firstDigit == 2){ // saves only
-            if(saves.includes(statnames[lastdigit])) mod += pBonuses[lvl]; // add proficiency bonus to proficient saves
+            if(saves.includes(statnames[lastDigit])) mod += pBonuses[lvl]; // add proficiency bonus to proficient saves
       }
       result = baseRoll + mod;
       outputTxt += result;
