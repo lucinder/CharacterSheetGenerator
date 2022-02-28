@@ -2016,12 +2016,15 @@ function generate(){
   loadPregens();
       
   // set titles
+  unhide("tabnav");
   document.getElementById("SHEET_PROF_TITLE").innerHTML = "Proficiencies"
   document.getElementById("SHEET_FEATURES_TITLE").innerHTML = "Features";
   document.getElementById("SHEET_BG_TITLE").innerHTML = "Characterization";
   document.getElementById("SHEET_FEATURES_CLASS_HEADER").innerHTML = "Class Features";
   document.getElementById("SHEET_FEATURES_RACE_HEADER").innerHTML = "Race Features";
   document.getElementById("SHEET_BG_BACKSTORY_HEADER").innerHTML ="<u>Backstory</u>";
+  document.getElementById("SHEET_ACTIONS_TITLE").innerHTML = "Actions";
+  document.getElementById("SHEET_ACTIONS_ROLL").innerHTML = "Roll...";
   document.getElementById("toc-container").removeAttribute("hidden"); // show toc
  
   // determine main fields
