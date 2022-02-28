@@ -615,6 +615,7 @@ let spdtxt = "";
 let armorType = "unarmored defense";
 let rf = new Array(); // race features
 let cf = new Array(); // class features
+let saves = new Array();
 let stats = new Array();
 let skills = new Array(); // skill proficiency list
 let wpns = new Array(); // weapon proficiency list
@@ -699,6 +700,26 @@ function XdYkhZ(x,y,z){
  return results;
 }
 
+function rollSpecial(id){
+ let result = -1;
+ let outputTxt = "Result: ";
+ let lastdigit = id%10, firstdigit = (id/10)|0;
+ let statnames = new Array("STR","DEX","CON","INT","WIS","CHA");
+ let statmods = new Array(statModifiers[stats[0]], dexMod = statModifiers[stats[1]], conMod = statModifiers[stats[2]], intMod = statModifiers[stats[3]], wisMod = statModifiers[stats[4]], chaMod = statModifiers[stats[5]]);
+ if(firstDigit == 1 || firstDigit == 2){ // checks + saves
+      let baseRoll = XdY(1,20);
+      let mod = statmods[lastdigit];
+      if(firstDigit == 2){ // saves only
+            if(saves.includes(statnames[lastdigit])) mod += pBonuses[lvl]; // add proficiency bonus to proficient saves
+      }
+      result = baseRoll + mod;
+      outputTxt += result;
+ } else {
+       outputTxt += "Roll NYI!";
+ }
+ document.getElementById("ROLLRESULTS").innerHTML = outputTxt;
+}
+
 function resetFeatures(){
   ALL_LANGS = new Array("Aarakocra","Abyssal","Auran","Celestial","Elvish","Dwarvish","Draconic","Giant","Gith","Gnomish","Goblin","Infernal","Leonin","Loxodon","Merfolk","Minotaur","Orc","Primordial","Sylvan","Vedalken");
   debugtxt = "";
@@ -760,6 +781,7 @@ function init(){
 }
 
 // shorthand functions
+function addSv(s){ if(!(saves.includes(s))) saves.push(s); }
 function addWpn(w){ if(!(wpns.includes(w))) wpns.push(w); }
 function addAmr(a){ if(!(amr.includes(a))) amr.push(a); }
 function addSkl(s){ if(!(skills.includes(s))) skills.push(s); }
@@ -768,6 +790,7 @@ function addRF(f){ if(!(rf.includes(f))) rf.push(f); }
 function addCF(f){ if(!(cf.includes(f))) cf.push(f); }
 
 // longhand functions
+function addSave(s){ addSv(s); }
 function addWeapon(w){ addWpn(w); }
 function addArmor(a){ addAmr(a); }
 function addSkill(s){ addSkl(s); }
@@ -820,8 +843,10 @@ function handleProficiencies(){
  let toolstxt = "";
  
  if(clss === "Monk" && lvl > 13){ // diamond soul feature
+    addSv("STR"); addSv("DEX"); addSv("CON"); addSv("INT"); addSv("WIS"); addSv("CHA");
     savestxt += "<b>Saving Throws:</b> All";
  } else {
+    addSv(profs[0][0]); addSv(profs[0][1]);
     savestxt += "<b>Saving Throws:</b> " + profs[0][0] + ", " + profs[0][1];
  }
  skillstxt += "<b>Skills:</b> ";
