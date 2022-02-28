@@ -1971,16 +1971,26 @@ function toggleDbg(){
   loadDbg();
 }
 
-function toggleMoreOptions(){
- let moreOp = document.getElementById("MOREOPTIONS");
- if(moreOp.getAttribute("hidden")){
-   moreOp.removeAttribute("hidden"); // show
-   document.getElementById("MOREOPTIONSBUTTON").innerText = "Less Options...";
-   document.getElementById("HEAD_CONTAINER").style.paddingBottom = '10px'; // increase lower padding
+function unhide(elId){
+   let el = document.getElementById(elId);
+   el.removeAttribute("hidden"); // show
+}
+
+function toggleHidden(elId){
+ let el = document.getElementById(elId);
+ if(elId === "MOREOPTIONS"){
+       if(el.getAttribute("hidden")){
+         document.getElementById("MOREOPTIONSBUTTON").innerText = "Less Options...";
+         document.getElementById("HEAD_CONTAINER").style.paddingBottom = '10px'; // increase lower padding
+       } else {
+         document.getElementById("MOREOPTIONSBUTTON").innerText = "More Options...";
+         document.getElementById("HEAD_CONTAINER").style.paddingBottom = '6px';
+       }
+ }
+ if(el.getAttribute("hidden")){
+   el.removeAttribute("hidden"); // show
  } else {
-   moreOp.setAttribute("hidden", "hidden"); // hide
-   document.getElementById("MOREOPTIONSBUTTON").innerText = "More Options...";
-   document.getElementById("HEAD_CONTAINER").style.paddingBottom = '6px';
+   el.setAttribute("hidden", "hidden"); // hide
  }
 }
 
