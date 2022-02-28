@@ -101,18 +101,6 @@
             	});
             }
     	});
-	$('#SELECT_ABIL').on('change', function(e){
-            var source = $(this),
-            val = $.trim(source.val()),
-            target = $('#SELECT_ABIL');
-      	    $(target).empty();
-            if(typeof(sklSelector[val]) != "undefined"){
-            	var options = (typeof(sklSelector[val]) != "undefined") ? sklSelector[val] : {};
-            	$.each(options , function(index,value) {
-               	  $('<option value="' + value + '">' + value + '</option>').appendTo(target);
-            	});
-            }
-    	});
 	</script>
 	<div class="w3-left col-sm-2">
 	  <label for="SELECT_SUBRACE">Subrace:</label>
