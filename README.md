@@ -68,3 +68,5 @@ Racial ASIs (Ability Score Improvements) are allocated by the generator, but no 
 - Wizard
 
 Note: most subclass features have not yet been added.
+
+Background art by Zarious!
