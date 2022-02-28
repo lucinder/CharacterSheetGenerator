@@ -702,12 +702,24 @@ function XdYkhZ(x,y,z){
 
 function rollSpecial(id){
  let result = -1;
+ let res = document.getElementById("ROLLRESULTS");
+ res.style.color = "Black";
  let outputTxt = "Result: ";
+ let additionalTxt = "";
  let lastDigit = id%10, firstDigit = (id/10)|0;
  let statnames = new Array("STR","DEX","CON","INT","WIS","CHA");
  let statmods = new Array(statModifiers[stats[0]], statModifiers[stats[1]], statModifiers[stats[2]], statModifiers[stats[3]], statModifiers[stats[4]], statModifiers[stats[5]]);
  if(firstDigit == 1 || firstDigit == 2){ // checks + saves
       let baseRoll = sum(XdY(1,20));
+      if(baseRoll == 20){
+            additionalTxt = " (critical success!)";
+            res.style.color = "LimeGreen";
+            
+      }
+      if(baseRoll == 1){
+            additionalTxt = " (critical failure!)";
+            res.style.color = "Crimson";
+      }
       let mod = statmods[lastDigit];
       if(firstDigit == 2){ // saves only
             if(saves.includes(statnames[lastDigit])) mod += pBonuses[lvl]; // add proficiency bonus to proficient saves
@@ -720,7 +732,8 @@ function rollSpecial(id){
        }
        outputTxt += "Roll NYI!";
  }
- document.getElementById("ROLLRESULTS").innerHTML = outputTxt;
+ outputTxt += additionaltxt;
+ res.innerHTML = outputTxt;
 }
 
 function resetFeatures(){
