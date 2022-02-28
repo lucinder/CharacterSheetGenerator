@@ -773,6 +773,7 @@ function resetFeatures(){
 
 function fillSkillOptions(){
   document.getElementById("SELECT_ABIL").innerHTML = "";
+  let internalTxt = "";
   for(let i = 0; i < allSkills.length; i++){
   let c = allSkills[i];
     internalTxt += '<option value="' + c + '">' + c +'</option>';     
