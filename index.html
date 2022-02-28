@@ -88,16 +88,6 @@
             	});
             }
     	});
-	</script>
-	<div class="w3-left col-sm-2">
-	  <label for="SELECT_SUBRACE">Subrace:</label>
-	  <select id="SELECT_SUBRACE" name="SELECT_SUBRACE"></select>
-        </div>
-       <div class="w3-left col-sm-2">
-        <label for="SELECT_CLASS">Class:</label>
-	<select id="SELECT_CLASS" name="SELECT_CLASS"></select>
-       </div>
-	<script type="text/javascript">
 	$('#SELECT_CLASS').on('change', function(e){
             var source = $(this),
             val = $.trim(source.val()),
@@ -111,7 +101,27 @@
             	});
             }
     	});
+	$('#SELECT_ABIL').on('change', function(e){
+            var source = $(this),
+            val = $.trim(source.val()),
+            target = $('#SELECT_ABIL');
+      	    $(target).empty();
+            if(typeof(sklSelector[val]) != "undefined"){
+            	var options = (typeof(sklSelector[val]) != "undefined") ? sklSelector[val] : {};
+            	$.each(options , function(index,value) {
+               	  $('<option value="' + value + '">' + value + '</option>').appendTo(target);
+            	});
+            }
+    	});
 	</script>
+	<div class="w3-left col-sm-2">
+	  <label for="SELECT_SUBRACE">Subrace:</label>
+	  <select id="SELECT_SUBRACE" name="SELECT_SUBRACE"></select>
+        </div>
+       <div class="w3-left col-sm-2">
+        <label for="SELECT_CLASS">Class:</label>
+	<select id="SELECT_CLASS" name="SELECT_CLASS"></select>
+       </div>
 	<div class="w3-left col-sm-3">
 	  <label for="SELECT_SUBCLASS">Subclass:</label>
 	  <select id="SELECT_SUBCLASS" name="SELECT_SUBCLASS"></select>
@@ -212,7 +222,7 @@
 			<button class="w3-button w3-left specialButton" onclick="rollSpecial(21)">Dexterity Save</button>
 		   </div>
 		   <div class="w3-container w3-cell" id = "PANEL2">
-	      		<select id="WEAPONSEL" style="padding-top:12px;" name="WEAPONSEL"></select>
+	      		<select id="SELECT_WEAPON" style="padding-top:12px;" name="SELECT_WEAPON"></select>
 			<button class="w3-button w3-left specialButton w3-cell-middle" onclick="rollSpecial(12)">Constitution Check</button>
 			<button class="w3-button w3-left specialButton w3-cell-bottom" onclick="rollSpecial(22)">Constitution Save</button>
 		   </div>
@@ -222,7 +232,7 @@
 			<button class="w3-button w3-left specialButton" onclick="rollSpecial(23)">Intelligence Save</button>
 		   </div>
 		   <div class="w3-container w3-cell" id = "PANEL4">
-	      		<select id="ABILSEL" style="padding-top:12px;"name="ABILSEL"></select>
+	      		<select id="SELECT_ABIL" style="padding-top:12px;"name="SELECT_ABIL"></select>
 			<button class="w3-button w3-left specialButton w3-cell-middle" onclick="rollSpecial(14)">Wisdom Check</button>
 			<button class="w3-button w3-left specialButton w3-cell-bottom" onclick="rollSpecial(24)">Wisdom Save</button>
 		   </div>
