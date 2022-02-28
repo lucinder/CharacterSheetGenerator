@@ -732,7 +732,7 @@ function rollSpecial(id){
        }
        outputTxt += "Roll NYI!";
  }
- outputTxt += additionaltxt;
+ outputTxt += additionalTxt;
  res.innerHTML = outputTxt;
 }
 
