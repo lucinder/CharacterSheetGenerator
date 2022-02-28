@@ -702,6 +702,7 @@ function XdYkhZ(x,y,z){
 }
 
 function rollSpecial(id){
+ let baseRoll = sum(XdY(1,20));
  let result = -1;
  let res = document.getElementById("ROLLRESULTS");
  res.style.color = "Black";
@@ -711,7 +712,7 @@ function rollSpecial(id){
  let statnames = new Array("STR","DEX","CON","INT","WIS","CHA");
  let statmods = new Array(statModifiers[stats[0]], statModifiers[stats[1]], statModifiers[stats[2]], statModifiers[stats[3]], statModifiers[stats[4]], statModifiers[stats[5]]);
  if(firstDigit == 1 || firstDigit == 2){ // checks + saves
-      result = sum(XdY(1,20));
+      result = baseRoll;
       if(baseRoll == 20){
             additionalTxt = " (critical success!)";
             res.style.color = "LimeGreen";
@@ -732,6 +733,7 @@ function rollSpecial(id){
        }
        if(lastDigit == 4){ // ability check
           result = sum(XdY(1,20));
+          let skll = $('#SELECT_ABIL').val();
           let mod = 0;
           // str based skills
           // dex based skills
