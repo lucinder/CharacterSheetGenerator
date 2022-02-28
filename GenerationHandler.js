@@ -53,6 +53,7 @@ const sA = "Arcana", sAl = "Athletics", sAc = "Acrobatics", sAh = "Animal Handli
 const tT = "Thieves' Tools", tTk = "Tinker's Tools", tH = "Herbalism Kit", tS = "Smith's Tools", tB = "Brewer's Supplies", tM = "Mason's Tools", tR = "_TOOL", tI = "_INSTRUMENT", tA = "_TOOLINSTRUMENT";
 
 const allSkills = new Array(sA,sAl,sAc,sAh,sI,sIn,sS,sSh,sSv,sN,sH,sP,sPf,sPs,sD,sIt,sM,sR);
+let sklSelector = {sA:sA,sAl:sAl,sAc:sAc,sAh:sAh,sD:sD,sH:sH,sIn:sIn,sIt:sIt,sI:sI,sM:sM,sN:sN,sP:sP,sPf:sPf,sPs:sPs,sR:sR,sSh:sSh,sS:sS,sSv:sSv};
 const proficiencies_artificer = new Array(new Array(stC,stI), new Array(sA,sH,sI,sM,sN,sP,sSh), new Array(wS), new Array(aL,aM,aS), new Array(tT,tTk,tR));
 const proficiencies_barbarian = new Array(new Array(stS, stC),new Array(sAh,sAl,sIt,sN,sP,sSv),new Array(wS,wM), new Array(aL,aM,aS),new Array());
 const proficiencies_bard = new Array(new Array(stD, stA),new Array(sA,sAl,sAc,sAh,sI,sIn,sIt,sS,sSh,sSv,sN,sH,sP,sPf,sPs,sD,sM,sR),new Array(wS,wHc,wLs,wRp,wSs),new Array(aL),new Array(tI,tI,tI));
@@ -725,14 +726,12 @@ function rollSpecial(id){
             if(saves.includes(statnames[lastDigit])) mod += pBonuses[lvl]; // add proficiency bonus to proficient saves
       }
       result = (baseRoll + mod)|0;
-      outputTxt += result;
  } else {
        if(lastDigit == 0){
           result = sum(XdY(1,20)) + statmods[1]; // init = dex check
        }
-       outputTxt += "Roll NYI!";
  }
- outputTxt += additionalTxt;
+ outputTxt += result + additionalTxt;
  res.innerHTML = outputTxt;
 }
 
