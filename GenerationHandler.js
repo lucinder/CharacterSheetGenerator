@@ -705,14 +705,14 @@ function rollSpecial(id){
  let outputTxt = "Result: ";
  let lastDigit = id%10, firstDigit = (id/10)|0;
  let statnames = new Array("STR","DEX","CON","INT","WIS","CHA");
- let statmods = new Array(statModifiers[stats[0]], dexMod = statModifiers[stats[1]], conMod = statModifiers[stats[2]], intMod = statModifiers[stats[3]], wisMod = statModifiers[stats[4]], chaMod = statModifiers[stats[5]]);
+ let statmods = new Array(statModifiers[stats[0]], statModifiers[stats[1]], statModifiers[stats[2]], statModifiers[stats[3]], statModifiers[stats[4]], statModifiers[stats[5]]);
  if(firstDigit == 1 || firstDigit == 2){ // checks + saves
       let baseRoll = XdY(1,20);
       let mod = statmods[lastDigit];
       if(firstDigit == 2){ // saves only
             if(saves.includes(statnames[lastDigit])) mod += pBonuses[lvl]; // add proficiency bonus to proficient saves
       }
-      result = baseRoll + mod;
+      result = (baseRoll + mod)|0;
       outputTxt += result;
  } else {
        outputTxt += "Roll NYI!";
