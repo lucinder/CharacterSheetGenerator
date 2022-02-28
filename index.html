@@ -122,72 +122,82 @@
        </div>
       </div>
     </header>
-    <div class="w3-row-padding w3-padding-64 w3-container" id = "toc-container" hidden>
-    	<p class="toc_title">Jump to...</p>
-	<ul class="toc_list">
-	<li><a href="#SHEET_BASIC_NAME">Basic Information</a></li>
-	<li><a href="#SHEET_PROF_TITLE">Proficiencies</a></li>
-	<li><a href="#SHEET_FEATURES_TITLE">Features</a>
-		<ul>
-		<li><a href="#SHEET_FEATURES_CLASS_HEADER">Class Features</a></li>
-		<li><a href="#SHEET_FEATURES_RACE_HEADER">Race Features</a></li>
-		<li><a href="#SHEET_FEATURES_SPELLCASTING_HEADER">Spellcasting</a></li>
+    <div class="tab" id="CHARACTERSHEET">	  
+	    <div class="w3-row-padding w3-padding-64 w3-container" id = "toc-container" hidden>
+		<p class="toc_title">Jump to...</p>
+		<ul class="toc_list">
+		<li><a href="#SHEET_BASIC_NAME">Basic Information</a></li>
+		<li><a href="#SHEET_PROF_TITLE">Proficiencies</a></li>
+		<li><a href="#SHEET_FEATURES_TITLE">Features</a>
+			<ul>
+			<li><a href="#SHEET_FEATURES_CLASS_HEADER">Class Features</a></li>
+			<li><a href="#SHEET_FEATURES_RACE_HEADER">Race Features</a></li>
+			<li><a href="#SHEET_FEATURES_SPELLCASTING_HEADER">Spellcasting</a></li>
+			</ul>
+		</li>
+		<li><a href="#SHEET_BG_TITLE">Background</a></li>
 		</ul>
-	</li>
-	<li><a href="#SHEET_BG_TITLE">Background</a></li>
-	</ul>
-    </div>    
-    <!-- Basic Character Information -->
-    <div class="w3-row-padding w3-padding-64 w3-container">
-      <div class="w3-content">
-          <h1 id="SHEET_BASIC_NAME"></h1>
-          <h5 id = "SHEET_BASIC_RACECLASS"></h5>
-          <p class="w3-text-grey" id = "SHEET_BASIC_STATS_STR"></p>
-          <p class="w3-text-grey" id = "SHEET_BASIC_STATS_DEX"></p>
-          <p class="w3-text-grey" id = "SHEET_BASIC_STATS_CON"></p>
-          <p class="w3-text-grey" id = "SHEET_BASIC_STATS_INT"></p>
-          <p class="w3-text-grey" id = "SHEET_BASIC_STATS_WIS"></p>
-          <p class="w3-text-grey" id = "SHEET_BASIC_STATS_CHA"></p>
-          <br>
-          <p class="w3-text-grey" id = "SHEET_BASIC_STATS_HP"></p>
-          <p class="w3-text-grey" id = "SHEET_BASIC_STATS_AC"></p>
-          <p class="w3-text-grey" id = "SHEET_BASIC_STATS_SPD"></p>
-      </div>
-    
-    <!-- Proficiencies -->
-    <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
-      <div class="w3-content">
-          <h1 id="SHEET_PROF_TITLE"></h1>
-          <h5 id = "SHEET_PROF_BONUS"></h5>
-          <p class="w3-text-grey" id = "SHEET_PROF_SAVES"></p>
-          <p class="w3-text-grey" id = "SHEET_PROF_SKILLS"></p>
-          <p class="w3-text-grey" id = "SHEET_PROF_WEAPONS"></p>
-          <p class="w3-text-grey" id = "SHEET_PROF_ARMOR"></p>
-          <p class="w3-text-grey" id = "SHEET_PROF_TOOLS"></p>
-          <p class="w3-text-grey" id = "SHEET_PROF_LANGS"></p>
-      </div>
-    </div>
-    <!-- Features -->
-    <div class="w3-row-padding w3-padding-64 w3-container">
-      <div class="w3-content">
-        <h1 id="SHEET_FEATURES_TITLE"></h1>
-        <h5 id="SHEET_FEATURES_CLASS_HEADER"></h5>
-          <div class="w3-text-grey" id = "SHEET_FEATURES_CLASS"></div>
-        <h5 id = "SHEET_FEATURES_RACE_HEADER"></h5>
-          <div class="w3-text-grey" id = "SHEET_FEATURES_RACE"></div>
-        <h5 id="SHEET_FEATURES_SPELLCASTING_HEADER"></h5>
-          <div class="w3-text-grey" id = "SHEET_FEATURES_SPELLCASTING_DESCRIPTION"></div>
-      </div>
-    </div>
-    <!-- Background -->
-    <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
-      <div class="w3-content">
-          <h1 id = "SHEET_BG_TITLE"></h1>
-          <h5 id = "SHEET_BG"></h5>
-          <div class="w3-text-grey" id = "SHEET_BG_FEATURE"></div>
-        <h6 id = "SHEET_BG_BACKSTORY_HEADER"></h6>
-        <p class="w3-text-grey" id = "SHEET_BG_BACKSTORY"></p>
-      </div>
-    </div>
+	    </div>    
+	    <!-- Basic Character Information -->
+	    <div class="w3-row-padding w3-padding-64 w3-container">
+	      <div class="w3-content">
+		  <h1 id="SHEET_BASIC_NAME"></h1>
+		  <h5 id = "SHEET_BASIC_RACECLASS"></h5>
+		  <p class="w3-text-grey" id = "SHEET_BASIC_STATS_STR"></p>
+		  <p class="w3-text-grey" id = "SHEET_BASIC_STATS_DEX"></p>
+		  <p class="w3-text-grey" id = "SHEET_BASIC_STATS_CON"></p>
+		  <p class="w3-text-grey" id = "SHEET_BASIC_STATS_INT"></p>
+		  <p class="w3-text-grey" id = "SHEET_BASIC_STATS_WIS"></p>
+		  <p class="w3-text-grey" id = "SHEET_BASIC_STATS_CHA"></p>
+		  <br>
+		  <p class="w3-text-grey" id = "SHEET_BASIC_STATS_HP"></p>
+		  <p class="w3-text-grey" id = "SHEET_BASIC_STATS_AC"></p>
+		  <p class="w3-text-grey" id = "SHEET_BASIC_STATS_SPD"></p>
+	      </div>
+	    </div>
+	    <!-- Proficiencies -->
+	    <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+	      <div class="w3-content">
+		  <h1 id="SHEET_PROF_TITLE"></h1>
+		  <h5 id = "SHEET_PROF_BONUS"></h5>
+		  <p class="w3-text-grey" id = "SHEET_PROF_SAVES"></p>
+		  <p class="w3-text-grey" id = "SHEET_PROF_SKILLS"></p>
+		  <p class="w3-text-grey" id = "SHEET_PROF_WEAPONS"></p>
+		  <p class="w3-text-grey" id = "SHEET_PROF_ARMOR"></p>
+		  <p class="w3-text-grey" id = "SHEET_PROF_TOOLS"></p>
+		  <p class="w3-text-grey" id = "SHEET_PROF_LANGS"></p>
+	      </div>
+	    </div>
+	    <!-- Features -->
+	    <div class="w3-row-padding w3-padding-64 w3-container">
+	      <div class="w3-content">
+		<h1 id="SHEET_FEATURES_TITLE"></h1>
+		<h5 id="SHEET_FEATURES_CLASS_HEADER"></h5>
+		  <div class="w3-text-grey" id = "SHEET_FEATURES_CLASS"></div>
+		<h5 id = "SHEET_FEATURES_RACE_HEADER"></h5>
+		  <div class="w3-text-grey" id = "SHEET_FEATURES_RACE"></div>
+		<h5 id="SHEET_FEATURES_SPELLCASTING_HEADER"></h5>
+		  <div class="w3-text-grey" id = "SHEET_FEATURES_SPELLCASTING_DESCRIPTION"></div>
+	      </div>
+	    </div>
+	    <!-- Background -->
+	    <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+	      <div class="w3-content">
+		  <h1 id = "SHEET_BG_TITLE"></h1>
+		  <h5 id = "SHEET_BG"></h5>
+		  <div class="w3-text-grey" id = "SHEET_BG_FEATURE"></div>
+		<h6 id = "SHEET_BG_BACKSTORY_HEADER"></h6>
+		<p class="w3-text-grey" id = "SHEET_BG_BACKSTORY"></p>
+	      </div>
+	    </div>
+     </div>
+     <div class="tab" id="ACTIONSPAGE">
+	<div class="w3-row-padding w3-padding-64 w3-container">
+	   <div class="w3-content">
+	      <h1 id="SHEET_ACTIONS_TITLE"></h1>
+	      <h5 id = "SHEET_ACTIONS_ROLL"></h5>
+	   </div>
+	</div> 
+     </div>
   </body>
 </html>
