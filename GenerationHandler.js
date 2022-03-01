@@ -2135,8 +2135,8 @@ function getBackstory(){
 
 function getInventory(){
   let txt = "";
-  for(let i = 0; i < items.length; i++){
-      txt += "<li>" + items[i] + "</li>";
+  for(let i = 0; i < inventory.length; i++){
+      txt += "<li>" + inventory[i] + "</li>";
   }
   return txt;
 }
