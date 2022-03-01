@@ -734,18 +734,36 @@ function rollSpecial(id){
       result += mod;
  } else {
        if(lastDigit == 0){
-          result = sum(XdY(1,20)) + statmods[1]; // init = dex check
+          result = baseroll + statmods[stats[1]]; // init = dex check
        }
-       if(lastDigit == 4){ // ability check
-          result = sum(XdY(1,20));
+       if(lastDigit == 3){ // ability check
+          result = baseroll;
           let skll = $('#SELECT_ABIL').val();
           let mod = 0;
           // str based skills
+          if(skll === sAl){
+            mod = statmods[stats[0]];
+          }
           // dex based skills
-          // con based skills
+          if(skll === sAc || skll === sS || skll === sSh){
+            mod = statmods[stats[1]];
+          }
           // int based skills
+          if(skll === sA || skll === sH || skll === sI || skll === sN || skll === sR){
+            mod = statmods[stats[3]];
+          }
           // wis based skills
+          if(skll === sAh || skll === sIn || skll === sM || skll === sP || skll === sSv){
+             mod = statmods[stats[4]];
+          }
           // cha based skills
+          if(skll === sD || skll === sIt || skll === sPf || skll === sPs){
+             mod = statmods[stats[5]];     
+          }
+          if(skills.includes(skll)){
+            mod += pBonuses[lvl];
+          }
+          result += mod;
        }
  }
  outputTxt += result + additionalTxt;
