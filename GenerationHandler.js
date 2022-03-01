@@ -52,7 +52,7 @@ const aL = "Light armor", aM = "Medium armor", aH = "Heavy armor", aA = "All arm
 const sA = "Arcana", sAl = "Athletics", sAc = "Acrobatics", sAh = "Animal Handling", sI = "Investigation", sIn = "Insight", sS = "Stealth", sSh = "Sleight of Hand", sSv = "Survival", sN = "Nature", sH = "History", sP = "Perception", sPf = "Performance", sPs = "Persuasion", sD = "Deception", sIt = "Intimidation", sM = "Medicine", sR = "Religion";
 const tT = "Thieves' Tools", tTk = "Tinker's Tools", tH = "Herbalism Kit", tS = "Smith's Tools", tB = "Brewer's Supplies", tM = "Mason's Tools", tR = "_TOOL", tI = "_INSTRUMENT", tA = "_TOOLINSTRUMENT";
 
-const allSkills = new Array(sA,sAl,sAc,sAh,sI,sIn,sS,sSh,sSv,sN,sH,sP,sPf,sPs,sD,sIt,sM,sR);
+const allSkills = new Array(sA,sAl,sAc,sAh,sI,sIn,sIt,sS,sSh,sSv,sN,sH,sP,sPf,sPs,sD,sM,sR);
 // let sklSelector = {sA:sA,sAl:sAl,sAc:sAc,sAh:sAh,sD:sD,sH:sH,sIn:sIn,sIt:sIt,sI:sI,sM:sM,sN:sN,sP:sP,sPf:sPf,sPs:sPs,sR:sR,sSh:sSh,sS:sS,sSv:sSv};
 const proficiencies_artificer = new Array(new Array(stC,stI), new Array(sA,sH,sI,sM,sN,sP,sSh), new Array(wS), new Array(aL,aM,aS), new Array(tT,tTk,tR));
 const proficiencies_barbarian = new Array(new Array(stS, stC),new Array(sAh,sAl,sIt,sN,sP,sSv),new Array(wS,wM), new Array(aL,aM,aS),new Array());
@@ -600,6 +600,10 @@ let proficiencies_orc = new Array(sAh,sIn,sIt,sM,sP,sSv);
 // warforged
 // yuanti
 
+// weapon dice handler
+const d6 = new Array(1,6), d8 = new Array(1,8), d10 = new Array(1,10), d12 = new Array(1,12);
+const WEAPONDMG = {"Shortsword":d6, "Longsword":d8, "Greatsword":new Array(2,6), "Shortbow":d6, "Longbow":d8, "Light Crossbow":d8, "Heavy Crossbow":d10, "Hand Crossbow":d6, "Mace":d6, "Rapier":d8, "Warhammer":d10, "Spear":d6, "Glaive":d10, "Handaxe":d6, "Greataxe":d12};
+
 // global field handler
 let name = "Example Character";
 let clss = "";
@@ -623,6 +627,7 @@ let wpns = new Array(); // weapon proficiency list
 let amr = new Array(); // armor proficiency list
 let tls = new Array(); // tool proficiency list
 let langs = new Array("Common"); // language proficiency list
+let inventory = new Array();
 
 function preloadRace(newRace){ racePreset = newRace; }
 function preloadClass(newClass){ classPreset = newClass; }
@@ -826,6 +831,7 @@ function addSkl(s){ if(!(skills.includes(s))) skills.push(s); }
 function addTl(t){ if(!(tls.includes(t))) tls.push(t); }
 function addRF(f){ if(!(rf.includes(f))) rf.push(f); }
 function addCF(f){ if(!(cf.includes(f))) cf.push(f); }
+function addItem(i){ inventory.push(i); }
 
 // longhand functions
 function addSave(s){ addSv(s); }
@@ -835,6 +841,103 @@ function addSkill(s){ addSkl(s); }
 function addTool(t){ addTl(t); }
 function addRaceFeature(f){ addRF(f); }
 function addClassFeature(f){ addCF(f); }
+
+// starting item handling
+function handleStartingItems(){
+ if(clss === "Artificer"){
+   addItem("Dagger");
+   addItem("Spear");
+   addItem("Light Crossbow");
+   addItem("Crossbow Bolt x20);
+   addItem("Scale Mail");
+   addItem("Thieves' Tools");
+   addItem("Dungeoneer's Pack");
+ } else if(clss === "Barbarian"){
+   addItem("Greataxe");
+   addItem("Handaxe x2");
+   addItem("Javelin x4");
+   addItem("Explorer's Pack");
+ } else if(clss === "Bard"){
+   addItem("Rapier");
+   addItem("Dagger");
+   addItem("Entertainer's Pack");
+   addItem("Lute");
+   addItem("Leather Armor");
+ } else if(clss === "Cleric"){
+   if(wpns.includes(wM) || wpns.includes(wWh)){
+      addItem("Warhammer");
+   } else {
+      addItem("Mace");     
+   }
+   if(amr.includes(aH)){
+      addItem("Chain Mail");     
+   } else {
+      addItem("Scale Mail");
+   }
+   addItem("Light Crossbow");
+   addItem("Crossbow Bolt x20);
+   addItem("Priest's Pack");
+   addItem("Shield"); 
+   addItem("Holy Symbol"); 
+ } else if(clss === "Fighter"){
+   addItem("Chain Mail");
+   addItem("Longsword");
+   addItem("Shield"); 
+   addItem("Light Crossbow");
+   addItem("Crossbow Bolt x20"); 
+   addItem("Explorer's Pack"); 
+ } else if(clss === "Druid"){
+   addItem("Scimitar");
+   addItem("Shield");
+   addItem("Leather Armor");
+   addItem("Explorer's Pack");
+   addItem("Druidic Focus");
+ } else if(clss === "Monk"){
+   addItem("Shortsword");
+   addItem("Explorer's Pack");
+   addItem("Dark x10");
+ } else if(clss === "Paladin"){
+   addItem("Longsword");
+   addItem("Shield");
+   addItem("Javelin x5");
+   addItem("Priest's Pack");
+   addItem("Chain Mail");
+   addItem("Holy Symbol");
+ } else if(clss === "Ranger"){
+   addItem("Shortsword x2");
+   addItem("Longbow");
+   addItem("Arrow x20");
+   addItem("Scale Mail");
+   addItem("Explorer's Pack");
+ } else if(clss === "Rogue"){
+   addItem("Rapier");
+   addItem("Shortbow");
+   addItem("Arrow x20");
+   addItem("Burglar's Pack");
+   addItem("Leather Armor");
+   addItem("Dagger x2");
+   addItem("Thieves' Tools");
+ } else if(clss === "Sorcerer"){
+   addItem("Light Crossbow");
+   addItem("Crossbow Bolt x20");
+   addItem("Dagger x2");
+   addItem("Arcane Focus");
+   addItem("Exporer's Pack");
+ } else if(clss === "Wizard"){
+   addItem("Quarterstaff");
+   addItem("Arcane Focus");
+   addItem("Spellbook");
+   addItem("Scholar's Pack");
+ } else if(clss === "Warlock"){
+   addItem("Light Crossbow");
+   addItem("Crossbow Bolt x20");
+   addItem("Spear");
+   addItem("Dagger x2");
+   addItem("Arcane Focus");
+   addItem("Leather Armor");
+   addItem("Scholar's Pack");
+ }     
+}
 
 // proficiency handling for races + classes
 function handleProficiencies(){
@@ -1947,13 +2050,23 @@ function calcHP(){
 }
 
 function calcAC(){
+ aca = -1;
  let dexMod = statModifiers[stats[1]];
  acu = 10 + dexMod;
+ acaType = "";
  if(clss === "Barbarian"){ acu += statModifiers[stats[2]]; } // add con mod for barb
  if(clss === "Monk"){ acu += statModifiers[stats[4]]; } // add wis mod for monk
  if(race === "Lizardfolk"){ acu = 13 + dexMod; }// lizardfolk natural armor
- aca = 11 + dexMod;
- ac = aca; armorType = "leather armor"; // default to leather
+ if(inventory.includes("Chain Mail")){
+    acaType = "chain mail"; aca = 16;
+ } else if (inventory.includes("Scale Mail")){
+    acaType = "scale mail"; aca = 14 + dexMod; if(aca > 16) aca = 16;
+ } else if (inventory.includes("Studded Leather")){
+    acaType = "studded leather"; aca = 12 + dexMod;   
+ } else if (inventory.includes("Leather Armor")){
+    acaType = "leather armor"; aca = 11 + dexMod;
+ }
+ ac = aca; armorType = acaType; // default to leather
  if(acu > aca){ ac = acu; armorType = "unarmored defense"; }
 }
 
