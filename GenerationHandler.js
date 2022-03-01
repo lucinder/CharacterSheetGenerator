@@ -848,7 +848,7 @@ function handleStartingItems(){
    addItem("Dagger");
    addItem("Spear");
    addItem("Light Crossbow");
-   addItem("Crossbow Bolt x20);
+   addItem("Crossbow Bolt x20");
    addItem("Scale Mail");
    addItem("Thieves' Tools");
    addItem("Dungeoneer's Pack");
@@ -875,7 +875,7 @@ function handleStartingItems(){
       addItem("Scale Mail");
    }
    addItem("Light Crossbow");
-   addItem("Crossbow Bolt x20);
+   addItem("Crossbow Bolt x20");
    addItem("Priest's Pack");
    addItem("Shield"); 
    addItem("Holy Symbol"); 
