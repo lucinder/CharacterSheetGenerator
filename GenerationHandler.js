@@ -2133,6 +2133,14 @@ function getBackstory(){
   return "To be determined!"; // eventually we'll replace this
 }
 
+function getInventory(){
+  let txt = "";
+  for(let i = 0; i < items.length; i++){
+      txt += "<li>" + items[i] + "</li>";
+  }
+  return txt;
+}
+
 function loadDbg(){
   document.getElementById("DEBUG_TEXT").innerHTML = debugtxt;
   if(debug){
@@ -2198,6 +2206,7 @@ function generate(){
   document.getElementById("SHEET_PROF_TITLE").innerHTML = "Proficiencies"
   document.getElementById("SHEET_FEATURES_TITLE").innerHTML = "Features";
   document.getElementById("SHEET_BG_TITLE").innerHTML = "Characterization";
+  document.getElementById("SHEET_INV_TITLE").innerHTML = "Inventory";
   document.getElementById("SHEET_FEATURES_CLASS_HEADER").innerHTML = "Class Features";
   document.getElementById("SHEET_FEATURES_RACE_HEADER").innerHTML = "Race Features";
   document.getElementById("SHEET_BG_BACKSTORY_HEADER").innerHTML ="<u>Backstory</u>";
@@ -2252,6 +2261,7 @@ function generate(){
   handleRaceFeatures();
   handleBgFeatures();
   handleLangs();
+  handleStartingItems();
  
   document.getElementById("SHEET_BASIC_STATS_STR").innerHTML = "STR: " + stats[0] + " (" + statModifiers[stats[0]]+ ")";
   document.getElementById("SHEET_BASIC_STATS_DEX").innerHTML = "DEX: " + stats[1] + " (" + statModifiers[stats[1]]+ ")";
@@ -2275,6 +2285,7 @@ function generate(){
   document.getElementById("SHEET_BG").innerHTML = "Background: " + bg;
   document.getElementById("SHEET_BG_FEATURE").innerHTML = getBgFeature();
   document.getElementById("SHEET_BG_BACKSTORY").innerHTML = getBackstory();
+  document.getElementById("SHEET_INVENTORY").innerHTML = getInventory();
   debugtxt += "<br>Checkpoint 5: Background section displayed properly!";
  
   loadDbg();
