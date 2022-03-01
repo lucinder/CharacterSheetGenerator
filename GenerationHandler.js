@@ -2227,6 +2227,19 @@ function openTab(tabName) {
   document.getElementById(tabName).style.display = "block";
 }
 
+function handleBG(){
+  let bgsect = document.getElementById("HEAD_CONTAINER");
+  if(clss === "Cleric" && (race === "Half-Elf" || race === "Elf")){
+      bgsect.style.backgroundImage = "url('images/clericelf.jpg')";
+      bgsect.classList.remove("w3-black"); 
+      bgsect.classList.add("w3-white");  
+  } else {
+      bgsect.style.backgroundImage = "url('images/char-generic.png')";
+      bgsect.classList.remove("w3-white"); 
+      bgsect.classList.add("w3-black");  
+  }
+}
+
 function generate(){
   resetFeatures();
   loadPregens();
@@ -2320,5 +2333,6 @@ function generate(){
   document.getElementById("SHEET_INVENTORY").innerHTML = getInventory();
   debugtxt += "<br>Checkpoint 5: Background section displayed properly!";
  
+  handleBG(); // load background image
   loadDbg();
 }
