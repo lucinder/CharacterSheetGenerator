@@ -69,4 +69,4 @@ Racial ASIs (Ability Score Improvements) are allocated by the generator, but no 
 
 Note: most subclass features have not yet been added.
 
-Background art by Zarious!
+Elf Cleric background art by Zarious!
