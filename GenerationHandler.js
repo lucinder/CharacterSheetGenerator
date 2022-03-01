@@ -734,7 +734,7 @@ function rollSpecial(id){
       result += mod;
  } else {
        if(lastDigit == 0){
-          result = baseRoll + statmods[stats[1]]; // init = dex check
+          result = baseRoll + statmods[1]; // init = dex check
        }
        if(lastDigit == 3){ // ability check
           result = baseRoll;
@@ -743,23 +743,23 @@ function rollSpecial(id){
           let mod = 0;
           // str based skills
           if(skll === sAl){
-            mod = statmods[stats[0]];
+            mod = statmods[0];
           }
           // dex based skills
           if(skll === sAc || skll === sS || skll === sSh){
-            mod = statmods[stats[1]];
+            mod = statmods[2];
           }
           // int based skills
           if(skll === sA || skll === sH || skll === sI || skll === sN || skll === sR){
-            mod = statmods[stats[3]];
+            mod = statmods[3];
           }
           // wis based skills
           if(skll === sAh || skll === sIn || skll === sM || skll === sP || skll === sSv){
-             mod = statmods[stats[4]];
+             mod = statmods[4];
           }
           // cha based skills
           if(skll === sD || skll === sIt || skll === sPf || skll === sPs){
-             mod = statmods[stats[5]];     
+             mod = statmods[5];     
           }
           if(skills.includes(skll)){
             mod += pBonuses[lvl];
