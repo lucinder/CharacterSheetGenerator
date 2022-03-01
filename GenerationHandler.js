@@ -734,10 +734,10 @@ function rollSpecial(id){
       result += mod;
  } else {
        if(lastDigit == 0){
-          result = baseroll + statmods[stats[1]]; // init = dex check
+          result = baseRoll + statmods[stats[1]]; // init = dex check
        }
        if(lastDigit == 3){ // ability check
-          result = baseroll;
+          result = baseRoll;
           let skll = $('#SELECT_ABIL').val();
           let mod = 0;
           // str based skills
