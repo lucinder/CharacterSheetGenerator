@@ -739,6 +739,7 @@ function rollSpecial(id){
        if(lastDigit == 3){ // ability check
           result = baseRoll;
           let skll = $('#SELECT_ABIL').val();
+          debugtxt += "<br>TEST: Skill to roll = " + skll;
           let mod = 0;
           // str based skills
           if(skll === sAl){
@@ -764,6 +765,19 @@ function rollSpecial(id){
             mod += pBonuses[lvl];
           }
           result += mod;
+       }
+       if(lastDigit == 5){ // death save
+             result = baseRoll;
+       }
+       if(lastDigit == 3 || lastDigit == 5){
+             if(baseRoll == 20){
+                  additionalTxt = " (critical success!)";
+                  res.style.color = "LimeGreen";
+            }
+            if(baseRoll == 1){
+                  additionalTxt = " (critical failure!)";
+                  res.style.color = "Crimson";
+            }
        }
  }
  outputTxt += result + additionalTxt;
