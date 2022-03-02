@@ -741,7 +741,7 @@ function rollSpecial(id){
        }
        if(lastDigit == 1){ // weapon attack
          let atkRoll = sum(XdY(1,20)) + pBonuses[lvl];
-         let wpn = $('#SELECT_WPN').val();
+         let wpn = $('#SELECT_WEAPON').val();
          let mod = statmods[0]; // default weapon mod is str
          if(wpn === wiSb || wpn === wiLb || wpn === wLc || wpn === wiHc || wpn === wiNc){
             mod = statmods[1];
@@ -835,6 +835,16 @@ function fillSkillOptions(){
     internalTxt += '<option value="' + c + '">' + c +'</option>';     
   }
   document.getElementById("SELECT_ABIL").innerHTML = internalTxt;
+}
+
+function fillWeaponOptions(){
+  document.getElementById("SELECT_WEAPON").innerHTML = "";
+  let internalTxt = "";
+  for(let i = 0; i < weaponSel.length; i++){
+  let c = weaponSel[i];
+    internalTxt += '<option value="' + c + '">' + c +'</option>';     
+  }
+  document.getElementById("SELECT_WEAPON").innerHTML = internalTxt;
 }
 
 function fillClassOptions(){
@@ -2336,6 +2346,9 @@ function generate(){
   handleBgFeatures();
   handleLangs();
   handleStartingItems();
+      
+  loadWeaponOptions();
+  fillWeaponOptions();
  
   document.getElementById("SHEET_BASIC_STATS_STR").innerHTML = "STR: " + stats[0] + " (" + statModifiers[stats[0]]+ ")";
   document.getElementById("SHEET_BASIC_STATS_DEX").innerHTML = "DEX: " + stats[1] + " (" + statModifiers[stats[1]]+ ")";
