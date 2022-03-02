@@ -10,7 +10,6 @@ let lvlPreset = -1;
 const statModifiers = new Array(-5,-5,-4,-4,-3,-3,-2,-2,-1,-1,0,0,1,1,2,2,3,3,4,4,5,5,6,6,7); // now goes up to 24 for lv 20 barb
 const pBonuses = new Array(0,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6);
 const priorityStats = {"Artificer":new Array(3,1,4), "Barbarian":new Array(0,2,4),"Bard":new Array(5,1,4),"Cleric":new Array(4,2,0),"Druid":new Array(4,5,3),"Fighter":new Array(0,2,4),"Monk":new Array(1,4,2),"Paladin":new Array(0,5,2),"Ranger":new Array(1,4,2),"Rogue":new Array(1,5,3),"Sorcerer":new Array(5,2,4),"Warlock":new Array(5,2,4),"Wizard":new Array(3,1,4)};
-const raceOptions = new Array("Aarakocra","Aasimar","Bugbear","Centaur","Changeling","Dragonborn","Dwarf","Elf","Fairy","Firbolg","Genasi","Gith","Gnome", "Goblin","Goliath","Half-Elf","Half-Orc","Halfling","Harengon","Hexblood","Hobgoblin","Human","Kalashtar","Kenku","Kobold","Leonin","Lizardfolk","Loxodon","Merfolk","Minotaur","Orc","Owlin","Satyr","Shifter","Simic Hybrid","Tabaxi","Tiefling","Tortle","Triton","Vedalken","Warforged","Yuan-Ti");
 const classOptions = new Array("Artificer","Barbarian","Bard","Cleric","Druid","Fighter","Monk","Paladin","Ranger","Rogue","Sorcerer","Warlock","Wizard");
 const bgOptions = new Array("Acolyte","Anthropologist","Archaeologist","Athlete","Charlatan","City Watch","Clan Crafter","Cloistered Scholar","Courtier","Criminal","Entertainer","Faceless","Faction Agent","Far Traveler","Feylost","Fisher","Folk Hero","Gambler","Grinner","Guild Artisan","Haunted One","Hermit","House Agent","Inheritor","Investigator","Knight of the Order","Marine","Mercenary Veteran","Noble","Outlander","Sage","Sailor","Shipwright","Smuggler","Soldier","Urban Bounty Hunter","Urchin","Tribe Member","Carnival Hand");
 
@@ -736,10 +735,12 @@ function rollSpecial(id){
       }
       result += mod;
  } else {
+       let critID = 0; // 1 = crit success, -1 = crit ail
        if(lastDigit == 0){ // initiative
           result = baseRoll + statmods[1]; // init = dex check
        }
        if(lastDigit == 1){ // weapon attack
+         let aRoll = sum(XdY(1,20));
          let wpn = $('#SELECT_WEAPON').val();
          let wpnDie = new Array();
          let mod = statmods[0]; // default weapon mod is str
@@ -748,13 +749,23 @@ function rollSpecial(id){
          } else if (wpn === wiD || wpn === wiR){ // finesse weapons
             if(stats[1] > stats[0]) mod = statmods[1];
          }
-         debugtxt += "<br>WEAPON found: " + wpn + ", WEAPON damage die: " + WEAPONDMG[wpn][0] + "d" + WEAPONDMG[wpn][1];
+         // debugtxt += "<br>WEAPON found: " + wpn + ", WEAPON damage die: " + WEAPONDMG[wpn][0] + "d" + WEAPONDMG[wpn][1];
          wpnDie = WEAPONDMG[wpn];
          baseRoll = sum(XdY(wpnDie[0], wpnDie[1])) + mod; // damage roll
-         result = sum(XdY(1,20)) + pBonuses[lvl] + mod; // attack roll
+         if(aRoll == 20) {
+               baseRoll *= 2;
+               critID = 1;
+         }// crit hit
+         if(aRoll == 1){
+               baseRoll /= 2; 
+               critID = -1;
+         }// crit miss
+         result = aRoll + pBonuses[lvl] + mod; // attack roll
        }
        if(lastDigit == 3){ // ability check
           result = baseRoll;
+          if(baseRoll == 20) critID = 1;
+          if(baseRoll == 1) critID = -1;
           let skll = $('#SELECT_ABIL').val();
           debugtxt += "<br>TEST: Skill to roll = " + skll;
           let mod = 0;
@@ -784,14 +795,16 @@ function rollSpecial(id){
           result += mod;
        }
        if(lastDigit == 5){ // death save
+          if(baseRoll == 20) critID = 1;
+          if(baseRoll == 1) critID = -1;
              result = baseRoll;
        }
        if(lastDigit == 1 || lastDigit == 3 || lastDigit == 5){
-             if(baseRoll == 20){
+            if(critID == 1){
                   additionalTxt = " (critical success!)";
                   res.style.color = "LimeGreen";
             }
-            if(baseRoll == 1){
+            if(critID == -1){
                   additionalTxt = " (critical failure!)";
                   res.style.color = "Crimson";
             }
