@@ -601,10 +601,10 @@ let proficiencies_orc = new Array(sAh,sIn,sIt,sM,sP,sSv);
 // yuanti
 
 // weapon dice handler for wi (weapon items)
-const wiSs = "Shortsword", wiLs = "Longsword", wiGs = "Greatsword", wiSb = "Shortbow", wiLb = "Longbow", wiLc = "Light Crossbow", wiHc = "Heavy Crossbow", wiNc = "Hand Crossbow", wiM = "Mace", wiR = "Rapier", wiWh = "Warhammer", wiS = "Spear", wiG = "Glaive", wiHa = "Handaxe", wiGa = "Greataxe", wiJ = "Javelin", wiD = "Dagger", wiDt = "Dart";
+const wiSs = "Shortsword", wiLs = "Longsword", wiGs = "Greatsword", wiSb = "Shortbow", wiLb = "Longbow", wiLc = "Light Crossbow", wiHc = "Heavy Crossbow", wiNc = "Hand Crossbow", wiM = "Mace", wiR = "Rapier", wiWh = "Warhammer", wiS = "Spear", wiG = "Glaive", wiHa = "Handaxe", wiGa = "Greataxe", wiJ = "Javelin", wiD = "Dagger", wiDt = "Dart", wiQ = "Quarterstaff";
 const d4 = new Array(1,4), d6 = new Array(1,6), d8 = new Array(1,8), d10 = new Array(1,10), d12 = new Array(1,12);
-const weaponsAvailable = new Array(wiSs, wiLs, wiGs, wiSb, wiLb, wiLc, wiHc, wiNc, wiM, wiG, wiR, wiWh, wiS, wiHa, wiGa, wiJ, wiD, wiDt);
-const WEAPONDMG = {"Shortsword":d6, "Longsword":d8, "Greatsword":new Array(2,6), "Shortbow":d6, "Longbow":d8, "Light Crossbow":d8, "Heavy Crossbow":d10, "Hand Crossbow":d6, "Mace":d6, "Rapier":d8, "Warhammer":d10, "Spear":d6, "Glaive":d10, "Handaxe":d6, "Greataxe":d12, "Javelin":d6, "Dagger":d4, "Dart":d4};
+const weaponsAvailable = new Array(wiSs, wiLs, wiGs, wiSb, wiLb, wiLc, wiHc, wiNc, wiM, wiG, wiR, wiWh, wiS, wiHa, wiGa, wiJ, wiD, wiDt, wiQ);
+const WEAPONDMG = {"Shortsword":d6, "Longsword":d8, "Greatsword":new Array(2,6), "Shortbow":d6, "Longbow":d8, "Light Crossbow":d8, "Heavy Crossbow":d10, "Hand Crossbow":d6, "Mace":d6, "Rapier":d8, "Warhammer":d10, "Spear":d6, "Glaive":d10, "Handaxe":d6, "Greataxe":d12, "Javelin":d6, "Dagger":d4, "Dart":d4, "Quarterstaff":d6};
 let weaponSel = new Array();
 
 // global field handler
