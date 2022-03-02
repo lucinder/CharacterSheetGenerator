@@ -602,7 +602,7 @@ let proficiencies_orc = new Array(sAh,sIn,sIt,sM,sP,sSv);
 
 // weapon dice handler for wi (weapon items)
 const wiSs = "Shortsword", wiLs = "Longsword", wiGs = "Greatsword", wiSb = "Shortbow", wiLb = "Longbow", wiLc = "Light Crossbow", wiHc = "Heavy Crossbow", wiNc = "Hand Crossbow", wiM = "Mace", wiR = "Rapier", wiWh = "Warhammer", wiS = "Spear", wiG = "Glaive", wiHa = "Handaxe", wiGa = "Greataxe", wiJ = "Javelin", wiD = "Dagger", wiDt = "Dart";
-const d6 = new Array(1,6), d8 = new Array(1,8), d10 = new Array(1,10), d12 = new Array(1,12);
+const d4 = new Array(1,4), d6 = new Array(1,6), d8 = new Array(1,8), d10 = new Array(1,10), d12 = new Array(1,12);
 const weaponsAvailable = new Array(wiSs, wiLs, wiGs, wiSb, wiLb, wiLc, wiHc, wiNc, wiM, wiG, wiR, wiWh, wiS, wiHa, wiGa, wiJ, wiD, wiDt);
 const WEAPONDMG = {wiSs:d6, wiLs:d8, wiGs:new Array(2,6), wiSb:d6, wiLb:d8, wiLc:d8, wiHc:d10, wiNc:d6, wiM:d6, wiR:d8, wiWh:d10, wiS:d6, wiG:d10, wiHa:d6, wiGa:d12, wiJ:d6, wiD:d4, wiDt:d4};
 let weaponSel = new Array();
