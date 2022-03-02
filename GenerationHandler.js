@@ -948,6 +948,7 @@ function resetFeatures(){
   tls = new Array();
   langs = new Array("Common");
   weaponSel = new Array();
+  inventory = new Array(); // reset inv
  
   // reload race proficiency arrays that might have removes called
   proficiencies_changeling = new Array(sD,sIn,sIt,sPs);
