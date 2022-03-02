@@ -533,8 +533,13 @@ const FEATURE_GNOME_ROCK_1 = "<p><b><i>Artificer's Lore.</i></b> Whenever you ma
 const FEATURE_GNOME_ROCK_2 = "<p><b><i>Tinker.</i></b> You have proficiency with artisan's tools (tinker's tools). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours (unless you spend 1 hour repairing it to keep the device functioning), or when you use your action to dismantle it; at that time, you can reclaim the materials used to create it. You can have up to three such devices active at a time.</p><p>When you create a device, choose one of the following options:<ul><li><b><i>Clockwork Toy.</i></b>This toy is a clockwork animal, monster, or person, such as a frog, mouse, bird, dragon, or soldier. When placed on the ground, the toy moves 5 feet across the ground on each of your turns in a random direction. It makes noises as appropriate to the creature it represents.</li><li><b><i>Fire Starter.</i></b>The device produces a miniature flame, which you can use to light a candle, torch, or campfire. Using the device requires your action.</li><li><b><i>Music Box.</i></b>When opened, this music box plays a single song at a moderate volume. The box stops playing when it reaches the song's end or when it is closed.</li><ul></p>";
 
 // goblin
+const FEATURE_GOBLIN_1 = "<p><b><i>Fury of the Small.</b></i> When you damage a creature with an attack or a spell and the creature's size is larger than yours, you can cause the attack or spell to deal extra damage to the creature. The extra damage equals your level. Once you use this trait, you can't use it again until you finish a short or long rest.</p>";
+const FEATURE_GOBLIN_2 = "<p><b><i>Nimble Escape.</b></i> You can take the Disengage or Hide action as a bonus action on each of your turns.</p>";
 
 // goliath
+const FEATURE_GOLIATH_1 = "<p><b><i>Natural Athlete.</b></i> You have proficiency in the Athletics skill.</p>";
+const FEATURE_GOLIATH_2 = "<p><b><i>Stone's Endurance.</b></i> You can focus yourself to occasionally shrug off injury. When you take damage, you can use your reaction to roll a d12. Add your Constitution modifier to the number rolled, and reduce the damage by that total. After you use this trait, you can't use it again until you finish a short or long rest.</p>";
+const FEATURE_GOLIATH_3 = "<p><b><i>Mountain Born.</b></i> You have resistance to cold damage. You're also acclimated to high altitude, including elevations above 20,000 feet.</p>";
 
 // half-elf
 const FEATURE_HALFELF_1 = "<p><b><i>Darkvision.</i></b> Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.</p>";
@@ -547,20 +552,52 @@ const FEATURE_HALFORC_2 = "<p><b><i>Relentless Endurance.</i></b> When you are r
 const FEATURE_HALFORC_3 = "<p><b><i>Savage Attacks.</i></b> When you score a critical hit with a melee weapon attack, you can roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit.</p>";
 
 // halfling
+const FEATURE_HALFLING_1 = "<p><b><i>Lucky.</b></i> When you roll a 1 on an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll.</p>";
+const FEATURE_HALFLING_2 = "<p><b><i>Brave.</b></i> You have advantage on saving throws against being frightened.</p>";
+const FEATURE_HALFLING_3 = "<p><b><i>Halfling Nimbleness.</b></i> You can move through the space of any creature that is of a size larger than yours.</p>";
+// ghostwise
+const FEATURE_HALFLING_GHOSTWISE_1 = "<p><b><i>Silent Speech.</b></i> You can speak telepathically to any creature within 30 feet of you. The creature understands you only if the two of you share a language. You can speak telepathically in this way to one creature at a time.</p>";
+// lightfoot
+const FEATURE_HALFLING_LIGHTFOOT_1 = "<p><b><i>Naturally Stealthy.</b></i> You can attempt to hide even when you are obscured only by a creature that is at least one size larger than you.</p>";
+// lotusden
+const FEATURE_HALFLING_LOTUSDEN_1 = "<p><b><i>Child of the Wood.</b></i> You know the druidcraft cantrip. When you reach 3rd level, you can cast the entangle spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the spike growth spell once with this trait and regain the ability to do so when you finish a long rest. Casting these spells with this trait doesn't require material components. Wisdom is your spellcasting ability for these spells.</p>";
+const FEATURE_HALFLING_LOTUSDEN_2 = "<p><b><i>Timberwalk.</b></i> Ability checks made to track you have disadvantage, and you can move across difficult terrain made of nonmagical plants and undergrowth without expending extra movement.</p>";
+// stout
+const FEATURE_HALFLING_STOUT_1 = "<p><b><i>Stout Resilience.</b></i> You have advantage on saving throws against poison, and you have resistance against poison damage.</p>";
 
 // harengon
+const FEATURE_HARENGON_1 = "<p><b><i>Hare-Trigger.</i></b> You can add your proficiency bonus to your initiative rolls.</p>";
+const FEATURE_HARENGON_2 = "<p><b><i>Leporine Senses.</i></b> You have proficiency in the Perception skill.</p>";
+const FEATURE_HARENGON_3 = "<p><b><i>Lucky Footwork.</i></b> When you fail a Dexterity saving throw, you can use your reaction to roll a d4 and add it to the save, potentially turning the failure into a success. You can't use this reaction if you're prone or your speed is 0.</p>";
+const FEATURE_HARENGON_4 = "<p><b><i>Rabbit Hop.</i></b> As a bonus action, you can jump a number of feet equal to five times your proficiency bonus, without provoking opportunity attacks. You can use this trait only if your speed is greater than 0. You can use it a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.</p>";
 
 // hobgoblin
+const FEATURE_HOBGOBLIN_1 = "<p><b><i>Martial Training.</i></b> You are proficient with two martial weapons of your choice and with light armor.</p>";
+const FEATURE_HOBGOBLIN_2 = "<p><b><i>Saving Face.</i></b> Hobgoblins are careful not to show weakness in front of their allies, for fear of losing status. If you miss with an attack roll or fail an ability check or a saving throw, you can gain a bonus to the roll equal to the number of allies you can see within 30 feet of you (maximum bonus of +5). Once you use this trait, you can't use it again until you finish a short or long rest.</p>";
 
 // human
+const FEATURE_HUMAN_1 = "<p><b><i>Skills.</b></i> You gain proficiency in one skill of your choice.</p>";
+const FEATURE_HUMAN_2 = "<p><b><i>Feat.</b></i> You gain one feat of your choice.</p>";
 
 // kalashtar
+const FEATURE_KALASHTAR_1 = "<p><b><i>Dual Mind.</b></i> You have advantage on all Wisdom saving throws.</p>";
+const FEATURE_KALASHTAR_2 = "<p><b><i>Mental Discipline.</b></i> You have resistance to psychic damage.</p>";
+const FEATURE_KALASHTAR_3 = "<p><b><i>Mind Link.</b></i> You can speak telepathically to any creature you can see, provided the creature is within a number of feet of you equal to 10 times your level. You don't need to share a language with the creature for it to understand your telepathic utterances, but the creature must be able to understand at least one language.</p><p>When you're using this trait to speak telepathically to a creature, you can use your action to give that creature the ability to speak telepathically with you for 1 hour or until you end this effect as an action. To use this ability, the creature must be able to see you and must be within this trait's range. You can give this ability to only one creature at a time; giving it to a creature takes it away from another creature who has it.</p>";
+const FEATURE_KALASHTAR_4 = "<p><b><i>Severed from Dreams.</b></i> Kalashtar sleep, but they don't connect to the plane of dreams as other creatures do. Instead, their minds draw from the memories of their otherworldly spirit while they sleep. As such, you are immune to spells and other magical effects that require you to dream, like dream, but not to spells and other magical effects that put you to sleep, like sleep.</p>";
 
 // kenku
+const FEATURE_KENKU_1 = "<p><b><i>Expert Forgery.</b></i> You can duplicate other creatures' handwriting and craftwork. You have advantage on all checks made to produce forgeries or duplicates of existing objects.</p>";
+const FEATURE_KENKU_2 = "<p><b><i>Kenku Training.</b></i> You are proficient in your choice of two of the following skills: Acrobatics, Deception, Stealth, and Sleight of Hand.</p>";
+const FEATURE_KENKU_3 = "<p><b><i>Mimicry.</b></i> You can mimic sounds you have heard, including voices. A creature that hears the sounds can tell they are imitations with a successful Wisdom (Insight) check opposed by your Charisma (Deception) check.</p>";
 
 // kobold
+const FEATURE_KOBOLD_1 = "<p><b><i>Grovel, Cower, and Beg.</b></i> As an action on your turn, you can cower pathetically to distract nearby foes. Until the end of your next turn, your allies gain advantage on attack rolls against enemies within 10 feet of you that you can see. Once you use this trait, you can't use it again until you finish a short or long rest.</p>";
+const FEATURE_KOBOLD_2 = "<p><b><i>Pack Tactics.</b></i> You have advantage on an attack roll against a creature if at least one of your allies is within 5 feet of the creature and the ally isn't incapacitated.</p>";
 
 // leonin
+const FEATURE_LEONIN_1 = "<p><b><i>Claws.</b></i> Your claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you can deal slashing damage equal to 1d4 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike.</p>";
+const FEATURE_LEONIN_2 = "<p><b><i>Hunter's Instincts.</b></i> You have proficiency in one of the following skills of your choice: Athletics, Intimidation, Perception, or Survival.</p>";
+const FEATURE_LEONIN_3 = "<p><b><i>Daunting Roar.</b></i> As a bonus action, you can let out an especially menacing roar. Creatures of your choice within 10 feet of you that can hear you must succeed on a Wisdom saving throw or become frightened of you until the end of your next turn. The DC of the save equals 8 + your proficiency bonus + your Constitution modifier. Once you use this trait, you can't use it again until you finish a short or long rest.</p>";
 
 // lizardfolk
 const FEATURE_LIZARDFOLK_1 = "<p><b><i>Swim Speed.</b></i> You have a swimming speed of 30 feet.</p>";
@@ -571,10 +608,18 @@ const FEATURE_LIZARDFOLK_5 = "<p><b><i>Natural Armor.</b></i> You have tough, sc
 const FEATURE_LIZARDFOLK_6 = "<p><b><i>Hungry Jaws.</b></i> In battle, you can throw yourself into a vicious feeding frenzy. As a bonus action, you can make a special attack with your bite. If the attack hits, it deals its normal damage, and you gain temporary hit points equal to your Constitution modifier (minimum of 1), and you can't use this trait again until you finish a short or long rest.</p>";
 
 // loxodon
+const FEATURE_LOXODON_1 = "<p><b><i>Loxodon Serenity.</b></i> You have advantage on saving throws against being charmed or frightened.</p>";
+const FEATURE_LOXODON_2 = "<p><b><i>Natural Armor.</b></i> You have thick, leathery skin. When you aren't wearing armor, your AC is 12 + your Constitution modifier. You can use your natural armor to determine your AC if the armor you wear would leave you with a lower AC. A shield's benefits apply as normal while you use your natural armor.</p>";
+const FEATURE_LOXODON_3 = "<p><b><i>Trunk.</b></i> You can grasp things with your trunk, and you can use it as a snorkel. It has a reach of 5 feet, and it can lift a number of pounds equal to five times your Strength score. You can use it to do the following simple tasks: lift, drop, hold, push, or pull an object or a creature; open or close a door or a container; grapple someone; or make an unarmed strike. Your DM might allow other simple tasks to be added to that list of options.</p><p>Your trunk can't wield weapons or shields or do anything that requires manual precision, such as using tools or magic items or performing the somatic components of a spell.</p>";
+const FEATURE_LOXODON_4 = "<p><b><i>Keen Smell</b></i> Thanks to your sensitive trunk, you have advantage on Wisdom (Perception), Wisdom (Survival), and Intelligence (Investigation) checks that involve smell.</p>";
 
 // merfolk
+const FEATURE_MERFOLK_1 = "<p><b><i>Amphibious.</b></i> You can breathe air and water.</p>";
+const FEATURE_MERFOLK_2 = "<p><b><i>Swimming.</b></i> You have a swimming speed of 30 feet.</p>";
 // green mer
+const FEATURE_MERFOLK_GREEN_1 = "<p><b><i>Mask of the Wild.</b></i> You can attempt to hide even when you are only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.</p>";
 // blue mer
+const FEATURE_MERFOLK_BLUE_1 = "<p><b><i>Lore of the Waters.</b></i> You gain proficiency in the History and Nature skills.</p>";
 
 // minotaur
 const FEATURE_MINOTAUR_1 = "<p><b><i>Horns.</b></i> Your horns are natural melee weapons, which you can use to make unarmed strikes. If you hit with them, you deal piercing damage equal to 1d6 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike.</p>";
@@ -588,16 +633,89 @@ const FEATURE_ORC_2 = "<p><b><i>Primal Intuition.</i></b> You have proficiency i
 let proficiencies_orc = new Array(sAh,sIn,sIt,sM,sP,sSv);
 
 // owlin
+const FEATURE_OWLIN_1 = "<p><b><i>Flight.</b></i> Thanks to your wings, you have a flying speed equal to your walking speed. You can't use this flying speed if you're wearing medium or heavy armor.</p>";
+const FEATURE_OWLIN_2 = "<p><b><i>Silent Feathers.</b></i> You have proficiency in the Stealth skill.</p>";
+
 // satyr
+const FEATURE_SATYR_1 = "<p><b><i>Ram.</b></i> You can use your head and horns to make unarmed strikes. If you hit with them, you deal bludgeoning damage equal to 1d4 + your Strength modifier.</p>";
+const FEATURE_SATYR_2 = "<p><b><i>Magic Resistance.</b></i> You have advantage on saving throws against spells and other magical effects.</p>";
+const FEATURE_SATYR_3 = "<p><b><i>Mirthful Leaps.</b></i> Whenever you make a long or high jump, you can roll a d8 and add the number rolled to the number of feet you cover, even when making a standing jump. This extra distance costs movement as normal.</p>";
+const FEATURE_SATYR_4 = "<p><b><i>Reveler.</b></i> You have proficiency in the Performance and Persuasion skills, and you have proficiency with one musical instrument of your choice.</p>";
+
 // shifter
+const FEATURE_SHIFTER_1 = "<p><b><i>Shifting.</b></i> As a bonus action, you can assume a more bestial appearance. This transformation lasts for 1 minute, until you die, or until you revert to your normal appearance as a bonus action. When you shift, you gain temporary hit points equal to your level + your Constitution modifier (minimum of 1 temporary hit point). You also gain additional benefits that depend on your shifter subrace, described below.</p><p>Once you shift, you can't do so again until you finish a short or long rest.</p>";
+// beasthide
+const FEATURE_SHIFTER_BEASTHIDE_1 = "<p><b><i>Natural Athlete.</b></i> You have proficiency in the Athletics skill.</p>";
+const FEATURE_SHIFTER_BEASTHIDE_2 = "<p><b><i>Shifting Feature.</b></i> Whenever you shift, you gain 1d6 additional temporary hit points. While shifted, you have a +1 bonus to your Armor Class.</p>";
+// longtooth
+const FEATURE_SHIFTER_LONGTOOTH_1 = "<p><b><i>Fierce.</b></i> You have proficiency in the Intimidation skill.</p>";
+const FEATURE_SHIFTER_LONGTOOTH_2 = "<p><b><i>Shifting Feature.</b></i> While shifted, you can use your elongated fangs to make an unarmed strike as a bonus action. If you hit with your fangs, you can deal piercing damage equal to 1d6 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike.</p>";
+// swiftstride
+const FEATURE_SHIFTER_SWIFTSTRIDE_1 = "<p><b><i>Graceful.</b></i> You have proficiency in the Acrobatics skill.</p>";
+const FEATURE_SHIFTER_SWIFTSTRIDE_2 = "<p><b><i>Shifting Feature.</b></i> While shifted, your walking speed increases by 10 feet. Additionally, you can move up to 10 feet as a reaction when a creature ends its turn within 5 feet of you. This reactive movement doesn't provoke opportunity attacks.</p>";
+// wildhunt
+const FEATURE_SHIFTER_WILDHUNT_1 = "<p><b><i>Natural Tracker.</b></i> You have proficiency in the Survival skill.</p>";
+const FEATURE_SHIFTER_WILDHUNT_2 = "<p><b><i>Shifting Feature.</b></i> While shifted, you have advantage on Wisdom checks, and no creature within 30 feet of you can make an attack roll with advantage against you, unless you're incapacitated.</p>";
+
 // simic
+const FEATURE_SIMIC_1 = "<p><b><i>Animal Enhancement.</b></i> Your body has been altered to incorporate certain animal characteristics. You choose one animal enhancement now and a second enhancement at 5th level. <ul>_AECHOICE</p></ul>";
+const FEATURE_SIMIC_AE_1_1 = "<li><b>Manta Glide.</b> You have ray-like fins that you can use as wings to slow your fall or allow you to glide. When you fall and aren't incapacitated, you can subtract up to 100 feet from the fall when calculating falling damage, and you can move up to 2 feet horizontally for every 1 foot you descend.</li>";
+const FEATURE_SIMIC_AE_1_2 = "<li><b>Nimble Climber.</b> You have a climbing speed equal to your walking speed.</li>";
+const FEATURE_SIMIC_AE_1_3 = "<li><b>Underwater Adaptation.</b> You can breathe air and water, and you have a swimming speed equal to your walking speed.</li>";
+const FEATURE_SIMIC_AE_5_1 = "<li><b>Grasping Appendage.</b> You have two special appendages growing alongside your arms. Choose whether they're both claws or tentacles. As an action, you can use one of them to try to grapple a creature. Each one is also a natural weapon, which you can use to make an unarmed strike. If you hit with it, the target takes bludgeoning damage equal to 1d6 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike. Immediately after hitting, you can try to grapple the target as a bonus action. These appendages can't precisely manipulate anything and can't wield weapons, magic items, or other specialized equipment.</li>";
+const FEATURE_SIMIC_AE_5_2 = "<li><b>Carapace.</b> Your skin in places is covered by a thick shell. You gain a +1 bonus to AC when you're not wearing heavy armor.</li>";
+const FEATURE_SIMIC_AE_5_3 = "<li><b>Acid Spit.</b> As an action, you can spray acid from glands in your mouth, targeting one creature or object you can see within 30 feet of you. The target takes 2d10 acid damage unless it succeeds on a Dexterity saving throw against a DC equal to 8 + your Constitution modifier + your proficiency bonus. This damage increases by 1d10 when you reach 11th level (3d10) and 17th level (4d10). You can use this trait a number of times equal to your Constitution modifier (minimum of once), and you regain all expended uses of it when you finish a long rest.</li>";
+
 // tabaxi
+const FEATURE_TABAXI_1 = "<p><b><i>Feline Agility.</b></i> Your reflexes and agility allow you to move with a burst of speed. When you move on your turn in combat, you can double your speed until the end of the turn. Once you use this trait, you can't use it again until you move 0 feet on one of your turns.</p>";
+const FEATURE_TABAXI_2 = "<p><b><i>Cat's Claws.</b></i> Because of your claws, you have a climbing speed of 20 feet. In addition, your claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to 1d4 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike.</p>";
+const FEATURE_TABAXI_3 = "<p><b><i>Cat's Talents.</b></i> You have proficiency in the Perception and Stealth skills.</p>";
+
 // tiefling
+const FEATURE_TIEFLING_1 = "<p><b><i>Hellish Resistance.</b></i> You have resistance to fire damage.</p>";
+// legacies
+const FEATURE_TIEFLING_ASMO_1 = "<p><b><i>Infernal Legacy.</b></i> You know the thaumaturgy cantrip. Once you reach 3rd level, you can cast the hellish rebuke spell as a 2nd-level spell with this trait; you regain the ability to cast it when you finish a long rest. Once you reach 5th level, you can also cast the darkness spell once per day with this trait; you regain the ability to cast it when you finish a long rest. Charisma is your spellcasting ability for these spells.</p>";
+const FEATURE_TIEFLING_BAAL_1 = "<p><b><i>Legacy of Maladomini.</b></i> You know the thaumaturgy cantrip. When you reach 3rd level, you can cast the ray of sickness spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the crown of madness spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.</p>";
+const FEATURE_TIEFLING_DIS_1 = "<p><b><i>Legacy of Dis.</b></i> You know the thaumaturgy cantrip. When you reach 3rd level, you can cast the disguise self spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the detect thoughts spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.</p>";
+const FEATURE_TIEFLING_FIER_1 = "<p><b><i>Legacy of Phlegethos.</b></i> You know the friends cantrip. When you reach 3rd level, you can cast the charm person spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the suggestion spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.</p>";
+const FEATURE_TIEFLING_GLAS_1 = "<p><b><i>Legacy of Malbolge.</b></i> You know the minor illusion cantrip. When you reach 3rd level, you can cast the disguise self spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the invisibility spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.</p>";
+const FEATURE_TIEFLING_LEVI_1 = "<p><b><i>Legacy of Stygia.</b></i> You know the ray of frost cantrip. When you reach 3rd level, you can cast the armor of Agathys spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the darkness spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.</p>";
+const FEATURE_TIEFLING_MAM_1 = "<p><b><i>Legacy of Minauros.</b></i> You know the mage hand cantrip. When you reach 3rd level, you can cast the Tenser's floating disk spell once with this trait and regain the ability to do so when you finish a short or long rest. When you reach 5th level, you can cast the arcane lock spell once with this trait, requiring no material component, and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.</p>";
+const FEATURE_TIEFLING_MEPH_1 = "<p><b><i>Legacy of Cania.</b></i> You know the mage hand cantrip. When you reach 3rd level, you can cast the burning hands spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the flame blade spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.</p>";
+const FEATURE_TIEFLING_ZARI_1 = "<p><b><i>Legacy of Avernus.</b></i> You know the thaumaturgy cantrip. When you reach 3rd level, you can cast the searing smite spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the branding smite spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.</p>";
+// abyss
+const FEATURE_TIEFLING_ABYSS_1 = "<p><b><i>Abyssal Fortitude.</b></i> Your hit point maximum increases by half your level (minimum 1).</p>";
+const FEATURE_TIEFLING_ABYSS_2 = "<p><b><i>Abyssal Arcana.</b></i> </p>";
+// variants
+const FEATURE_TIEFLING_TONGUE_1 = "<p><b><i>Devil's Tongue.</b></i> You know the vicious mockery cantrip. When you reach 3rd level, you can cast the charm person spell as a 2nd-level spell once with this trait. When you reach 5th level, you can cast the enthrall spell once with this trait. You must finish a long rest to cast these spells once again with this trait. Charisma is your spellcasting ability for them. This trait replaces the Infernal Legacy trait.</p>";
+const FEATURE_TIEFLING_WINGED_1 = "<p><b><i>Winged.</b></i> You have bat-like wings sprouting from your shoulder blades. You have a flying speed of 30 feet while you aren't wearing heavy armor.</p>";
+const FEATURE_TIEFLING_HELLFIRE_1 = "<p><b><i>Hellfire.</b></i> You know the thaumaturgy cantrip. Once you reach 3rd level, you can cast the burning hands spell once per day as a 2nd-level spell; you must finish a long rest in order to cast the spell again using this trait. Once you reach 5th level, you can also cast the darkness spell; you must finish a long rest in order to cast the spell again using this trait. Charisma is your spellcasting ability for these spells.</p>";
+
 // tortle
+const FEATURE_TORTLE_1 = "<p><b><i>Claws.</b></i> Your claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to 1d4 + your Strength modifier, instead of bludgeoning damage normal for an unarmed strike.</p>";
+const FEATURE_TORTLE_2 = "<p><b><i>Hold Breath.</b></i> You can hold your breath for up to 1 hour at a time. Tortles aren't natural swimmers, but they can remain underwater for some time before needing to come up for air.</p>";
+const FEATURE_TORTLE_3 = "<p><b><i>Natural Armor.</b></i> Due to your shell and the shape of your body, you are ill-suited to wearing armor. Your shell provides ample protection, however; it gives you a base AC of 17 (your Dexterity modifier doesn't affect this number). You gain no benefit from wearing armor, but if you are using a shield, you can apply the shield's bonus as normal.</p>";
+const FEATURE_TORTLE_4 = "<p><b><i>Shell Defense.</b></i> You can withdraw into your shell as an action. Until you emerge, you gain a +4 bonus to AC, and you have advantage on Strength and Constitution saving throws. While in your shell, you are prone, your speed is 0 and can't increase, you have disadvantage on Dexterity saving throws, you can't take reactions, and the only action you can take is a bonus action to emerge from your shell.</p>";
+const FEATURE_TORTLE_5 = "<p><b><i>Survival Instinct.</b></i> You gain proficiency in the Survival skill. Tortles have finely honed survival instincts.</p>";
 // triton
+const FEATURE_TRITON_1 = "<p><b><i>Swim Speed.</b></i> You have a swimming speed of 30 feet.</p>";
+const FEATURE_TRITON_2 = "<p><b><i>Amphibious.</b></i> You can breathe air and water.</p>";
+const FEATURE_TRITON_3 = "<p><b><i>Control Air and Water.</b></i> A child of the sea, you can call on the magic of elemental air and water. You can cast fog cloud with this trait. Starting at 3rd level, you can cast gust of wind with it, and starting at 5th level, you can also cast wall of water with it. Once you cast a spell with this trait, you can't cast that spell with it again until you finish a long rest. Charisma is your spellcasting ability for these spells.</p>";
+const FEATURE_TRITON_4 = "<p><b><i>Emissary of the Sea.</b></i> Aquatic beasts have an extraordinary affinity with your people. You can communicate simple ideas with beasts that can breathe water. They can understand the meaning of your words, though you have no special ability to understand them in return.</p>";
+const FEATURE_TRITON_5 = "<p><b><i>Guardian of the Depths.</b></i> Adapted to even the most extreme ocean depths, you have resistance to cold damage.</p>";
 // vedalken
+const FEATURE_VEDALKEN_1 = "<p><b><i>Vedalken Dispassion.</b></i> You have advantage on all Intelligence, Wisdom, and Charisma saving throws.</p>";
+const FEATURE_VEDALKEN_2 = "<p><b><i>Tireless Precision.</b></i> You are proficient in one of the following skills of your choice: Arcana, History, Investigation, Medicine, Performance, or Sleight of Hand. You are also proficient with one tool of your choice.</p><p>Whenever you make an ability check with the chosen skill or tool, roll a d4 and add the number rolled to the check's total.</p>";
+const FEATURE_VEDALKEN_3 = "<p><b><i>Partially Amphibious.</b></i> By absorbing oxygen through your skin, you can breathe underwater for up to 1 hour. Once you've reached that limit, you can't use this trait again until you finish a long rest.</p>";
 // warforged
+const FEATURE_WARFORGED_1 = "<p><b><i>Constructed Resilience.</b></i> You were created to have remarkable fortitude, represented by the following benefits:<ul><li>You have advantage on saving throws against being poisoned, and you have resistance to poison damage.</li><li>You don't need to eat, drink, or breathe.</li><li>You are immune to disease.</li><li>You don't need to sleep, and magic can't put you to sleep.</li></ul></p>";
+const FEATURE_WARFORGED_2 = "<p><b><i>Sentry's Rest.</b></i> When you take a long rest, you must spend at least six hours in an inactive, motionless state, rather than sleeping. In this state, you appear inert, but it doesn't render you unconscious, and you can see and hear as normal.</p>";
+const FEATURE_WARFORGED_3 = "<p><b><i>Integrated Protection.</b></i> Your body has built-in defensive layers, which can be enhanced with armor:<ul><li>You gain a +1 bonus to Armor Class.</li><li>You can don only armor with which you have proficiency. To don armor other than a shield, you must incorporate it into your body over the course of 1 hour, during which you remain in contact with the armor. To doff armor, you must spend 1 hour removing it. You can rest while donning or doffing armor in this way.</li><li>While you live, the armor incorporated into your body can't be removed against your will.</li></ul></p>";
+const FEATURE_WARFORGED_4 = "<p><b><i>Specialized Design.</b></i> You gain one skill proficiency and one tool proficiency of your choice.</p>";
 // yuanti
+const FEATURE_YUANTI_1 = "<p><b><i>Magic Resistance.</b></i> You have advantage on saving throws against spells.</p>";
+const FEATURE_YUANTI_2 = "<p><b><i>Poison Resilience.</b></i> You have advantage on saving throws you make to avoid or end the poisoned condition on yourself. You also have resistance to poison damage.</p>";
+const FEATURE_YUANTI_3 = "<p><b><i>Serpentine Spellcasting.</b></i> You know the poison spray cantrip. You can cast animal friendship an unlimited number of times with this trait, but you can target only snakes with it. Starting at 3rd level, you can also cast suggestion with this trait. Once you cast it, you can't do so again until you finish a long rest. You can also cast it using any spell slots you have of 2nd level or higher.</p><p>Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells when you cast them with this trait (choose when you select this race).</p>";
 
 // weapon dice handler for wi (weapon items)
 const wiSs = "Shortsword", wiLs = "Longsword", wiGs = "Greatsword", wiSb = "Shortbow", wiLb = "Longbow", wiLc = "Light Crossbow", wiHc = "Heavy Crossbow", wiNc = "Hand Crossbow", wiM = "Mace", wiR = "Rapier", wiWh = "Warhammer", wiS = "Spear", wiG = "Glaive", wiHa = "Handaxe", wiGa = "Greataxe", wiJ = "Javelin", wiD = "Dagger", wiDt = "Dart", wiQ = "Quarterstaff";
