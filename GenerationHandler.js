@@ -748,11 +748,10 @@ function rollSpecial(id){
          } else if (wpn === wiD || wpn === wiR){ // finesse weapons
             if(stats[1] > stats[0]) mod = statmods[1];
          }
-         atkRoll += mod;
          debugtxt += "<br>WEAPON found: " + wpn + ", WEAPON damage die: " + WEAPONDMG[wpn][0] + "d" + WEAPONDMG[wpn][1];
          wpnDie = WEAPONDMG[wpn];
          baseRoll = sum(XdY(wpnDie[0], wpnDie[1])) + mod; // damage roll
-         result = sum(XdY(1,20)) + pBonuses[lvl];
+         result = sum(XdY(1,20)) + pBonuses[lvl] + mod; // attack roll
        }
        if(lastDigit == 3){ // ability check
           result = baseRoll;
