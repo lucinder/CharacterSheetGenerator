@@ -740,7 +740,6 @@ function rollSpecial(id){
           result = baseRoll + statmods[1]; // init = dex check
        }
        if(lastDigit == 1){ // weapon attack
-         let atkRoll = sum(XdY(1,20)) + pBonuses[lvl];
          let wpn = $('#SELECT_WEAPON').val();
          let mod = statmods[0]; // default weapon mod is str
          if(wpn === wiSb || wpn === wiLb || wpn === wLc || wpn === wiHc || wpn === wiNc){
@@ -749,9 +748,10 @@ function rollSpecial(id){
             if(stats[1] > stats[0]) mod = statmods[1];
          }
          atkRoll += mod;
+         debugtxt += "<br>WEAPON found: " + wpn + ", WEAPON damage die: " + WEAPONDMG[wpn][0] + "d" + WEAPONDMG[wpn][1];
          let wpnDie = WEAPONDMG[wpn];
          baseRoll = sum(XdY(wpnDie[0], wpnDie[1])) + mod; // damage roll
-         result = atkRoll;
+         result = sum(XdY(1,20)) + pBonuses[lvl];
        }
        if(lastDigit == 3){ // ability check
           result = baseRoll;
