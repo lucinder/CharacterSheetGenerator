@@ -741,6 +741,7 @@ function rollSpecial(id){
        }
        if(lastDigit == 1){ // weapon attack
          let wpn = $('#SELECT_WEAPON').val();
+         let wpnDie = new Array();
          let mod = statmods[0]; // default weapon mod is str
          if(wpn === wiSb || wpn === wiLb || wpn === wLc || wpn === wiHc || wpn === wiNc){
             mod = statmods[1];
@@ -749,7 +750,7 @@ function rollSpecial(id){
          }
          atkRoll += mod;
          debugtxt += "<br>WEAPON found: " + wpn + ", WEAPON damage die: " + WEAPONDMG[wpn][0] + "d" + WEAPONDMG[wpn][1];
-         let wpnDie = WEAPONDMG[wpn];
+         wpnDie = WEAPONDMG[wpn];
          baseRoll = sum(XdY(wpnDie[0], wpnDie[1])) + mod; // damage roll
          result = sum(XdY(1,20)) + pBonuses[lvl];
        }
