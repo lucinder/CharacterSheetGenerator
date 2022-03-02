@@ -600,9 +600,12 @@ let proficiencies_orc = new Array(sAh,sIn,sIt,sM,sP,sSv);
 // warforged
 // yuanti
 
-// weapon dice handler
+// weapon dice handler for wi (weapon items)
+const wiSs = "Shortsword", wiLs = "Longsword", wiGs = "Greatsword", wiSb = "Shortbow", wiLb = "Longbow", wiLc = "Light Crossbow", wiHc = "Heavy Crossbow", wiNc = "Hand Crossbow", wiM = "Mace", wiR = "Rapier", wiWh = "Warhammer", wiS = "Spear", wiG = "Glaive", wiHa = "Handaxe", wiGa = "Greataxe", wiJ = "Javelin";
 const d6 = new Array(1,6), d8 = new Array(1,8), d10 = new Array(1,10), d12 = new Array(1,12);
-const WEAPONDMG = {"Shortsword":d6, "Longsword":d8, "Greatsword":new Array(2,6), "Shortbow":d6, "Longbow":d8, "Light Crossbow":d8, "Heavy Crossbow":d10, "Hand Crossbow":d6, "Mace":d6, "Rapier":d8, "Warhammer":d10, "Spear":d6, "Glaive":d10, "Handaxe":d6, "Greataxe":d12};
+const weaponsAvailable = new Array(wiSs, wiLs, wiGs, wiSb, wiLb, wiLc, wiHc, wiNc, wiM, wiG, wiR, wiWh, wiS, wiHa, wiGa, wiJ);
+const WEAPONDMG = {wiSs:d6, wiLs:d8, wiGs:new Array(2,6), wiSb:d6, wiLb:d8, wiLc:d8, wiHc:d10, wiNc:d6, wiM:d6, wiR:d8, wiWh:d10, wiS:d6, wiG:d10, wiHa:d6, wiGa:d12, wiJ:d6};
+let weaponSel = new Array();
 
 // global field handler
 let name = "Example Character";
@@ -733,8 +736,22 @@ function rollSpecial(id){
       }
       result += mod;
  } else {
-       if(lastDigit == 0){
+       if(lastDigit == 0){ // initiative
           result = baseRoll + statmods[1]; // init = dex check
+       }
+       if(lastDigit == 1){ // weapon attack
+         let atkRoll = sum(XdY(1,20)) + pBonuses[lvl];
+         let wpn = $('#SELECT_WPN').val();
+         let mod = statmods[0]; // default weapon mod is str
+         if(wpn === wiSb || wpn === wiLb || wpn === wLc || wpn === wiHc || wpn === wiNc){
+            mod = statmods[1];
+         } else if (wpn === wiD || wpn === wiR){ // finesse weapons
+            if(stats[1] > stats[0]) mod = statmods[1];
+         }
+         atkRoll += mod;
+         let wpnDie = WEAPONDMG[wpn];
+         baseRoll = sum(XdY(wpnDie[0], wpnDie[1])) + mod; // damage roll
+         result = atkRoll;
        }
        if(lastDigit == 3){ // ability check
           result = baseRoll;
@@ -769,7 +786,7 @@ function rollSpecial(id){
        if(lastDigit == 5){ // death save
              result = baseRoll;
        }
-       if(lastDigit == 3 || lastDigit == 5){
+       if(lastDigit == 1 || lastDigit == 3 || lastDigit == 5){
              if(baseRoll == 20){
                   additionalTxt = " (critical success!)";
                   res.style.color = "LimeGreen";
@@ -778,6 +795,7 @@ function rollSpecial(id){
                   additionalTxt = " (critical failure!)";
                   res.style.color = "Crimson";
             }
+            if(lastDigit == 1) additionalTxt += "<br>Damage: " + (baseRoll);
        }
  }
  outputTxt += result + additionalTxt;
@@ -795,6 +813,7 @@ function resetFeatures(){
   amr = new Array();
   tls = new Array();
   langs = new Array("Common");
+  weaponSel = new Array();
  
   // reload race proficiency arrays that might have removes called
   proficiencies_changeling = new Array(sD,sIn,sIt,sPs);
@@ -971,6 +990,16 @@ function handleStartingItems(){
  }     
 }
 
+function loadWeaponOptions(){
+   for(let i = 0; i < inventory.length; i++){
+     for(let j = 0; j < weaponsAvailable.length; j++){
+        if(inventory[i].includes(weaponsAvailable[j]) && !(inventory[i].includes("Bolt"))){
+            weaponSel.push(weaponsAvailable[j]);
+        }
+     }
+   }
+}
+
 // proficiency handling for races + classes
 function handleProficiencies(){
  document.getElementById("SHEET_PROF_BONUS").innerHTML = "Proficiency Bonus: +" + pBonuses[lvl];
@@ -1090,7 +1119,7 @@ function handleProficiencies(){
     }
  }
  if(race === "Elf"){ // keen senses
-   skills.push(sP);
+   addSkl(sP);
  }
  
  if(race === "Centaur"){ // survivor
