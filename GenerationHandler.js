@@ -1261,7 +1261,7 @@ function handleProficiencies(){
       addWpn(wGs);
     }
  }
- if(race === "Elf"){ // keen senses
+ if(race === "Elf" || race === "Harengon"){ // keen senses
    addSkl(sP);
  }
  
@@ -1295,12 +1295,20 @@ function handleProficiencies(){
      remove(proficiencies_changeling, proficiencies_changeling[j]);
    }
  }
- if(race === "Half-Orc") addSkl(sIt); // half orc menacing feature
+ if(race === "Half-Orc" || subrace === "Longtooth") addSkl(sIt); // half orc menacing feature + longtooth fierce feature
  if(race === "Minotaur"){ // imposing presence - choose intimidation or persuasion
    if(!(skills.includes(sIt))) skills.push(sIt);
    else if (!(skills.includes(sPs))) skills.push(sPs);
  }
- 
+ if(race === "Leonin"){ // hunter's instincts- athletics, intimidation,, perception, or survival
+   if(!(skills.includes(sAl))) skills.push(sAl);
+   else if (!(skills.includes(sP))) skills.push(sP);
+   else if (!(skills.includes(sSv))) skills.push(sSv);
+   else if (!(skills.includes(sIt))) skills.push(sIt);
+ }
+ if(race === "Merfolk" && subrace === "Blue"){ addSkl(sH); addSkl(sN); } // lore of the waters
+ if(race === "Owlin") addSkl(sS);  // silent feathers
+ if(race === "Satyr"){ addSkl(sPf); addSkl(sPs); tls.push(tI); } // reveler
  // turn skills into txt
  for(let i = 0; i < skills.length; i++){
   skillstxt += skills[i];
@@ -2152,6 +2160,67 @@ function handleRaceFeatures(){
     }
     langs.push("Orc");
     remove(ALL_LANGS, "Orc");
+  }
+  if(race === "Halfling"){
+        
+  }
+  if(race === "Hobgoblin"){
+        
+  }
+  if(race === "Human"){
+        
+  }
+  if(race === "Kalahtar"){
+        
+  }
+  if(race === "Kenku"){
+        
+  }
+  if(race === "Kobold"){
+        
+  }
+  if(race === "Leonin"){
+        
+  }
+  if(race === "Loxodon"){
+        
+  }
+  if(race === "Merfolk"){
+        
+  }
+  if(race === "Owlin"){
+        
+  }
+  if(race === "Satyr"){
+        
+  }
+  if(race === "Shifter"){
+        
+  }
+  if(race === "Simic Hybrid"){
+      let enhans = new Array(FEATURE_SIMIC_AE_1_1,FEATURE_SIMIC_AE_1_2,FEATURE_SIMIC_AE_1_3,FEATURE_SIMIC_AE_5_1,FEATURE_SIMIC_AE_5_2,FEATURE_SIMIC_AE_5_3);
+      let l1c = (Math.random()*3)|0, l2c = (Math.random()*6)|0;
+  }
+  if(race === "Tabaxi"){
+        
+  }
+  if(race === "Tiefling"){
+        
+  }
+  if(race === "Tortle"){
+        
+  }
+  if(race === "Triton"){
+        
+  }
+  if(race === "Vedalken"){
+        
+  }
+  if(race === "Warforged"){
+        
+  }
+  if(race === "Yuan-Ti"){
+        
   }
  
   // language randomization
