@@ -620,9 +620,11 @@ const FEATURE_LOXODON_4 = "<p><b><i>Keen Smell</b></i> Thanks to your sensitive 
 const FEATURE_MERFOLK_1 = "<p><b><i>Amphibious.</b></i> You can breathe air and water.</p>";
 const FEATURE_MERFOLK_2 = "<p><b><i>Swimming.</b></i> You have a swimming speed of 30 feet.</p>";
 // green mer
-const FEATURE_MERFOLK_GREEN_1 = "<p><b><i>Mask of the Wild.</b></i> You can attempt to hide even when you are only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.</p>";
+const FEATURE_MERFOLK_GREEN_1 = "<p><b><i>Cantrip.</b></i> You know one cantrip of your choice from the druid spell list. Wisdom is your spellcasting ability for it.</p>";
+const FEATURE_MERFOLK_GREEN_2 = "<p><b><i>Mask of the Wild.</b></i> You can attempt to hide even when you are only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.</p>";
 // blue mer
-const FEATURE_MERFOLK_BLUE_1 = "<p><b><i>Lore of the Waters.</b></i> You gain proficiency in the History and Nature skills.</p>";
+const FEATURE_MERFOLK_BLUE_1 = "<p><b><i>Cantrip.</b></i> You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting ability for it.</p>";
+const FEATURE_MERFOLK_BLUE_2 = "<p><b><i>Lore of the Waters.</b></i> You gain proficiency in the History and Nature skills.</p>";
 
 // minotaur
 const FEATURE_MINOTAUR_1 = "<p><b><i>Horns.</b></i> Your horns are natural melee weapons, which you can use to make unarmed strikes. If you hit with them, you deal piercing damage equal to 1d6 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike.</p>";
@@ -1263,8 +1265,14 @@ function handleProficiencies(){
       addWpn(wGs);
     }
  }
- if(race === "Elf" || race === "Harengon"){ // keen senses
+ if(race === "Elf" || race === "Harengon" || race === "Tabaxi"){ // keen senses
    addSkl(sP);
+ }
+ if(race === "Hobgoblin"){
+     if(!(amr.includes(aL))) amr.push(aL); // light armor proficiency
+     if(!(wpns.includes(wM))){ // try to push longswords + heavy crossbows for some martial versatility
+       addWpn(wLs); addWpn(wHc); 
+     }
  }
  
  if(race === "Centaur"){ // survivor
@@ -1309,7 +1317,7 @@ function handleProficiencies(){
    else if (!(skills.includes(sIt))) skills.push(sIt);
  }
  if(race === "Merfolk" && subrace === "Blue"){ addSkl(sH); addSkl(sN); } // lore of the waters
- if(race === "Owlin") addSkl(sS);  // silent feathers
+ if(race === "Owlin" || race === "Tabaxi") addSkl(sS);  // silent feathers + feline talents
  if(race === "Satyr"){ addSkl(sPf); addSkl(sPs); tls.push(tI); } // reveler
  // turn skills into txt
  for(let i = 0; i < skills.length; i++){
@@ -2051,6 +2059,7 @@ function handleRaceFeatures(){
     remove(ALL_LANGS, "Elvish");
   }
   if(race === "Fairy"){
+    addRF(FEATURE_CREATURETYPE_FEY);
     addRF(FEATURE_FAIRY_1);
     addRF(FEATURE_FAIRY_2);
     spdtxt = SPD_FAIRY;
@@ -2164,65 +2173,214 @@ function handleRaceFeatures(){
     remove(ALL_LANGS, "Orc");
   }
   if(race === "Halfling"){
-        
+     addRF(FEATURE_HALFLING_1);
+     addRF(FEATURE_HALFLING_2);
+     addRF(FEATURE_HALFLING_3);
+     if(subrace === "Ghostwise") addRF(FEATURE_HALFLING_GHOSTWISE_1);
+     if(subrace === "Stout") addRF(FEATURE_HALFLING_STOUT_1);
+     if(subrace === "Lightfoot") addRF(FEATURE_HALFLING_LIGHTFOOT_1);
+     if(subrace === "Lotusden"){
+       addRF(FEATURE_HALFLING_LOTUSDEN_1);
+       addRF(FEATURE_HALFLING_LOTUSDEN_2);
+     }
+     langs.push("Halfling");
+     remove(ALL_LANGS, "Halfling");
+  }
+  if(race === "Harengon"){
+     addRF(FEATURE_HARENGON_1);
+     addRF(FEATURE_HARENGON_2);
+     addRF(FEATURE_HARENGON_3);
+     addRF(FEATURE_HARENGON_4);
+     randlangcount = 1;
   }
   if(race === "Hobgoblin"){
-        
+     addRF(FEATURE_DARKVISION);
+     addRF(FEATURE_HOBGOBLIN_1);
+     addRF(FEATURE_HOBGOBLIN_2);
+     langs.push("Goblin");
+     remove(ALL_LANGS, "Goblin");
   }
   if(race === "Human"){
-        
+     addRF(FEATURE_HUMAN_1);
+     addRF(FEATURE_HUMAN_2);
+     randlangcount = 1;
   }
-  if(race === "Kalahtar"){
-        
+  if(race === "Kalashtar"){
+     addRF(FEATURE_KALASHTAR_1);
+     addRF(FEATURE_KALASHTAR_2);
+     addRF(FEATURE_KALASHTAR_3);
+     addRF(FEATURE_KALASHTAR_4);
+     langs.push("Quori");
+     remove(ALL_LANGS, "Quori");
   }
   if(race === "Kenku"){
-        
+     addRF(FEATURE_KENKU_1);
+     addRF(FEATURE_KENKU_2);
+     addRF(FEATURE_KENKU_3);
+     langs.push("Auran");
+     remove(ALL_LANGS, "Auran");
   }
   if(race === "Kobold"){
-        
+     addRF(FEATURE_DARKVISION);
+     addRF(FEATURE_KOBOLD_1);
+     addRF(FEATURE_KOBOLD_2);
+     langs.push("Draconic");
+     remove(ALL_LANGS, "Draconic");
   }
   if(race === "Leonin"){
-        
+     addRF(FEATURE_DARKVISION);
+     addRF(FEATURE_LEONIN_1);
+     addRF(FEATURE_LEONIN_2);
+     addRF(FEATURE_LEONIN_3);
+     langs.push("Leonin");
+     remove(ALL_LANGS, "Leonin");
   }
   if(race === "Loxodon"){
-        
+     addRF(FEATURE_POWERFULBUILD);
+     addRF(FEATURE_LOXODON_1);
+     addRF(FEATURE_LOXODON_2);
+     addRF(FEATURE_LOXODON_3);
+     addRF(FEATURE_LOXODON_4);
+     langs.push("Loxodon");
+     remove(ALL_LANGS, "Loxodon");
   }
   if(race === "Merfolk"){
-        
+     addRF(FEATURE_MERFOLK_1);
+     addRF(FEATURE_MERFOLK_2);
+     if(subrace === "Green"){
+        addRF(FEATURE_MERFOLK_GREEN_1);
+        addRF(FEATURE_MERFOLK_GREEN_2);
+     }
+     if(subrace === "Blue"){
+        addRF(FEATURE_MERFOLK_BLUE_1);
+        addRF(FEATURE_MERFOLK_BLUE_2);
+     }
+     langs.push("Merfolk");
+     remove(ALL_LANGS, "Merfolk");
+     randlangcount = 1;
+     spdtxt = SPD_SWIM_DEFAULT;
   }
   if(race === "Owlin"){
-        
+     addRF(FEATURE_SDARKVISION);
+     addRF(FEATURE_OWLIN_1);
+     addRF(FEATURE_OWLIN_2);
+     randlangcount = 1;
   }
   if(race === "Satyr"){
-        
+     addRF(FEATURE_CREATURETYPE_FEY);
+     addRF(FEATURE_SATYR_1);
+     addRF(FEATURE_SATYR_2);
+     addRF(FEATURE_SATYR_3);
+     addRF(FEATURE_SATYR_4);
+     langs.push("Sylvan");
+     remove(ALL_LANGS, "Sylvan");
   }
   if(race === "Shifter"){
-        
+     addRF(FEATURE_DARKVISION);
+     addRF(FEATURE_SHIFTER_1);
+     if(subrace === "Beasthide"){
+        addRF(FEATURE_SHIFTER_BEASTHIDE_1);
+        addRF(FEATURE_SHIFTER_BEASTHIDE_2);
+     }
+     if(subrace === "Longtooth"){
+        addRF(FEATURE_SHIFTER_LONGTOOTH_1);
+        addRF(FEATURE_SHIFTER_LONGTOOTH_2);
+     }
+     if(subrace === "Swiftstride"){
+        addRF(FEATURE_SHIFTER_SWIFTSTRIDE_1);
+        addRF(FEATURE_SHIFTER_SWIFTSTRIDE_2);
+     }
+     if(subrace === "Wildhunt"){
+        addRF(FEATURE_SHIFTER_WILDHUNT_1);
+        addRF(FEATURE_SHIFTER_WILDHUNT_2);
+     }
   }
   if(race === "Simic Hybrid"){
       let enhans = new Array(FEATURE_SIMIC_AE_1_1,FEATURE_SIMIC_AE_1_2,FEATURE_SIMIC_AE_1_3,FEATURE_SIMIC_AE_5_1,FEATURE_SIMIC_AE_5_2,FEATURE_SIMIC_AE_5_3);
-      let l1c = (Math.random()*3)|0, l2c = (Math.random()*6)|0;
+      let c1 = (Math.random()*3)|0
+      let c2 = (Math.random()*5)|0;
+      let aetext = enhans[c1];
+      enhans = remove(enhans,c1); // remove first choice
+      if(lvl > 4) aetext += enhans[c2];
+      addRF(FEATURE_SIMIC_1.replace("_AECHOICE", aetext));
+      langs.push("Elvish");
+      remove(ALL_LANGS, "Elvish");
   }
   if(race === "Tabaxi"){
-        
+     addRF(FEATURE_DARKVISION);
+     addRF(FEATURE_TABAXI_1);
+     addRF(FEATURE_TABAXI_2);
+     addRF(FEATURE_TABAXI_3);
+     randlangcount = 1;
   }
   if(race === "Tiefling"){
-        
+     addRF(FEATURE_DARKVISION);
+     if(subrace === "Abyssal"){
+        addRF(FEATURE_TIEFLING_ABYSS_1); addRF(FEATURE_TIEFLING_ABYSS_2);
+        langs.push("Abyssal");
+        remove(ALL_LANGS, "Abyssal");
+     } else {
+        addRF(FEATURE_TIEFLING_1);
+        langs.push("Infernal");
+        remove(ALL_LANGS, "Infernal");
+     }
+     if(subrace === "Asmodeus") addRF(FEATURE_TIEFLING_ASMO_1);
+     if(subrace === "Baalzebul") addRF(FEATURE_TIEFLING_BAAL_1);
+     if(subrace === "Dispater") addRF(FEATURE_TIEFLING_DIS_1);
+     if(subrace === "Fierna") addRF(FEATURE_TIEFLING_FIER_1);
+     if(subrace === "Glasya") addRF(FEATURE_TIEFLING_GLAS_1);
+     if(subrace === "Levistus") addRF(FEATURE_TIEFLING_LEVI_1);
+     if(subrace === "Mammon") addRF(FEATURE_TIEFLING_MAM_1);
+     if(subrace === "Mephistopheles") addRF(FEATURE_TIEFLING_MEPH_1);
+     if(subrace === "Zariel") addRF(FEATURE_TIEFLING_ZARI_1);
+     if(subrace === "Devil's Tongue") addRF(FEATURE_TIEFLING_TONGUE_1);
+     if(subrace === "Hellfire") addRF(FEATURE_TIEFLING_HELLFIRE_1);
+     if(subrace === "Winged") addRF(FEATURE_TIEFLING_WINGED_1);
   }
   if(race === "Tortle"){
-        
+     addRF(FEATURE_TORTLE_1);
+     addRF(FEATURE_TORTLE_2);
+     addRF(FEATURE_TORTLE_3);
+     addRF(FEATURE_TORTLE_4);
+     addRF(FEATURE_TORTLE_5);
+     langs.push("Aquan");
+     remove(ALL_LANGS, "Aquan");
   }
   if(race === "Triton"){
-        
+     addRF(FEATURE_DARKVISION);
+     addRF(FEATURE_TRITON_1);
+     addRF(FEATURE_TRITON_2);
+     addRF(FEATURE_TRITON_3);
+     addRF(FEATURE_TRITON_4);
+     addRF(FEATURE_TRITON_5);
+     spdtxt = SPD_SWIM_DEFAULT;
+     langs.push("Primordial");
+     remove(ALL_LANGS, "Primordial");
   }
   if(race === "Vedalken"){
-        
+     addRF(FEATURE_VEDALKEN_1);
+     addRF(FEATURE_VEDALKEN_2);
+     addRF(FEATURE_VEDALKEN_3);
+     langs.push("Vedalken");
+     remove(ALL_LANGS, "Vedalken");
+     randlangcount = 1;
   }
   if(race === "Warforged"){
-        
+     addRF(FEATURE_WARFORGED_1);
+     addRF(FEATURE_WARFORGED_2);
+     addRF(FEATURE_WARFORGED_3);
+     addRF(FEATURE_WARFORGED_4);
+     randlangcount = 1;
   }
   if(race === "Yuan-Ti"){
-        
+     addRF(FEATURE_DARKVISION);
+     addRF(FEATURE_YUANTI_1);
+     addRF(FEATURE_YUANTI_2);
+     addRF(FEATURE_YUANTI_3);
+     langs.push("Abyssal");
+     remove(ALL_LANGS, "Abyssal");
+     langs.push("Draconic");
+     remove(ALL_LANGS, "Draconic");
   }
  
   // language randomization
