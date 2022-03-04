@@ -1399,8 +1399,8 @@ function handleProficiencies(){
  document.getElementById("SHEET_PROF_TOOLS").innerHTML = toolstxt;
 }
 
-function levelUp(){
-   if(lvl>19){ // lvl 20
+function levelUp(lev){
+   if(lev>19){ // lvl 20
       if(clss === "Artificer") addCF(FEATURE_ARTIFICER_20_0);
       if(clss === "Barbarian"){ addCF(FEATURE_BARBARIAN_20_0); stats[0] = stats[0]+4; stats[2] = stats[2]+4; }
       if(clss === "Druid") addCF(FEATURE_DRUID_20_0);
@@ -1410,7 +1410,7 @@ function levelUp(){
       if(clss === "Sorcerer") addCF(FEATURE_SORCERER_20_0);   
       if(clss === "Warlock") addCF(FEATURE_WARLOCK_20_0);
       if(clss === "Wizard") addCF(FEATURE_WIZARD_20_0);
-   } else if (lvl>17){ // lvl 18
+   } else if (lev>17){ // lvl 18
       if(clss === "Artificer") addCF(FEATURE_ARTIFICER_18_0);
       if(clss === "Barbarian") addCF(FEATURE_BARBARIAN_18_0);
       if(clss === "Druid"){ addCF(FEATURE_DRUID_18_0); addCF(FEATURE_DRUID_18_1); }
@@ -1418,55 +1418,55 @@ function levelUp(){
       if(clss === "Ranger") addCF(FEATURE_RANGER_18_0);
       if(clss === "Rogue") addCF(FEATURE_ROGUE_18_0);  
       if(clss === "Wizard") addCF(FEATURE_WIZARD_18_0);
-   }else if (lvl>16){ // lvl 17
+   }else if (lev>16){ // lvl 17
       if(subclass === "Life") addCF(FEATURE_CLERIC_LIFE_17_0);
-   }else if (lvl>15){ // lvl 16
-   }else if (lvl>14){ // lvl 15
+   }else if (lev>15){ // lvl 16
+   }else if (lev>14){ // lvl 15
       if(subclass === "Armorer") addCF(FEATURE_ARTIFICER_ARMORER_15_0);
       if(clss === "Barbarian") addCF(FEATURE_BARBARIAN_15_0);  
       if(clss === "Monk") addCF(FEATURE_MONK_15_0);
       if(clss === "Rogue") addCF(FEATURE_ROGUE_15_0);  
-   }else if (lvl>13){ // lvl 14
+   }else if (lev>13){ // lvl 14
       if(clss === "Artificer") addCF(FEATURE_ARTIFICER_14_0);
       if(clss === "Monk") addCF(FEATURE_MONK_14_0);
       if(clss === "Paladin") addCF(FEATURE_PALADIN_14_0);
       if(clss === "Ranger") addCF(FEATURE_RANGER_14_0);
       if(clss === "Rogue") addCF(FEATURE_ROGUE_14_0);  
-   }else if (lvl>12){ // lvl 13
+   }else if (lev>12){ // lvl 13
       if(clss === "Monk") addCF(FEATURE_MONK_13_0);
-   }else if (lvl>11){ // lvl 12
-   }else if (lvl>10){ // lvl 11
+   }else if (lev>11){ // lvl 12
+   }else if (lev>10){ // lvl 11
       if(clss === "Artificer") addCF(FEATURE_ARTIFICER_11_0);
       if(clss === "Barbarian") addCF(FEATURE_BARBARIAN_11_0);  
       if(clss === "Paladin") addCF(FEATURE_PALADIN_11_0);
       if(clss === "Rogue") addCF(FEATURE_ROGUE_11_0);  
       if(clss === "Warlock") addCF(FEATURE_WARLOCK_11_0);
-   }else if (lvl>9){ // lvl 10
+   }else if (lev>9){ // lvl 10
       if(clss === "Artificer") addCF(FEATURE_ARTIFICER_10_0);
       if(clss === "Bard") addCF(FEATURE_BARD_10_0);
       if(clss === "Cleric") addCF(FEATURE_CLERIC_10_0);
       if(clss === "Monk") addCF(FEATURE_MONK_10_0);
       if(clss === "Paladin") addCF(FEATURE_PALADIN_10_0);
       if(clss === "Ranger") addCF(FEATURE_RANGER_10_0);
-   }else if (lvl>8){ // lvl 9
+   }else if (lev>8){ // lvl 9
       if(subclass === "Armorer") addCF(FEATURE_ARTIFICER_ARMORER_9_0);
       if(clss === "Barbarian") addCF(FEATURE_BARBARIAN_9_0);  
-   }else if (lvl>7){ // lvl 8
+   }else if (lev>7){ // lvl 8
       if(subclass === "Life") addCF(FEATURE_CLERIC_DSTRIKE);
       if(clss === "Ranger") addCF(FEATURE_RANGER_8_0);
-   }else if (lvl>6){ // lvl 7
+   }else if (lev>6){ // lvl 7
       if(clss === "Rogue" || clss === "Monk") addCF(FEATURE_EVASION);
       if(clss === "Artificer") addCF(FEATURE_ARTIFICER_7_0);
       if(clss === "Barbarian") addCF(FEATURE_BARBARIAN_7_0);  
       if(clss === "Monk") addCF(FEATURE_MONK_7_0);
-   }else if (lvl>5){ // lvl 6
+   }else if (lev>5){ // lvl 6
       if(clss === "Artificer") addCF(FEATURE_ARTIFICER_6_0);
       if(clss === "Bard") addCF(FEATURE_BARD_6_0);
       if(subclass === "Life") addCF(FEATURE_CLERIC_LIFE_6_0);
       if(clss === "Monk") addCF(FEATURE_MONK_6_0);
       if(clss === "Paladin") addCF(FEATURE_PALADIN_6_0);
       if(clss === "Ranger") addCF(FEATURE_RANGER_6_0);
-   }else if (lvl>4){ // lvl 5
+   }else if (lev>4){ // lvl 5
       if(clss === "Fighter") addCF(FEATURE_EA_FIGHTER);
       else if (clss === "Barbarian" || clss === "Paladin" || clss === "Monk" || subclass === "Armorer") addCF(FEATURE_EA_STANDARD);
       if(clss === "Barbarian") addCF(FEATURE_BARBARIAN_5_0); 
@@ -1474,12 +1474,12 @@ function levelUp(){
       if(clss === "Monk") addCF(FEATURE_MONK_5_0);
       if(clss === "Cleric") addCF(FEATURE_CLERIC_5_0);
       if(clss === "Rogue") addCF(FEATURE_ROGUE_5_0);  
-   }else if (lvl>3){ // lvl 4
+   }else if (lev>3){ // lvl 4
       if(clss === "Fighter") addCF(FEATURE_ASI_FIGHTER);
       else if (clss === "Rogue") addCF(FEATURE_ASI_ROGUE);
       else addCF(FEATURE_ASI_STANDARD);
       if(clss === "Monk") addCF(FEATURE_MONK_4_0);
-   }else if (lvl>2){ // lvl 3
+   }else if (lev>2){ // lvl 3
       if(clss === "Artificer") addCF(FEATURE_ARTIFICER_3_0);
       if(clss === "Bard") addCF(FEATURE_BARD_3_0);
       if(clss === "Warlock") addCF(FEATURE_WARLOCK_3_0);
@@ -1487,7 +1487,7 @@ function levelUp(){
       if(clss === "Paladin") addCF(FEATURE_PALADIN_3_0);
       if(clss === "Ranger") addCF(FEATURE_RANGER_3_0);
       if(clss === "Sorcerer") addCF(FEATURE_SORCERER_3_0); 
-   }else if (lvl>1){ // lvl 2
+   }else if (lev>1){ // lvl 2
       if(clss === "Artificer") addCF(FEATURE_ARTIFICER_2_0);
       if(clss === "Bard"){ addCF(FEATURE_BARD_2_0); addCF(FEATURE_BARD_2_1); }
       if(clss === "Barbarian"){ addCF(FEATURE_BARBARIAN_2_0); addCF(FEATURE_BARBARIAN_2_1); }
@@ -1534,6 +1534,8 @@ function levelUp(){
       if(clss === "Sorcerer") addCF(FEATURE_SORCERER_2_0); 
       if(clss === "Warlock") addCF(FEATURE_WARLOCK_2_0);
    }
+   displayClassFeatures();
+   if(lev < lvl) levelUp(lev+1);
 }
 
 function handleClassFeatures(){
@@ -1624,42 +1626,41 @@ function handleClassFeatures(){
    }
       
    if(clss === "Warlock"){ 
-      let temp, ei_available;
+      let ei_available = new Array();
       let pSel = (Math.random()*4)|0;
       pact = pactBoons[pSel];
       ei_available = ei_base, eiCount = numInvocations[lvl];
       if(lvl > 2){
-            if(pact === pactboon_Blade) ei = add(ei,ei_blade_0);
-            if(pact === pactboon_Tome) ei = add(ei,ei_tome_0);
-            if(pact === pactboon_Chain) ei = add(ei,ei_chain_0);
-            if(pact === pactboon_Talisman) ei = add(ei,ei_talisman_0);
+            if(pact === pactboon_Blade) ei_available = add(ei_available,ei_blade_0);
+            if(pact === pactboon_Tome) ei_available = add(ei_available,ei_tome_0);
+            if(pact === pactboon_Chain) ei_available = add(ei_available,ei_chain_0);
+            if(pact === pactboon_Talisman) ei_available = add(ei_available,ei_talisman_0);
       }
       if(lvl > 4){
-            ei_available = add(ei,ei_5);
-            if(pact === pactboon_Blade) ei = add(ei,ei_blade_5);
-            if(pact === pactboon_Tome) ei = add(ei,ei_tome_5);
+            ei_available = add(ei_available,ei_5);
+            if(pact === pactboon_Blade) ei_available = add(ei_available,ei_blade_5);
+            if(pact === pactboon_Tome) ei_available = add(ei_available,ei_tome_5);
       }
       if(lvl > 6){
             ei_available = add(ei_available,ei_7);
-            if(pact === pactboon_Talisman) ei = add(ei,ei_talisman_7);
+            if(pact === pactboon_Talisman) ei_available = add(ei_available,ei_talisman_7);
       }
       if(lvl > 8){
-            ei = add(ei,ei_9);
-            if(pact === pactboon_Blade) ei = add(ei,ei_blade_9);
-            if(pact === pactboon_Tome) ei = add(ei,ei_tome_9);
+            ei_available = add(ei_available,ei_9);
+            if(pact === pactboon_Blade) ei_available = add(ei_available,ei_blade_9);
+            if(pact === pactboon_Tome) ei_available = add(ei_available,ei_tome_9);
       }
       if(lvl > 11){
-            if(pact === pactboon_Blade) ei = add(ei,ei_blade_12);
-            if(pact === pactboon_Talisman) ei = add(ei,ei_talisman_12);
+            if(pact === pactboon_Blade) ei_available = add(ei_available,ei_blade_12);
+            if(pact === pactboon_Talisman) ei_available = add(ei_available,ei_talisman_12);
       }
       if(lvl > 14){
-            ei = add(ei,ei_15);
-            if(pact === pactboon_Blade) ei = add(ei,ei_blade_15);
-            if(pact === pactboon_Chain) ei = add(ei,ei_chain_15);
+            ei_available = add(ei_available,ei_15);
+            if(pact === pactboon_Blade) ei_available = add(ei_available,ei_blade_15);
+            if(pact === pactboon_Chain) ei_available = add(ei_available,ei_chain_15);
       }
-      let ei_text = "";
       for(let i = 0; i < eiCount; i++) { // select invocations
-         addEI(lev);
+         addEI(ei_available);
       }
      // warlock spellcasting
      document.getElementById("SHEET_FEATURES_SPELLCASTING_HEADER").innerHTML = "Spellcasting";
@@ -1679,23 +1680,31 @@ function handleClassFeatures(){
      let sdc = 8 + sam;
      document.getElementById("SHEET_FEATURES_SPELLCASTING_DESCRIPTION").innerHTML = FEATURE_WIZARD_SPELLCASTING.replace("_SPELLATKMODIFIER",sam).replace("_SPELLSAVAILABLE",sav).replace("_SPELLSAVEDC",sdc);
    } 
-   debugtxt += "<br>Checkpoint 2: Class Features generated!";
-   for(int i = 2; i <= lvl; i++) levelUp(); 
+   debugtxt += "<br>Checkpoint 2: Lvl 1 Class Features generated!";
+   if(lvl > 1) levelUp(2); // handle leveling
 }
 
-function addEI(lev){
-   let selected = ei_available[(Math.random()*ei.length)|0];
-   ei = remove(ei,selected);
+function incrementLevel(){
+  lvl++;
+  levelUp(2);
+}
+
+function addEI(ei_available){
+   let selected = ei_available[(Math.random()*ei_available.length)|0];
+   ei_available = remove(ei_available,selected);
    ei[i] = selected;
 }
 
 function displayClassFeatures(){
    let sct = document.getElementById("SHEET_FEATURES_CLASS");
+   sct.innerHTML = ""; // clear inner html
    for(let i = 0; i < cf.length; i++){ // fill html sections
       let node = document.createElement("div");
       if(cf[i] === "FEATURE_WARLOCK_3_0"){ // special case
          node.innerHTML = cf[i].replace("_PACTBOON",pact);
       } else if(cf[i] === "FEATURE_WARLOCK_2_0"){
+         let ei_text = "";
+         for(let i = 0; i < ei.length; i++) ei_text += ei[i];
          node.innerHTML = cf[i].replace("_EITEXT",ei_text);
       } else {
          node.innerHTML = cf[i];
