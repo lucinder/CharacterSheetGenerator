@@ -2619,9 +2619,9 @@ function generate(){
  
   // if(debug){ race = "Lizardfolk"; clss = "Artificer"; } // defaults for debug
   if(subrace === ""){ 
-    document.getElementById("SHEET_BASIC_RACECLASS").innerHTML = "" + race + " " + clss + " (" + subclass + ") " + lvl;
+    document.getElementById("SHEET_BASIC_RACECLASS").innerHTML = "" + race + " " + clss + " (" + subclass + ") " + lvl + '<button class="w3-button w3-black w3-tiny w3-circle" id="LEVELUP_BUTTON" onclick="incrementLevel()">+</button>';
   } else {
-    document.getElementById("SHEET_BASIC_RACECLASS").innerHTML = "" + race + " (" + subrace + ") " + clss + " (" + subclass + ") " + lvl;
+    document.getElementById("SHEET_BASIC_RACECLASS").innerHTML = "" + race + " (" + subrace + ") " + clss + " (" + subclass + ") " + lvl + '<button class="w3-button w3-black w3-tiny w3-circle" id="LEVELUP_BUTTON" onclick="incrementLevel()">+</button>';
   }
   debugtxt += "<br>Checkpoint 1: Race/Class displayed properly!";
  
