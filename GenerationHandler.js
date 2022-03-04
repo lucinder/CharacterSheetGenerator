@@ -1703,9 +1703,9 @@ function displayClassFeatures(){
    sct.innerHTML = ""; // clear inner html
    for(let i = 0; i < cf.length; i++){ // fill html sections
       let node = document.createElement("div");
-      if(cf[i] === "FEATURE_WARLOCK_3_0"){ // special case
+      if(cf[i].includes("_PACTBOON"){ // special case
          node.innerHTML = cf[i].replace("_PACTBOON",pact);
-      } else if(cf[i] === "FEATURE_WARLOCK_2_0"){
+      } else if(cf[i].includes("_EITEXT")){
          let ei_text = "";
          for(let i = 0; i < ei.length; i++) ei_text += ei[i];
          node.innerHTML = cf[i].replace("_EITEXT",ei_text);
