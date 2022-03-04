@@ -2723,6 +2723,7 @@ function generate(){
   // set titles
   unhide("tabnav");
   unhide("ACTIONSPAGE");
+  unhide("CHARACTERSHEET");
   openTab("CHARACTERSHEET");
   document.getElementById("SHEET_PROF_TITLE").innerHTML = "Proficiencies"
   document.getElementById("SHEET_FEATURES_TITLE").innerHTML = "Features";
