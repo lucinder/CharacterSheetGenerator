@@ -1708,9 +1708,12 @@ function incrementLevel(){
   if(lvl == 20) return; // do not allow leveling beyond 20
   lvl++;
   levelUp(2);
-  hpMax += getHPLevel();
+  hpMax += getHPLevel(); showHP();
   loadRaceClass();
 }
+
+function incrementHP(){ if(hp < hpMax) hp++; showHP(); }
+function decrementHP(){ if(hp>0) hp--; showHP(); }
 
 function displayClassFeatures(){
    let sct = document.getElementById("SHEET_FEATURES_CLASS");
@@ -2589,6 +2592,8 @@ function loadRaceClass(){
   }
 }
 
+function showHP(){ document.getElementById("SHEET_BASIC_STATS_HP").innerHTML = "<b>HP:</b> " + hp + "/" + hpMax + '<button class="w3-black w3-circle plusbutton" id="HPUP_BUTTON" onclick="incrementHP()">+</button><button class="w3-black w3-circle plusbutton" id="HPDOWN_BUTTON" onclick="decrementHP()">-</button>'; }
+
 function generate(){
   resetFeatures();
   loadPregens();
@@ -2670,7 +2675,7 @@ function generate(){
   spdtxt = spdtxt.replace("_SPD",spd);
   
   // set hp, ac, spd text
-  document.getElementById("SHEET_BASIC_STATS_HP").innerHTML = "<b>HP:</b> " + hp + "/" + hpMax;
+  showHP();
   document.getElementById("SHEET_BASIC_STATS_AC").innerHTML = "<b>AC:</b> " + ac + " (" + armorType + ")";
   document.getElementById("SHEET_BASIC_STATS_SPD").innerHTML = spdtxt;
   debugtxt += "<br>Checkpoint 4: HP/AC/speed displayed properly!";
