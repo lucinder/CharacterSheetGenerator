@@ -962,11 +962,11 @@ function resetFeatures(){ // reset all features
  
   document.getElementById("SHEET_FEATURES_CLASS").innerHTML = "";
   document.getElementById("SHEET_FEATURES_RACE").innerHTML = "";
-  document.getElementById("SHEET_BG_PERSONALITY").innerHTML = "";
-  document.getElementById("SHEET_BG_BONDS").innerHTML = "";
-  document.getElementById("SHEET_BG_IDEALS").innerHTML = "";
-  document.getElementById("SHEET_BG_FLAWS").innerHTML = "";
-  document.getElementById("SHEET_BG_BACKSTORY").innerHTML = "";
+  document.getElementById("SHEET_BG_PERSONALITY").value = "";
+  document.getElementById("SHEET_BG_BONDS").value = "";
+  document.getElementById("SHEET_BG_IDEALS").value = "";
+  document.getElementById("SHEET_BG_FLAWS").value = "";
+  document.getElementById("SHEET_BG_BACKSTORY").value = "";
   document.getElementById("SHEET_FEATURES_SPELLCASTING_HEADER").innerHTML = "";
   document.getElementById("SHEET_FEATURES_SPELLCASTING_DESCRIPTION").innerHTML = "";
 }
