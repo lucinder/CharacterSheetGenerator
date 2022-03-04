@@ -136,7 +136,7 @@
 	    <div class="w3-row-padding w3-padding-64 w3-container" id = "toc-container" hidden>
 		<p class="toc_title">Jump to...</p>
 		<ul class="toc_list">
-		<li><a href="#SHEET_BASIC_NAME">Basic Information</a></li>
+		<li><a href="#SHEET_BASIC_TITLE">Basic Information</a></li>
 		<li><a href="#SHEET_PROF_TITLE">Proficiencies</a></li>
 		<li><a href="#SHEET_FEATURES_TITLE">Features</a>
 			<ul>
@@ -161,7 +161,8 @@
 	    <!-- Basic Character Information -->
 	    <div class="w3-row-padding w3-padding-64 w3-container">
 	      <div class="w3-content">
-		  <h1 id="SHEET_BASIC_NAME"></h1>
+		  <h1 id="SHEET_BASIC_TITLE">Basic Information</h1>
+		  <h2 id="SHEET_BASIC_NAME"></h2>
 		  <h5 id = "SHEET_BASIC_RACECLASS"></h5>
 		  <p class="w3-text-grey" id = "SHEET_BASIC_STATS_STR"></p>
 		  <p class="w3-text-grey" id = "SHEET_BASIC_STATS_DEX"></p>
@@ -178,7 +179,7 @@
 	    <!-- Proficiencies -->
 	    <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
 	      <div class="w3-content">
-		  <h1 id="SHEET_PROF_TITLE"></h1>
+		  <h1 id="SHEET_PROF_TITLE">Proficiencies</h1>
 		  <h5 id = "SHEET_PROF_BONUS"></h5>
 		  <p class="w3-text-grey" id = "SHEET_PROF_SAVES"></p>
 		  <p class="w3-text-grey" id = "SHEET_PROF_SKILLS"></p>
@@ -191,10 +192,10 @@
 	    <!-- Features -->
 	    <div class="w3-row-padding w3-padding-64 w3-container">
 	      <div class="w3-content">
-		<h1 id="SHEET_FEATURES_TITLE"></h1>
-		<h5 id="SHEET_FEATURES_CLASS_HEADER"></h5>
+		<h1 id="SHEET_FEATURES_TITLE">Features</h1>
+		<h5 id="SHEET_FEATURES_CLASS_HEADER">Class Features</h5>
 		  <div class="w3-text-grey" id = "SHEET_FEATURES_CLASS"></div>
-		<h5 id = "SHEET_FEATURES_RACE_HEADER"></h5>
+		<h5 id = "SHEET_FEATURES_RACE_HEADER">Race Features</h5>
 		  <div class="w3-text-grey" id = "SHEET_FEATURES_RACE"></div>
 		<h5 id="SHEET_FEATURES_SPELLCASTING_HEADER"></h5>
 		  <div class="w3-text-grey" id = "SHEET_FEATURES_SPELLCASTING_DESCRIPTION"></div>
@@ -203,20 +204,20 @@
 	    <!-- Background -->
 	    <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
 	      <div class="w3-content">
-		  <h1 id = "SHEET_BG_TITLE"></h1>
-		  <h5 id = "SHEET_BG"></h5>
+		  <h1 id = "SHEET_BG_TITLE">Characterization</h1>
+		  <h5 id = "SHEET_BG">Background</h5>
 		  <div class="w3-text-grey" id = "SHEET_BG_FEATURE"></div>
-		  <h5 id = "SHEET_INV_TITLE"></h5>
+		  <h5 id = "SHEET_INV_TITLE">Inventory</h5>
 		  <ul class="w3-text-grey" id="SHEET_INVENTORY"></ul>
-		<h6 id = "SHEET_BG_PERSONALITY_HEADER"></h6>
+		<h6 id = "SHEET_BG_PERSONALITY_HEADER">Personality Traits</h6>
 		 <textarea id="SHEET_BG_PERSONALITY" class="w3-text-grey scalable" name="backstory" style="width:100%; min-height:60px;"></textarea>
-		<h6 id = "SHEET_BG_BONDS_HEADER"></h6>
+		<h6 id = "SHEET_BG_BONDS_HEADER">Bonds</h6>
 		 <textarea id="SHEET_BG_BONDS" class="w3-text-grey scalable" name="backstory" style="width:100%; min-height:60px;"></textarea>
-		<h6 id = "SHEET_BG_IDEALS_HEADER"></h6>
+		<h6 id = "SHEET_BG_IDEALS_HEADER">Ideals</h6>
 		 <textarea id="SHEET_BG_IDEALS" class="w3-text-grey scalable" name="backstory" style="width:100%; min-height:60px;"></textarea>
-		<h6 id = "SHEET_BG_FLAWS_HEADER"></h6>
+		<h6 id = "SHEET_BG_FLAWS_HEADER">Flaws</h6>
 		 <textarea id="SHEET_BG_FLAWS" class="w3-text-grey scalable" name="backstory" style="width:100%; min-height:60px;"></textarea>
-		<h6 id = "SHEET_BG_BACKSTORY_HEADER"></h6>
+		<h6 id = "SHEET_BG_BACKSTORY_HEADER">Backstory</h6>
 		 <textarea id="SHEET_BG_BACKSTORY" class="w3-text-grey scalable" name="backstory" style="width:100%; min-height:60px;"></textarea> 
 	      </div>
 	    </div>
@@ -224,8 +225,8 @@
      <div class="tab" id="ACTIONSPAGE" hidden>
 	<div class="w3-row-padding w3-padding-64 w3-container">
 	   <div class="w3-content">
-	      <h1 id="SHEET_ACTIONS_TITLE"></h1>
-	      <h5 id = "SHEET_ACTIONS_ROLL"></h5>
+	      <h1 id="SHEET_ACTIONS_TITLE">Actions</h1>
+	      <h5 id = "SHEET_ACTIONS_ROLL">Roll...</h5>
 		<div class="w3-container w3-black" id="BUTTONPANEL">
 		   <div class="w3-container row" id = "PANEL0">
 	      		<button class="w3-button w3-left col specialButton" onclick="rollSpecial(0)">Initiative</button>
