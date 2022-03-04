@@ -1689,6 +1689,7 @@ function incrementLevel(){
   lvl++;
   levelUp(2);
   hp += getHPLevel();
+  loadRaceClass();
 }
 
 function addEI(ei_available){
@@ -2565,6 +2566,14 @@ function handleBG(){
   }
 }
 
+function loadRaceClass(){
+  if(subrace === ""){ 
+    document.getElementById("SHEET_BASIC_RACECLASS").innerHTML = "" + race + " " + clss + " (" + subclass + ") " + lvl + '<button class="w3-button w3-black w3-tiny w3-circle plusbutton" id="LEVELUP_BUTTON" onclick="incrementLevel()">+</button>';
+  } else {
+    document.getElementById("SHEET_BASIC_RACECLASS").innerHTML = "" + race + " (" + subrace + ") " + clss + " (" + subclass + ") " + lvl + '<button class="w3-button w3-black w3-tiny w3-circle plusbutton" id="LEVELUP_BUTTON" onclick="incrementLevel()">+</button>';
+  }
+}
+
 function generate(){
   resetFeatures();
   loadPregens();
@@ -2618,11 +2627,7 @@ function generate(){
   bg = bgOptions[(Math.random()*bgOptions.length)|0];
  
   // if(debug){ race = "Lizardfolk"; clss = "Artificer"; } // defaults for debug
-  if(subrace === ""){ 
-    document.getElementById("SHEET_BASIC_RACECLASS").innerHTML = "" + race + " " + clss + " (" + subclass + ") " + lvl + '<button class="w3-button w3-black w3-tiny w3-circle" id="LEVELUP_BUTTON" onclick="incrementLevel()">+</button>';
-  } else {
-    document.getElementById("SHEET_BASIC_RACECLASS").innerHTML = "" + race + " (" + subrace + ") " + clss + " (" + subclass + ") " + lvl + '<button class="w3-button w3-black w3-tiny w3-circle" id="LEVELUP_BUTTON" onclick="incrementLevel()">+</button>';
-  }
+  loadRaceClass();
   debugtxt += "<br>Checkpoint 1: Race/Class displayed properly!";
  
   rollStats();
