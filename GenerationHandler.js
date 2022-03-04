@@ -1685,6 +1685,7 @@ function handleClassFeatures(){
 }
 
 function incrementLevel(){
+  if(lvl == 20) return; // do not allow leveling beyond 20
   lvl++;
   levelUp(2);
   hp += getHPLevel();
