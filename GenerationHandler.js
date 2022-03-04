@@ -1510,6 +1510,7 @@ function levelUp(lev){
          spd += umSpdBonus[lvl]; // unarmored movement speed bonus
       }
       if(clss === "Paladin"){
+         let fs = fStyles_paladin[(Math.random()*fStyles_paladin.length)|0]; // handle fighting style selection
          addCF(FEATURE_PALADIN_2_0);
          addCF(FEATURE_FIGHTINGSTYLE.replace("_FSTYLE",fs));
          // paladin spellcasting
@@ -1522,6 +1523,7 @@ function levelUp(lev){
          document.getElementById("SHEET_FEATURES_SPELLCASTING_DESCRIPTION").innerHTML = FEATURE_PALADIN_SPELLCASTING.replace("_SPELLATKMODIFIER",sam).replace("_SPELLSAVEDC",sdc).replace("_SPELLSAVAILABLE",sav);
       }
       if(clss === "Ranger"){
+         let fs = fStyles_ranger[(Math.random()*fStyles_ranger.length)|0]; // handle fighting style selection
          addCF(FEATURE_FIGHTINGSTYLE.replace("_FSTYLE",fs));
          // ranger spellcasting
          document.getElementById("SHEET_FEATURES_SPELLCASTING_HEADER").innerHTML = "Spellcasting";
@@ -1600,12 +1602,10 @@ function handleClassFeatures(){
       addCF(FEATURE_MONK_1_1);
    }
    if(clss === "Paladin"){
-      let fs = fStyles_paladin[(Math.random()*fStyles_paladin.length)|0]; // handle fighting style selection
       addCF(FEATURE_PALADIN_1_0);
       addCF(FEATURE_PALADIN_1_1);
    }
    if(clss === "Ranger"){
-      let fs = fStyles_ranger[(Math.random()*fStyles_ranger.length)|0]; // handle fighting style selection
       addCF(FEATURE_RANGER_1_0);
       addCF(FEATURE_RANGER_1_1);
    }
