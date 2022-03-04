@@ -1693,7 +1693,7 @@ function incrementLevel(){
 function addEI(ei_available){
    let selected = ei_available[(Math.random()*ei_available.length)|0];
    ei_available = remove(ei_available,selected);
-   ei[i] = selected;
+   ei[ei.length] = selected;
 }
 
 function displayClassFeatures(){
