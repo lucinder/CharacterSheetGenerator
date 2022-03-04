@@ -2730,16 +2730,16 @@ function generate(){
   unhide("ACTIONSPAGE");
   unhide("CHARACTERSHEET");
   openTab("CHARACTERSHEET");
-  document.getElementById("SHEET_PROF_TITLE").innerHTML = "Proficiencies"
-  document.getElementById("SHEET_FEATURES_TITLE").innerHTML = "Features";
-  document.getElementById("SHEET_BG_TITLE").innerHTML = "Characterization";
-  document.getElementById("SHEET_INV_TITLE").innerHTML = "Inventory";
-  document.getElementById("SHEET_FEATURES_CLASS_HEADER").innerHTML = "Class Features";
-  document.getElementById("SHEET_FEATURES_RACE_HEADER").innerHTML = "Race Features";
-  document.getElementById("SHEET_BG_BACKSTORY_HEADER").innerHTML ="<u>Backstory</u>";
-  document.getElementById("SHEET_ACTIONS_TITLE").innerHTML = "Actions";
-  document.getElementById("SHEET_ACTIONS_ROLL").innerHTML = "Roll...";
-  document.getElementById("toc-container").removeAttribute("hidden"); // show toc
+  // document.getElementById("SHEET_PROF_TITLE").innerHTML = "Proficiencies"
+  // document.getElementById("SHEET_FEATURES_TITLE").innerHTML = "Features";
+  // document.getElementById("SHEET_BG_TITLE").innerHTML = "Characterization";
+  // document.getElementById("SHEET_INV_TITLE").innerHTML = "Inventory";
+  // document.getElementById("SHEET_FEATURES_CLASS_HEADER").innerHTML = "Class Features";
+  // document.getElementById("SHEET_FEATURES_RACE_HEADER").innerHTML = "Race Features";
+  // document.getElementById("SHEET_BG_BACKSTORY_HEADER").innerHTML ="<u>Backstory</u>";
+  // document.getElementById("SHEET_ACTIONS_TITLE").innerHTML = "Actions";
+  // document.getElementById("SHEET_ACTIONS_ROLL").innerHTML = "Roll...";
+  unhide("toc-container"); // show toc
  
   // determine main fields
   nameGen();
@@ -2814,7 +2814,7 @@ function generate(){
   // set background stuff
   document.getElementById("SHEET_BG").innerHTML = "Background: " + bg;
   document.getElementById("SHEET_BG_FEATURE").innerHTML = getBgFeature();
-  document.getElementById("SHEET_BG_BACKSTORY").innerHTML = getBackstory();
+  // document.getElementById("SHEET_BG_BACKSTORY").innerHTML = getBackstory();
   document.getElementById("SHEET_INVENTORY").innerHTML = getInventory();
   debugtxt += "<br>Checkpoint 5: Background section displayed properly!";
  
