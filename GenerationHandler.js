@@ -1536,6 +1536,9 @@ function levelUp(lev){
       if(clss === "Sorcerer") addCF(FEATURE_SORCERER_2_0); 
       if(clss === "Warlock") addCF(FEATURE_WARLOCK_2_0);
    }
+   if(clss === "Warlock"){ // invocation gain on varying levels
+     let eiCount = numInvocations[lvl]
+   }
    displayClassFeatures();
    if(lev < lvl) levelUp(lev+1);
 }
@@ -1630,37 +1633,54 @@ function handleClassFeatures(){
       let pSel = (Math.random()*4)|0;
       pact = pactBoons[pSel];
       ei_available = ei_base, eiCount = numInvocations[lvl];
-      if(lvl > 2){
-            if(pact === pactboon_Blade) ei_available = add(ei_available,ei_blade_0);
-            if(pact === pactboon_Tome) ei_available = add(ei_available,ei_tome_0);
-            if(pact === pactboon_Chain) ei_available = add(ei_available,ei_chain_0);
-            if(pact === pactboon_Talisman) ei_available = add(ei_available,ei_talisman_0);
+      if(pact === pactboon_Blade) ei_available = add(ei_available,ei_blade_0);
+      if(pact === pactboon_Tome) ei_available = add(ei_available,ei_tome_0);
+      if(pact === pactboon_Chain) ei_available = add(ei_available,ei_chain_0);
+      if(pact === pactboon_Talisman) ei_available = add(ei_available,ei_talisman_0);
+      let selected = "";
+      for(let i = 0; i < 2; i++) { // select invocations up to 5th level - 2 total
+         selected = ei_available[(Math.random()*ei_available.length)|0];
+         ei_available = remove(ei_available,selected);
+         ei[ei.length] = selected;
       }
-      if(lvl > 4){
-            ei_available = add(ei_available,ei_5);
-            if(pact === pactboon_Blade) ei_available = add(ei_available,ei_blade_5);
-            if(pact === pactboon_Tome) ei_available = add(ei_available,ei_tome_5);
-      }
-      if(lvl > 6){
-            ei_available = add(ei_available,ei_7);
-            if(pact === pactboon_Talisman) ei_available = add(ei_available,ei_talisman_7);
-      }
-      if(lvl > 8){
-            ei_available = add(ei_available,ei_9);
-            if(pact === pactboon_Blade) ei_available = add(ei_available,ei_blade_9);
-            if(pact === pactboon_Tome) ei_available = add(ei_available,ei_tome_9);
-      }
-      if(lvl > 11){
-            if(pact === pactboon_Blade) ei_available = add(ei_available,ei_blade_12);
-            if(pact === pactboon_Talisman) ei_available = add(ei_available,ei_talisman_12);
-      }
-      if(lvl > 14){
-            ei_available = add(ei_available,ei_15);
-            if(pact === pactboon_Blade) ei_available = add(ei_available,ei_blade_15);
-            if(pact === pactboon_Chain) ei_available = add(ei_available,ei_chain_15);
-      }
-      for(let i = 0; i < eiCount; i++) { // select invocations
-         ei_available = addEI(ei_available);
+      // 5th level
+      ei_available = add(ei_available,ei_5);
+      if(pact === pactboon_Blade) ei_available = add(ei_available,ei_blade_5);
+      if(pact === pactboon_Tome) ei_available = add(ei_available,ei_tome_5);
+      // select invocations up to 6th level - 3 total
+      selected = ei_available[(Math.random()*ei_available.length)|0];
+      ei_available = remove(ei_available,selected);
+      ei[ei.length] = selected;
+      // 7th level
+      ei_available = add(ei_available,ei_7);
+      if(pact === pactboon_Talisman) ei_available = add(ei_available,ei_talisman_7);
+      // select invocations up to 8th level - 4 total
+      selected = ei_available[(Math.random()*ei_available.length)|0];
+      ei_available = remove(ei_available,selected);
+      ei[ei.length] = selected;
+      // 9th level
+      ei_available = add(ei_available,ei_9);
+      if(pact === pactboon_Blade) ei_available = add(ei_available,ei_blade_9);
+      if(pact === pactboon_Tome) ei_available = add(ei_available,ei_tome_9);
+      // select invocations up to 11th level - 5 total
+      selected = ei_available[(Math.random()*ei_available.length)|0];
+      ei_available = remove(ei_available,selected);
+      ei[ei.length] = selected;
+      // 12th level
+      if(pact === pactboon_Blade) ei_available = add(ei_available,ei_blade_12);
+      if(pact === pactboon_Talisman) ei_available = add(ei_available,ei_talisman_12);
+      // select invocations up to 14th level - 6 total
+      selected = ei_available[(Math.random()*ei_available.length)|0];
+      ei_available = remove(ei_available,selected);
+      ei[ei.length] = selected;
+      // 15th level
+      ei_available = add(ei_available,ei_15);
+      if(pact === pactboon_Blade) ei_available = add(ei_available,ei_blade_15);
+      if(pact === pactboon_Chain) ei_available = add(ei_available,ei_chain_15);
+      for(let i = 0; i < 2; i++) { // select last 2 invocations
+         selected = ei_available[(Math.random()*ei_available.length)|0];
+         ei_available = remove(ei_available,selected);
+         ei[ei.length] = selected;
       }
      // warlock spellcasting
      document.getElementById("SHEET_FEATURES_SPELLCASTING_HEADER").innerHTML = "Spellcasting";
@@ -1692,13 +1712,6 @@ function incrementLevel(){
   loadRaceClass();
 }
 
-function addEI(ei_available){
-   let selected = ei_available[(Math.random()*ei_available.length)|0];
-   ei_available = remove(ei_available,selected);
-   ei[ei.length] = selected;
-   return ei_available;
-}
-
 function displayClassFeatures(){
    let sct = document.getElementById("SHEET_FEATURES_CLASS");
    sct.innerHTML = ""; // clear inner html
@@ -1708,7 +1721,7 @@ function displayClassFeatures(){
          node.innerHTML = cf[i].replace("_PACTBOON",pact);
       } else if(cf[i].includes("_EITEXT")){
          let ei_text = "";
-         for(let i = 0; i < ei.length; i++) ei_text += ei[i];
+         for(let i = 0; i < numInvocations[lvl]; i++) ei_text += ei[i];
          node.innerHTML = cf[i].replace("_EITEXT",ei_text);
       } else {
          node.innerHTML = cf[i];
@@ -2570,9 +2583,9 @@ function handleBG(){
 
 function loadRaceClass(){
   if(subrace === ""){ 
-    document.getElementById("SHEET_BASIC_RACECLASS").innerHTML = "" + race + " " + clss + " (" + subclass + ") " + lvl + '<button class="w3-button w3-black w3-tiny w3-circle plusbutton" id="LEVELUP_BUTTON" onclick="incrementLevel()">+</button>';
+    document.getElementById("SHEET_BASIC_RACECLASS").innerHTML = "" + race + " " + clss + " (" + subclass + ") " + lvl + '<button class="w3-button w3-black w3-circle plusbutton" id="LEVELUP_BUTTON" onclick="incrementLevel()">+</button>';
   } else {
-    document.getElementById("SHEET_BASIC_RACECLASS").innerHTML = "" + race + " (" + subrace + ") " + clss + " (" + subclass + ") " + lvl + '<button class="w3-button w3-black w3-tiny w3-circle plusbutton" id="LEVELUP_BUTTON" onclick="incrementLevel()">+</button>';
+    document.getElementById("SHEET_BASIC_RACECLASS").innerHTML = "" + race + " (" + subrace + ") " + clss + " (" + subclass + ") " + lvl + '<button class="w3-button w3-black w3-circle plusbutton" id="LEVELUP_BUTTON" onclick="incrementLevel()">+</button>';
   }
 }
 
