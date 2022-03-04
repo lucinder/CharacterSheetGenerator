@@ -737,6 +737,7 @@ let subclass = "";
 let race = "";
 let subrace = "";
 let lvl = 1;
+let hpMax = 24; // max hp
 let hp = 24; // hp
 let ac = 10; // overall ac
 let acu = 10; // unarmored defense
@@ -777,7 +778,7 @@ function XdY(x,y){ // generates an xdy int array
   return results;
 }
 
-function remove(arr, index){
+function remove(arr, index){ // helper function to remove an item or index from an array
  debugtxt += "<br>TEST: n = " + index + ", is n considered a number? " + (typeof(index) === 'number') + ".";
  if(!(typeof(index) === 'number')){ 
    debugtxt += " Index of item: " + arr.indexOf(index);
@@ -793,7 +794,7 @@ function remove(arr, index){
   return newArr;
 }
 
-function add(arr1, arr2){
+function add(arr1, arr2){ // helper function to merge two arrays
  let arr3 = new Array(), i=0,j=0;
  for(i=0; i < arr1.length; i++){
       arr3[i] = arr1[i];
@@ -804,7 +805,7 @@ function add(arr1, arr2){
  return arr3;
 }
 
-function dropLowest(arr){
+function dropLowest(arr){ // helper function to remove the smallest value of an array
   let lowest = 0;
   for(let i = 1; i < arr.length; i++){
     if(arr[i] < arr[lowest]){
@@ -832,7 +833,7 @@ function XdYkhZ(x,y,z){
  return results;
 }
 
-function rollSpecial(id){
+function rollSpecial(id){ // roll commands for the roll panel
  let baseRoll = sum(XdY(1,20));
  let result = -1;
  let res = document.getElementById("ROLLRESULTS");
@@ -939,7 +940,7 @@ function rollSpecial(id){
  res.innerHTML = outputTxt;
 }
 
-function resetFeatures(){
+function resetFeatures(){ // reset all features
   ALL_LANGS = new Array("Aarakocra","Abyssal","Auran","Celestial","Elvish","Dwarvish","Draconic","Giant","Gith","Gnomish","Goblin","Infernal","Leonin","Loxodon","Merfolk","Minotaur","Orc","Primordial","Sylvan","Vedalken");
   debugtxt = "";
   spd = 30;
@@ -960,7 +961,11 @@ function resetFeatures(){
  
   document.getElementById("SHEET_FEATURES_CLASS").innerHTML = "";
   document.getElementById("SHEET_FEATURES_RACE").innerHTML = "";
- 
+  document.getElementById("SHEET_BG_PERSONALITY").innerHTML = "";
+  document.getElementById("SHEET_BG_BONDS").innerHTML = "";
+  document.getElementById("SHEET_BG_IDEALS").innerHTML = "";
+  document.getElementById("SHEET_BG_FLAWS").innerHTML = "";
+  document.getElementById("SHEET_BG_BACKSTORY").innerHTML = "";
   document.getElementById("SHEET_FEATURES_SPELLCASTING_HEADER").innerHTML = "";
   document.getElementById("SHEET_FEATURES_SPELLCASTING_DESCRIPTION").innerHTML = "";
 }
