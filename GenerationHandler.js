@@ -1687,6 +1687,7 @@ function handleClassFeatures(){
 function incrementLevel(){
   lvl++;
   levelUp(2);
+  hp += getHPLevel();
 }
 
 function addEI(ei_available){
@@ -2349,6 +2350,23 @@ function calcHP(){
  if(subrace === "Hill"){ // hill dwarf feature
    hp += lvl;
  }
+}
+
+function getHPLevel(){ // gets a single hp roll for a levelup
+    let hpl = 0, conMod = statModifiers[stats[2]];
+    if(clss === "Barbarian"){ // more if clauses will be add later
+       hpl = sum(XdY(1,12)) +conMod;
+    } else if(clss === "Fighter" || clss === "Paladin" || clss === "Ranger"){
+      hpl = sum(XdY(1,10)) +conMod;
+    } else if(clss === "Wizard" || clss === "Sorcerer") {
+      hpl = sum(XdY(1,6)) + conMod;
+    } else {
+      hpl = sum(XdY(1,8)) + conMod;
+    }
+    if(subrace === "Hill"){ // hill dwarf feature
+      hpl += 1;
+    }
+    return hpl;
 }
 
 function calcAC(){
