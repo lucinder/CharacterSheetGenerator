@@ -52,9 +52,7 @@
             'use strict';
             document.addEventListener('keydown', event => {
                 const key = event.key.toLowerCase();
-                if (key == ' ' || key == '\n'){
-                    generate();
-                } else if (key == 'd') {
+                if (key == '`') {
                     toggleDbg();
                 }
             });
