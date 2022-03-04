@@ -48,6 +48,9 @@
      .scalable > textarea {
 	  flex: 1;
 	}
+    .hoverbutton {
+	    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+	}
     </style>
     <!-- JQuery Import -->
     <script language="JavaScript" type="text/javascript" src="jquery-3.6.0.min.js"></script>
@@ -74,7 +77,7 @@
       <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" onclick="generate()">Generate!</button>
 	<p id="DEBUG_TEXT"></p>
       <br><br><br>
-      <button class="w3-button w3-dark-gray w3-left specialButton" id="MOREOPTIONSBUTTON" onclick="toggleHidden('MOREOPTIONS')">More Options...</button>
+      <button class="w3-button w3-dark-gray w3-left specialButton hoverbutton" id="MOREOPTIONSBUTTON" onclick="toggleHidden('MOREOPTIONS')">More Options...</button>
       <div class="w3-row-padding w-100" id = "MOREOPTIONS" hidden = "hidden" style="padding-top:60px; padding-bottom:16px;">
        <div class="w3-left col-sm-2">
         <label for="SELECT_RACE">Race:</label>
