@@ -2583,9 +2583,9 @@ function handleBG(){
 
 function loadRaceClass(){
   if(subrace === ""){ 
-    document.getElementById("SHEET_BASIC_RACECLASS").innerHTML = "" + race + " " + clss + " (" + subclass + ") " + lvl + '<button class="w3-button w3-black w3-circle plusbutton" id="LEVELUP_BUTTON" onclick="incrementLevel()">+</button>';
+    document.getElementById("SHEET_BASIC_RACECLASS").innerHTML = "" + race + " " + clss + " (" + subclass + ") " + lvl + '<button class="w3-black w3-circle plusbutton" id="LEVELUP_BUTTON" onclick="incrementLevel()">+</button>';
   } else {
-    document.getElementById("SHEET_BASIC_RACECLASS").innerHTML = "" + race + " (" + subrace + ") " + clss + " (" + subclass + ") " + lvl + '<button class="w3-button w3-black w3-circle plusbutton" id="LEVELUP_BUTTON" onclick="incrementLevel()">+</button>';
+    document.getElementById("SHEET_BASIC_RACECLASS").innerHTML = "" + race + " (" + subrace + ") " + clss + " (" + subclass + ") " + lvl + '<button class="w3-black w3-circle plusbutton" id="LEVELUP_BUTTON" onclick="incrementLevel()">+</button>';
   }
 }
 
