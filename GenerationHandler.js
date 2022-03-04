@@ -755,7 +755,7 @@ let amr = new Array(); // armor proficiency list
 let tls = new Array(); // tool proficiency list
 let langs = new Array("Common"); // language proficiency list
 let inventory = new Array();
-let ei, pact; // warlock-specific stuff
+let ei = new Array(), pact = ""; // warlock-specific stuff
 
 function preloadRace(newRace){ racePreset = newRace; }
 function preloadClass(newClass){ classPreset = newClass; }
