@@ -41,6 +41,13 @@
      .toc_container li, .toc_container ul, .toc_container ul li{
 	list-style: outside none none !important;
      }
+	.scalable {
+	  display: flex;
+	  flex-direction: column;
+	}
+     .scalable > textarea {
+	  flex: 1;
+	}
     </style>
     <!-- JQuery Import -->
     <script language="JavaScript" type="text/javascript" src="jquery-3.6.0.min.js"></script>
@@ -142,6 +149,10 @@
 			<ul>
 			<li><a href="#SHEET_BG">Background</a></li>
 			<li><a href="#SHEET_INV_TITLE">Inventory</a></li>
+			<li><a href="#SHEET_BG_PERSONALITY_HEADER">Personality Traits</a></li>
+			<li><a href="#SHEET_BG_BONDS_HEADER">Bonds</a></li>
+			<li><a href="#SHEET_BG_IDEALS_HEADER">Ideals</a></li>
+			<li><a href="#SHEET_BG_FLAWS_HEADER">Flaws</a></li>
 			<li><a href="#SHEET_BG_BACKSTORY_HEADER">Backstory</a></li>
 			</ul>
 		</li>
@@ -197,8 +208,16 @@
 		  <div class="w3-text-grey" id = "SHEET_BG_FEATURE"></div>
 		  <h5 id = "SHEET_INV_TITLE"></h5>
 		  <ul class="w3-text-grey" id="SHEET_INVENTORY"></ul>
+		<h6 id = "SHEET_BG_PERSONALITY_HEADER"></h6>
+		 <textarea id="SHEET_BG_PERSONALITY" class="w3-text-grey scalable" name="backstory" style="width:100%; min-height:60px;"></textarea>
+		<h6 id = "SHEET_BG_BONDS_HEADER"></h6>
+		 <textarea id="SHEET_BG_BONDS" class="w3-text-grey scalable" name="backstory" style="width:100%; min-height:60px;"></textarea>
+		<h6 id = "SHEET_BG_IDEALS_HEADER"></h6>
+		 <textarea id="SHEET_BG_IDEALS" class="w3-text-grey scalable" name="backstory" style="width:100%; min-height:60px;"></textarea>
+		<h6 id = "SHEET_BG_FLAWS_HEADER"></h6>
+		 <textarea id="SHEET_BG_FLAWS" class="w3-text-grey scalable" name="backstory" style="width:100%; min-height:60px;"></textarea>
 		<h6 id = "SHEET_BG_BACKSTORY_HEADER"></h6>
-		 <textarea id="SHEET_BG_BACKSTORY" class="w3-text-grey" name="backstory" style="width:100%; height:100px;"></textarea> 
+		 <textarea id="SHEET_BG_BACKSTORY" class="w3-text-grey scalable" name="backstory" style="width:100%; min-height:60px;"></textarea> 
 	      </div>
 	    </div>
      </div>
