@@ -724,10 +724,10 @@ const FEATURE_YUANTI_2 = "<p><b><i>Poison Resilience.</b></i> You have advantage
 const FEATURE_YUANTI_3 = "<p><b><i>Serpentine Spellcasting.</b></i> You know the poison spray cantrip. You can cast animal friendship an unlimited number of times with this trait, but you can target only snakes with it. Starting at 3rd level, you can also cast suggestion with this trait. Once you cast it, you can't do so again until you finish a long rest. You can also cast it using any spell slots you have of 2nd level or higher.</p><p>Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells when you cast them with this trait (choose when you select this race).</p>";
 
 // weapon dice handler for wi (weapon items)
-const wiSs = "Shortsword", wiLs = "Longsword", wiGs = "Greatsword", wiSb = "Shortbow", wiLb = "Longbow", wiLc = "Light Crossbow", wiHc = "Heavy Crossbow", wiNc = "Hand Crossbow", wiM = "Mace", wiR = "Rapier", wiWh = "Warhammer", wiS = "Spear", wiG = "Glaive", wiHa = "Handaxe", wiGa = "Greataxe", wiJ = "Javelin", wiD = "Dagger", wiDt = "Dart", wiQ = "Quarterstaff";
+const wiSs = "Shortsword", wiLs = "Longsword", wiGs = "Greatsword", wiSb = "Shortbow", wiLb = "Longbow", wiLc = "Light Crossbow", wiHc = "Heavy Crossbow", wiNc = "Hand Crossbow", wiM = "Mace", wiR = "Rapier", wiWh = "Warhammer", wiS = "Spear", wiG = "Glaive", wiHa = "Handaxe", wiGa = "Greataxe", wiJ = "Javelin", wiD = "Dagger", wiDt = "Dart", wiQ = "Quarterstaff", wiSc = "Scimitar";
 const d4 = new Array(1,4), d6 = new Array(1,6), d8 = new Array(1,8), d10 = new Array(1,10), d12 = new Array(1,12);
-const weaponsAvailable = new Array(wiSs, wiLs, wiGs, wiSb, wiLb, wiLc, wiHc, wiNc, wiM, wiG, wiR, wiWh, wiS, wiHa, wiGa, wiJ, wiD, wiDt, wiQ);
-const WEAPONDMG = {"Shortsword":d6, "Longsword":d8, "Greatsword":new Array(2,6), "Shortbow":d6, "Longbow":d8, "Light Crossbow":d8, "Heavy Crossbow":d10, "Hand Crossbow":d6, "Mace":d6, "Rapier":d8, "Warhammer":d10, "Spear":d6, "Glaive":d10, "Handaxe":d6, "Greataxe":d12, "Javelin":d6, "Dagger":d4, "Dart":d4, "Quarterstaff":d6};
+const weaponsAvailable = new Array(wiSs, wiLs, wiGs, wiSb, wiLb, wiLc, wiHc, wiNc, wiM, wiG, wiR, wiWh, wiS, wiHa, wiGa, wiJ, wiD, wiDt, wiQ, wiSc);
+const WEAPONDMG = {"Shortsword":d6, "Longsword":d8, "Greatsword":new Array(2,6), "Shortbow":d6, "Longbow":d8, "Light Crossbow":d8, "Heavy Crossbow":d10, "Hand Crossbow":d6, "Mace":d6, "Rapier":d8, "Warhammer":d10, "Spear":d6, "Glaive":d10, "Handaxe":d6, "Greataxe":d12, "Javelin":d6, "Dagger":d4, "Dart":d4, "Quarterstaff":d6, "Scimitar":d6};
 let weaponSel = new Array();
 
 // global field handler
@@ -738,7 +738,7 @@ let race = "";
 let subrace = "";
 let lvl = 1;
 let hpMax = 24; // max hp
-let hp = 24; // hp
+let hp = 24; // current hp
 let ac = 10; // overall ac
 let acu = 10; // unarmored defense
 let aca = 11; // armored AC
@@ -1660,7 +1660,7 @@ function handleClassFeatures(){
             if(pact === pactboon_Chain) ei_available = add(ei_available,ei_chain_15);
       }
       for(let i = 0; i < eiCount; i++) { // select invocations
-         addEI(ei_available);
+         ei_available = addEI(ei_available);
       }
      // warlock spellcasting
      document.getElementById("SHEET_FEATURES_SPELLCASTING_HEADER").innerHTML = "Spellcasting";
@@ -1688,7 +1688,7 @@ function incrementLevel(){
   if(lvl == 20) return; // do not allow leveling beyond 20
   lvl++;
   levelUp(2);
-  hp += getHPLevel();
+  hpMax += getHPLevel();
   loadRaceClass();
 }
 
@@ -1696,6 +1696,7 @@ function addEI(ei_available){
    let selected = ei_available[(Math.random()*ei_available.length)|0];
    ei_available = remove(ei_available,selected);
    ei[ei.length] = selected;
+   return ei_available;
 }
 
 function displayClassFeatures(){
@@ -2352,6 +2353,7 @@ function calcHP(){
  if(subrace === "Hill"){ // hill dwarf feature
    hp += lvl;
  }
+ hpMax = hp;
 }
 
 function getHPLevel(){ // gets a single hp roll for a levelup
@@ -2655,7 +2657,7 @@ function generate(){
   spdtxt = spdtxt.replace("_SPD",spd);
   
   // set hp, ac, spd text
-  document.getElementById("SHEET_BASIC_STATS_HP").innerHTML = "<b>HP:</b> " + hp;
+  document.getElementById("SHEET_BASIC_STATS_HP").innerHTML = "<b>HP:</b> " + hp + "/" + hpMax;
   document.getElementById("SHEET_BASIC_STATS_AC").innerHTML = "<b>AC:</b> " + ac + " (" + armorType + ")";
   document.getElementById("SHEET_BASIC_STATS_SPD").innerHTML = spdtxt;
   debugtxt += "<br>Checkpoint 4: HP/AC/speed displayed properly!";
