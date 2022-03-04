@@ -1,6 +1,6 @@
 # Character Sheet Generator
 ### Prototype for a D&amp;D 5e random character sheet generator.
-*Right now this is in early WIP stages. Please be patient as more and more features are added!*
+*Right now this is a work in progress. Please be patient as more and more features are added!*
 
 Note: This generator uses the Revised Ranger features from its UA release in place of the original Ranger features.
 
@@ -19,38 +19,35 @@ Racial ASIs (Ability Score Improvements) are allocated by the generator, but no 
 - Firbolg
 - Genasi
 - Gith
-- Gnome*
-- Goblin*
-- Goliath*
-- Half-Elf*
+- Gnome
+- Goblin
+- Goliath
+- Half-Elf
 - Half-Orc
-- Halfling*
-- Harengon*
-- Hexblood*
-- Hobgoblin*
-- Human*
-- Kalashtar*
-- Kenku*
-- Kobold*
-- Leonin*
-- Lizardfolk*
-- Loxodon*
-- Merfolk*
+- Halfling
+- Harengon
+- Hexblood
+- Hobgoblin
+- Human
+- Kalashtar
+- Kenku
+- Kobold
+- Leonin
+- Lizardfolk
+- Loxodon
+- Merfolk
 - Minotaur
 - Orc
-- Owlin*
-- Reborn*
-- Satyr*
-- Shifter*
-- Simic Hybrid*
-- Tiefling*
-- Tortle*
-- Triton*
-- Vedalken*
-- Warforged*
-- Yuan-Ti*
-
-\* This race has not had all of its features added.
+- Owlin
+- Satyr
+- Shifter
+- Simic Hybrid
+- Tiefling
+- Tortle
+- Triton
+- Vedalken
+- Warforged
+- Yuan-Ti
 
 **Classes Available:**
 - Artificer
