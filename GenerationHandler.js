@@ -274,7 +274,7 @@ const pactboon_Chain = "<b>Pact of the Chain</b><ul><li>You learn the Find Famil
 const pactboon_Tome = "<b>Pact of the Tome</b><ul><li>Your patron gives you a grimoire called a Book of Shadows. When you gain this feature, choose three cantrips from any class's spell list (the three needn't be from the same list). While the book is on your person, you can cast those cantrips at will. They don't count against your number of cantrips known. If they don't appear on the warlock spell list, they are nonetheless warlock spells for you.</li><li>If you lose your Book of Shadows, you can perform a 1-hour ceremony to receive a replacement from your patron. This ceremony can be performed during a short or long rest, and it destroys the previous book. The book turns to ash when you die.</li></ul>";
 const pactboon_Talisman = "<b>Pact of the Talisman</b><ul><li>Your patron gives you an amulet, a talisman that can aid the wearer when the need is great. When the wearer fails an ability check, they can add a d4 to the roll, potentially turning the roll into a success. This benefit can be used a number of times equal to your proficiency bonus, and all expended uses are restored when you finish a long rest.</li><li>If you lose the talisman, you can perform a 1-hour ceremony to receive a replacement from your patron. This ceremony can be performed during a short or long rest, and it destroys the previous amulet. The talisman turns to ash when you die.</li></ul>";
 const pactboon_Starchain = "<b>Pact of the Star Chain</b><ul><li>The Seeker grants you a chain forged from starlight, decorated with seven gleaming motes of brightness. While the chain is on your person, you know the Augury spell and can cast it as a ritual. The spell doesn’t count against your number of spells known.</li><li>Additionally, you can invoke the Seeker’s power to gain advantage on an Intelligence check while you carry this item. Once you use this ability, you cannot use it again until you complete a short or long rest.</li><li>If you lose your Star Chain, you can perform a 1-hour ceremony to receive a replacement from the Seeker. The ceremony can be performed during a short or long rest, and it destroys the previous chain. The chain disappears in a flash of light when you die.</li></ul>";
-const FEATURE_WARLOCK_2_0 = "<p><b><i>Eldritch Invocations.</i></b></p><p>In your study of occult lore, you have unearthed Eldritch Invocations, fragments of forbidden knowledge that imbue you with an abiding magical ability.</p><p>At 2nd level, you gain two eldritch invocations of your choice. When you gain certain warlock levels, you gain additional invocations of your choice, as shown in the Invocations Known column of the Warlock table. A level prerequisite refers to your level in this class.</p><p>Additionally, when you gain a level in this class, you can choose one of the invocations you know and replace it with another invocation that you could learn at that level.</p>";
+const FEATURE_WARLOCK_2_0 = "<p><b><i>Eldritch Invocations.</i></b></p><p>In your study of occult lore, you have unearthed Eldritch Invocations, fragments of forbidden knowledge that imbue you with an abiding magical ability.</p><p>At 2nd level, you gain two eldritch invocations of your choice. When you gain certain warlock levels, you gain additional invocations of your choice, as shown in the Invocations Known column of the Warlock table. A level prerequisite refers to your level in this class.</p><p>Additionally, when you gain a level in this class, you can choose one of the invocations you know and replace it with another invocation that you could learn at that level.</p><ul>_EITEXT</ul>";
 const FEATURE_WARLOCK_3_0 = "<p><b><i>Pact Boon.</i></b></p><p>At 3rd level, your otherworldly patron bestows a gift upon you for your loyal service.</p><ul><li>_PACTBOON</li></ul>";
 const FEATURE_WARLOCK_11_0 = "<p><b><i>Mystic Arcanum.</i></b></p><p>At 11th level, your patron bestows upon you a magical secret called an arcanum. Choose one 6th-level spell from the warlock spell list as this arcanum.</p><p>You can cast your arcanum spell once without expending a spell slot. You must finish a long rest before you can do so again.</p><p>At higher levels, you gain more warlock spells of your choice that can be cast in this way: one 7th-level spell at 13th level, one 8th-level spell at 15th level, and one 9th-level spell at 17th level. You regain all uses of your Mystic Arcanum when you finish a long rest.</p>";
 const FEATURE_WARLOCK_20_0 = "<p><b><i>Eldritch Master.</i></b></p><p>At 20th level, you can draw on your inner reserve of mystical power while entreating your patron to regain expended spell slots. You can spend 1 minute entreating your patron for aid to regain all your expended spell slots from your Pact Magic feature. Once you regain spell slots with this feature, you must finish a long rest before you can do so again.</p>";
@@ -755,6 +755,7 @@ let amr = new Array(); // armor proficiency list
 let tls = new Array(); // tool proficiency list
 let langs = new Array("Common"); // language proficiency list
 let inventory = new Array();
+let ei, pact; // warlock-specific stuff
 
 function preloadRace(newRace){ racePreset = newRace; }
 function preloadClass(newClass){ classPreset = newClass; }
@@ -1321,7 +1322,7 @@ function handleProficiencies(){
  
  if(race === "Centaur"){ // survivor
    let j = (Math.random()*proficiencies_centaur.length)|0;
-   debugtxt += "<br>TEST: n = " + j + ", race prof = " + proficiencies_centaur[j];
+   // debugtxt += "<br>TEST: n = " + j + ", race prof = " + proficiencies_centaur[j];
    addSkl(proficiencies_centaur[j]);
  }
  
@@ -1398,60 +1399,146 @@ function handleProficiencies(){
  document.getElementById("SHEET_PROF_TOOLS").innerHTML = toolstxt;
 }
 
-function handleClassFeatures(){
-   if(clss === "Artificer"){
-      addCF(FEATURE_ARTIFICER_1_0);
-      if(lvl>1){
-        addCF(FEATURE_ARTIFICER_2_0);
-      }
-      if(lvl>2){
-        addCF(FEATURE_ARTIFICER_3_0);
-        if(subclass === "Armorer"){
+function levelUp(){
+   if(lvl>19){ // lvl 20
+      if(clss === "Artificer") addCF(FEATURE_ARTIFICER_20_0);
+      if(clss === "Barbarian"){ addCF(FEATURE_BARBARIAN_20_0); stats[0] = stats[0]+4; stats[2] = stats[2]+4; }
+      if(clss === "Druid") addCF(FEATURE_DRUID_20_0);
+      if(clss === "Monk") addCF(FEATURE_MONK_20_0);
+      if(clss === "Ranger") addCF(FEATURE_RANGER_20_0);
+      if(clss === "Rogue") addCF(FEATURE_ROGUE_20_0);  
+      if(clss === "Sorcerer") addCF(FEATURE_SORCERER_20_0);   
+      if(clss === "Warlock") addCF(FEATURE_WARLOCK_20_0);
+      if(clss === "Wizard") addCF(FEATURE_WIZARD_20_0);
+   } else if (lvl>17){ // lvl 18
+      if(clss === "Artificer") addCF(FEATURE_ARTIFICER_18_0);
+      if(clss === "Barbarian") addCF(FEATURE_BARBARIAN_18_0);
+      if(clss === "Druid"){ addCF(FEATURE_DRUID_18_0); addCF(FEATURE_DRUID_18_1); }
+      if(clss === "Monk") addCF(FEATURE_MONK_18_0);
+      if(clss === "Ranger") addCF(FEATURE_RANGER_18_0);
+      if(clss === "Rogue") addCF(FEATURE_ROGUE_18_0);  
+      if(clss === "Wizard") addCF(FEATURE_WIZARD_18_0);
+   }else if (lvl>16){ // lvl 17
+      if(subclass === "Life") addCF(FEATURE_CLERIC_LIFE_17_0);
+   }else if (lvl>15){ // lvl 16
+   }else if (lvl>14){ // lvl 15
+      if(subclass === "Armorer") addCF(FEATURE_ARTIFICER_ARMORER_15_0);
+      if(clss === "Barbarian") addCF(FEATURE_BARBARIAN_15_0);  
+      if(clss === "Monk") addCF(FEATURE_MONK_15_0);
+      if(clss === "Rogue") addCF(FEATURE_ROGUE_15_0);  
+   }else if (lvl>13){ // lvl 14
+      if(clss === "Artificer") addCF(FEATURE_ARTIFICER_14_0);
+      if(clss === "Monk") addCF(FEATURE_MONK_14_0);
+      if(clss === "Paladin") addCF(FEATURE_PALADIN_14_0);
+      if(clss === "Ranger") addCF(FEATURE_RANGER_14_0);
+      if(clss === "Rogue") addCF(FEATURE_ROGUE_14_0);  
+   }else if (lvl>12){ // lvl 13
+      if(clss === "Monk") addCF(FEATURE_MONK_13_0);
+   }else if (lvl>11){ // lvl 12
+   }else if (lvl>10){ // lvl 11
+      if(clss === "Artificer") addCF(FEATURE_ARTIFICER_11_0);
+      if(clss === "Barbarian") addCF(FEATURE_BARBARIAN_11_0);  
+      if(clss === "Paladin") addCF(FEATURE_PALADIN_11_0);
+      if(clss === "Rogue") addCF(FEATURE_ROGUE_11_0);  
+      if(clss === "Warlock") addCF(FEATURE_WARLOCK_11_0);
+   }else if (lvl>9){ // lvl 10
+      if(clss === "Artificer") addCF(FEATURE_ARTIFICER_10_0);
+      if(clss === "Bard") addCF(FEATURE_BARD_10_0);
+      if(clss === "Cleric") addCF(FEATURE_CLERIC_10_0);
+      if(clss === "Monk") addCF(FEATURE_MONK_10_0);
+      if(clss === "Paladin") addCF(FEATURE_PALADIN_10_0);
+      if(clss === "Ranger") addCF(FEATURE_RANGER_10_0);
+   }else if (lvl>8){ // lvl 9
+      if(subclass === "Armorer") addCF(FEATURE_ARTIFICER_ARMORER_9_0);
+      if(clss === "Barbarian") addCF(FEATURE_BARBARIAN_9_0);  
+   }else if (lvl>7){ // lvl 8
+      if(subclass === "Life") addCF(FEATURE_CLERIC_DSTRIKE);
+      if(clss === "Ranger") addCF(FEATURE_RANGER_8_0);
+   }else if (lvl>6){ // lvl 7
+      if(clss === "Rogue" || clss === "Monk") addCF(FEATURE_EVASION);
+      if(clss === "Artificer") addCF(FEATURE_ARTIFICER_7_0);
+      if(clss === "Barbarian") addCF(FEATURE_BARBARIAN_7_0);  
+      if(clss === "Monk") addCF(FEATURE_MONK_7_0);
+   }else if (lvl>5){ // lvl 6
+      if(clss === "Artificer") addCF(FEATURE_ARTIFICER_6_0);
+      if(clss === "Bard") addCF(FEATURE_BARD_6_0);
+      if(subclass === "Life") addCF(FEATURE_CLERIC_LIFE_6_0);
+      if(clss === "Monk") addCF(FEATURE_MONK_6_0);
+      if(clss === "Paladin") addCF(FEATURE_PALADIN_6_0);
+      if(clss === "Ranger") addCF(FEATURE_RANGER_6_0);
+   }else if (lvl>4){ // lvl 5
+      if(clss === "Fighter") addCF(FEATURE_EA_FIGHTER);
+      else if (clss === "Barbarian" || clss === "Paladin" || clss === "Monk" || subclass === "Armorer") addCF(FEATURE_EA_STANDARD);
+      if(clss === "Barbarian") addCF(FEATURE_BARBARIAN_5_0); 
+      if(clss === "Bard") addCF(FEATURE_BARD_5_0);
+      if(clss === "Monk") addCF(FEATURE_MONK_5_0);
+      if(clss === "Cleric") addCF(FEATURE_CLERIC_5_0);
+      if(clss === "Rogue") addCF(FEATURE_ROGUE_5_0);  
+   }else if (lvl>3){ // lvl 4
+      if(clss === "Fighter") addCF(FEATURE_ASI_FIGHTER);
+      else if (clss === "Rogue") addCF(FEATURE_ASI_ROGUE);
+      else addCF(FEATURE_ASI_STANDARD);
+      if(clss === "Monk") addCF(FEATURE_MONK_4_0);
+   }else if (lvl>2){ // lvl 3
+      if(clss === "Artificer") addCF(FEATURE_ARTIFICER_3_0);
+      if(clss === "Bard") addCF(FEATURE_BARD_3_0);
+      if(clss === "Warlock") addCF(FEATURE_WARLOCK_3_0);
+      if(clss === "Monk") addCF(FEATURE_MONK_3_0);
+      if(clss === "Paladin") addCF(FEATURE_PALADIN_3_0);
+      if(clss === "Ranger") addCF(FEATURE_RANGER_3_0);
+      if(clss === "Sorcerer") addCF(FEATURE_SORCERER_3_0); 
+   }else if (lvl>1){ // lvl 2
+      if(clss === "Artificer") addCF(FEATURE_ARTIFICER_2_0);
+      if(clss === "Bard"){ addCF(FEATURE_BARD_2_0); addCF(FEATURE_BARD_2_1); }
+      if(clss === "Barbarian"){ addCF(FEATURE_BARBARIAN_2_0); addCF(FEATURE_BARBARIAN_2_1); }
+      if(clss === "Cleric") addCF(FEATURE_CLERIC_2_0);
+      if(subclass === "Life") addCF(FEATURE_CLERIC_LIFE_2_0);
+      if(clss === "Druid") addCF(FEATURE_DRUID_2_0);
+      if(clss === "Fighter") addCF(FEATURE_FIGHTER_2_0);
+      if(subclass === "Armorer"){
           addCF(FEATURE_ARTIFICER_ARMORER_3_0);
           addCF(FEATURE_ARTIFICER_ARMORER_3_1);
           addCF(FEATURE_ARTIFICER_ARMORER_3_2);
           addCF(FEATURE_ARTIFICER_ARMORER_3_3);
         }
+      if(clss === "Monk") {
+         let kdc = 8 + pBonuses[lvl] + statModifiers[stats[4]];
+         let k = FEATURE_MONK_2_0;
+         k = k.replace("_KIDC",kdc);
+         addCF(k);
+         addCF(FEATURE_MONK_2_1);
+         spd += umSpdBonus[lvl]; // unarmored movement speed bonus
       }
-      if(lvl>3){
-        addCF(FEATURE_ASI_STANDARD);
+      if(clss === "Paladin"){
+         addCF(FEATURE_PALADIN_2_0);
+         addCF(FEATURE_FIGHTINGSTYLE.replace("_FSTYLE",fs));
+         // paladin spellcasting
+         document.getElementById("SHEET_FEATURES_SPELLCASTING_HEADER").innerHTML = "Spellcasting";
+         let chaMod = statModifiers[stats[5]];
+         let sam = pBonuses[lvl] + chaMod; // spell attack modifier
+         let sav = (lvl/2)|0+chaMod; // spells available
+         if(sav < 1) sav = 1;
+         let sdc = 8 + sam;
+         document.getElementById("SHEET_FEATURES_SPELLCASTING_DESCRIPTION").innerHTML = FEATURE_PALADIN_SPELLCASTING.replace("_SPELLATKMODIFIER",sam).replace("_SPELLSAVEDC",sdc).replace("_SPELLSAVAILABLE",sav);
       }
-      if(lvl>4){ // 5th lvl subclass feature
-        if(subclass === "Armorer"){
-          addCF(FEATURE_EA_STANDARD);
-        }
+      if(clss === "Ranger"){
+         addCF(FEATURE_FIGHTINGSTYLE.replace("_FSTYLE",fs));
+         // ranger spellcasting
+         document.getElementById("SHEET_FEATURES_SPELLCASTING_HEADER").innerHTML = "Spellcasting";
+         let wisMod = statModifiers[stats[4]];
+         let sam = pBonuses[lvl] + wisMod; // spell attack modifier
+         let sdc = 8 + sam;
+         document.getElementById("SHEET_FEATURES_SPELLCASTING_DESCRIPTION").innerHTML = FEATURE_RANGER_SPELLCASTING.replace("_SPELLATKMODIFIER",sam).replace("_SPELLSAVEDC",sdc);
       }
-      if(lvl>5){ // 6th level main feature
-       addCF(FEATURE_ARTIFICER_6_0);
-      }
-      if(lvl>6){ // 7th level main feature
-       addCF(FEATURE_ARTIFICER_7_0);
-      }
-      if(lvl>8){ // 9th level subclass feature
-        if(subclass === "Armorer"){
-          addCF(FEATURE_ARTIFICER_ARMORER_9_0);
-        }
-      }
-      if(lvl>9){ // 10th level main feature
-       addCF(FEATURE_ARTIFICER_10_0);
-      }
-      if(lvl>10){ // 11th level main feature
-       addCF(FEATURE_ARTIFICER_11_0);
-      }
-      if(lvl>13){ // 14th level main feature
-       addCF(FEATURE_ARTIFICER_14_0);
-      }
-      if(lvl>14){ // 15th level subclass feature
-        if(subclass === "Armorer"){
-          addCF(FEATURE_ARTIFICER_ARMORER_15_0);
-        }
-      }
-      if(lvl > 17){ // 18th lvl main feature
-       addCF(FEATURE_ARTIFICER_18_0);
-      }
-      if(lvl > 19){ // 20th lvl main feature
-       addCF(FEATURE_ARTIFICER_20_0);
-      }
+      if(clss === "Rogue") addCF(FEATURE_ROGUE_2_0);   
+      if(clss === "Sorcerer") addCF(FEATURE_SORCERER_2_0); 
+      if(clss === "Warlock") addCF(FEATURE_WARLOCK_2_0);
+   }
+}
+
+function handleClassFeatures(){
+   if(clss === "Artificer"){
+      addCF(FEATURE_ARTIFICER_1_0);
      // artificer spellcasting
      document.getElementById("SHEET_FEATURES_SPELLCASTING_HEADER").innerHTML = "Spellcasting";
      let intMod = statModifiers[stats[3]];
@@ -1461,68 +1548,9 @@ function handleClassFeatures(){
      let sdc = 8 + sam;
      document.getElementById("SHEET_FEATURES_SPELLCASTING_DESCRIPTION").innerHTML = FEATURE_ARTIFICER_SPELLCASTING.replace("_SPELLATKMODIFIER",sam).replace("_SPELLSAVAILABLE",sav).replace("_SPELLSAVEDC",sdc);
    } 
-      
-   if(clss === "Barbarian"){
-    addCF(FEATURE_BARBARIAN_1_0);
-    addCF(FEATURE_BARBARIAN_1_1);   
-    if(lvl>1){
-     addCF(FEATURE_BARBARIAN_2_0);
-     addCF(FEATURE_BARBARIAN_2_1);   
-    }
-    if(lvl>3){
-      addCF(FEATURE_ASI_STANDARD);
-    }
-    if(lvl>4){ 
-      addCF(FEATURE_EA_STANDARD);
-      addCF(FEATURE_BARBARIAN_5_0);  
-    }
-    if(lvl>6){ 
-      addCF(FEATURE_BARBARIAN_7_0);  
-    }
-    if(lvl>8){ 
-      addCF(FEATURE_BARBARIAN_9_0);  
-    }
-    if(lvl>10){ 
-      addCF(FEATURE_BARBARIAN_11_0);  
-    }
-    if(lvl>14){ 
-      addCF(FEATURE_BARBARIAN_15_0);  
-    }
-    if(lvl>17){ 
-      addCF(FEATURE_BARBARIAN_18_0);  
-    }
-    if(lvl>19){ 
-      addCF(FEATURE_BARBARIAN_20_0);  
-      // increase str + con by 4 ea.
-      stats[0] = stats[0]+4;
-      stats[2] = stats[2]+4;
-    }
-   }
-      
+   if(clss === "Barbarian"){ addCF(FEATURE_BARBARIAN_1_0); addCF(FEATURE_BARBARIAN_1_1); }
    if(clss === "Bard"){
       addCF(FEATURE_BARD_1_0);     
-      if(lvl>1){
-         addCF(FEATURE_BARD_2_0);
-         addCF(FEATURE_BARD_2_1);
-      }
-      if(lvl>2){
-         addCF(FEATURE_BARD_3_0);
-      }
-      if(lvl>3){
-         addCF(FEATURE_ASI_STANDARD);
-      }
-      if(lvl>4){
-         addCF(FEATURE_BARD_5_0);
-      }
-      if(lvl>5){
-         addCF(FEATURE_BARD_6_0);
-      }
-      if(lvl>9){
-         addCF(FEATURE_BARD_10_0);
-      }
-      if(lvl>19){
-         addCF(FEATURE_BARD_20_0);
-      }
       // bard spellcasting
      document.getElementById("SHEET_FEATURES_SPELLCASTING_HEADER").innerHTML = "Spellcasting";
      let chaMod = statModifiers[stats[5]];
@@ -1530,34 +1558,11 @@ function handleClassFeatures(){
      let sdc = 8 + sam;
      document.getElementById("SHEET_FEATURES_SPELLCASTING_DESCRIPTION").innerHTML = FEATURE_BARD_SPELLCASTING.replace("_SPELLATKMODIFIER",sam).replace("_SPELLSAVEDC",sdc);
    }
-   
    if(clss === "Cleric"){
       if(subclass === "Life"){
          addCF(FEATURE_CLERIC_LIFE_1_0);  
          addCF(FEATURE_CLERIC_LIFE_1_1);
          addCF(FEATURE_CLERIC_LIFE_1_2);
-      }
-      if(lvl>1){
-         addCF(FEATURE_CLERIC_2_0);
-         if(subclass === "Life") addCF(FEATURE_CLERIC_LIFE_2_0);
-      }
-      if(lvl>3){
-         addCF(FEATURE_ASI_STANDARD);
-      }
-      if(lvl>4){
-         addCF(FEATURE_CLERIC_5_0);
-      }
-      if(lvl>5){
-         if(subclass === "Life") addCF(FEATURE_CLERIC_LIFE_6_0);
-      }
-      if(lvl>7){
-         if(subclass === "Life") addCF(FEATURE_CLERIC_DSTRIKE);
-      }
-      if(lvl>9){
-         addCF(FEATURE_CLERIC_10_0);
-      }
-      if(lvl>16){
-         if(subclass === "Life") addCF(FEATURE_CLERIC_LIFE_17_0);
       }
      // cleric spellcasting
      document.getElementById("SHEET_FEATURES_SPELLCASTING_HEADER").innerHTML = "Spellcasting";
@@ -1568,22 +1573,8 @@ function handleClassFeatures(){
      let sdc = 8 + sam;
      document.getElementById("SHEET_FEATURES_SPELLCASTING_DESCRIPTION").innerHTML = FEATURE_CLERIC_SPELLCASTING.replace("_SPELLATKMODIFIER",sam).replace("_SPELLSAVEDC",sdc).replace("_SPELLSAVAILABLE",sav);
    }
-      
    if(clss === "Druid"){
       addCF(FEATURE_DRUID_1_0);
-      if(lvl>1){
-         addCF(FEATURE_DRUID_2_0);
-      }
-      if(lvl>3){
-         addCF(FEATURE_ASI_STANDARD);
-      }
-      if(lvl>17){
-         addCF(FEATURE_DRUID_18_0);
-         addCF(FEATURE_DRUID_18_1);
-      }
-      if(lvl>19){
-         addCF(FEATURE_DRUID_20_0);
-      }
      // druid spellcasting
      document.getElementById("SHEET_FEATURES_SPELLCASTING_HEADER").innerHTML = "Spellcasting";
      let wisMod = statModifiers[stats[4]];
@@ -1601,190 +1592,29 @@ function handleClassFeatures(){
       fs = fs.replace("_FDC",fdc).replace("_FMANEUVER",fmnv);
       addCF(FEATURE_FIGHTINGSTYLE.replace("_FSTYLE",fs));
       addCF(FEATURE_FIGHTER_1_0);
-      if(lvl>1){
-         addCF(FEATURE_FIGHTER_2_0);
-      }
-      if(lvl>3){
-         addCF(FEATURE_ASI_FIGHTER);
-      }
-      if(lvl>4){
-         addCF(FEATURE_EA_FIGHTER);
-      }
-      if(lvl>8){
-         addCF(FEATURE_FIGHTER_9_0);
-      }
    }
    if(clss === "Monk"){
       addCF(FEATURE_MONK_1_0);
       addCF(FEATURE_MONK_1_1);
-      if(lvl>1){
-         let kdc = 8 + pBonuses[lvl] + statModifiers[stats[4]];
-         let k = FEATURE_MONK_2_0;
-         k = k.replace("_KIDC",kdc);
-         addCF(k);
-         addCF(FEATURE_MONK_2_1);
-         spd += umSpdBonus[lvl]; // unarmored movement speed bonus
-      }
-      if(lvl>2){
-         addCF(FEATURE_MONK_3_0);
-      }
-      if(lvl>3){
-         addCF(FEATURE_ASI_STANDARD);
-         addCF(FEATURE_MONK_4_0);
-      }
-      if(lvl>4){
-         addCF(FEATURE_EA_STANDARD);
-         addCF(FEATURE_MONK_5_0);
-      }
-      if(lvl>5){
-         addCF(FEATURE_MONK_6_0);
-      }
-      if(lvl>6){
-         addCF(FEATURE_EVASION);
-         addCF(FEATURE_MONK_7_0);
-      }
-      if(lvl>9){
-         addCF(FEATURE_MONK_10_0);
-      }
-      if(lvl>12){
-         addCF(FEATURE_MONK_13_0);
-      }
-      if(lvl>13){
-         addCF(FEATURE_MONK_14_0);
-      }
-      if(lvl>14){
-         addCF(FEATURE_MONK_15_0);
-      }
-      if(lvl>17){
-         addCF(FEATURE_MONK_18_0);
-      }
-      if(lvl>19){
-         addCF(FEATURE_MONK_20_0);
-      }
    }
    if(clss === "Paladin"){
       let fs = fStyles_paladin[(Math.random()*fStyles_paladin.length)|0]; // handle fighting style selection
       addCF(FEATURE_PALADIN_1_0);
       addCF(FEATURE_PALADIN_1_1);
-      if(lvl>1){
-         addCF(FEATURE_PALADIN_2_0);
-         addCF(FEATURE_FIGHTINGSTYLE.replace("_FSTYLE",fs));
-         // paladin spellcasting
-           document.getElementById("SHEET_FEATURES_SPELLCASTING_HEADER").innerHTML = "Spellcasting";
-           let chaMod = statModifiers[stats[5]];
-           let sam = pBonuses[lvl] + chaMod; // spell attack modifier
-           let sav = (lvl/2)|0+chaMod; // spells available
-           if(sav < 1) sav = 1;
-           let sdc = 8 + sam;
-           document.getElementById("SHEET_FEATURES_SPELLCASTING_DESCRIPTION").innerHTML = FEATURE_PALADIN_SPELLCASTING.replace("_SPELLATKMODIFIER",sam).replace("_SPELLSAVEDC",sdc).replace("_SPELLSAVAILABLE",sav);
-      }
-      if(lvl>2){
-         addCF(FEATURE_PALADIN_3_0);
-      }
-      if(lvl>3){
-         addCF(FEATURE_ASI_STANDARD);
-      }
-      if(lvl>4){
-         addCF(FEATURE_EA_STANDARD);
-      }
-      if(lvl>5){
-         addCF(FEATURE_PALADIN_6_0);
-      }
-      if(lvl>9){
-         addCF(FEATURE_PALADIN_10_0);
-      }
-      if(lvl>10){
-         addCF(FEATURE_PALADIN_11_0);
-      }
-      if(lvl>13){
-         addCF(FEATURE_PALADIN_14_0);
-      }
    }
    if(clss === "Ranger"){
       let fs = fStyles_ranger[(Math.random()*fStyles_ranger.length)|0]; // handle fighting style selection
       addCF(FEATURE_RANGER_1_0);
       addCF(FEATURE_RANGER_1_1);
-      if(lvl>1){
-         addCF(FEATURE_FIGHTINGSTYLE.replace("_FSTYLE",fs));
-         // ranger spellcasting
-           document.getElementById("SHEET_FEATURES_SPELLCASTING_HEADER").innerHTML = "Spellcasting";
-           let wisMod = statModifiers[stats[4]];
-           let sam = pBonuses[lvl] + wisMod; // spell attack modifier
-           let sdc = 8 + sam;
-           document.getElementById("SHEET_FEATURES_SPELLCASTING_DESCRIPTION").innerHTML = FEATURE_RANGER_SPELLCASTING.replace("_SPELLATKMODIFIER",sam).replace("_SPELLSAVEDC",sdc);
-      }
-      if(lvl>2){
-         addCF(FEATURE_RANGER_3_0);
-      }
-      if(lvl>3){
-         addCF(FEATURE_ASI_STANDARD);
-      }
-      if(lvl>5){
-         addCF(FEATURE_RANGER_6_0);
-      }
-      if(lvl>7){
-         addCF(FEATURE_RANGER_8_0);
-      }
-      if(lvl>9){
-         addCF(FEATURE_RANGER_10_0);
-      }
-      if(lvl>13){
-         addCF(FEATURE_RANGER_14_0);
-      }
-      if(lvl>17){
-         addCF(FEATURE_RANGER_18_0);
-      }
-      if(lvl>19){
-         addCF(FEATURE_RANGER_20_0);
-      }
    }
       
    if(clss === "Rogue"){
     addCF(FEATURE_ROGUE_1_0);
     addCF(FEATURE_ROGUE_1_1);   
     addCF(FEATURE_ROGUE_1_2);   
-    if(lvl>1){
-     addCF(FEATURE_ROGUE_2_0);   
-    }
-    if(lvl>3){
-      addCF(FEATURE_ASI_ROGUE);
-    }
-    if(lvl>4){ 
-      addCF(FEATURE_ROGUE_5_0);  
-    }
-    if(lvl>6){ 
-      addCF(FEATURE_EVASION);  
-    }
-    if(lvl>10){ 
-      addCF(FEATURE_ROGUE_11_0);  
-    }
-    if(lvl>13){ 
-      addCF(FEATURE_ROGUE_14_0);  
-    }
-    if(lvl>14){ 
-      addCF(FEATURE_ROGUE_15_0);  
-    }
-    if(lvl>17){ 
-      addCF(FEATURE_ROGUE_18_0);  
-    }
-    if(lvl>19){ 
-      addCF(FEATURE_ROGUE_20_0);  
-    }
    }
    
    if(clss === "Sorcerer"){
-    if(lvl>1){
-     addCF(FEATURE_SORCERER_2_0);   
-    }
-    if(lvl>2){
-     addCF(FEATURE_SORCERER_3_0);   
-    }
-    if(lvl>3){
-     addCF(FEATURE_ASI_STANDARD);
-    }
-    if(lvl>19){
-     addCF(FEATURE_SORCERER_20_0);   
-    }
     // sorcerer spellcasting
      document.getElementById("SHEET_FEATURES_SPELLCASTING_HEADER").innerHTML = "Spellcasting";
      let chaMod = statModifiers[stats[5]];
@@ -1794,10 +1624,10 @@ function handleClassFeatures(){
    }
       
    if(clss === "Warlock"){ 
-      let temp, pact;
+      let temp, ei_available;
       let pSel = (Math.random()*4)|0;
       pact = pactBoons[pSel];
-      let ei = ei_base, eiCount = numInvocations[lvl];
+      ei_available = ei_base, eiCount = numInvocations[lvl];
       if(lvl > 2){
             if(pact === pactboon_Blade) ei = add(ei,ei_blade_0);
             if(pact === pactboon_Tome) ei = add(ei,ei_tome_0);
@@ -1805,12 +1635,12 @@ function handleClassFeatures(){
             if(pact === pactboon_Talisman) ei = add(ei,ei_talisman_0);
       }
       if(lvl > 4){
-            ei = add(ei,ei_5);
+            ei_available = add(ei,ei_5);
             if(pact === pactboon_Blade) ei = add(ei,ei_blade_5);
             if(pact === pactboon_Tome) ei = add(ei,ei_tome_5);
       }
       if(lvl > 6){
-            ei = add(ei,ei_7);
+            ei_available = add(ei_available,ei_7);
             if(pact === pactboon_Talisman) ei = add(ei,ei_talisman_7);
       }
       if(lvl > 8){
@@ -1829,27 +1659,9 @@ function handleClassFeatures(){
       }
       let ei_text = "";
       for(let i = 0; i < eiCount; i++) { // select invocations
-            let selected = ei[(Math.random()*ei.length)|0];
-            ei = remove(ei,selected);
-            ei_text += selected;
+         addEI(lev);
       }
-      if(lvl>1){
-         temp = FEATURE_WARLOCK_2_0 + "<ul>" + ei_text + "</ul>";
-         addCF(temp);
-      }
-      if(lvl>2){
-         addCF(FEATURE_WARLOCK_3_0.replace("_PACTBOON",pact));
-      }
-      if(lvl>3){
-         addCF(FEATURE_ASI_STANDARD);
-      }
-      if(lvl>10){
-         addCF(FEATURE_WARLOCK_11_0);
-      }
-      if(lvl>19){
-         addCF(FEATURE_WARLOCK_20_0);
-      }
-      // bard spellcasting
+     // warlock spellcasting
      document.getElementById("SHEET_FEATURES_SPELLCASTING_HEADER").innerHTML = "Spellcasting";
      let chaMod = statModifiers[stats[5]];
      let sam = pBonuses[lvl] + chaMod; // spell attack modifier
@@ -1858,15 +1670,6 @@ function handleClassFeatures(){
    }
    if(clss === "Wizard"){
       addCF(FEATURE_WIZARD_1_0);
-      if(lvl>3){
-        addCF(FEATURE_ASI_STANDARD);
-      }
-      if(lvl > 17){ // 18th lvl main feature
-       addCF(FEATURE_WIZARD_18_0);
-      }
-      if(lvl > 19){ // 20th lvl main feature
-       addCF(FEATURE_WIZARD_20_0);
-      }
      // wizard spellcasting
      document.getElementById("SHEET_FEATURES_SPELLCASTING_HEADER").innerHTML = "Spellcasting";
      let intMod = statModifiers[stats[3]];
@@ -1876,17 +1679,30 @@ function handleClassFeatures(){
      let sdc = 8 + sam;
      document.getElementById("SHEET_FEATURES_SPELLCASTING_DESCRIPTION").innerHTML = FEATURE_WIZARD_SPELLCASTING.replace("_SPELLATKMODIFIER",sam).replace("_SPELLSAVAILABLE",sav).replace("_SPELLSAVEDC",sdc);
    } 
-      
+   debugtxt += "<br>Checkpoint 2: Class Features generated!";
+   for(int i = 2; i <= lvl; i++) levelUp(); 
+}
+
+function addEI(lev){
+   let selected = ei_available[(Math.random()*ei.length)|0];
+   ei = remove(ei,selected);
+   ei[i] = selected;
+}
+
+function displayClassFeatures(){
    let sct = document.getElementById("SHEET_FEATURES_CLASS");
    for(let i = 0; i < cf.length; i++){ // fill html sections
       let node = document.createElement("div");
-      node.innerHTML = cf[i];
+      if(cf[i] === "FEATURE_WARLOCK_3_0"){ // special case
+         node.innerHTML = cf[i].replace("_PACTBOON",pact);
+      } else if(cf[i] === "FEATURE_WARLOCK_2_0"){
+         node.innerHTML = cf[i].replace("_EITEXT",ei_text);
+      } else {
+         node.innerHTML = cf[i];
+      }
       sct.appendChild(node);
    }
-   
-   debugtxt += "<br>Checkpoint 2: Class Features generated!";
 }
-
 
 
 function handleRaceFeatures(){
