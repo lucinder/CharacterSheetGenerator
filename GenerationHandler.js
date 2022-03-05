@@ -1100,7 +1100,7 @@ function handleStartingItems(){
  } else if(clss === "Monk"){
    addItem("Shortsword");
    addItem("Explorer's Pack");
-   addItem("Dark x10");
+   addItem("Dart x10");
  } else if(clss === "Paladin"){
    addItem("Longsword");
    addItem("Shield");
