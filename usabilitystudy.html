@@ -224,7 +224,7 @@
         <h5 id="REPORT_FINDINGS_PROTO">Prototype</h5>
 	  <div class="w3-text-grey">
           <p>The following are some images of our working prototype in use.</p>
-		  <img src="us/cs.png" alt="Front Page of the Prototype"><p class="w3-tiny">Figure 1: Front Page of the Prototype</p>
+		  <img src="us/cs.png" alt="Front Page of the Prototype" style="width:50%"><p class="w3-tiny">Figure 1: Front Page of the Prototype</p>
 		  <img src="us/cs1.png" alt="Character Basic Information after a Random Generation"><p class="w3-tiny">Figure 2: Character Basic Information after a Random Generation</p>
 		  <img src="us/cs2.png" alt="Character Background Sections with Open Text Fields"><p class="w3-tiny">Figure 3: Character Background Sections with Open Text Fields</p>
 		  <img src="us/cs3.png" alt="Selecting a Weapon for an Attack Roll"><p class="w3-tiny">Figure 4: Selecting a Weapon for an Attack Roll</p>
@@ -255,12 +255,28 @@
           <p>The majority of respondents, when asked on if they would use this product in the future, said that they would use it for the creation of NPCs (non-player characters). This elicits an important distinction in the usability of our product: when creating player characters, players focus more on their desires and autonomy in terms of the character, and thus would rather take a slower manual approach than a quick automatic approach using the generator. However, in the case of non-player characters, which would likely be used primarily as combatants for player characters to face, the details and specifics are less important than creating a usable sheet quickly. Thus, the primary benefit of the prototype we have created is its efficiency rather than modularity or robustness.</p>
           <p>The participants’ feedback on features they wished to have added or improved in the future was perhaps the most valuable in terms of immediate improvements to the generator. Some participants stated desires for features that were originally planned to be in the prototype, but were cut or left partially finished due to limitations on time. We believe that the following features, which participants recommended adding, could be feasibly added in the near future:</p>
 		  <ul>
+			  <li>The ability to edit the character’s inventory.</li>
+			  <li>The ability to override modifiers for specific rolls (this would most easily be implemented as a separate roll with a manual text input for the roll modifier).</li>
+			  <li>Adding HP and AC labels to the actions page for quick reference during combat.</li>
+			  <li>An area in the basic info tab for Temporary Hit Points.</li>
+			  <li>A way to override stat prioritization during character generation.</li>
+			  <li>Adding feedback when Generate is clicked to indicate a successful character generation.</li>
+			  <li>A manual override of core stats.</li>
+			  <li>A roll history, such that previous rolls can be viewed.</li>
 		  </ul>
           <p>Additionally, the following features were recommended by participants, which could be added, given adequate time:</p>
 		  <ul>
+			  <li>A save/load function, and the ability to export a character sheet to JSON, XML, or PDF.</li>
+			  <li>A customizable background.</li>
+			  <li>Allocating ASIs (ability score improvements) on the appropriate level-ups.</li>
+			  <li>Generation of random magical items for higher-level players.</li>
+			  <li>A modular randomized backstory (in our initial prototype, we had planned to add this feature, but it would have taken a lot more time and effort to have finished).</li>
 		  </ul>
           <p>Finally, participants were able to elicit the following bugs, which should be fixed in the future:</p>
 		  <ul>
+			  <li>When generating a new character after leveling up the previous character, the maximum HP concatenates its string onto the previous maximum HP instead of overriding it, resulting in ridiculously high HP values after multiple generations.</li>
+			  <li>Subraces occasionally don’t generate properly (cause currently unknown).</li>
+			  <li>Proficiency bonus does not increase on level-up.</li>
 		  </ul>
 	  </div>
 	</div>
